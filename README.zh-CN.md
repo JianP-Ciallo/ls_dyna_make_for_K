@@ -7,6 +7,16 @@
 
 `lsprepost-mcp` 是一个本地 MCP Server，用于把 Codex、Cursor、Claude Desktop、Windsurf、VS Code、Visual Studio 等 AI IDE 连接到 LS-PrePost，并以受控方式生成 LS-DYNA keyword 模型。
 
+## MCP 与 Web 工作台的区别
+
+本项目包含本地 stdio MCP 工具服务和独立的本地 Web 工作台。MCP 中的 Server 指提供工具的程序，可以由 AI 客户端作为子进程运行在本机，无需购买云服务器或部署到公网。当前 MCP 入口为 `lsprepost_mcp/server.py`，通过标准输入/输出传递 JSON-RPC 消息，提供 `initialize`、`tools/list`、`tools/call` 等方法。
+
+Web 入口为 `python -m lsprepost_mcp.web.app`，地址默认为 `http://127.0.0.1:8765/`。这个地址提供网页和普通业务 API，不是 MCP HTTP 端点。使用网页不要求连接 AI 客户端，连接 stdio MCP 也不要求先启动网页；Web 专属功能不会自动成为 MCP 工具。
+
+MCP 协议也支持 HTTP 传输，但本项目当前没有实现远程 MCP HTTP 端点。远程共享需另外设计传输、认证、项目隔离和求解环境。协议依据见 [MCP 官方传输说明](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)。本项目的客户端连接示例见下文“MCP 配置示例”；使用源码虚拟环境时，也可采用 [首页的显式 Python 配置](README.md#ai-ide--mcp)。
+
+## MCP 建模流程
+
 典型流程是：
 
 ```text

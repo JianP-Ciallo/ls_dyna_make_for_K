@@ -1,8 +1,37 @@
-# lsprepost-mcp
+# LS-DYNA Make for K · lsprepost-mcp
 
-`lsprepost-mcp` 是一个本地运行的 LS-PrePost / LS-DYNA keyword 受控建模工具。它提供 Web App 和 MCP 两种入口，用项目内白名单场景、模板和校验流程生成 `model.k`，并支持三维预览、LS-PrePost 复核及 LS-Run 交接。
+`lsprepost-mcp` 是一个本地运行的 LS-PrePost / LS-DYNA keyword 受控建模工具。它提供 **Web 工作台**和 **MCP 工具服务**两种入口，用项目内白名单场景、模板和校验流程生成 `model.k`，并支持三维预览、项目保存、LS-PrePost 复核及 LS-Run 交接。
 
 项目目录职责、源码与运行产物边界见 [项目结构与文件归属](docs/PROJECT_STRUCTURE.zh-CN.md)。
+
+## 这是 MCP 吗？需要部署到服务器吗？
+
+**项目包含一个本地 stdio MCP Server，也包含独立的 Web 应用。不需要租用云服务器或部署到公网。**
+
+MCP（Model Context Protocol，模型上下文协议）规定 AI 应用如何发现和调用工具。“Server”在这里指提供工具的程序，可以作为子进程运行在你的电脑上。项目当前通过标准输入/输出（`stdio`）交换 JSON-RPC 消息，实现了 `initialize`、`tools/list`、`tools/call` 等协议方法。
+
+| 使用入口 | 运行方式 | 如何连接 |
+| --- | --- | --- |
+| MCP 工具服务 | AI 客户端启动本地 Python 子进程 | 配置启动命令和参数，通过 stdio 通信 |
+| Web 工作台 | 本机 Python HTTP 服务 | 浏览器访问 `http://127.0.0.1:8765/` |
+
+两种入口可以单独使用。打开网页不会自动建立 MCP 连接，`http://127.0.0.1:8765/` 也不是 MCP HTTP 服务地址；网页中的功能只有注册成 MCP 工具后才能通过 MCP 调用。
+
+MCP 也支持基于 HTTP 的连接，但当前项目没有实现远程 MCP HTTP 端点。多人远程共享需要另外设计网络传输、身份认证、任务隔离及求解器所在环境，上传源码到 GitHub 不会自动完成这些部署。协议依据见 [MCP 官方 stdio / Streamable HTTP 传输说明](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)。
+
+本地运行适合本项目：模型文件、LS-PrePost、LS-Run 和求解器均位于使用者电脑上，服务可以直接访问配置的本机路径。
+
+## 主要能力
+
+| 能力 | 说明 |
+| --- | --- |
+| 受控建模 | 按场景填写几何、材料、网格、约束、载荷和冲击参数，生成 LS-DYNA keyword 文件 |
+| 三维预览与校验 | 查看几何、部件和静态校验结果，按需打开 LS-PrePost 人工复核 |
+| 项目管理 | 保存、恢复项目，导出模型文件和生成记录 |
+| 固定建筑工作台 | 固定建筑预览、压力工况配置和结构 K 文件包导出 |
+| 可选损伤评估 | 读取已登记的求解结果，保存建筑与地面研究参考报告 |
+| 可选 CPU 试算 | 使用独立 Windows Python/OpenSeesPy 环境；已验证能力与限制见详细说明 |
+| MCP 调用 | 向 AI 客户端提供模型生成、材料查询、模型校验和预览等已注册工具 |
 
 ## 从 GitHub 开始
 
@@ -13,9 +42,14 @@
 ```powershell
 git clone https://github.com/JianP-Ciallo/ls_dyna_make_for_K.git
 cd ls_dyna_make_for_K
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install "numpy>=1.26,<3" Pillow
+.\.venv\Scripts\python.exe -m lsprepost_mcp.web.app --open-browser
 ```
 
 这是私有仓库，克隆时需要使用有仓库访问权限的 GitHub 账号。
+上面的源码启动示例以已安装 Python 3.12 为前提；主项目支持 Python 3.10 或更高版本。
+界面和必要的受控模板已随源码提供，普通使用无需安装 Node.js 或重新构建前端。
 GitHub 源码不包含便携 Python 运行时、商业求解器、本机配置或历史计算结果。
 下方双击启动方式适用于已准备好运行环境的电脑；从源码首次安装请先按快速指南配置 Python。
 
@@ -101,6 +135,33 @@ open_model.cfile
 建筑与地面损伤评估现提供可选的受控 API 桥接：显式读取服务器登记的已结束求解结果，保存研究参考报告，不改变旧页面，也不接入 DeepSeek。安装方式与接口见 [中文说明](README.zh-CN.md#可选的爆炸损伤评估能力)。
 
 ## AI IDE / MCP
+
+MCP 入口是 [`lsprepost_mcp/server.py`](lsprepost_mcp/server.py)。支持 stdio 的客户端可启动该脚本，无需先启动 Web 工作台。
+
+以下为采用 `mcpServers` JSON 配置的客户端示例；请把所有 `C:/path/to/...` 替换为当前电脑上的真实绝对路径。其他客户端按自身配置格式填写相同启动命令和参数。
+
+```json
+{
+  "mcpServers": {
+    "lsprepost": {
+      "command": "C:/path/to/ls_dyna_make_for_K/.venv/Scripts/python.exe",
+      "args": [
+        "-B",
+        "-X",
+        "utf8",
+        "C:/path/to/ls_dyna_make_for_K/lsprepost_mcp/server.py"
+      ],
+      "env": {
+        "LSPP_EXE": "C:/path/to/LS-PrePost/lsprepost4.12.exe"
+      }
+    }
+  }
+}
+```
+
+客户端通过 `tools/list` 获取工具，再通过 `tools/call` 调用。例如 `server_info`、`list_materials`、`generate_scene_from_prompt`、`generate_model`、`validate_model` 和 `open_in_lsprepost`。实际可用工具以服务返回的清单为准，Web 专属功能不会自动进入 MCP 工具清单。
+
+直接在终端运行 MCP 脚本时，程序会等待标准输入中的协议消息，不会自动打开网页。标准输出用于协议通信，诊断信息写入标准错误。源码虚拟环境的使用者应确认客户端启动的是安装依赖的同一个 Python。
 
 把项目交给 Codex、Cursor、VS Code 等 AI IDE 时，先让它阅读：
 
