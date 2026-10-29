@@ -1,0 +1,10 @@
+{
+  "units": "SI",
+  "origin": "Independent closed-form reference using only the frozen numerical geometry/materials, not OpenSees or production layer builders.",
+  "version": 1,
+  "method": "Euler Bernoulli transformed section EI and cantilever first-mode expression",
+  "ei_nm2": 21672456.856205106,
+  "mass_kg": 687.9081758950697,
+  "tip_static_m": 0.0014015485277712408,
+  "omega_rad_s": 120.10406544351001
+}

@@ -1,0 +1,44 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_boundary_spc",
+  "resource_kind": "boundary_conditions",
+  "original_ids": {
+    "nsid": 1
+  },
+  "dependencies": [
+    "b120_spg_sale_b4a0d8d36381_node_set1_bottom"
+  ],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*BOUNDARY_SPC_SET",
+      "source_line_start": 88,
+      "source_line_end": 90,
+      "raw_sha256": "5608a10cd72e6fcd3004b1ef7b13f6f2ea8f6e5ce61703acf51a5f959ef36e2e",
+      "raw_text": "*BOUNDARY_SPC_SET\n$#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz\n         1         0         1         1         1         1         1         1\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_boundary_spc",
+  "display_name": "B120 SPG S-ALE / boundary_spc",
+  "category": "boundary_conditions",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

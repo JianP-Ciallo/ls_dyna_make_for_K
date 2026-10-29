@@ -1,0 +1,39 @@
+{
+  "id": "impact_1788_ad8b3fa71216_control_energy",
+  "resource_kind": "controls",
+  "original_ids": {},
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*CONTROL_ENERGY",
+      "source_line_start": 20,
+      "source_line_end": 22,
+      "raw_sha256": "def254ae2e2ae38f87107f0d8eadb981ba1402c6630f8e14cc5f3cea2bb89ce2",
+      "raw_text": "*CONTROL_ENERGY\n$#    hgen      rwen    slnten     rylen     \n         2         2         2         2\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "control_energy",
+  "display_name": "5-1788-2 / control_energy",
+  "category": "controls",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

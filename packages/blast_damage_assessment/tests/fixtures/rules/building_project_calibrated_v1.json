@@ -1,0 +1,11 @@
+{
+  "schema_version": "blast_damage.rule_pack@1",
+  "pack_id": "building_project_calibrated@1",
+  "subject": "building",
+  "formal_eligible": true,
+  "label": "Reviewed project calibration",
+  "citations": [{"id": "PROJECT-REPORT", "title": "Project calibration report", "edition": "1", "section": "4", "url": "project://calibration/report-1"}],
+  "rules": [{"id": "project_deformation", "kind": "calibrated_band", "bands": [0.002, 0.004, 0.008, 0.016], "citations": ["PROJECT-REPORT"], "applicability": ["response_type", "support_definition"]}],
+  "bindings": {"applicability_predicates": ["response_type", "support_definition"], "geometry_assumptions": {"response": "flexural"}, "material_ids": [3, 4], "subject_family": "reinforced_concrete", "unit_system": "SI_m_s_kg_N_Pa"},
+  "review_record": {"reviewer": "Engineer A", "review_date": "2026-08-01", "source": "project://calibration/report-1", "reviewed_binding_sha256": "d8ece772994e676979675247a6c74014403037ec1388cf91b3d84f89f23f4c59"}
+}

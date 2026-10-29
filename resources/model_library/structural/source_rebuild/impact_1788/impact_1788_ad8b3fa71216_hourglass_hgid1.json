@@ -1,0 +1,41 @@
+{
+  "id": "impact_1788_ad8b3fa71216_hourglass_hgid1",
+  "resource_kind": "hourglass",
+  "original_ids": {
+    "hgid": 1
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*HOURGLASS",
+      "source_line_start": 78,
+      "source_line_end": 80,
+      "raw_sha256": "a73e0e4bff1bef464026581e816082f4bbdf730719364c191acaf8fe1386e1bf",
+      "raw_text": "*HOURGLASS\n$#    hgid       ihq        qm       ibq        q1        q2    qb/vdc        qw\n         1         0       0.1         0       1.5      0.06       0.1       0.1\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "hourglass_hgid1",
+  "display_name": "5-1788-2 / hourglass_hgid1",
+  "category": "hourglass",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

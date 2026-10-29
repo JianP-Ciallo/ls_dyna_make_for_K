@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "lsprepost": {
+      "command": "python",
+      "args": [
+        "<PROJECT_DIR>\\lsprepost_mcp\\server.py"
+      ],
+      "env": {
+        "LSPP_EXE": "<LS_PREPOST_INSTALL_DIR>\\lsprepost4.12.exe"
+      }
+    }
+  }
+}

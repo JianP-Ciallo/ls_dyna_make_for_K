@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "id": "residential_community_detailed_building",
+  "version": "2026.08.09",
+  "legacy_asset_id": "residential_community",
+  "source_type": "parametric_detailed_building",
+  "generator": "refined_building.asset_compiler@1",
+  "capability": "detailed_building",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "research_candidate",
+  "solver_ready": false,
+  "requires_project_review": true,
+  "geometry_fields": ["tower_count", "tower_length_m", "tower_width_m", "tower_height_m", "tower_spacing_m", "wall_thickness_m", "balcony_depth_m"],
+  "default_geometry": {"tower_count": 3, "tower_length_m": 8.0, "tower_width_m": 10.0, "tower_height_m": 18.0, "tower_spacing_m": 4.0, "wall_thickness_m": 0.20, "balcony_depth_m": 1.2},
+  "default_structural_system": "rc_frame_shear_wall",
+  "allowed_structural_systems": ["rc_frame_shear_wall", "rc_frame"],
+  "allowed_fidelity_profiles": ["structural_core", "blast_response", "research_detailed"],
+  "default_fidelity_profile": "blast_response",
+  "allowed_mesh_profiles": ["coarse", "standard", "fine"],
+  "default_mesh_profile": "standard",
+  "mesh_profiles": {
+    "coarse": {"member_foundation_target_m": 0.150, "slab_wall_target_m": 0.0750, "rebar_target_length_m": 0.150, "steel_member_target_length_m": 0.150, "panel_target_m": 0.150, "minimum_thickness_layers": 2},
+    "standard": {"member_foundation_target_m": 0.100, "slab_wall_target_m": 0.0500, "rebar_target_length_m": 0.100, "steel_member_target_length_m": 0.100, "panel_target_m": 0.100, "minimum_thickness_layers": 3},
+    "fine": {"member_foundation_target_m": 0.075, "slab_wall_target_m": 0.0375, "rebar_target_length_m": 0.075, "steel_member_target_length_m": 0.075, "panel_target_m": 0.075, "minimum_thickness_layers": 4}
+  },
+  "material_candidates": {"concrete": "two_storey_rc_frame_mid5_concrete_kc", "reinforcing_steel": "two_storey_rc_frame_mid8_rebar_d8_d18", "structural_steel": "mild_steel_mat24_demo"},
+  "unresolved_material_roles": ["facade", "glazing", "doors", "nonstructural"],
+  "source_reference_lineage": {"resource_id": "two_storey_rc_frame_blast_reference", "relation": "reference_only", "scaled_input": false, "asset_resource_id": "residential_community_detailed_building"}
+}

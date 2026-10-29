@@ -1,0 +1,373 @@
+{
+  "source_name": "5-1788-2.k",
+  "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "resources": [
+    {
+      "id": "impact_1788_ad8b3fa71216_keyword_options",
+      "resource_kind": "metadata",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*KEYWORD",
+          "source_line_start": 6,
+          "source_line_end": 6,
+          "raw_sha256": "f725ce9e0991ffe33adfed735ded44b7d03251ba72f632e3d2e9ae53c88b3469"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_title",
+      "resource_kind": "metadata",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*TITLE",
+          "source_line_start": 7,
+          "source_line_end": 9,
+          "raw_sha256": "6e66590d83e1e087b4729b167bbb996bf18f45b442782db29f723c6b4e20c176"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_ale",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ALE",
+          "source_line_start": 10,
+          "source_line_end": 16,
+          "raw_sha256": "55545d3798d08821ad47c157fa4dcc337b0c60cb4bbd8a4b935f859f6fc8cae6"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_bulk_viscosity",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_BULK_VISCOSITY",
+          "source_line_start": 17,
+          "source_line_end": 19,
+          "raw_sha256": "d66d90301f33f0d2603dc86195d96fc722d952f4f318881d29c4a1c76224d87f"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_energy",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ENERGY",
+          "source_line_start": 20,
+          "source_line_end": 22,
+          "raw_sha256": "def254ae2e2ae38f87107f0d8eadb981ba1402c6630f8e14cc5f3cea2bb89ce2"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_hourglass",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_HOURGLASS",
+          "source_line_start": 23,
+          "source_line_end": 25,
+          "raw_sha256": "d125cb4f4181b844e3c875a3ffa6390eafbf45a4ac9f65586eea89b19691cc5c"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_termination",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TERMINATION",
+          "source_line_start": 26,
+          "source_line_end": 28,
+          "raw_sha256": "2820b35dc7ba69428d0c87026b4b71b1cf912e91170b282d6271bc4592b7c73e"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_control_timestep",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TIMESTEP",
+          "source_line_start": 29,
+          "source_line_end": 33,
+          "raw_sha256": "07272d024e03cced6a288e1cdeec9fbfa876d7dcede67c9a21cbd470aaaba2d8"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_database_binary_d3plot",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3PLOT",
+          "source_line_start": 34,
+          "source_line_end": 38,
+          "raw_sha256": "872db0ca4d1ae770f675ca72ecfaa483a351aa77b3605b5df482e038e11a55f0"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_database_binary_d3thdt",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3THDT",
+          "source_line_start": 39,
+          "source_line_end": 41,
+          "raw_sha256": "b4107f55dc58f339ce1b4c227630a323e7ba4d5c76f4888e3937a75642e5f61d"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_database_extent_binary",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_EXTENT_BINARY",
+          "source_line_start": 42,
+          "source_line_end": 48,
+          "raw_sha256": "b29fc11cbacd0080e8268a967698ed03a89443d238c33e7ace8afeeb50c0a7cd"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_database_format",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_FORMAT",
+          "source_line_start": 49,
+          "source_line_end": 51,
+          "raw_sha256": "0a6e3a68cb554f4b27eb4f37f0a5977ff33b63130eaf85ba0a268dae88cab11a"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_part1",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 1
+      },
+      "dependencies": [
+        "impact_1788_ad8b3fa71216_steel_mid1_eos1",
+        "impact_1788_ad8b3fa71216_ale2d_secid1",
+        "impact_1788_ad8b3fa71216_hourglass_hgid1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 52,
+          "source_line_end": 57,
+          "raw_sha256": "188a42c6dfb592b05d58a43c88c633e90b3b8fab9b2fa46d97e521479b111dd6"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_ale2d_secid1",
+      "resource_kind": "sections",
+      "original_ids": {
+        "secid": 1
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*SECTION_ALE2D_TITLE",
+          "source_line_start": 58,
+          "source_line_end": 61,
+          "raw_sha256": "7124dce75164c7508a69f96fd5d0ba02899f0591cf92890586ac2fa94c6d97ae"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_steel_mid1_eos1",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 1,
+        "eosid": 1
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*MAT_JOHNSON_COOK_TITLE",
+          "source_line_start": 62,
+          "source_line_end": 71,
+          "raw_sha256": "e9e5ad1761de3365d89f18a9a2dff02796d8e243abe07d6afb889bad9aae0b41"
+        },
+        {
+          "keyword": "*EOS_GRUNEISEN_TITLE",
+          "source_line_start": 72,
+          "source_line_end": 77,
+          "raw_sha256": "735093ffd70c943295ac514a7abf224ad97c362c8077128e27fe8e234c1828c8"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_hourglass_hgid1",
+      "resource_kind": "hourglass",
+      "original_ids": {
+        "hgid": 1
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*HOURGLASS",
+          "source_line_start": 78,
+          "source_line_end": 80,
+          "raw_sha256": "a73e0e4bff1bef464026581e816082f4bbdf730719364c191acaf8fe1386e1bf"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_part2",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 2
+      },
+      "dependencies": [
+        "impact_1788_ad8b3fa71216_target_umat41_mid2",
+        "impact_1788_ad8b3fa71216_ale2d_secid1",
+        "impact_1788_ad8b3fa71216_hourglass_hgid1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 81,
+          "source_line_end": 86,
+          "raw_sha256": "eff4ad09a9e7f6fac782fa9d6f30c7a5d2df8ee0158f90eefd4dc9c333776595"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_target_umat41_mid2",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 2,
+        "mt": 41
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+          "source_line_start": 87,
+          "source_line_end": 103,
+          "raw_sha256": "a1239f62ffe7d489973cfef4ce08a3e138ac57d921f409e787677d84476df0c2"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_part3",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 3
+      },
+      "dependencies": [
+        "impact_1788_ad8b3fa71216_air_mid3_eos3",
+        "impact_1788_ad8b3fa71216_ale2d_secid1",
+        "impact_1788_ad8b3fa71216_hourglass_hgid1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 104,
+          "source_line_end": 109,
+          "raw_sha256": "b58aef579db3700ba46bb50966eccf3e00b2e5e8aa782c9b45558de3e25938df"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_air_mid3_eos3",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 3,
+        "eosid": 3
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*MAT_NULL_TITLE",
+          "source_line_start": 110,
+          "source_line_end": 113,
+          "raw_sha256": "e675f562ab444c176a9cda510dbe1207d2f59574bb89dfde7204f3b19bcd7879"
+        },
+        {
+          "keyword": "*EOS_LINEAR_POLYNOMIAL_TITLE",
+          "source_line_start": 114,
+          "source_line_end": 119,
+          "raw_sha256": "9ede2dd795ed55c293d96e347f4175d73b4f4bb0b200857eab630a9eb4a818dc"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_initial_velocity_part1",
+      "resource_kind": "initial_conditions",
+      "original_ids": {
+        "pid": 1,
+        "styp": 2
+      },
+      "dependencies": [
+        "impact_1788_ad8b3fa71216_part1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*INITIAL_VELOCITY_GENERATION",
+          "source_line_start": 120,
+          "source_line_end": 124,
+          "raw_sha256": "d79682d7bf526921ff59a99a7c790c3e6532aec980f1964c595480a84d630638"
+        }
+      ]
+    },
+    {
+      "id": "impact_1788_ad8b3fa71216_ale_groups",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "part_ids": [
+          1,
+          2,
+          3
+        ]
+      },
+      "dependencies": [
+        "impact_1788_ad8b3fa71216_part1",
+        "impact_1788_ad8b3fa71216_part2",
+        "impact_1788_ad8b3fa71216_part3"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*ALE_MULTI-MATERIAL_GROUP",
+          "source_line_start": 125,
+          "source_line_end": 129,
+          "raw_sha256": "5ba72e40a9696e4554c30975e5a349cdc1628b95e41bbc2c0b279db887ad451e"
+        }
+      ]
+    }
+  ]
+}

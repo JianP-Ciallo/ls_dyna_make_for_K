@@ -1,0 +1,49 @@
+{
+  "id": "impact_1788_ad8b3fa71216_air_mid3_eos3",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 3,
+    "eosid": 3
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*MAT_NULL_TITLE",
+      "source_line_start": 110,
+      "source_line_end": 113,
+      "raw_sha256": "e675f562ab444c176a9cda510dbe1207d2f59574bb89dfde7204f3b19bcd7879",
+      "raw_text": "*MAT_NULL_TITLE\nAIR\n$#     mid        ro        pc        mu     terod     cerod        ym        pr\n         3     1.293       0.0       0.0       0.0       0.0       0.0       0.0\n"
+    },
+    {
+      "keyword": "*EOS_LINEAR_POLYNOMIAL_TITLE",
+      "source_line_start": 114,
+      "source_line_end": 119,
+      "raw_sha256": "9ede2dd795ed55c293d96e347f4175d73b4f4bb0b200857eab630a9eb4a818dc",
+      "raw_text": "*EOS_LINEAR_POLYNOMIAL_TITLE\nAIR\n$#   eosid        c0        c1        c2        c3        c4        c5        c6\n         3       0.0       0.0       0.0       0.0       0.4       0.4       0.0\n$#      e0        v0  \n  250000.0       1.0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "air_mid3_eos3",
+  "display_name": "5-1788-2 / air_mid3_eos3",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

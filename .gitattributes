@@ -1,0 +1,27 @@
+* text=auto
+
+# Cross-platform source and data files
+*.py text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.xml text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.cfile text eol=lf
+*.k text eol=lf
+
+# Windows entry points
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary artifacts
+*.png binary
+*.gif binary
+*.zip binary
+*.pdf binary
+*.docx binary

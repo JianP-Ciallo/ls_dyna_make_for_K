@@ -1,0 +1,32 @@
+{
+  "schema_version": "blast_damage.model_semantics@1",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "axes": {"vertical": "z", "horizontal": ["x", "y"]},
+  "blast_center_m": [0.0, 0.0, 1.0],
+  "engineering_validated": true,
+  "requires_project_review": false,
+  "building": {
+    "zones": [{"id": "zone-a"}],
+    "components": [
+      {
+        "id": "column-a",
+        "role": "column",
+        "part_ids": [1001, 1002],
+        "material_ids": [3, 4],
+        "importance_class": "primary",
+        "primary_load_path": true,
+        "zone_id": "zone-a"
+      }
+    ]
+  },
+  "ground": {
+    "part_ids": [8001],
+    "material_ids": [7],
+    "surface": {"axis": "z", "direction": "max"}
+  },
+  "materials": [
+    {"material_id": 3, "model": "MAT_072R3", "nout": 2, "engineering_validated": true},
+    {"material_id": 4, "model": "steel_plasticity", "yield_stress_pa": 355000000.0, "calibration_id": "steel-a@1", "engineering_validated": true},
+    {"material_id": 7, "model": "elastic", "engineering_validated": true}
+  ]
+}

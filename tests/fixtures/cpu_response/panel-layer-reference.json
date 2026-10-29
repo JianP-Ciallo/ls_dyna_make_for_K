@@ -1,0 +1,40 @@
+{
+  "units": "SI",
+  "origin": "Independent closed-form reference using only the frozen numerical geometry/materials, not OpenSees or production layer builders.",
+  "version": 1,
+  "method": "Continuous thickness Q integration: full concrete minus displaced steel volumes plus four axial steel layers",
+  "steel_t_m": 0.0003926990816987241,
+  "centers": [
+    [
+      -0.045,
+      "X"
+    ],
+    [
+      -0.035,
+      "Y"
+    ],
+    [
+      0.035,
+      "Y"
+    ],
+    [
+      0.045,
+      "X"
+    ]
+  ],
+  "d_nm": [
+    9027383.143019402,
+    8901719.43687581,
+    1741858.9736411262,
+    3483717.9472822524
+  ],
+  "b_n": [
+    0.0,
+    -1.1641532182693481e-10,
+    -1.4551915228366852e-11,
+    -2.9103830456733704e-11
+  ],
+  "mass_kg": 1533.6150413934106,
+  "center_w_m": 7.35689448578102e-05,
+  "navier_truncation_m": 7.666136741255394e-13
+}

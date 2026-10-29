@@ -1,0 +1,75 @@
+{
+  "source": {
+    "kind": "benchmark",
+    "id": "rc-panel-v1",
+    "revision": 1,
+    "fingerprint": "2c855d2fe218f26b99e9379d76ff18148828b63c646fe72a73b157da0e3b5057"
+  },
+  "geometry": {
+    "kind": "panel",
+    "a_m": 2.0,
+    "b_m": 2.0,
+    "thickness_m": 0.15
+  },
+  "reinforcement": {
+    "diameter_m": 0.01,
+    "cover_m": 0.025,
+    "spacing_m": 0.2
+  },
+  "materials": {
+    "concrete_e_pa": 30000000000.0,
+    "concrete_nu": 0.2,
+    "steel_e_pa": 200000000000.0,
+    "concrete_density": 2500.0,
+    "steel_density": 7850.0,
+    "profile": "elastic_reference"
+  },
+  "mesh": {
+    "n": 4
+  },
+  "loads": {
+    "curve_si": [
+      [
+        0,
+        0
+      ],
+      [
+        0.001,
+        10000
+      ],
+      [
+        0.01,
+        0
+      ],
+      [
+        0.15,
+        0
+      ]
+    ],
+    "static_pressure_pa": 10000.0,
+    "direction": [
+      0,
+      0,
+      -1
+    ]
+  },
+  "analysis": {
+    "kind": "dynamic",
+    "dt_s": 0.0001,
+    "duration_s": 0.15,
+    "damping": 0.0
+  },
+  "budget": {
+    "wall_s": 30.0,
+    "max_steps": 10000,
+    "frames": 500,
+    "samples": 5000
+  },
+  "assumptions": [
+    "numerical_reference_not_building_calibration",
+    "elastic_small_displacement",
+    "perfect_bond",
+    "lumped_translation_mass_no_rotary_inertia",
+    "no_shear_failure_spall_slip_fracture_or_collapse"
+  ]
+}

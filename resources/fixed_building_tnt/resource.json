@@ -1,0 +1,26 @@
+{
+  "schema_version": "fixed-building.tnt-resource@1",
+  "archive": "template.zip",
+  "archive_sha256": "3f8a93cea2712db65bd47f86a965909e57446148257d9a9fb6d960b1c60aad7c",
+  "template_fingerprint": "37eb971c815c40438271becd3deda6376192c434a5dde0eae2388f455c72335a",
+  "files": {
+    "air-tnt-grid.k": "40d72c38e53a3658dfdb276733dbc15f899d3676d54fbe22c8ec745d512c22f9",
+    "air-tnt-mm.k": "930ec73721df02d7e21e3300a957225449438382cebee5bf5c206bf3dcd8af05",
+    "building-blast-reference.k": "c19c3a318ab468029dd7f415dc4c73149ea1a3aae3639057b082006ac1b51290",
+    "ground-fsi-mm.k": "0aec2965c1de3954a33920540195f544b61727474ca4023a77bf17740cd35358",
+    "ground-solver.k": "489c35492d40d31e6831002e0bc8d586cac8677667db8e1647cdad4b81619b6e",
+    "installation.k": "c7aa2c84c087c9aae8a49c29d6369e7118ac31e8f55a50ee87a0aeccf0c5cdc8",
+    "materials-solver.k": "46a59307085265b5dd8c1913343269f365e7c706f8667ea03861fb8576141dbe",
+    "part-groups-air.k": "ead0f0140d8b8ed83417bbb1b76e28ed048088373e2e660cc8b262a3c00e96ed",
+    "reinforcement.k": "736e1e9d96f134ddad6cdf9d77f9d81c6ae7eafce44841d5abd808341c27bafd",
+    "scene-boundaries.k": "57e26a3d976b0bde9c56fc2ef5fff3fff338bb7c51b1fb75cbf2bfaccf5ea5f5",
+    "scene-controls.k": "a5ec3b28f1351169278df21ba405f1c3cbd4b9157e5abdbe6c15ed6a731b52b5",
+    "scene-initial.k": "bd37a10548ffe91f1ebfcd5fe62960f9778c8ef92ac1b19ac7fcfd2f5a2fe49f",
+    "scene-interfaces.k": "1a949877cbb4e3479278ab0dee4d8a6bde70d7da928725bb611f51344a394855",
+    "scene-surfaces.k": "1c069dacf542f870ad6f5bb9070f72b65c561762109ee4240f65391c7dbbc816",
+    "solid-properties.k": "c4175f12e5457f4245fc9c15a9782fcb203fe7a46a00ad78d468f94e66fbf583",
+    "solids-solver.k": "5f013d6036af77ca81b262eff809fcf3ff3c1c8b18529f6a2ad27a3632d5a3eb"
+  },
+  "source": "retained registered template-02; no geometry regeneration",
+  "solver_started": false
+}

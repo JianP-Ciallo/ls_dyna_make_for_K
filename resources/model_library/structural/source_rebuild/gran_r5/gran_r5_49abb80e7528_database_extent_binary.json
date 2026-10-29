@@ -1,0 +1,39 @@
+{
+  "id": "gran_r5_49abb80e7528_database_extent_binary",
+  "resource_kind": "database",
+  "original_ids": {},
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*DATABASE_EXTENT_BINARY",
+      "source_line_start": 36,
+      "source_line_end": 44,
+      "raw_sha256": "cccd40649b6323e81523c56d72d16ac2512d036475c20acb42776ad82ccaff81",
+      "raw_text": "*DATABASE_EXTENT_BINARY\n$#   neiph     neips    maxint    strflg    sigflg    epsflg    rltflg    engflg\n        30        30         3         1         1         2         1         1\n$#  cmpflg    ieverp    beamip     dcomp      shge     stssz    n3thdt   ialemat\n         0         1         4         1         1         1         2         1\n$# nintsld   pkp_sen      sclp     hydro     msscl     therm    intout    nodout\n         0         0       1.0         0         0         0                    \n$#    dtdt    resplt     neipb     quadr     cubic     \n         0         0         0         0         0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "database_extent_binary",
+  "display_name": "GRAN_R5 / database_extent_binary",
+  "category": "database",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful GRAN_R5 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "49abb80e7528981f8d1b26d902225f674263ca7f49294084a3a5a1931251dfa3",
+    "source_name": "GRAN_R5_2D_MMALE_6MM.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-23"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Source SI preserved; unknown UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Preserves original fields and blanks. Source reference only; not an engineering or solver validation."
+}

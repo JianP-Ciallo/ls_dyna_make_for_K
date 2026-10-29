@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.2.0",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "version": "2026.08.03",
+  "source": "Audited extraction from the Two-Storey Reinforced Concrete Frame Blast Reference Model; values are source-faithful references, not solver or experimental validation.",
+  "provenance": {
+    "source_name": "2.k",
+    "source_display_name": "Two-Storey Reinforced Concrete Frame Blast Reference Model",
+    "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+    "source_unit_system": "tonne_mm_s_N_MPa"
+  },
+  "id": "two_storey_rc_frame_mid3_tnt_eos1",
+  "name": "two_storey_rc_frame_mid3_tnt_eos1",
+  "aliases": [
+    "2k_mid3_tnt_eos1"
+  ],
+  "display_name": "Two-Storey RC Frame Reference TNT MID 3 + EOS 1",
+  "category": "high_explosive",
+  "type": "high_explosive_burn_eos_jwl",
+  "density_kg_per_m3": 1550.0,
+  "parameters_si": {
+    "detonation_velocity_m_per_s": 8193.0,
+    "cj_pressure_pa": 28000000000.0,
+    "beta": 0.0
+  },
+  "eos_si": {
+    "eos_id": 1,
+    "a_pa": 640000000000.0,
+    "b_pa": 13900000000.0,
+    "r1": 4.5,
+    "r2": 1.4,
+    "omega": 0.25,
+    "e0_j_per_m3": 8700000000.0,
+    "v0": 1.0
+  },
+  "dependencies": {
+    "initial_detonation": {
+      "pid": 1002,
+      "xyz_m": [
+        3.314,
+        3.295,
+        -0.2674
+      ],
+      "time_s": 0.0
+    }
+  },
+  "source_cards": [
+    {
+      "keyword": "*MAT_HIGH_EXPLOSIVE_BURN_TITLE",
+      "source_id": 3,
+      "line_start": 2561,
+      "line_end": 2565
+    },
+    {
+      "keyword": "*EOS_JWL_TITLE",
+      "source_id": 1,
+      "line_start": 2566,
+      "line_end": 2570
+    },
+    {
+      "keyword": "*INITIAL_DETONATION",
+      "source_id": 1002,
+      "line_start": 2636,
+      "line_end": 2641
+    }
+  ]
+}

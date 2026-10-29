@@ -1,0 +1,39 @@
+{
+  "id": "impact_1788_ad8b3fa71216_database_format",
+  "resource_kind": "database",
+  "original_ids": {},
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*DATABASE_FORMAT",
+      "source_line_start": 49,
+      "source_line_end": 51,
+      "raw_sha256": "0a6e3a68cb554f4b27eb4f37f0a5977ff33b63130eaf85ba0a268dae88cab11a",
+      "raw_text": "*DATABASE_FORMAT\n$#   iform   ibinary       \n         0         0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "database_format",
+  "display_name": "5-1788-2 / database_format",
+  "category": "database",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

@@ -1,0 +1,22 @@
+# Runtime dependencies, locked to the versions accepted in the project workspace.
+h5py==3.16.0
+joblib==1.5.3
+lasso-python==2.0.4
+markdown-it-py==4.2.0
+mdurl==0.1.2
+numpy==2.3.2
+packaging==25.0
+pandas==2.3.3
+pillow==11.3.0
+plotly==5.24.1
+psutil==5.9.8
+pygments==2.19.2
+python-dateutil==2.9.0.post0
+pytz==2026.2
+rich==13.9.4
+scikit-learn==1.8.0
+scipy==1.17.1
+six==1.17.0
+tenacity==9.1.4
+threadpoolctl==3.6.0
+tzdata==2026.2

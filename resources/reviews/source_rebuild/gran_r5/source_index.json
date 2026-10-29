@@ -1,0 +1,283 @@
+{
+  "schema_version": "gran_r5.source_index@1",
+  "source_sha256": "49abb80e7528981f8d1b26d902225f674263ca7f49294084a3a5a1931251dfa3",
+  "source_name": "GRAN_R5_2D_MMALE_6MM.k",
+  "source_unit_system": "SI_m_s_kg_N_Pa",
+  "source_units_confirmed_by_user": true,
+  "resources": [
+    {
+      "id": "gran_r5_49abb80e7528_compb_mid1_eos1",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 1,
+        "eosid": 1
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*MAT_HIGH_EXPLOSIVE_BURN_TITLE",
+          "source_line_start": 56,
+          "source_line_end": 59,
+          "raw_sha256": "30e6413dbca39cfdf7eb937ce15f979fe564bf9a036bfb39f048ec58e99772a4"
+        },
+        {
+          "keyword": "*EOS_JWL_TITLE",
+          "source_line_start": 60,
+          "source_line_end": 63,
+          "raw_sha256": "3e3d28d410c1562688f7fe78db3a84815ea70d762d556b0d6c8c96070203d60d"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_concrete_umat41_mid2",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 2,
+        "mt": 41
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+          "source_line_start": 69,
+          "source_line_end": 85,
+          "raw_sha256": "7848b9cd44e5be1f996d48d6d4cd8cb49debecd959bf381df9789f677403cb56"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_ale2d_secid1",
+      "resource_kind": "sections",
+      "original_ids": {
+        "secid": 1
+      },
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*SECTION_ALE2D",
+          "source_line_start": 53,
+          "source_line_end": 55,
+          "raw_sha256": "2dbb401013730c7e07a5061cd2011257c65c6343342c998aeb409e8742e6b5d3"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_part1",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 1
+      },
+      "dependencies": [
+        "gran_r5_49abb80e7528_compb_mid1_eos1",
+        "gran_r5_49abb80e7528_ale2d_secid1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 48,
+          "source_line_end": 52,
+          "raw_sha256": "68da596a3894871f8373251ed66d23b7a430320474a7f3cffd938df60deb3df2"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_part2",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 2
+      },
+      "dependencies": [
+        "gran_r5_49abb80e7528_concrete_umat41_mid2",
+        "gran_r5_49abb80e7528_ale2d_secid1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 64,
+          "source_line_end": 68,
+          "raw_sha256": "1c0a5e3cd920e9f8584cc3ff77eedcb9cbcf30fa94dd87993f7030efa502ce25"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_ale_groups",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "part_ids": [
+          1,
+          2
+        ]
+      },
+      "dependencies": [
+        "gran_r5_49abb80e7528_part1",
+        "gran_r5_49abb80e7528_part2"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*ALE_MULTI-MATERIAL_GROUP",
+          "source_line_start": 86,
+          "source_line_end": 89,
+          "raw_sha256": "ff9418580bc2df914ca00770a07a7fcf72402baf252bb4984216d9409c83a1a1"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_detonation",
+      "resource_kind": "initial_conditions",
+      "original_ids": {
+        "pid": 1
+      },
+      "dependencies": [
+        "gran_r5_49abb80e7528_part1"
+      ],
+      "source_cards": [
+        {
+          "keyword": "*INITIAL_DETONATION",
+          "source_line_start": 90,
+          "source_line_end": 92,
+          "raw_sha256": "3579ed77b1fbaac8495df1dc8fef4e31798e5bc518fa7b173cfe9bb974226aaa"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_title",
+      "resource_kind": "metadata",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*TITLE",
+          "source_line_start": 4,
+          "source_line_end": 6,
+          "raw_sha256": "6e66590d83e1e087b4729b167bbb996bf18f45b442782db29f723c6b4e20c176"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_control_ale",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ALE",
+          "source_line_start": 7,
+          "source_line_end": 13,
+          "raw_sha256": "55545d3798d08821ad47c157fa4dcc337b0c60cb4bbd8a4b935f859f6fc8cae6"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_control_bulk_viscosity",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_BULK_VISCOSITY",
+          "source_line_start": 14,
+          "source_line_end": 16,
+          "raw_sha256": "858f97e53a6a96a6441820c87ba1ad391c027aab8dc3679171645830c0211b89"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_control_energy",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ENERGY",
+          "source_line_start": 17,
+          "source_line_end": 19,
+          "raw_sha256": "c28d9db013409a1871e385b728331bd5fc1dc7c9d5accd4fd046f20a057b85b8"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_control_termination",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TERMINATION",
+          "source_line_start": 20,
+          "source_line_end": 22,
+          "raw_sha256": "361b9168d49107384ef9d7f5879adce69d489dcf0212922201a8ee387a9b4bff"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_control_timestep",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TIMESTEP",
+          "source_line_start": 23,
+          "source_line_end": 27,
+          "raw_sha256": "5f0aa3d64748ac359ea881c22ca0da3d5d2dfc8475e4b5dd4b0167b75b9d96e8"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_database_binary_d3plot",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3PLOT",
+          "source_line_start": 28,
+          "source_line_end": 32,
+          "raw_sha256": "81f7950db5568635a5ed7020743e81942f7a02858a9eb8442067351f9b64d2d0"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_database_binary_d3thdt",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3THDT",
+          "source_line_start": 33,
+          "source_line_end": 35,
+          "raw_sha256": "b4107f55dc58f339ce1b4c227630a323e7ba4d5c76f4888e3937a75642e5f61d"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_database_extent_binary",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_EXTENT_BINARY",
+          "source_line_start": 36,
+          "source_line_end": 44,
+          "raw_sha256": "cccd40649b6323e81523c56d72d16ac2512d036475c20acb42776ad82ccaff81"
+        }
+      ]
+    },
+    {
+      "id": "gran_r5_49abb80e7528_database_format",
+      "resource_kind": "database",
+      "original_ids": {},
+      "dependencies": [],
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_FORMAT",
+          "source_line_start": 45,
+          "source_line_end": 47,
+          "raw_sha256": "0a6e3a68cb554f4b27eb4f37f0a5977ff33b63130eaf85ba0a268dae88cab11a"
+        }
+      ]
+    }
+  ]
+}

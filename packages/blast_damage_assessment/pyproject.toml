@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blast-damage-assessment"
+version = "0.1.0"
+description = "Deterministic post-blast building and ground damage assessment"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "lasso-python==2.0.4",
+]
+
+[project.scripts]
+blast-damage-assessment = "blast_damage_assessment.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+blast_damage_assessment = ["rule_packs/*.json"]

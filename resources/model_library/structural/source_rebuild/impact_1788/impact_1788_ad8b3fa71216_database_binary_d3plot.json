@@ -1,0 +1,39 @@
+{
+  "id": "impact_1788_ad8b3fa71216_database_binary_d3plot",
+  "resource_kind": "database",
+  "original_ids": {},
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*DATABASE_BINARY_D3PLOT",
+      "source_line_start": 34,
+      "source_line_end": 38,
+      "raw_sha256": "872db0ca4d1ae770f675ca72ecfaa483a351aa77b3605b5df482e038e11a55f0",
+      "raw_text": "*DATABASE_BINARY_D3PLOT\n$#      dt      lcdt      beam     npltc    psetid      \n3.00000E-6         0         0         0         0\n$#   ioopt     \n         0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "database_binary_d3plot",
+  "display_name": "5-1788-2 / database_binary_d3plot",
+  "category": "database",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

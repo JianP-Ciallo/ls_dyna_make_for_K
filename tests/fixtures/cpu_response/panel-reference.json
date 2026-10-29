@@ -1,0 +1,9 @@
+{
+  "units": "SI",
+  "origin": "Independent closed-form reference using only the frozen numerical geometry/materials, not OpenSees or production layer builders.",
+  "version": 1,
+  "method": "Orthotropic simply supported Kirchhoff Navier odd modes 1 to 99 under 10000 Pa",
+  "center_w_m": 7.35689448578102e-05,
+  "truncation_m": 7.666136741255394e-13,
+  "thin_plate_vs_mindlin_relative_tolerance": 0.05
+}

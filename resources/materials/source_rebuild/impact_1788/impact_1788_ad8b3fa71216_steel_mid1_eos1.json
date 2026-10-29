@@ -1,0 +1,49 @@
+{
+  "id": "impact_1788_ad8b3fa71216_steel_mid1_eos1",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 1,
+    "eosid": 1
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*MAT_JOHNSON_COOK_TITLE",
+      "source_line_start": 62,
+      "source_line_end": 71,
+      "raw_sha256": "e9e5ad1761de3365d89f18a9a2dff02796d8e243abe07d6afb889bad9aae0b41",
+      "raw_text": "*MAT_JOHNSON_COOK_TITLE\n45steel-JC\n$#     mid        ro         g         e        pr       dtf        vp    rateop\n         1    7800.08.19000E102.00000E11       0.3       0.0       0.0       0.0\n$#       a         b         n         c         m        tm        tr      epso\n3.800000E86.600000E8       0.4     0.064      1.06    1795.0     300.0       1.0\n$#      cp        pc     spall        it        d1        d2        d3        d4\n     469.0       0.0       2.0       0.0  100000.0       0.0       0.0       0.0\n$#      d5      c2/p      erod     efmin    numint      \n       0.0       0.0         01.000000E7       0.0\n"
+    },
+    {
+      "keyword": "*EOS_GRUNEISEN_TITLE",
+      "source_line_start": 72,
+      "source_line_end": 77,
+      "raw_sha256": "735093ffd70c943295ac514a7abf224ad97c362c8077128e27fe8e234c1828c8",
+      "raw_text": "*EOS_GRUNEISEN_TITLE\n45steel\n$#   eosid         c        s1        s2        s3     gamao         a        e0\n         1    4500.0      1.49       0.0       0.0      2.17       0.0       0.0\n$#      v0  \n       0.0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "steel_mid1_eos1",
+  "display_name": "5-1788-2 / steel_mid1_eos1",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

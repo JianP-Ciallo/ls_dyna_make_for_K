@@ -1,0 +1,18 @@
+{
+  "schema_version": "phase18.solver_blast.deck_manifest@1",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "charge": {"position_m": [-2.0, 1.5, 4.0]},
+  "part_ids": [
+    ["commercial_rc_column", 1003],
+    ["commercial_column_longitudinal_rebar", 1001],
+    ["commercial_column_stirrup", 1002],
+    ["diagnostic_soil_ground", 8001],
+    ["nonstructural_partition", 1009]
+  ],
+  "materials": {
+    "role_to_material_id": [["concrete", 3], ["reinforcing_steel", 4], ["nonstructural", 6]],
+    "validation_status": "review_required_preliminary_si_presets_with_elastic_rc"
+  },
+  "engineering_validated": false,
+  "requires_project_review": true
+}

@@ -1,0 +1,44 @@
+{
+  "id": "gran_r5_49abb80e7528_concrete_umat41_mid2",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 2,
+    "mt": 41
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+      "source_line_start": 69,
+      "source_line_end": 85,
+      "raw_sha256": "7848b9cd44e5be1f996d48d6d4cd8cb49debecd959bf381df9789f677403cb56",
+      "raw_text": "*MAT_USER_DEFINED_MATERIAL_MODELS\n$#     mid        ro        mt       lmc       nhv    iortho     ibulk        ig\n         2    2180.0        41        47        31         0         3         4\n$#   ivect     ifail    itherm    ihyper      ieos      lmca    unused    unused\n         0         0         0         0         0         0                    \n$#      p1        p2        p3        p4        p5        p6        p7        p8\n-4.14000E7          2.22000E101.66000E10       0.0       0.9      0.01      1111\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n         0       0.0       0.0       0.0       0.0       0.0       0.0       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n         0       0.0       0.0       0.0       0.0       0.0       0.0       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n         0       0.0       0.0       0.0       0.0       0.0       0.0       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n         0       0.0       0.0       0.0       0.0       0.0       0.0       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n       0.0     11111       0.0         1    0.63071.02420E-9      2180       0.0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "concrete_umat41_mid2",
+  "display_name": "GRAN_R5 / concrete_umat41_mid2",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful GRAN_R5 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "49abb80e7528981f8d1b26d902225f674263ca7f49294084a3a5a1931251dfa3",
+    "source_name": "GRAN_R5_2D_MMALE_6MM.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-23"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Source SI preserved; unknown UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [
+    "User material MT=41 implementation unavailable"
+  ],
+  "notes": "Preserves original fields and blanks. Source reference only; not an engineering or solver validation."
+}

@@ -1,0 +1,13 @@
+$ Reserved server-approved LS-PrePost concrete pressure template.
+$ Fringe component 8 is the LS-PrePost 4.12 pressure component.
+openc d3plot "{{d3plot_path}}"
+{{display_commands}}
+state {{state_number}}
+fringe 8
+pfringe
+showlegend 1
+mesh
+{{view_command}}
+ac
+print png "{{output_path}}" nogamma enlisted "OGL1x1"
+exit

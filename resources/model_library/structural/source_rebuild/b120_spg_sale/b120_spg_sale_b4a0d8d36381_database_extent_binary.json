@@ -1,0 +1,40 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_database_extent_binary",
+  "resource_kind": "outputs",
+  "original_ids": {},
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*DATABASE_EXTENT_BINARY",
+      "source_line_start": 73,
+      "source_line_end": 79,
+      "raw_sha256": "510d9398ca96196bf70690816990470a9df8f45b5985fd77f781251332061f8c",
+      "raw_text": "*DATABASE_EXTENT_BINARY\n$#   neiph     neips    maxint    strflg    sigflg    epsflg    rltflg    engflg\n        31         0         3         1         1         1         1         1\n$#  cmpflg    ieverp    beamip     dcomp      shge     stssz    n3thdt   ialemat\n         0         0         4         1         1         1         2         0\n$# nintsld   pkp_sen      sclp     hydro     msscl     therm    intout    nodout\n         0         0       1.0         0         0         0          STRESS\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_database_extent_binary",
+  "display_name": "B120 SPG S-ALE / database_extent_binary",
+  "category": "outputs",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

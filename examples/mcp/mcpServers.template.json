@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "lsprepost": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "<PROJECT_DIR>\\scripts\\start_mcp_server.cmd"
+      ],
+      "env": {
+        "LSPP_EXE": "<LS_PREPOST_EXE>"
+      }
+    }
+  }
+}

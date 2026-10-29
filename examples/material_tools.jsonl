@@ -1,0 +1,3 @@
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_materials","arguments":{}}}
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"get_material","arguments":{"material_id":"mild_steel"}}}
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"generate_model","arguments":{"spec":{"project_name":"material_library_plate_demo","model_type":"shell_plate","unit_system":"SI_m_s_kg_N_Pa","geometry":{"length_m":0.12,"width_m":0.06,"thickness_m":0.0015},"mesh":{"size_m":0.01},"material":{"name":"aluminum_6061_t6"},"boundary_conditions":[{"type":"fixed_edge","edge":"x_min"}]},"if_exists":"overwrite"}}}

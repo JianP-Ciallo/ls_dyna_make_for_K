@@ -1,0 +1,50 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_mat3_air_eos2",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 3,
+    "eosid": 2
+  },
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*MAT_NULL",
+      "source_line_start": 1246,
+      "source_line_end": 1249,
+      "raw_sha256": "628cf283e6cfaabd6ff47e265f07ab93e042b1ff8c4eb3455d6fb9cb207b6f89",
+      "raw_text": "*MAT_NULL\n$HMNAME MATERIALS         4air\n$#     mid        ro        pc        mu     terod     cerod        ym        pr\n         3      1.29       0.0       0.0       0.0       0.0       0.0       0.0\n"
+    },
+    {
+      "keyword": "*EOS_LINEAR_POLYNOMIAL",
+      "source_line_start": 1250,
+      "source_line_end": 1255,
+      "raw_sha256": "d5447549f9cc9d5e637e3aadf34478b0d03a96a0bc58612ea3817cc6f95db7d8",
+      "raw_text": "*EOS_LINEAR_POLYNOMIAL\n$HMNAME PROPERTIES         6eosair\n$#   eosid        c0        c1        c2        c3        c4        c5        c6\n         2       0.0       0.0       0.0       0.0       0.4       0.4       0.0\n$#      e0        v0  \n  250000.0       1.0\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_mat3_air_eos2",
+  "display_name": "B120 SPG S-ALE / mat3_air_eos2",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

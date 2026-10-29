@@ -1,0 +1,45 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_segment_set1_sale",
+  "resource_kind": "sets",
+  "original_ids": {
+    "ssid": 1,
+    "mshid": 1001
+  },
+  "dependencies": [
+    "b120_spg_sale_b4a0d8d36381_sale_grid1001"
+  ],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*SET_SEGMENT_GENERAL_TITLE",
+      "source_line_start": 2025482,
+      "source_line_end": 2025487,
+      "raw_sha256": "08cb561048fe5fe6616f27eb67b626a5b35b408dc66d13ba2dc853b5ae0cc9aa",
+      "raw_text": "*SET_SEGMENT_GENERAL_TITLE\nNONREF-SALE\n$#     sid       da1       da2       da3       da4    solver      \n         1       0.0       0.0       0.0       0.0MECH\n$#  option     mshid        -x        +x        -y        +y        -z        +z\nSALEFAC         1001         1         1         1         1         1         1\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_segment_set1_sale",
+  "display_name": "B120 SPG S-ALE / segment_set1_sale",
+  "category": "sets",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

@@ -1,0 +1,5 @@
+{
+  "sha256": "968d47ae0b2cb2f9d9ffc43590f61fdf83e61a0fc26a534ebb8d707847dcbd7a",
+  "source": "artifacts\\cpu-response-building-preflight-20261022-04\\reference-case.json",
+  "purpose": "audited regularized geometry and positive mass ledger only; old elastic loads and response are not reused"
+}

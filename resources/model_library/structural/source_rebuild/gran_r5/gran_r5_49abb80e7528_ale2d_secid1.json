@@ -1,0 +1,41 @@
+{
+  "id": "gran_r5_49abb80e7528_ale2d_secid1",
+  "resource_kind": "sections",
+  "original_ids": {
+    "secid": 1
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*SECTION_ALE2D",
+      "source_line_start": 53,
+      "source_line_end": 55,
+      "raw_sha256": "2dbb401013730c7e07a5061cd2011257c65c6343342c998aeb409e8742e6b5d3",
+      "raw_text": "*SECTION_ALE2D\n$#   secid   aleform       aet    elform      \n         1        11         0        14\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "ale2d_secid1",
+  "display_name": "GRAN_R5 / ale2d_secid1",
+  "category": "sections",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful GRAN_R5 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "49abb80e7528981f8d1b26d902225f674263ca7f49294084a3a5a1931251dfa3",
+    "source_name": "GRAN_R5_2D_MMALE_6MM.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-23"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Source SI preserved; unknown UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Preserves original fields and blanks. Source reference only; not an engineering or solver validation."
+}

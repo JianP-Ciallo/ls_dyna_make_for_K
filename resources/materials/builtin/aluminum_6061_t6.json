@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "id": "aluminum_6061_t6",
+  "name": "aluminum_6061_t6",
+  "display_name": "Aluminum 6061-T6",
+  "category": "aluminum",
+  "type": "elastic",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "density_kg_per_m3": 2700.0,
+  "youngs_pa": 68900000000.0,
+  "poisson": 0.33,
+  "yield_strength_pa": 276000000.0,
+  "source": "built-in nominal engineering value for workflow testing; verify against project material specification",
+  "source_url": "",
+  "version": "2026.05.17",
+  "requires_project_review": true,
+  "notes": "Nominal 6061-T6 values vary by standard, temper, batch, and supplier."
+}

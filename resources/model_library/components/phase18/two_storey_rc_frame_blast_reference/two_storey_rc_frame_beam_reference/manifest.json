@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "id": "two_storey_rc_frame_beam_reference",
+  "name": "two_storey_rc_frame_beam_reference",
+  "aliases": [
+    "2k_rc_beam_reference"
+  ],
+  "display_name": "Two-Storey RC Frame Reinforced Concrete Beam Reference",
+  "component_kind": "reinforced_concrete_beam",
+  "version": "2026.08.04",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "solver_ready": false,
+  "provenance": {
+    "source_name": "2.k",
+    "source_display_name": "Two-Storey Reinforced Concrete Frame Blast Reference Model",
+    "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+    "source_unit_system": "tonne_mm_s_N_MPa"
+  },
+  "payload": {
+    "path": "component.k.gz",
+    "format": "ls_dyna_keyword_gzip",
+    "sha256": "bd55c8c9c483e24a9a0aff0f8ea45eec081d0af916a51f34838e9590141dc722",
+    "byte_size": 349981
+  },
+  "source_part_ids": [
+    201,
+    202,
+    203
+  ],
+  "source_section_ids": [
+    4,
+    3,
+    1
+  ],
+  "source_material_ids": [
+    5,
+    14,
+    8
+  ],
+  "source_set_ids": [
+    1
+  ],
+  "coupling": {
+    "ssid": 1,
+    "msid": 201,
+    "sstyp": 0,
+    "mstyp": 1
+  },
+  "node_count": 32014,
+  "solid_count": 6600,
+  "beam_count": 11540,
+  "coordinate_frame": {
+    "kind": "source_global_normalized_si",
+    "bounding_box_m": [
+      [
+        -0.006480716,
+        0.0,
+        -3.5
+      ],
+      [
+        6.49996,
+        6.49997,
+        0.0
+      ]
+    ]
+  },
+  "capabilities": [
+    "solid",
+    "beam",
+    "beam_orientation_node",
+    "embedded_coupling",
+    "rigid_transform",
+    "id_remap",
+    "material_binding"
+  ],
+  "material_resource_ids": [
+    "two_storey_rc_frame_mid5_concrete_kc",
+    "two_storey_rc_frame_mid14_rebar_d20",
+    "two_storey_rc_frame_mid8_rebar_d8_d18"
+  ],
+  "interfaces": {
+    "connection_policy": "explicit_only",
+    "shared_source_node_count": 1680
+  },
+  "audit": {
+    "path": "audit.json"
+  }
+}

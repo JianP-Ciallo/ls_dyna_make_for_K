@@ -1,0 +1,93 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+  "resource_kind": "mesh_recipes",
+  "original_ids": {
+    "mshid": 1001,
+    "dynamic_pid": 101,
+    "control_point_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  "dependencies": [],
+  "reuse_policy": "regenerate_from_physical_recipe",
+  "binding_recipe": {
+    "mesh_id": 1001,
+    "dynamic_part_id": 101,
+    "bounds": [
+      [
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      [
+        0.5,
+        0.5,
+        1.6
+      ]
+    ],
+    "cell_counts": [
+      50,
+      50,
+      105
+    ],
+    "nodes": 275706,
+    "elements": 262500,
+    "spacing": [
+      0.02,
+      0.02,
+      0.02
+    ]
+  },
+  "source_cards": [
+    {
+      "keyword": "*ALE_STRUCTURED_MESH",
+      "source_line_start": 1317,
+      "source_line_end": 1321,
+      "raw_sha256": "5004e706828d3e3b512e8142d46c8b61dd7d932501c985b04fb934eb18413fd9"
+    },
+    {
+      "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+      "source_line_start": 1322,
+      "source_line_end": 1327,
+      "raw_sha256": "efc01bbd061ee0b9774b5c0540a47bf5978f0a46cd4c9ddf338c5813563834bb"
+    },
+    {
+      "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+      "source_line_start": 1328,
+      "source_line_end": 1333,
+      "raw_sha256": "50d0f5f2ff2c9a2197c5361b4c242dd1da4cd596d0657948e908923ec6dc1f48"
+    },
+    {
+      "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+      "source_line_start": 1334,
+      "source_line_end": 1339,
+      "raw_sha256": "c150514d31f956ff8f599ce58fa81d68f3bd40dbd224e4e1d02c4141f4f85742"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+  "display_name": "B120 SPG S-ALE / sale_grid1001",
+  "category": "mesh_recipes",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

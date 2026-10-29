@@ -1,0 +1,19 @@
+{
+  "schema_version": "phase18.solver_blast.deck_manifest@4",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "charge": {"position_m": [0.0, 0.0, 1.0]},
+  "part_ids": [
+    ["rc_column", 2001],
+    ["column_longitudinal", 2002],
+    ["column_stirrup", 2003],
+    ["diagnostic_soil_ground", 8001],
+    ["ale_air_domain", 9001],
+    ["tnt_high_explosive", 9002]
+  ],
+  "materials": {
+    "role_to_material_id": [["rc_column_material", 8], ["reinforcing_steel", 4]],
+    "validation_status": "review_required_preliminary_si_presets"
+  },
+  "engineering_validated": false,
+  "requires_project_review": true
+}

@@ -1,0 +1,5 @@
+$ Server-approved LS-PrePost open keyword template.
+$ Parameters are resolved by lsprepost_mcp.cfile, not accepted as raw user commands.
+open keyword "{{keyword_path}}"
+ac
+

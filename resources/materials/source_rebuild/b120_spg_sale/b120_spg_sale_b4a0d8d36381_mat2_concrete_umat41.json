@@ -1,0 +1,45 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_mat2_concrete_umat41",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 2,
+    "mt": 41
+  },
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+      "source_line_start": 1228,
+      "source_line_end": 1240,
+      "raw_sha256": "4f4a4db3b6cbe3e31fd48f2b9b4320e2d56377ef87216a7a4e5660609fd581bd",
+      "raw_text": "*MAT_USER_DEFINED_MATERIAL_MODELS\n$#     mid        ro        mt       lmc       nhv    iortho     ibulk        ig\n         2    2500.0        41        32        20         0         3         4\n$#   ivect     ifail    itherm    ihyper      ieos      lmca    unused    unused\n         0         0         0         0         0         0                    \n$#      fc         E         K         G        ft     omega      frac     failt\n 1.37000E85.54000E103.08000E102.31000E10   60000009.0000E-011.0000E-02         1\n$#      d1        d2        d3        Pc        Pl       aa1       aa2       aa3\n4.0000E-021.5000E+001.0000E-012.3300E+076.0000E+093.5300E+103.9600E+109.04000E+9\n$#  faileq     alpha      rate        a1        a2      row0      rows     edrop\n      0.65     0.0011.0000E+009.4658E-011.80500E-9    2500.02.7000E+030.0000E+00\n$# pa_alp0     pa_pe     pa_ps   pa_nexp   pa_rho0     pa_a1     pa_a2     pa_a3\n0.0000E+000.0000E+000.0000E+003.0000E+000.0000E+000.0000E+000.0000E+000.0000E+00\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_mat2_concrete_umat41",
+  "display_name": "B120 SPG S-ALE / mat2_concrete_umat41",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": [
+    "MT=41 implementation not provided"
+  ]
+}

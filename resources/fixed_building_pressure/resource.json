@@ -1,0 +1,20 @@
+{
+  "schema_version": "fixed-building.structural-resource@1",
+  "archive": "three-storey-structural.zip",
+  "archive_bytes": 17466737,
+  "archive_sha256": "76ee3e06cc680bb847aad032c2253461428698a9d15c2f6016ce3e9fe4b5c90f",
+  "template_fingerprint": "afb788febf5c586e12448aac4411452016c33a5d004b60ebeb862215b8f9581a",
+  "components": 831,
+  "rooms": 66,
+  "files": {
+    "materials-solver.k": "46a59307085265b5dd8c1913343269f365e7c706f8667ea03861fb8576141dbe",
+    "solids-solver.k": "5f013d6036af77ca81b262eff809fcf3ff3c1c8b18529f6a2ad27a3632d5a3eb",
+    "solid-properties.k": "c4175f12e5457f4245fc9c15a9782fcb203fe7a46a00ad78d468f94e66fbf583",
+    "reinforcement.k": "736e1e9d96f134ddad6cdf9d77f9d81c6ae7eafce44841d5abd808341c27bafd",
+    "installation.k": "c7aa2c84c087c9aae8a49c29d6369e7118ac31e8f55a50ee87a0aeccf0c5cdc8",
+    "ground-solver.k": "489c35492d40d31e6831002e0bc8d586cac8677667db8e1647cdad4b81619b6e"
+  },
+  "scope": "retained_structure_and_display_metadata_only",
+  "mesh_generated": false,
+  "solver_started": false
+}

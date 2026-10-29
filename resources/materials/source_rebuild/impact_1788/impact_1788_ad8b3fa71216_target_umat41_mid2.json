@@ -1,0 +1,44 @@
+{
+  "id": "impact_1788_ad8b3fa71216_target_umat41_mid2",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 2,
+    "mt": 41
+  },
+  "dependencies": [],
+  "source_cards": [
+    {
+      "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+      "source_line_start": 87,
+      "source_line_end": 103,
+      "raw_sha256": "a1239f62ffe7d489973cfef4ce08a3e138ac57d921f409e787677d84476df0c2",
+      "raw_text": "*MAT_USER_DEFINED_MATERIAL_MODELS\n$#     mid        ro        mt       lmc       nhv    iortho     ibulk        ig\n         2    2250.0        41        47        31         0         3         4\n$#   ivect     ifail    itherm    ihyper      ieos      lmca    unused    unused\n         0         0         0         0         0         0                    \n$#      p1        p2        p3        p4        p5        p6        p7        p8\n-5.25000E73.34000E101.54500E101.46400E10   4220000      0.01      0.01    1000.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n       0.0       0.0       0.0       0.0       0.0       0.0       0.0       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n       0.0       0.0       0.0       0.0       0.0       0.0    0.0075      0.02\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n      0.05      0.08      0.11      0.14      0.17     0.207      0.30       0.0\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n1.160000E84.610000E81.290000E92.118000E92.947000E93.775000E94.604000E97.298000E9\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n1.88000E10     11111     0.001       1.0     2.262   2.13E-9    2250.0       0.0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "target_umat41_mid2",
+  "display_name": "5-1788-2 / target_umat41_mid2",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [
+    "MT=41 material implementation not provided"
+  ],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

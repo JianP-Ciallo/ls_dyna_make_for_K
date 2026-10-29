@@ -1,0 +1,9 @@
+$ Reserved server-approved LS-PrePost preview image template.
+$ This is intentionally parameterized; raw user cfile content is not accepted.
+open keyword "{{keyword_path}}"
+{{view_command}}
+{{display_commands}}
+{{fit_command}}
+save kwdmsg "{{kwdmsg_path}}"
+print png "{{output_path}}" nogamma enlisted "OGL1x1"
+exit

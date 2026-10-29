@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1.0",
+  "id": "two_storey_rc_frame_slab_reference",
+  "name": "two_storey_rc_frame_slab_reference",
+  "aliases": [
+    "2k_rc_slab_reference"
+  ],
+  "display_name": "Two-Storey RC Frame Reinforced Concrete Slab Reference",
+  "component_kind": "reinforced_concrete_slab",
+  "version": "2026.08.04",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "solver_ready": false,
+  "provenance": {
+    "source_name": "2.k",
+    "source_display_name": "Two-Storey Reinforced Concrete Frame Blast Reference Model",
+    "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+    "source_unit_system": "tonne_mm_s_N_MPa"
+  },
+  "payload": {
+    "path": "component.k.gz",
+    "format": "ls_dyna_keyword_gzip",
+    "sha256": "30f76bae69440bcbb70feeef44ef46132cdf34046e3dea75d44cf8580656c912",
+    "byte_size": 2631984
+  },
+  "source_part_ids": [
+    401,
+    402
+  ],
+  "source_section_ids": [
+    4,
+    2
+  ],
+  "source_material_ids": [
+    5,
+    12
+  ],
+  "source_set_ids": [],
+  "coupling": {
+    "ssid": 402,
+    "msid": 401,
+    "sstyp": 1,
+    "mstyp": 1
+  },
+  "node_count": 163301,
+  "solid_count": 91245,
+  "beam_count": 25725,
+  "coordinate_frame": {
+    "kind": "source_global_normalized_si",
+    "bounding_box_m": [
+      [
+        -0.00498515,
+        0.0199707,
+        -3.1950000000000003
+      ],
+      [
+        6.43897,
+        6.550260000000001,
+        0.0
+      ]
+    ]
+  },
+  "capabilities": [
+    "solid",
+    "beam",
+    "beam_orientation_node",
+    "embedded_coupling",
+    "rigid_transform",
+    "id_remap",
+    "material_binding"
+  ],
+  "material_resource_ids": [
+    "two_storey_rc_frame_mid5_concrete_kc",
+    "two_storey_rc_frame_mid12_rebar_d12"
+  ],
+  "interfaces": {
+    "connection_policy": "explicit_only",
+    "shared_source_node_count": 1392
+  },
+  "audit": {
+    "path": "audit.json"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": "0.1.0",
+  "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+  "resources": [
+    {
+      "id": "two_storey_rc_frame_embedded_couplings",
+      "resource_kind": "structural",
+      "canonical_sha256": "e757559a3526e2a200bcc9ef2c5d536de7be2d1fdf5297b5ff843e68c82544cc",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_kc_rate_curve",
+      "resource_kind": "structural",
+      "canonical_sha256": "65e5598c7437d72406cbe37e78b2a722a059a0649716f8397318992e4cabf625",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid12_rebar_d12",
+      "resource_kind": "material",
+      "canonical_sha256": "1b0869c3b11f1de11da6dafb0ce7ab39b15a4f32369243745e9d79f372f79bc4",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid14_rebar_d20",
+      "resource_kind": "material",
+      "canonical_sha256": "aaf66581bf7bfd066db638f6c48d180309b3d19935585f6d9e8b37c9b02aa245",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid2_air_eos2",
+      "resource_kind": "material",
+      "canonical_sha256": "5fdf4ee954278f0c3eb7a331e3a57b7abfc07719e828224ecc1cbc1ca2c02112",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid3_tnt_eos1",
+      "resource_kind": "material",
+      "canonical_sha256": "7e87816bbc97555c9ce994860f837615b99acce7794925f99358cebd956b0092",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid5_concrete_kc",
+      "resource_kind": "material",
+      "canonical_sha256": "bdd707e4ca2a1139bfb85c2fe7a1180ea84a43c1d5e2f5309f6814f4cdd82103",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_mid8_rebar_d8_d18",
+      "resource_kind": "material",
+      "canonical_sha256": "1ae2ae55fb2118ca656bad09e1ad44a74f567280f654cbdc29821c2027151109",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_part_roles",
+      "resource_kind": "structural",
+      "canonical_sha256": "4691969bb8148d57c48145ebbf1cb4a8f0c9ee3b7ae3e4f5ae403f9075fa611d",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_sections",
+      "resource_kind": "structural",
+      "canonical_sha256": "5df9823f783378c1b168cf4e028022d45aea2bc0533c09d978be05015f437a42",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    },
+    {
+      "id": "two_storey_rc_frame_sets",
+      "resource_kind": "structural",
+      "canonical_sha256": "7074a7073b3ccb7849e9a9073f3aef09693ceaa4a6815b7ec6fbd7cb86fd90ab",
+      "validation_status": "syntax_unit_reviewed",
+      "reviewed_on": "2026-08-05",
+      "review_method": "automated_syntax_unit_dependency_audit",
+      "evidence": [
+        "source_identity",
+        "source_spans",
+        "si_conversion",
+        "typed_fields",
+        "dependency_closure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "reference": "Committed native Newton run in artifacts/cpu-response-small-cases-20261022-01/panel; numerical equivalence reference, not physical blast validation",
+  "input_fingerprint": "73c6e716256f0dd1620dc33283f558e69d6e154f1f568552329daae7d4288298",
+  "displacement_m": 0.00012160584891483181,
+  "steel_abs_pa": 2337052.785403868
+}

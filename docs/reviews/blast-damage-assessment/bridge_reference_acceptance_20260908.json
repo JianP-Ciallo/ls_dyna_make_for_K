@@ -1,0 +1,88 @@
+{
+  "schema_version": "lsprepost_mcp.damage_bridge_acceptance@1",
+  "python": "3.13.5",
+  "capabilities": {
+    "schema_version": "lsprepost_mcp.damage_assessment_capabilities@1",
+    "available": true,
+    "package": {
+      "name": "blast-damage-assessment",
+      "version": "0.1.0"
+    },
+    "request_schema": "blast_damage.assessment_request@1",
+    "result_schema": "blast_damage.assessment_result@1",
+    "semantic_schemas": [
+      "blast_damage.model_semantics@1",
+      "phase18.solver_blast.deck_manifest@1-4"
+    ],
+    "adapter": {
+      "id": "lsdyna_d3plot",
+      "version": "1.0.0"
+    },
+    "dependencies": {
+      "lasso_python": "2.0.4",
+      "numpy": "2.3.2"
+    },
+    "rule_packs": [
+      {
+        "id": "building_research_reference@1",
+        "subject": "building",
+        "sha256": "9e954869105fb608f1fc8530f9b8e4081741f5858cfaeb5a3b357bbdc46d6979",
+        "formal_eligible": false
+      },
+      {
+        "id": "ground_research_reference@1",
+        "subject": "ground",
+        "sha256": "168de503a87f9533abf4ac4c189830b663338a48eca436306c0ec59d93a3ee87",
+        "formal_eligible": false
+      }
+    ]
+  },
+  "accepted_summary_sha256": "2eedebfee2d2ed31c39cec189212914416dbfe113188bbf389f64364b6eb8dad",
+  "cases": {
+    "commercial": {
+      "assessment_id": "fb2c01ac9f2afebfb04836ce",
+      "fingerprint": "ee5a4a1dfbe6cdf274300695bc8f17ac4afa85b5d44d33bba8365f9ecf4b9f74",
+      "gate": "provisional",
+      "severity": 0,
+      "same_standalone_fingerprint": true,
+      "source_unchanged": true,
+      "all_eight_web_artifacts_verified": true,
+      "result_sha256": "9348f611e7b6a3677bbf85771704eb309c910774ab0a439ba73aec295ed48a0c",
+      "output": "commercial/workspace/refined_building_blast/phase18-reference-acceptance/artifacts/damage_assessments/assessment_58ece1749ff24d08b31ab212406904cc",
+      "runtime_seconds": 12.30585710000014
+    },
+    "residential": {
+      "assessment_id": "812442014c82b3ceaaaf37a6",
+      "fingerprint": "380ab593e0adebccd4d783d857413d05cf3de2ec395d14a1045a97d28aeeb6f5",
+      "gate": "provisional",
+      "severity": 0,
+      "same_standalone_fingerprint": true,
+      "source_unchanged": true,
+      "all_eight_web_artifacts_verified": true,
+      "result_sha256": "ce5d090eb67cb51bb7bf784acc3e1551d1539076d4c858e48793d214823e3701",
+      "output": "residential/workspace/refined_building_blast/phase18-reference-acceptance/artifacts/damage_assessments/assessment_a1f36c3333ba4e4e8d8adfcd9e2fdbcd",
+      "runtime_seconds": 14.166909999999916
+    },
+    "subway": {
+      "assessment_id": "c649c5394d553938fcff01eb",
+      "fingerprint": "74edc78a2590b424646c3a326c8470c6518df4e0256060f9e476383ccebe4b9b",
+      "gate": "provisional",
+      "severity": 3,
+      "same_standalone_fingerprint": true,
+      "source_unchanged": true,
+      "all_eight_web_artifacts_verified": true,
+      "result_sha256": "b38d0208e2a37de5f643a4d89a621bf94cb780af36e2485782d7e2f244a02308",
+      "output": "subway/workspace/refined_building_blast/phase18-reference-acceptance/artifacts/damage_assessments/assessment_a828e3a58cd4457c9d7f23cc249fedd6",
+      "runtime_seconds": 13.017368499999066
+    }
+  },
+  "status": "passed",
+  "http_recovery": {
+    "status": "passed",
+    "real_http": true,
+    "restored_reference_fixture": true,
+    "fingerprint": "ee5a4a1dfbe6cdf274300695bc8f17ac4afa85b5d44d33bba8365f9ecf4b9f74",
+    "gate": "provisional",
+    "all_eight_artifacts_verified": true
+  }
+}

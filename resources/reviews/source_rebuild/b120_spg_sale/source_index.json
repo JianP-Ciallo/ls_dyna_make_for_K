@@ -1,0 +1,969 @@
+{
+  "schema": "source_rebuild_index@1",
+  "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "resources": [
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat1_tnt_eos1",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 1,
+        "eosid": 1
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_HIGH_EXPLOSIVE_BURN",
+          "source_line_start": 1205,
+          "source_line_end": 1208,
+          "raw_sha256": "1f5dba292ba4b27ad697a455dd3f77a1128b5ec0e1c153ea5f70a2ba044223d7"
+        },
+        {
+          "keyword": "*EOS_JWL",
+          "source_line_start": 1209,
+          "source_line_end": 1212,
+          "raw_sha256": "986ddc130e61b1d74c2aeba378097b5b1a8f11e8448187fff11c0e99fc724e4c"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat2_concrete_umat41",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 2,
+        "mt": 41
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+          "source_line_start": 1228,
+          "source_line_end": 1240,
+          "raw_sha256": "4f4a4db3b6cbe3e31fd48f2b9b4320e2d56377ef87216a7a4e5660609fd581bd"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat3_air_eos2",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 3,
+        "eosid": 2
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_NULL",
+          "source_line_start": 1246,
+          "source_line_end": 1249,
+          "raw_sha256": "628cf283e6cfaabd6ff47e265f07ab93e042b1ff8c4eb3455d6fb9cb207b6f89"
+        },
+        {
+          "keyword": "*EOS_LINEAR_POLYNOMIAL",
+          "source_line_start": 1250,
+          "source_line_end": 1255,
+          "raw_sha256": "d5447549f9cc9d5e637e3aadf34478b0d03a96a0bc58612ea3817cc6f95db7d8"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat4_c5_soil_foam",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 4
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_SOIL_AND_FOAM_TITLE",
+          "source_line_start": 1261,
+          "source_line_end": 1274,
+          "raw_sha256": "e10fc01c5c428c84823128437acedd7e098b4848c3937fd9c8abe6eb5d156ff9"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat5_rc40_umat41",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 5,
+        "mt": 41
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_USER_DEFINED_MATERIAL_MODELS",
+          "source_line_start": 1283,
+          "source_line_end": 1295,
+          "raw_sha256": "c4cd04a88c43e792d014b0785a742dde6908f2cc08469958baf230bf1ab3727d"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_mat6_steel",
+      "resource_kind": "materials",
+      "original_ids": {
+        "mid": 6
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*MAT_PLASTIC_KINEMATIC_TITLE",
+          "source_line_start": 1301,
+          "source_line_end": 1306,
+          "raw_sha256": "056c609e8f125e6a92dda135eaa537425ccc1163551e87cf0c573679e8ae532e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_section1",
+      "resource_kind": "sections",
+      "original_ids": {
+        "secid": 1
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*SECTION_SOLID",
+          "source_line_start": 1202,
+          "source_line_end": 1204,
+          "raw_sha256": "4df4be3b93cef79d976f1186bccc109ef432a8f469f9395b2f4c090f7b389744"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_section2",
+      "resource_kind": "sections",
+      "original_ids": {
+        "secid": 2
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*SECTION_SOLID_SPG",
+          "source_line_start": 1221,
+          "source_line_end": 1227,
+          "raw_sha256": "cdcb2228af193f50dd3ef3728e75571e7c00355ff69c370a4037205acd61dc8b"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_section3",
+      "resource_kind": "sections",
+      "original_ids": {
+        "secid": 3
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*SECTION_SOLID",
+          "source_line_start": 1280,
+          "source_line_end": 1282,
+          "raw_sha256": "03df93b5906ad79348e81d53f06dc1dab3cf80754f708d6ba436045ba2e6b86f"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_hourglass1",
+      "resource_kind": "controls",
+      "original_ids": {
+        "hgid": 1
+      },
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*HOURGLASS",
+          "source_line_start": 1213,
+          "source_line_end": 1215,
+          "raw_sha256": "a73e0e4bff1bef464026581e816082f4bbdf730719364c191acaf8fe1386e1bf"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part1",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 1,
+        "secid": 1,
+        "mid": 1,
+        "eosid": 1,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat1_tnt_eos1",
+        "b120_spg_sale_b4a0d8d36381_section1",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1197,
+          "source_line_end": 1201,
+          "raw_sha256": "df9aef9229e9ddb4f0a89c5959b82a68fe74f44212816a4c824733fd3d4a88c0"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part2",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 2,
+        "secid": 2,
+        "mid": 2,
+        "eosid": 0,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat2_concrete_umat41",
+        "b120_spg_sale_b4a0d8d36381_section2",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1216,
+          "source_line_end": 1220,
+          "raw_sha256": "e617028513115717a1ff9982d05eea92d26db3d77a41ba5b3f74fce2dbee5b22"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part3",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 3,
+        "secid": 1,
+        "mid": 3,
+        "eosid": 2,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat3_air_eos2",
+        "b120_spg_sale_b4a0d8d36381_section1",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1241,
+          "source_line_end": 1245,
+          "raw_sha256": "20fa2426a50731c9c3772783f8d4d4a7b64cf676a4106173d0a0813f545faead"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part4",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 4,
+        "secid": 2,
+        "mid": 4,
+        "eosid": 0,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat4_c5_soil_foam",
+        "b120_spg_sale_b4a0d8d36381_section2",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1256,
+          "source_line_end": 1260,
+          "raw_sha256": "3b7d5542c55c2732a0416891fb6fd423f05c10143b4e36b650eaca335bc149d8"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part5",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 5,
+        "secid": 3,
+        "mid": 5,
+        "eosid": 0,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat5_rc40_umat41",
+        "b120_spg_sale_b4a0d8d36381_section3",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1275,
+          "source_line_end": 1279,
+          "raw_sha256": "960b5cb88a6cdefa11e5778beb3788a84a5dbefd47e0abb1f3a0ea1803a2e61a"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_part6",
+      "resource_kind": "part_relations",
+      "original_ids": {
+        "pid": 6,
+        "secid": 3,
+        "mid": 6,
+        "eosid": 0,
+        "hgid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_mat6_steel",
+        "b120_spg_sale_b4a0d8d36381_section3",
+        "b120_spg_sale_b4a0d8d36381_hourglass1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*PART",
+          "source_line_start": 1296,
+          "source_line_end": 1300,
+          "raw_sha256": "a3c043ba9091cc4bb56b74e4195692c0c4ec5104b71533879ed2c709dc98c0b2"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_contact1",
+      "resource_kind": "contacts",
+      "original_ids": {
+        "cid": 1,
+        "slave_pid": 2,
+        "master_pid": 4
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part2",
+        "b120_spg_sale_b4a0d8d36381_part4"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID",
+          "source_line_start": 1161,
+          "source_line_end": 1169,
+          "raw_sha256": "8f00e5cd9181442d9dde04846ff762050243ea11c2300651bd0cfe0684922c9f"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_contact3",
+      "resource_kind": "contacts",
+      "original_ids": {
+        "cid": 3,
+        "slave_pid": 2,
+        "master_pid": 6
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part2",
+        "b120_spg_sale_b4a0d8d36381_part6"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID",
+          "source_line_start": 1170,
+          "source_line_end": 1178,
+          "raw_sha256": "4ad45eca39c79b44ff6b248432d3cff1300349e95c588234ba2ba82938e1d99c"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_contact4",
+      "resource_kind": "contacts",
+      "original_ids": {
+        "cid": 4,
+        "slave_pid": 4,
+        "master_pid": 6
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part4",
+        "b120_spg_sale_b4a0d8d36381_part6"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID",
+          "source_line_start": 1179,
+          "source_line_end": 1187,
+          "raw_sha256": "a444679c28b941738b510702b4c1c6a3ab953bbfcf5c0cb1466284878d256039"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_contact5",
+      "resource_kind": "contacts",
+      "original_ids": {
+        "cid": 5,
+        "slave_pid": 5,
+        "master_pid": 6
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part5",
+        "b120_spg_sale_b4a0d8d36381_part6"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID",
+          "source_line_start": 1188,
+          "source_line_end": 1196,
+          "raw_sha256": "4401b4953938ab85996235655fe258efc6db457d8e107e7b1dfff664dc82ed96"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+      "resource_kind": "mesh_recipes",
+      "original_ids": {
+        "mshid": 1001,
+        "dynamic_pid": 101,
+        "control_point_ids": [
+          1,
+          2,
+          3
+        ]
+      },
+      "dependencies": [],
+      "reuse_policy": "regenerate_from_physical_recipe",
+      "binding_recipe": {
+        "mesh_id": 1001,
+        "dynamic_part_id": 101,
+        "bounds": [
+          [
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          [
+            0.5,
+            0.5,
+            1.6
+          ]
+        ],
+        "cell_counts": [
+          50,
+          50,
+          105
+        ],
+        "nodes": 275706,
+        "elements": 262500,
+        "spacing": [
+          0.02,
+          0.02,
+          0.02
+        ]
+      },
+      "source_cards": [
+        {
+          "keyword": "*ALE_STRUCTURED_MESH",
+          "source_line_start": 1317,
+          "source_line_end": 1321,
+          "raw_sha256": "5004e706828d3e3b512e8142d46c8b61dd7d932501c985b04fb934eb18413fd9"
+        },
+        {
+          "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+          "source_line_start": 1322,
+          "source_line_end": 1327,
+          "raw_sha256": "efc01bbd061ee0b9774b5c0540a47bf5978f0a46cd4c9ddf338c5813563834bb"
+        },
+        {
+          "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+          "source_line_start": 1328,
+          "source_line_end": 1333,
+          "raw_sha256": "50d0f5f2ff2c9a2197c5361b4c242dd1da4cd596d0657948e908923ec6dc1f48"
+        },
+        {
+          "keyword": "*ALE_STRUCTURED_MESH_CONTROL_POINTS",
+          "source_line_start": 1334,
+          "source_line_end": 1339,
+          "raw_sha256": "c150514d31f956ff8f599ce58fa81d68f3bd40dbd224e4e1d02c4141f4f85742"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_ale_groups",
+      "resource_kind": "ale",
+      "original_ids": {
+        "ordinal_ammg1_pid": 1,
+        "ordinal_ammg2_pid": 3
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part1",
+        "b120_spg_sale_b4a0d8d36381_part3"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*ALE_MULTI-MATERIAL_GROUP",
+          "source_line_start": 1347,
+          "source_line_end": 1350,
+          "raw_sha256": "43d08959098319e6f4fa30320b36b90d190a093bc6ec72b817a6b1dff8c9d563"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_ammg_set1",
+      "resource_kind": "sets",
+      "original_ids": {
+        "ammsid": 1,
+        "ammg_ids": [
+          1
+        ]
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_ale_groups"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*SET_MULTI_MATERIAL_GROUP_LIST",
+          "source_line_start": 2033709,
+          "source_line_end": 2033713,
+          "raw_sha256": "03a0cf5335c56c2c6e29adc32624e79d86bb4ecb320525ae4b7ee1d86d49c106"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_coupling1",
+      "resource_kind": "couplings",
+      "original_ids": {
+        "coupid": 1,
+        "structure_pid": 2,
+        "ale_dynamic_pid": 101,
+        "mcoup": -1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part2",
+        "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+        "b120_spg_sale_b4a0d8d36381_ammg_set1"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*ALE_COUPLING_NODAL_PENALTY_ID",
+          "source_line_start": 1340,
+          "source_line_end": 1346,
+          "raw_sha256": "a56d9a02c2fd39e52ea09c74532b0db5ec3747260a78b547cf70b4c26e475b5e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_detonation",
+      "resource_kind": "initial_conditions",
+      "original_ids": {
+        "pid": 101
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+        "b120_spg_sale_b4a0d8d36381_ale_groups"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*INITIAL_DETONATION",
+          "source_line_start": 1307,
+          "source_line_end": 1309,
+          "raw_sha256": "39a885d251e81dc97a79f505ad571bde72a48e14fff929d2c561ccca03b8e4c0"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_volume_fraction",
+      "resource_kind": "initial_conditions",
+      "original_ids": {
+        "fmsid": 101,
+        "bammg": 2,
+        "fammg": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+        "b120_spg_sale_b4a0d8d36381_ale_groups"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*INITIAL_VOLUME_FRACTION_GEOMETRY",
+          "source_line_start": 1310,
+          "source_line_end": 1316,
+          "raw_sha256": "e74aa99fc00b2a38a8d91bb3f2bb9cb0188f9e5ba03431e4d9396ff420f6ed84"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_node_set1_bottom",
+      "resource_kind": "sets",
+      "original_ids": {
+        "nsid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part5",
+        "b120_spg_sale_b4a0d8d36381_part6"
+      ],
+      "reuse_policy": "regenerate_from_physical_recipe",
+      "binding_recipe": {
+        "selector": "all new nodes belonging to parts 5 or 6 at z=-1.54",
+        "original_count": 8517,
+        "original_set_equals_all_source_bottom_nodes": true
+      },
+      "source_cards": [
+        {
+          "keyword": "*SET_NODE_LIST_TITLE",
+          "source_line_start": 91,
+          "source_line_end": 1160,
+          "raw_sha256": "c0f57c88c19dbe49773ed9a09e05d4d4dab7e0e23477bc872d68f7e991e66940"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_segment_set2_bottom",
+      "resource_kind": "sets",
+      "original_ids": {
+        "ssid": 2
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_part5",
+        "b120_spg_sale_b4a0d8d36381_part6"
+      ],
+      "reuse_policy": "regenerate_from_physical_recipe",
+      "binding_recipe": {
+        "selector": "new external bottom faces of parts 5 and 6 at z=-1.54",
+        "normal": [
+          0,
+          0,
+          -1
+        ],
+        "original_segment_count": 8216,
+        "original_parts": {
+          "5": 8016,
+          "6": 200
+        }
+      },
+      "source_cards": [
+        {
+          "keyword": "*SET_SEGMENT_TITLE",
+          "source_line_start": 2025488,
+          "source_line_end": 2033708,
+          "raw_sha256": "a7a2dff9a28ca51c41d0d5e8a44e659d5e118fe4db02da55d031af6b68fd917c"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_segment_set1_sale",
+      "resource_kind": "sets",
+      "original_ids": {
+        "ssid": 1,
+        "mshid": 1001
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_sale_grid1001"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*SET_SEGMENT_GENERAL_TITLE",
+          "source_line_start": 2025482,
+          "source_line_end": 2025487,
+          "raw_sha256": "08cb561048fe5fe6616f27eb67b626a5b35b408dc66d13ba2dc853b5ae0cc9aa"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_boundary_spc",
+      "resource_kind": "boundary_conditions",
+      "original_ids": {
+        "nsid": 1
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_node_set1_bottom"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*BOUNDARY_SPC_SET",
+          "source_line_start": 88,
+          "source_line_end": 90,
+          "raw_sha256": "5608a10cd72e6fcd3004b1ef7b13f6f2ea8f6e5ce61703acf51a5f959ef36e2e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_boundary_nonreflecting",
+      "resource_kind": "boundary_conditions",
+      "original_ids": {
+        "ssids": [
+          1,
+          2
+        ]
+      },
+      "dependencies": [
+        "b120_spg_sale_b4a0d8d36381_segment_set1_sale",
+        "b120_spg_sale_b4a0d8d36381_segment_set2_bottom"
+      ],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*BOUNDARY_NON_REFLECTING",
+          "source_line_start": 84,
+          "source_line_end": 87,
+          "raw_sha256": "7398dcabefa22444ce1b7e40d584c7947f04bf593d9adf0f54f37d13b845b893"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_keyword",
+      "resource_kind": "headers",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*KEYWORD",
+          "source_line_start": 6,
+          "source_line_end": 6,
+          "raw_sha256": "4f60ac4669ba899b0cf1cb2b5270f9f78ce135309f7f8c7655aed3ef609e0942"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_title",
+      "resource_kind": "headers",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*TITLE",
+          "source_line_start": 7,
+          "source_line_end": 9,
+          "raw_sha256": "6e66590d83e1e087b4729b167bbb996bf18f45b442782db29f723c6b4e20c176"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_ale",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ALE",
+          "source_line_start": 10,
+          "source_line_end": 19,
+          "raw_sha256": "373e3485b42a39cc3b5d9fdb914c88ff691efea1747e6baeaa7c4a717a6d732d"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_bulk_viscosity",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_BULK_VISCOSITY",
+          "source_line_start": 20,
+          "source_line_end": 23,
+          "raw_sha256": "76263a3dccc187be01d79afa2abd1c0eb665a232bf2e0b74084050cfab0b9d09"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_contact",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_CONTACT",
+          "source_line_start": 24,
+          "source_line_end": 36,
+          "raw_sha256": "ade2cac1e5cb9a7556438a49751a475797e501bce8f7df4666bd92556d20785c"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_energy",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_ENERGY",
+          "source_line_start": 37,
+          "source_line_end": 40,
+          "raw_sha256": "9d337025ac062f60da811180e002b418d604e80f9e8574571e0533bf47d4cf3e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_termination",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TERMINATION",
+          "source_line_start": 41,
+          "source_line_end": 43,
+          "raw_sha256": "3aa14e79bcba97f8db9fa9036d061357dcfd02e76de145da0ff30ae0bbcb6004"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_control_timestep",
+      "resource_kind": "controls",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*CONTROL_TIMESTEP",
+          "source_line_start": 44,
+          "source_line_end": 50,
+          "raw_sha256": "2d8b4bd2e7213d34b1c3d6c6eac6a9cbccf9e83d215e7d63ef160acd3c7eb51e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_glstat",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_GLSTAT",
+          "source_line_start": 51,
+          "source_line_end": 53,
+          "raw_sha256": "dabd4ba79afbc86a1ab195fd11335494f636fbd42e1c8d7a2deda0b711d8069d"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_matsum",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_MATSUM",
+          "source_line_start": 54,
+          "source_line_end": 56,
+          "raw_sha256": "3e578039de41a111fde5c35bd59ec889e2e5a4db4a5768c7cbf203f3fc171e17"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_rcforc",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_RCFORC",
+          "source_line_start": 57,
+          "source_line_end": 59,
+          "raw_sha256": "5cb053ec6f9620a6d0ffbf3b986aead4494da2421bb374f2c291ca4ed093037f"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_binary_d3dump",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3DUMP",
+          "source_line_start": 60,
+          "source_line_end": 63,
+          "raw_sha256": "6adbc26e409b8b0c72ddc1906eddacb70851d1d7fab0142e561172ccb5fcd22e"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_binary_d3plot",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3PLOT",
+          "source_line_start": 64,
+          "source_line_end": 68,
+          "raw_sha256": "2a6f1d2d6c6b7826f2537de64f63503b118b6225f264f07582e07cb2ec89b981"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_binary_d3thdt",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_BINARY_D3THDT",
+          "source_line_start": 69,
+          "source_line_end": 72,
+          "raw_sha256": "77c98b26ff07698b46ca9f87b4ba14e519acce0e762369ec50f4e9fc62d1e4c4"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_extent_binary",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_EXTENT_BINARY",
+          "source_line_start": 73,
+          "source_line_end": 79,
+          "raw_sha256": "510d9398ca96196bf70690816990470a9df8f45b5985fd77f781251332061f8c"
+        }
+      ]
+    },
+    {
+      "id": "b120_spg_sale_b4a0d8d36381_database_format",
+      "resource_kind": "outputs",
+      "original_ids": {},
+      "dependencies": [],
+      "reuse_policy": "exact_original_card_payload",
+      "source_cards": [
+        {
+          "keyword": "*DATABASE_FORMAT",
+          "source_line_start": 80,
+          "source_line_end": 83,
+          "raw_sha256": "7eb2c1e25c0b503a8973e005e7e66bc46925a6f8311cdaf716d7dcb8df6194de"
+        }
+      ]
+    }
+  ]
+}

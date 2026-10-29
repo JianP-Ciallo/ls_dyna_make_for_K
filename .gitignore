@@ -1,0 +1,93 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+/packages/blast_damage_assessment/build/
+/packages/blast_damage_assessment/dist/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Web dependencies and generated builds
+web/node_modules/
+web/dist/
+/.pnpm-store/
+
+# Project-generated output
+/dist/
+/workspace/
+/projects/
+/var/generated_configs/*
+!/var/generated_configs/.gitkeep
+/var/tmp/*
+!/var/tmp/.gitkeep
+/docs/internal/*
+!/docs/internal/README.zh-CN.md
+examples/phase*/
+examples/complete_solver_cases/*/
+/extras/special_pages_rod_impact/downloads/
+
+# Local agent and worktree state
+/.superpowers/
+/.worktrees/
+
+# LS-PrePost / LS-DYNA runtime files
+lspost.cfile
+lspost.msg
+lspost.db
+/qrun.inf
+*.tmp
+
+# Editor and operating-system metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Optional local generated configs can be regenerated.
+
+# Legacy local review/output directories; preserved on disk.
+/.codex-exec-probe
+/.codex_doc_review/
+/.image-review/
+/.phase18_physical_validation*/
+/.pytest_tmp_*/
+/.task*_mcheck_*/
+/.task*phase18_solver_blast_junit.xml
+/soft_copyright_work/
+/technical_disclosure_work/
+/tmp/
+/tools/qa_softdoc*/
+/tools/generated_softdoc_figures/
+/tools/ch10_*.png
+/tools/ch10_*.jpg
+/tools/chapter10_figures_*.pdf
+/tools/toc_final-*.jpg
+
+# Local runs, browser profiles and native build trees; retain existing
+# versioned acceptance evidence, and preserve all generated files on disk.
+/artifacts/*
+!/artifacts/phase18/
+/artifacts/phase18/*
+!/artifacts/phase18/eight-step-acceptance-20260901/
+/output/
+/outputs/
+/var/*
+!/var/README.zh-CN.md
+!/var/generated_configs/
+!/var/tmp/
+/.agents/
+/.codex/
+/runtime/
+
+# Credentials and machine-specific environment files.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.p12
+*.pfx

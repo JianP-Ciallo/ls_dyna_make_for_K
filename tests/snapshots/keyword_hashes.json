@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1.0",
+  "cases": {
+    "default_shell_plate": {
+      "project_name": "snapshot_shell_plate",
+      "model_type": "shell_plate",
+      "sha256": "902a38ebd72e5355e7faa8defa21ca8e578f1e083bee0fd593f717c37d50d4d6",
+      "line_count": 201,
+      "node_count": 91,
+      "element_count": 72
+    },
+    "default_solid_block": {
+      "project_name": "snapshot_solid_block",
+      "model_type": "solid_block",
+      "sha256": "7984fa4640549f34e5dbd94544898e2a809dd583c9c490ac1db52daf902c8a51",
+      "line_count": 455,
+      "node_count": 273,
+      "element_count": 144
+    },
+    "rebar_drop_on_helmet": {
+      "project_name": "snapshot_rebar_drop_on_helmet",
+      "scene": "rebar_drop_on_helmet",
+      "sha256": "e6af049b1cf8c71e1d90cc9772f1a0a285831291fd926910f9a8beee6f571c9b",
+      "line_count": 23437,
+      "node_count": 8468,
+      "element_count": 6686,
+      "part_count": 2
+    },
+    "rod_impact_plate": {
+      "project_name": "snapshot_rod_impact_plate",
+      "scene": "rod_impact_plate",
+      "sha256": "901f22fea787f64255b5e47581d485e5380c0401a1b30848d3de9166a6fdb181",
+      "line_count": 6337,
+      "node_count": 2327,
+      "element_count": 1792,
+      "part_count": 2
+    },
+    "cube_top_corner_load": {
+      "project_name": "snapshot_cube_top_corner_load",
+      "scene": "cube_top_corner_load",
+      "sha256": "15f211d8a7e3ca9aa2da9973109831c8cc9d0f0d9397aedc9c6e3a126b786da8",
+      "line_count": 256,
+      "node_count": 125,
+      "element_count": 64,
+      "part_count": 1
+    },
+    "plate_pressure": {
+      "project_name": "snapshot_plate_pressure",
+      "scene": "plate_pressure",
+      "sha256": "ddf026f0c08aa1fde5ccba2f3343a69f04c4fbeb76353d9ba0037d07789edfaa",
+      "line_count": 701,
+      "node_count": 231,
+      "element_count": 200,
+      "part_count": 1
+    }
+  }
+}

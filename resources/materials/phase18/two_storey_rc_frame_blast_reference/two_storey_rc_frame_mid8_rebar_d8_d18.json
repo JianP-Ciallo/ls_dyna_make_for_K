@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.2.0",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "version": "2026.08.03",
+  "source": "Audited extraction from the Two-Storey Reinforced Concrete Frame Blast Reference Model; values are source-faithful references, not solver or experimental validation.",
+  "provenance": {
+    "source_name": "2.k",
+    "source_display_name": "Two-Storey Reinforced Concrete Frame Blast Reference Model",
+    "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+    "source_unit_system": "tonne_mm_s_N_MPa"
+  },
+  "category": "rebar_steel",
+  "type": "plastic_kinematic",
+  "density_kg_per_m3": 7850.0,
+  "youngs_pa": 210000000000.0,
+  "poisson": 0.3,
+  "tangent_modulus_pa": 2100000000.0,
+  "parameters_si": {
+    "beta": 0.0,
+    "src_per_s": 6844.0,
+    "srp": 3.91,
+    "vp": 0.0,
+    "failure_strain": 0.15
+  },
+  "id": "two_storey_rc_frame_mid8_rebar_d8_d18",
+  "name": "two_storey_rc_frame_mid8_rebar_d8_d18",
+  "aliases": [
+    "2k_mid8_rebar_d8_d18"
+  ],
+  "display_name": "Two-Storey RC Frame Reference Rebar MID 8 (D8/D18)",
+  "yield_strength_pa": 455000000.0,
+  "section_diameters_mm": [
+    8.0,
+    18.0
+  ],
+  "source_cards": [
+    {
+      "keyword": "*MAT_PLASTIC_KINEMATIC_TITLE",
+      "source_id": 8,
+      "line_start": 2441,
+      "line_end": 2447
+    },
+    {
+      "keyword": "*SECTION_BEAM_TITLE",
+      "source_id": 1,
+      "line_start": 2433,
+      "line_end": 2440
+    },
+    {
+      "keyword": "*SECTION_BEAM_TITLE",
+      "source_id": 6,
+      "line_start": 2519,
+      "line_end": 2526
+    }
+  ]
+}

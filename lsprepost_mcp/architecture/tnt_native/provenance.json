@@ -1,0 +1,21 @@
+{
+  "source_files": {
+    "lsprepost_mcp\\refined_building\\architecture_blast_contracts.py": "d318c7e6f5500c8d1380e0a80c91a1d4dcfc55ed6d404b29f264732abc467c37",
+    "lsprepost_mcp\\refined_building\\architecture_blast_template.py": "e7aec9ee7000d19d86e4343a4aca8e63a22adf9116ff4ec9cdf57943446fcb0b",
+    "lsprepost_mcp\\refined_building\\architecture_blast_placement.py": "5e1cae0a6e61d4d67c61dfb0301e1d7251d2db650f76b14deef8baa391319d42",
+    "lsprepost_mcp\\refined_building\\architecture_blast_openings.py": "9c992371ed4f8e817bb43a90d6a31ef6860a97ba3c2043d3c0d85f299d8bbd59",
+    "lsprepost_mcp\\refined_building\\architecture_blast_monitors.py": "08d6f25184e511f4c220a9bf0c7962e5e109bd27eaba356cad1ce6a07e382391",
+    "lsprepost_mcp\\refined_building\\architecture_blast_export.py": "828afebba760a8a34c19d0072106af905f53fa19e8347d87f036d768a3b4c7d1",
+    "lsprepost_mcp\\refined_building\\architecture_scene_surfaces.py": "c41abf0571dac610605e7627ee207801e6dc60209ba1405681fe029107f9a7bf",
+    "lsprepost_mcp\\refined_building\\architecture_volume_fractions.py": "f765428a80223a7203f2710f7ea6e1935175c25ef37c436c7fbe7482d35a802a",
+    "lsprepost_mcp\\architecture\\solid_geometry.py": "fd5b9ff21fac16d8b86810de00a9a731f2d93d4683a806e454667c2e82563b68",
+    "lsprepost_mcp\\architecture\\geometry.py": "9e26aedb2f733094e2be3cd45f98afe6000cb4e851cef1ff064db6ed0b94bbe3",
+    "lsprepost_mcp\\refined_building\\architecture_structure_k.py": "e598549880b849983300b7c2576b7e251da9dc2fc5f15d33a0bb4854adce954b",
+    "lsprepost_mcp\\refined_building\\architecture_environment_k.py": "3bac558433b010182ca199954d994773e138cd9abfeccbc1db9403db2513c377",
+    "lsprepost_mcp\\refined_building\\architecture_ground_fsi.py": "28e54b02a4098a83ae4e9fd06dbbf6a8d22a47acc35c3a02b26539b026d2a00e",
+    "lsprepost_mcp\\refined_building\\architecture_environment.py": "fdae73176fce949bf7799752800e1035193e653e96d0d67154d77836047d541d",
+    "lsprepost_mcp\\refined_building\\architecture_cylinder_tnt.py": "1b8c9c5fdaeb072347a968b3c19180aa0c8a2a354c40b68c450bd44582e1952b",
+    "lsprepost_mcp\\refined_building\\architecture_solver_setup.py": "dc950eebc3dec51b952b61bde911f15dc4966ac561493eda16e39a26963efa65"
+  },
+  "notes": "Original algorithms retained; imports redirected to isolated pure helpers. No solver entry points copied."
+}

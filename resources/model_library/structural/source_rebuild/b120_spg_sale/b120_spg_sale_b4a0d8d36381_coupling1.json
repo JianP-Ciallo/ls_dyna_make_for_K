@@ -1,0 +1,49 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_coupling1",
+  "resource_kind": "couplings",
+  "original_ids": {
+    "coupid": 1,
+    "structure_pid": 2,
+    "ale_dynamic_pid": 101,
+    "mcoup": -1
+  },
+  "dependencies": [
+    "b120_spg_sale_b4a0d8d36381_part2",
+    "b120_spg_sale_b4a0d8d36381_sale_grid1001",
+    "b120_spg_sale_b4a0d8d36381_ammg_set1"
+  ],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*ALE_COUPLING_NODAL_PENALTY_ID",
+      "source_line_start": 1340,
+      "source_line_end": 1346,
+      "raw_sha256": "a56d9a02c2fd39e52ea09c74532b0db5ec3747260a78b547cf70b4c26e475b5e",
+      "raw_text": "*ALE_COUPLING_NODAL_PENALTY_ID\n$#  coupid                                                                 title\n         1                                                                      \n$#   slave    master     stype     mtype         -     mcoup     \n         2       101         1         1                  -1\n$#   start       end     pform      pfac              frcmin      \n       0.01.00000E10         0         0         0       0.1\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_coupling1",
+  "display_name": "B120 SPG S-ALE / coupling1",
+  "category": "couplings",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

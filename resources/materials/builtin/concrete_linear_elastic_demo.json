@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "id": "concrete_linear_elastic_demo",
+  "name": "concrete_linear_elastic_demo",
+  "display_name": "Concrete linear elastic workflow demo",
+  "category": "concrete",
+  "type": "elastic",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "density_kg_per_m3": 2400.0,
+  "youngs_pa": 30000000000.0,
+  "poisson": 0.2,
+  "source": "nominal workflow-only concrete values; calibrate a rate-dependent damage model before engineering blast assessment",
+  "source_url": "",
+  "version": "2026.07.22",
+  "validation_status": "workflow_demo_not_blast_certified",
+  "requires_project_review": true,
+  "notes": "Validates geometry, coupling, boundary, and file workflows only; not certified for concrete damage or fragmentation predictions."
+}

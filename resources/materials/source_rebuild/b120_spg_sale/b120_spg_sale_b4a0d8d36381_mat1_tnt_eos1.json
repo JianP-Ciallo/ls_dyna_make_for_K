@@ -1,0 +1,50 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_mat1_tnt_eos1",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 1,
+    "eosid": 1
+  },
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*MAT_HIGH_EXPLOSIVE_BURN",
+      "source_line_start": 1205,
+      "source_line_end": 1208,
+      "raw_sha256": "1f5dba292ba4b27ad697a455dd3f77a1128b5ec0e1c153ea5f70a2ba044223d7",
+      "raw_text": "*MAT_HIGH_EXPLOSIVE_BURN\n$HMNAME MATERIALS         5tnt\n$#     mid        ro         d       pcj      beta         k         g      sigy\n         1    1530.0    6930.02.10000E10       0.0       0.0       0.0       0.0\n"
+    },
+    {
+      "keyword": "*EOS_JWL",
+      "source_line_start": 1209,
+      "source_line_end": 1212,
+      "raw_sha256": "986ddc130e61b1d74c2aeba378097b5b1a8f11e8448187fff11c0e99fc724e4c",
+      "raw_text": "*EOS_JWL\n$HMNAME PROPERTIES         5eostnt\n$#   eosid         a         b        r1        r2      omeg        e0        vo\n         13.73750E113.747100E9      4.15       0.9      0.356.000000E9       1.0\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_mat1_tnt_eos1",
+  "display_name": "B120 SPG S-ALE / mat1_tnt_eos1",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

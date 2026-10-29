@@ -1,0 +1,12 @@
+{
+  "source": "architecture-initial-pressure-20261018-01/all_energy_fixed/binout",
+  "sha256": "04d7e30a14bc22c7bed92e4c8949ada781bf116bc1f0b24d12d540ce50303e87",
+  "element_id": 19842,
+  "time_s": [
+    0.0,
+    2e-06
+  ],
+  "initial_sig_xx_pa": 0.0,
+  "native_run_performed_for_this_task": false,
+  "initial_pressure_pa": 101440.00000000001
+}

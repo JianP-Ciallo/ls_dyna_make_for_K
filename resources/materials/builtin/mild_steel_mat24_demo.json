@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.2.0",
+  "id": "mild_steel_mat24_demo",
+  "name": "mild_steel_mat24_demo",
+  "display_name": "Mild Steel MAT_024 Demo",
+  "category": "steel",
+  "type": "piecewise_linear_plasticity",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "density_kg_per_m3": 7850.0,
+  "youngs_pa": 210000000000.0,
+  "poisson": 0.3,
+  "yield_strength_pa": 250000000.0,
+  "tangent_modulus_pa": 1000000000.0,
+  "validation_status": "demo",
+  "source": "nominal workflow-validation values derived from the existing built-in mild steel entry; not a calibrated blast material card",
+  "source_url": "",
+  "version": "2026.07.15-demo1",
+  "requires_project_review": true,
+  "notes": "Failure and strain-rate effects are intentionally disabled. Replace with reviewed project data before engineering use."
+}

@@ -1,0 +1,50 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_part3",
+  "resource_kind": "part_relations",
+  "original_ids": {
+    "pid": 3,
+    "secid": 1,
+    "mid": 3,
+    "eosid": 2,
+    "hgid": 1
+  },
+  "dependencies": [
+    "b120_spg_sale_b4a0d8d36381_mat3_air_eos2",
+    "b120_spg_sale_b4a0d8d36381_section1",
+    "b120_spg_sale_b4a0d8d36381_hourglass1"
+  ],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*PART",
+      "source_line_start": 1241,
+      "source_line_end": 1245,
+      "raw_sha256": "20fa2426a50731c9c3772783f8d4d4a7b64cf676a4106173d0a0813f545faead",
+      "raw_text": "*PART\n$#                                                                         title\nAIR\n$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid\n         3         1         3         2         1         0         0         0\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_part3",
+  "display_name": "B120 SPG S-ALE / part3",
+  "category": "part_relations",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

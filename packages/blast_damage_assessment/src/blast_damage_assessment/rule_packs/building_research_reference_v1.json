@@ -1,0 +1,90 @@
+{
+  "schema_version": "blast_damage.rule_pack@1",
+  "pack_id": "building_research_reference@1",
+  "subject": "building",
+  "formal_eligible": false,
+  "label": "Research response-severity conventions; not PDC damage limits",
+  "citations": [
+    {
+      "id": "PDC-TR-06-08-R2-2025",
+      "title": "Single Degree of Freedom Structural Response Limits",
+      "edition": "Revision 2, 23 April 2025",
+      "section": "Chapter 4; Tables 4-1 and 4-8",
+      "url": "https://www.nwo.usace.army.mil/Portals/23/docs/PDC/PDC-TR%2006-08_2025.pdf"
+    },
+    {
+      "id": "UFC-4-010-01-C3-2024",
+      "title": "DoD Minimum Antiterrorism Standards for Buildings",
+      "edition": "Change 3, 24 May 2024",
+      "section": "Applicability context",
+      "url": "https://www.wbdg.org/FFC/DOD/UFC/ufc_4_010_01_2018_c3.pdf"
+    }
+  ],
+  "rules": [
+    {
+      "id": "building_relative_deformation_ratio",
+      "kind": "research_band",
+      "bands": [0.0025, 0.005, 0.01, 0.02],
+      "citations": ["UFC-4-010-01-C3-2024"],
+      "applicability": ["node_kinematics_available", "component_geometry_available"],
+      "aggregation": "max_of_robust_p99_and_connected_affected_ratio; raw_max_corroborates_only"
+    },
+    {
+      "id": "building_stress_to_declared_yield_ratio",
+      "kind": "research_band",
+      "bands": [0.8, 1.0, 1.2, 1.5],
+      "citations": ["UFC-4-010-01-C3-2024"],
+      "applicability": ["stress_available", "declared_material_strength_available"]
+    },
+    {
+      "id": "pdc_rc_each_face_qualifying_shear",
+      "kind": "pdc_profile",
+      "original_terms": ["Superficial Damage", "Moderate Damage", "Heavy Damage", "Hazardous Failure"],
+      "severity_mapping": [0, 2, 3, 4],
+      "citations": ["PDC-TR-06-08-R2-2025"],
+      "applicability": [
+        "response_type", "support_definition", "reinforcement_index_percent",
+        "longitudinal_bars_each_face", "compression_face_area_at_least_one_third",
+        "qualifying_shear_reinforcement", "axial_demand_ratio", "far_field_uniform_loading",
+        "flexural_control", "connection_check", "shear_check", "inbound_rebound_handling"
+      ],
+      "limits": {
+        "ri_percent_lte_5": {"support_rotation_deg": [0.5, 5.0, 8.0, 12.0]},
+        "ri_percent_gt_5": {
+          "support_rotation_deg": [0.5, "7.9*RI^-0.28", "10.4*RI^-0.16", "14.1*RI^-0.10"]
+        }
+      }
+    },
+    {
+      "id": "pdc_hot_rolled_compact_member",
+      "kind": "pdc_profile",
+      "original_terms": ["Superficial Damage", "Moderate Damage", "Heavy Damage", "Hazardous Failure"],
+      "severity_mapping": [0, 2, 3, 4],
+      "citations": ["PDC-TR-06-08-R2-2025"],
+      "applicability": ["response_type", "support_definition", "compactness", "axial_demand_ratio", "far_field_uniform_loading", "flexural_control", "connection_check", "shear_check", "inbound_rebound_handling"],
+      "limits": {"ductility_ratio": [1.0, 3.0, 12.0, 20.0], "support_rotation_deg": [null, 3.0, 10.0, 16.0]}
+    },
+    {
+      "id": "pdc_hot_rolled_noncompact_member",
+      "kind": "pdc_profile",
+      "original_terms": ["Superficial Damage", "Moderate Damage", "Heavy Damage", "Hazardous Failure"],
+      "severity_mapping": [0, 2, 3, 4],
+      "citations": ["PDC-TR-06-08-R2-2025"],
+      "applicability": ["response_type", "support_definition", "compactness", "axial_demand_ratio", "far_field_uniform_loading", "flexural_control", "connection_check", "shear_check", "inbound_rebound_handling"],
+      "limits": {"ductility_ratio": [0.7, 0.85, 1.0, 1.2]}
+    },
+    {
+      "id": "pdc_hot_rolled_plate",
+      "kind": "pdc_profile",
+      "original_terms": ["Superficial Damage", "Moderate Damage", "Heavy Damage", "Hazardous Failure"],
+      "severity_mapping": [0, 2, 3, 4],
+      "citations": ["PDC-TR-06-08-R2-2025"],
+      "applicability": ["response_type", "support_definition", "plate_weak_axis", "axial_demand_ratio", "far_field_uniform_loading", "flexural_control", "connection_check", "shear_check", "inbound_rebound_handling"],
+      "limits": {"ductility_ratio": [1.0, 8.0, 20.0, 40.0], "support_rotation_deg": [null, 3.0, 10.0, 16.0]}
+    }
+  ],
+  "parameters": {
+    "minimum_connected_elements": 4,
+    "isolated_spike_minimum_supporting_neighbors": 2
+  }
+}

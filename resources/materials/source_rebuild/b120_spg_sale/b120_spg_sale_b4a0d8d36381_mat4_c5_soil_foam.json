@@ -1,0 +1,42 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_mat4_c5_soil_foam",
+  "resource_kind": "materials",
+  "original_ids": {
+    "mid": 4
+  },
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*MAT_SOIL_AND_FOAM_TITLE",
+      "source_line_start": 1261,
+      "source_line_end": 1274,
+      "raw_sha256": "e10fc01c5c428c84823128437acedd7e098b4848c3937fd9c8abe6eb5d156ff9",
+      "raw_text": "*MAT_SOIL_AND_FOAM_TITLE\nC5\n$#     mid        ro         g      bulk        a0        a1        a2        pc\n         4    1200.09.440000E7   69100008.33300E12       0.0       0.0 -200000.0\n$#     vcr       ref      lcid    \n       0.0       0.0         0\n$#    eps1      eps2      eps3      eps4      eps5      eps6      eps7      eps8\n       0.0  -0.02226   -0.2562   -0.5108   -0.7985     -1.05    -1.204    -1.386\n$#    eps9     eps10     \n    -1.609    -2.996\n$#      p1        p2        p3        p4        p5        p6        p7        p8\n       0.0   1650000   1650000   2189000   3280000   5025000   7095000   9881000\n$#      p9       p10   \n1.614000E72.874000E8\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_mat4_c5_soil_foam",
+  "display_name": "B120 SPG S-ALE / mat4_c5_soil_foam",
+  "category": "materials",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

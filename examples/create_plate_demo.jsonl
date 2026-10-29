@@ -1,0 +1,4 @@
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"manual-test","version":"0.1.0"}}}
+{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"create_plate_demo","arguments":{"project_name":"plate_demo","length_m":0.1,"width_m":0.05,"thickness_m":0.002,"mesh_size_m":0.01,"if_exists":"overwrite"}}}
+{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"validate_model","arguments":{"project_name":"plate_demo"}}}

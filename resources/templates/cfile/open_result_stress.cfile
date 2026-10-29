@@ -1,0 +1,12 @@
+$ Reserved server-approved LS-PrePost interactive concrete stress-wave template.
+$ Fringe component 9 is the LS-PrePost 4.12 von Mises stress component.
+openc d3plot "{{d3plot_path}}"
+{{display_commands}}
+state {{state_number}}
+fringe 9
+pfringe
+showlegend 1
+mesh
+{{view_command}}
+ac
+interactive

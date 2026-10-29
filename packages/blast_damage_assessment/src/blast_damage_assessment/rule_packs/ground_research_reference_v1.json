@@ -1,0 +1,42 @@
+{
+  "schema_version": "blast_damage.rule_pack@1",
+  "pack_id": "ground_research_reference@1",
+  "subject": "ground",
+  "formal_eligible": false,
+  "label": "Project research response-severity convention; not a code damage limit",
+  "citations": [
+    {
+      "id": "ASSESSMENT-DESIGN-2026-09-01",
+      "title": "Blast Damage Assessment System Design",
+      "edition": "2026-09-01",
+      "section": "5.5.2",
+      "url": "docs/superpowers/specs/2026-09-01-blast-damage-assessment-system-design.md"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ground_depth_to_median_surface_cell",
+      "kind": "research_band",
+      "bands": [0.1, 0.25, 0.5, 1.0],
+      "citations": ["ASSESSMENT-DESIGN-2026-09-01"],
+      "applicability": ["ground_surface_identity", "node_kinematics_available", "median_surface_cell_available"]
+    },
+    {
+      "id": "ground_connected_area_in_surface_cells",
+      "kind": "research_band",
+      "bands": [4, 16, 64, 256],
+      "citations": ["ASSESSMENT-DESIGN-2026-09-01"],
+      "applicability": ["ground_surface_identity", "connected_region_available", "median_surface_cell_available"]
+    }
+  ],
+  "parameters": {
+    "minimum_connected_elements": 4,
+    "isolated_spike_minimum_supporting_neighbors": 2,
+    "tail_fraction": 0.2,
+    "minimum_tail_states": 5,
+    "maximum_tail_speed_fraction_of_peak": 0.05,
+    "absolute_tail_speed_floor_m_per_s": 0.01,
+    "maximum_tail_geometry_relative_drift": 0.02,
+    "minimum_tail_region_jaccard": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_control_termination",
+  "resource_kind": "controls",
+  "original_ids": {},
+  "dependencies": [],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*CONTROL_TERMINATION",
+      "source_line_start": 41,
+      "source_line_end": 43,
+      "raw_sha256": "3aa14e79bcba97f8db9fa9036d061357dcfd02e76de145da0ff30ae0bbcb6004",
+      "raw_text": "*CONTROL_TERMINATION\n$#  endtim    endcyc     dtmin    endeng    endmas     nosol     \n     0.006         0       0.0      0.01       0.0         0\n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_control_termination",
+  "display_name": "B120 SPG S-ALE / control_termination",
+  "category": "controls",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

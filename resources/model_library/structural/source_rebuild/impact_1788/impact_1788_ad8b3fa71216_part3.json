@@ -1,0 +1,45 @@
+{
+  "id": "impact_1788_ad8b3fa71216_part3",
+  "resource_kind": "part_relations",
+  "original_ids": {
+    "pid": 3
+  },
+  "dependencies": [
+    "impact_1788_ad8b3fa71216_air_mid3_eos3",
+    "impact_1788_ad8b3fa71216_ale2d_secid1",
+    "impact_1788_ad8b3fa71216_hourglass_hgid1"
+  ],
+  "source_cards": [
+    {
+      "keyword": "*PART",
+      "source_line_start": 104,
+      "source_line_end": 109,
+      "raw_sha256": "b58aef579db3700ba46bb50966eccf3e00b2e5e8aa782c9b45558de3e25938df",
+      "raw_text": "*PART\n$HWCOLOR COMPS       3       6\n$#                                                                         title\nair\n$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid\n         3         1         3         3         1         0         0         0\n"
+    }
+  ],
+  "schema_version": "source_keyword_bundle@1",
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "name": "part3",
+  "display_name": "5-1788-2 / part3",
+  "category": "part_relations",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "Source-faithful 5-1788-2 nonmesh extraction",
+  "provenance": {
+    "source_sha256": "ad8b3fa71216379a66714ea2d9fdaf4db2d241bbadded064f00b98346e8829b8",
+    "source_name": "5-1788-2.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "Confirmed SI preserved; UMAT constants not reinterpreted"
+  },
+  "external_dependencies": [],
+  "notes": "Exact source fields and blanks; no solver or constitutive validation."
+}

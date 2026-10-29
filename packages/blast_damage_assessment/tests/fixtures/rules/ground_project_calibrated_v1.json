@@ -1,0 +1,11 @@
+{
+  "schema_version": "blast_damage.rule_pack@1",
+  "pack_id": "ground_project_calibrated@1",
+  "subject": "ground",
+  "formal_eligible": true,
+  "label": "Reviewed project calibration",
+  "citations": [{"id": "PROJECT-GROUND", "title": "Ground calibration report", "edition": "1", "section": "3", "url": "project://calibration/ground-1"}],
+  "rules": [{"id": "project_ground_depth", "kind": "calibrated_band", "bands": [0.05, 0.1, 0.2, 0.4], "citations": ["PROJECT-GROUND"], "applicability": ["surface_identity", "calibrated_soil"]}],
+  "bindings": {"applicability_predicates": ["surface_identity", "calibrated_soil"], "geometry_assumptions": {"surface_axis": "z"}, "material_ids": [7], "subject_family": "calibrated_soil", "unit_system": "SI_m_s_kg_N_Pa"},
+  "review_record": {"reviewer": "Engineer B", "review_date": "2026-08-02", "source": "project://calibration/ground-1", "reviewed_binding_sha256": "78c1d3984e1a43dca988d6fa439a92ecc7f7228175b223f8be48fac0a73fd60a"}
+}

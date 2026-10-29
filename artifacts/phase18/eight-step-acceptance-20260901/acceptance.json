@@ -1,0 +1,537 @@
+{
+  "schema_version": "phase18f.eight_step_acceptance@1",
+  "acceptance": [
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "providerId": "solver_complete_ale_fsi",
+      "projectUrl": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229535720",
+      "restoredAsset": "commercial_supermarket_detailed_building",
+      "restoredProvider": "solver_complete_ale_fsi",
+      "meshProfile": "standard",
+      "airCellSize": 0.225,
+      "groundCellSize": 0.25,
+      "tntMass": 2,
+      "tntPosition": [
+        -2,
+        1.5,
+        4
+      ]
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "providerId": "solver_complete_ale_fsi",
+      "projectUrl": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229541852",
+      "restoredAsset": "residential_community_detailed_building",
+      "restoredProvider": "solver_complete_ale_fsi",
+      "meshProfile": "coarse",
+      "airCellSize": 0.3,
+      "groundCellSize": 0.3,
+      "tntMass": 1.5,
+      "tntPosition": [
+        -1.5,
+        2,
+        3
+      ]
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "providerId": "solver_complete_ale_fsi",
+      "projectUrl": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229547852",
+      "restoredAsset": "subway_entrance_detailed_building",
+      "restoredProvider": "solver_complete_ale_fsi",
+      "meshProfile": "fine",
+      "airCellSize": 0.2,
+      "groundCellSize": 0.15,
+      "tntMass": 1,
+      "tntPosition": [
+        -1,
+        1,
+        1.2
+      ]
+    }
+  ],
+  "audits": [
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 1,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 252
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 2,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 93
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 3,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 84
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 4,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 26
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 5,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 82
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 6,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 54
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 7,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 195
+    },
+    {
+      "assetId": "commercial_supermarket_detailed_building",
+      "step": 8,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 96
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 1,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 264
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 2,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 103
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 3,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 84
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 4,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 26
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 5,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 82
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 6,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 54
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 7,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 195
+    },
+    {
+      "assetId": "residential_community_detailed_building",
+      "step": 8,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 96
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 1,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 264
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 2,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 89
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 3,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 90
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 4,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 861
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 5,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 156
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 6,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 54
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 7,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 195
+    },
+    {
+      "assetId": "subway_entrance_detailed_building",
+      "step": 8,
+      "passed": true,
+      "shellMissing": false,
+      "panelMissing": false,
+      "horizontalOverflow": false,
+      "panelHorizontalOverflow": false,
+      "clippedControls": [],
+      "panelTextLength": 96
+    }
+  ],
+  "records": [
+    {
+      "name": "01-commercial-supermarket-step-01.png",
+      "label": "商业超市 · 八步配置 1/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-02.png",
+      "label": "商业超市 · 八步配置 2/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-03.png",
+      "label": "商业超市 · 八步配置 3/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-04.png",
+      "label": "商业超市 · 八步配置 4/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-05.png",
+      "label": "商业超市 · 八步配置 5/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-06.png",
+      "label": "商业超市 · 八步配置 6/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-07.png",
+      "label": "商业超市 · 八步配置 7/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-step-08.png",
+      "label": "商业超市 · 八步配置 8/8",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "01-commercial-supermarket-saved.png",
+      "label": "商业超市 · 草稿已保存且未编译 K 包",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229535720"
+    },
+    {
+      "name": "01-commercial-supermarket-preview.png",
+      "label": "商业超市 · 轻量三维预览",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229535720"
+    },
+    {
+      "name": "01-commercial-supermarket-validation.png",
+      "label": "商业超市 · 当前保存修订检查",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229535720"
+    },
+    {
+      "name": "01-commercial-supermarket-restored.png",
+      "label": "商业超市 · 返回后恢复同一项目",
+      "scenario": "commercial_supermarket_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-01.png",
+      "label": "住宅建筑 · 八步配置 1/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-02.png",
+      "label": "住宅建筑 · 八步配置 2/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-03.png",
+      "label": "住宅建筑 · 八步配置 3/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-04.png",
+      "label": "住宅建筑 · 八步配置 4/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-05.png",
+      "label": "住宅建筑 · 八步配置 5/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-06.png",
+      "label": "住宅建筑 · 八步配置 6/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-07.png",
+      "label": "住宅建筑 · 八步配置 7/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-step-08.png",
+      "label": "住宅建筑 · 八步配置 8/8",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "02-residential-community-saved.png",
+      "label": "住宅建筑 · 草稿已保存且未编译 K 包",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229541852"
+    },
+    {
+      "name": "02-residential-community-preview.png",
+      "label": "住宅建筑 · 轻量三维预览",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229541852"
+    },
+    {
+      "name": "02-residential-community-validation.png",
+      "label": "住宅建筑 · 当前保存修订检查",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229541852"
+    },
+    {
+      "name": "02-residential-community-restored.png",
+      "label": "住宅建筑 · 返回后恢复同一项目",
+      "scenario": "residential_community_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-01.png",
+      "label": "地铁入口 · 八步配置 1/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-02.png",
+      "label": "地铁入口 · 八步配置 2/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-03.png",
+      "label": "地铁入口 · 八步配置 3/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-04.png",
+      "label": "地铁入口 · 八步配置 4/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-05.png",
+      "label": "地铁入口 · 八步配置 5/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-06.png",
+      "label": "地铁入口 · 八步配置 6/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-07.png",
+      "label": "地铁入口 · 八步配置 7/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-step-08.png",
+      "label": "地铁入口 · 八步配置 8/8",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    },
+    {
+      "name": "03-subway-entrance-saved.png",
+      "label": "地铁入口 · 草稿已保存且未编译 K 包",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229547852"
+    },
+    {
+      "name": "03-subway-entrance-preview.png",
+      "label": "地铁入口 · 轻量三维预览",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229547852"
+    },
+    {
+      "name": "03-subway-entrance-validation.png",
+      "label": "地铁入口 · 当前保存修订检查",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast?project_id=refined-blast-1788229547852"
+    },
+    {
+      "name": "03-subway-entrance-restored.png",
+      "label": "地铁入口 · 返回后恢复同一项目",
+      "scenario": "subway_entrance_detailed_building",
+      "url": "http://127.0.0.1:8876/refined-building-blast"
+    }
+  ]
+}

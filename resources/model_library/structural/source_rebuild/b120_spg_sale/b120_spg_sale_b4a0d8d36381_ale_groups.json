@@ -1,0 +1,46 @@
+{
+  "id": "b120_spg_sale_b4a0d8d36381_ale_groups",
+  "resource_kind": "ale",
+  "original_ids": {
+    "ordinal_ammg1_pid": 1,
+    "ordinal_ammg2_pid": 3
+  },
+  "dependencies": [
+    "b120_spg_sale_b4a0d8d36381_part1",
+    "b120_spg_sale_b4a0d8d36381_part3"
+  ],
+  "reuse_policy": "exact_original_card_payload",
+  "source_cards": [
+    {
+      "keyword": "*ALE_MULTI-MATERIAL_GROUP",
+      "source_line_start": 1347,
+      "source_line_end": 1350,
+      "raw_sha256": "43d08959098319e6f4fa30320b36b90d190a093bc6ec72b817a6b1dff8c9d563",
+      "raw_text": "*ALE_MULTI-MATERIAL_GROUP\n$#     sid    idtype    gpname      \n         1         1          \n         3         1          \n"
+    }
+  ],
+  "type": "source_keyword_bundle",
+  "resource_type": "source_keyword_bundle",
+  "schema_version": "source_keyword_bundle@1",
+  "name": "b120_spg_sale_b4a0d8d36381_ale_groups",
+  "display_name": "B120 SPG S-ALE / ale_groups",
+  "category": "ale",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "version": "1.0",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "source": "B-120-C5-50-6kg-SPG-SALE-total.k",
+  "notes": "Original physical fields and blanks retained; mesh selectors rebound by space.",
+  "unit_conversion": {
+    "applied": false,
+    "factor": 1,
+    "reason": "User-confirmed SI; original values retained"
+  },
+  "provenance": {
+    "source_sha256": "b4a0d8d363817e691152186fd073440c9e2dc70057b1f2e941ea6110c6b1df38",
+    "source_name": "B-120-C5-50-6kg-SPG-SALE-total.k",
+    "source_unit_system": "SI_m_s_kg_N_Pa",
+    "unit_confirmation": "User confirmed SI on 2026-09-26"
+  },
+  "external_dependencies": []
+}

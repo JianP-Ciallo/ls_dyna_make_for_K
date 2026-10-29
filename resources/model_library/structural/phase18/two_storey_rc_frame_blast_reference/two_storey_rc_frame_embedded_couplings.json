@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1.0",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "validation_status": "source_reference",
+  "requires_project_review": true,
+  "version": "2026.08.05",
+  "source": "Audited structural relationship extraction from the Two-Storey Reinforced Concrete Frame Blast Reference Model; not solver or engineering validation.",
+  "provenance": {
+    "source_name": "2.k",
+    "source_display_name": "Two-Storey Reinforced Concrete Frame Blast Reference Model",
+    "source_sha256": "c1c02a9e832852854b47cd3720bc9348cf48989484d25e1a54036836d0697a22",
+    "source_unit_system": "tonne_mm_s_N_MPa"
+  },
+  "id": "two_storey_rc_frame_embedded_couplings",
+  "name": "two_storey_rc_frame_embedded_couplings",
+  "aliases": [
+    "2k_embedded_couplings"
+  ],
+  "display_name": "Two-Storey RC Frame Embedded Coupling Relationships",
+  "resource_type": "embedded_couplings",
+  "items": [
+    {
+      "coupling_index": 1,
+      "ssid": 1,
+      "msid": 201,
+      "sstyp": 0,
+      "mstyp": 1,
+      "slave_kind": "set",
+      "master_kind": "part",
+      "source_line_start": 21093,
+      "source_line_end": 21109
+    },
+    {
+      "coupling_index": 2,
+      "ssid": 2,
+      "msid": 301,
+      "sstyp": 0,
+      "mstyp": 1,
+      "slave_kind": "set",
+      "master_kind": "part",
+      "source_line_start": 21110,
+      "source_line_end": 21126
+    },
+    {
+      "coupling_index": 3,
+      "ssid": 402,
+      "msid": 401,
+      "sstyp": 1,
+      "mstyp": 1,
+      "slave_kind": "part",
+      "master_kind": "part",
+      "source_line_start": 21127,
+      "source_line_end": 21140
+    },
+    {
+      "coupling_index": 4,
+      "ssid": 4,
+      "msid": 3,
+      "sstyp": 0,
+      "mstyp": 0,
+      "slave_kind": "set",
+      "master_kind": "set",
+      "source_line_start": 21141,
+      "source_line_end": 21157
+    },
+    {
+      "coupling_index": 5,
+      "ssid": 6,
+      "msid": 501,
+      "sstyp": 0,
+      "mstyp": 1,
+      "slave_kind": "set",
+      "master_kind": "part",
+      "source_line_start": 21158,
+      "source_line_end": 21174
+    }
+  ]
+}

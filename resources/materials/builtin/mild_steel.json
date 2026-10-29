@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "id": "mild_steel",
+  "name": "mild_steel",
+  "display_name": "Mild Steel",
+  "category": "steel",
+  "type": "elastic",
+  "unit_system": "SI_m_s_kg_N_Pa",
+  "density_kg_per_m3": 7850.0,
+  "youngs_pa": 210000000000.0,
+  "poisson": 0.3,
+  "yield_strength_pa": 250000000.0,
+  "source": "built-in nominal engineering value for workflow testing; verify before production analysis",
+  "source_url": "",
+  "version": "2026.05.17",
+  "requires_project_review": true,
+  "notes": "Generic mild steel values are nominal and are intended for MCP workflow validation, not certified material cards."
+}
