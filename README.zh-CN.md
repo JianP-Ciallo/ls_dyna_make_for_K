@@ -5,7 +5,7 @@
 从 GitHub 克隆后首次运行，请先阅读 [源码安装与启动指南](docs/QUICKSTART.zh-CN.md)。
 其他使用、开发和验收资料集中在 [文档导航](docs/README.zh-CN.md)。
 
-`lsprepost-mcp` 是一个本地 MCP Server，用于把 Codex、Cursor、Claude Desktop、Windsurf、VS Code、Visual Studio 等 AI IDE 连接到 LS-PrePost，并以受控方式生成 LS-DYNA keyword 模型。
+`lsprepost-mcp` 提供本地 Web 工作台与 stdio MCP 工具服务，用于受控生成 LS-DYNA keyword 模型、管理项目、复核模型及衔接本机 LS-PrePost/求解工具。AI 客户端通过已注册的 MCP 工具使用这些能力，普通用户也可单独使用网页。
 
 ## MCP 与 Web 工作台的区别
 
@@ -27,7 +27,23 @@ MCP 协议也支持 HTTP 传输，但本项目当前没有实现远程 MCP HTTP 
   -> LS-PrePost 打开、校验并导出预览
 ```
 
-这个项目的定位是玩具级到原型级的桥接工具：打通“AI IDE -> MCP -> LS-PrePost”的闭环。它不会开放任意 LS-PrePost 命令，也不会让 AI 直接拼接任意 LS-DYNA keyword。AI 可以理解需求，MCP 只执行白名单工具和受控模板。
+项目定位为受控建模与仿真研究工具，已超出早期仅演示桥接的范围；功能实现、软件验收与工程精度仍分别判定。它不开放任意 LS-PrePost 命令，也不让 AI 直接拼接任意 LS-DYNA keyword，MCP 只执行白名单工具和受控模板。
+
+## 阶段状态与页面入口
+
+阶段状态于 2026-10-30 对照当前源码及已有验收报告核对，详见[阶段与功能核对记录](docs/reviews/README_STATUS_AUDIT_20261030.zh-CN.md)和[首页阶段摘要](README.md#阶段状态摘要)。下表描述当前路由，不把历史预览服务的端口当作默认端口。
+
+| 路径 | 当前用途 |
+| --- | --- |
+| `/` | 原受控建模工作台、组件和场景入口。 |
+| `/refined-building-blast` | Phase 18 精细建筑爆炸工作台、项目验证/生成及损伤评估入口。 |
+| `/fixed-building-pressure` | 固定建筑三维预览。 |
+| `/structural-pressure` | 默认进入室外 TNT 工况与 K 包工作流。 |
+| `/structural-pressure?legacy=1` | 保留的用户给定压力工况与结构 K 包页面。 |
+| `/cpu-blast` | 五类简化场景的浏览器 Worker 演示、回放与独立缓存。 |
+| `/cpu-blast?legacy=1` | 保留的原生候选场景、历史结果与诊断入口，不代表整栋已验收。 |
+| `/fixed-building-pressure/response` | 可选 OpenSeesPy 单柱/单板弹性参考试算，以及可用历史整栋首试报告/静态图表的只读查看与下载。 |
+| `/damage_assessment_demo.html` | 交互式合成损伤评估演示，不是真实求解结果。 |
 
 ## 适用场景
 
@@ -41,7 +57,7 @@ MCP 协议也支持 HTTP 传输，但本项目当前没有实现远程 MCP HTTP 
 
 ## 环境要求
 
-**Windows 便携包**内含独立 Python、NumPy、Pillow 及损伤评估依赖。在 Windows 10/11 64 位电脑上完整解压到可写目录，双击 `start_web_app.cmd` 即可打开页面；无需另装 Python、pip、Node.js，也无需首次联网安装依赖。`runtime/` 必须与启动文件一同保留，文件夹可整体移动。LS-PrePost、LS-Run、LS-DYNA 和求解许可证由用户自行准备，并在页面中配置本机路径。
+**另行制作的 Windows 便携包**可内含独立 Python、NumPy、Pillow 及损伤评估依赖。在 Windows 10/11 64 位电脑上完整解压到可写目录，按包内说明启动；`runtime/` 必须与启动文件一同保留，文件夹可整体移动。GitHub 源码 ZIP 不包含这一运行时。LS-PrePost、LS-Run、LS-DYNA 和求解许可证由用户自行准备，并在页面中配置本机路径。
 
 启动脚本优先使用 `runtime/python/python.exe`，不修改系统 Python 或系统 PATH。内置运行时损坏时会提示重新解压。日常使用保留启动窗口，关闭窗口即结束服务。便携包不带历史工况和求解结果；请使用本机浏览器访问。
 
@@ -49,19 +65,23 @@ MCP 协议也支持 HTTP 传输，但本项目当前没有实现远程 MCP HTTP 
 
 - Windows
 - Python 3.10 或更高版本
-- 本机已安装 LS-PrePost
-- 支持 MCP 的 AI IDE 或 MCP Client
-- 可选：Pillow。只有 `export_preview_gif` 需要 Pillow；核心模型生成、校验和 PNG 预览不依赖第三方 Python 包。
+- 使用外部导入/预览时准备本机 LS-PrePost；单纯打开网页和进行部分静态操作不要求先安装它。
+- 使用 MCP 时准备支持 stdio 的客户端；单独使用 Web 不要求 AI 客户端。
+- NumPy 用于固定建筑模板等能力，Pillow 用于 GIF 导出；独立损伤评估与原生 CPU 试算另装各自依赖。基础生成/校验与这些可选能力的依赖范围不同。
 
 ### 固定建筑预览与压力工况
 
-主工作台顶部的“固定建筑压力分析”是独立入口，提供固定三层建筑的三维预览、用户提供的压力时程配置和结构 K 文件包导出。便携包已包含 NumPy；源码包需在启动 Web 应用的同一个 Python 环境中安装：
+固定建筑采用独立入口：`/fixed-building-pressure` 用于预览，`/structural-pressure` 默认提供室外 TNT 工况与 K 包工作流，旧给定压力工况保留在 `/structural-pressure?legacy=1`。源码包需在启动 Web 应用的同一个 Python 环境中安装：
 
 ```powershell
 python -m pip install "numpy>=1.26,<3"
 ```
 
 安装后双击 `start_web_app.cmd`，或运行 `python -m lsprepost_mcp.web.app`，打开 `/fixed-building-pressure`。固定结构模板与 Three.js 已随包提供。没有安装 NumPy 时，新压力 API 返回模板不可用提示，原主工作台仍可启动。分发包不包含本机虚拟环境、已保存工况、历史求解结果或 LS-DYNA 可执行文件。
+
+当前 TNT 页面支持室外爆源位置/尺寸或质量编辑、三维拖动、初始门窗状态、监测与输出配置。轻量保存/预览不等于生成有限元网格；确认后才执行受控 K 包生成，页面不提供原生求解器启动端点。读取压力曲线时，由本机目录选择器选择既有结果，核对输入身份后读取并可导出 CSV。旧室内工况只保留读取/备份，不能覆盖、预览或导出为新的室内任务。详见 [TNT 接入记录](docs/reviews/2026-10-23-fixed-building-tnt-integration.md)，其中历史预览端口不替代本项目默认端口。
+
+读取既有 `binout` 压力曲线还需在启动 Web 服务的同一个 Python 环境中安装 `lasso-python`；可复用下文“可选的爆炸损伤评估能力”的安装步骤，该步骤固定安装 `lasso-python==2.0.4`。仅安装 NumPy/Pillow 不包含这项读取依赖，保存工况和轻量预览不要求先安装它。
 
 开发者运行 `tests/browser/fixed_building_workspace.cjs` 前，在 `web` 目录执行 `npm install` 和 `npx playwright install chromium`。脚本默认读取该目录的 Playwright；可通过 `PLAYWRIGHT_MODULE` 指定模块，通过 `CHROME_PATH` 指定已有的浏览器可执行文件。
 
@@ -90,15 +110,15 @@ POST 使用 `lsprepost_mcp.damage_assessment_request@1`，仅包含 `schema_vers
 
 每次调用在项目 `artifacts/damage_assessments/assessment_<唯一编号>/` 下保存独立产物，登记失败时保留文件并返回 `completed_unregistered`，重试不会覆盖旧报告。旧 city-impact 接口和页面保持不变，不接入 DeepSeek。接口、历史结果恢复与验收证据见 [主项目桥接验收说明](docs/reviews/blast-damage-assessment/MAIN_PROJECT_BRIDGE_ACCEPTANCE.zh-CN.md)。
 
-#### 页面入口与只读演示
+#### 页面入口与交互式合成演示
 
 进入“精细化建筑爆炸”页面，点击底部“损伤评估”，打开右侧评估面板。
 
-- **先看演示**：点击面板顶部“查看演示”，中间显示住宅建筑及地面原始模型，右侧显示同一案例已保存的建筑、地面评估结果。拖动旋转、滚轮缩放，点击“适配视图”复位；顶部“退出演示，返回原项目”关闭演示。小屏幕上下排列。
-- **查看报告**：演示内可查看和下载该案例的完整报告。演示不要求安装可选评估包，不创建项目、不保存草稿、不启动求解，也不重新执行评估。演示三维视图独立于当前项目，退出时释放。
+- **先看演示**：点击面板顶部“查看演示”，进入三层建筑及地面的独立合成场景。可编辑 1–5 个演示爆源的位置、高度和当量字段，点击“开始评估”后调用评估模块处理合成时序；修改参数立即撤销旧结论。
+- **查看报告与局部显示**：可查看构件依据、整体等级、固定标尺的局部合成影响云图，下载带合成标记的报告和证据。该动态演示需要可选评估依赖；不启动求解、不登记真实求解完成，也不更改真实项目。局部显示值不是材料损伤变量或真实爆炸响应。
 - **真实项目评估**：面板沿用受控 API。开始评估需要模块可用、当前草稿已保存且页面取得对应生成包身份；服务器再次核对终态求解结果和版本。打开面板或刷新不会自动执行评估。模块未安装时仍可查看已登记报告；最新报告不一定属于当前版本。
 
-演示模型为原始壳与实体外表面，非爆炸后变形图；不显示钢筋梁单元和空气域，颜色仅区分构件。内置住宅案例只覆盖约 1.001 ms、22 个计算状态，其建筑、地面等级均为研究参考等级 0，不能据此认定建筑安全或完整事件的最终损伤。材料、模型语义等限制见页面复核事项。
+原住宅只读网格与已保存报告保留为历史资料，不再作为默认演示。当前合成映射没有当量物理换算或真实冲击波叠加；界面的输入范围只是资源/交互边界，不是实际爆源设计范围。演示通过不构成真实 d3plot 解析、规则工程标定或安全鉴定通过。
 
 演示资源生成与验收方式见 [演示说明](docs/reviews/blast-damage-assessment/FRONTEND_DEMO.zh-CN.md)。
 
@@ -191,13 +211,13 @@ start_web_app.cmd
 powershell -ExecutionPolicy Bypass -File .\scripts\start_web_app.ps1 -LsppExe $env:LSPP_EXE -OpenBrowser
 ```
 
-如果没有 Node.js，Web App 会使用内置原生 HTML/CSS/JS 兜底页面。Node.js 只用于开发或重新构建 React/Vite 前端，不是最终用户运行依赖。
+正式 Web 界面统一位于 `lsprepost_mcp/web/static/`，服务始终读取该目录，不会因 `web/dist` 存在而切换页面。Node.js 用于前端开发、静态副本构建和浏览器专项；原 React 文件是历史原型，不是当前正式界面的构建输入。普通启动不需要 Node.js，详见 [前端说明](web/README.md)。
 
 Web App 右侧提供 LS-Run 交接入口。点击“导入 LS-Run”选择本机 `lsrun.exe`，点击“导入 LS-DYNA 求解器”选择本机求解器可执行文件，然后可以对当前项目执行“送入 LS-Run”。当前实现负责校验路径、保存本机配置并打开 LS-Run；它不自动填入全部任务字段，不自动提交求解，不自动监控任务，也不自动解释结果。
 
 ## MCP 配置示例
 
-Codex、Cursor、Claude Desktop、Windsurf 常见格式：
+以下为采用 `mcpServers` JSON 结构的客户端示例，具体顶层结构按客户端要求填写；源码虚拟环境也可直接使用[首页的绝对 Python 路径配置](README.md#ai-ide--mcp)：
 
 ```json
 {
@@ -354,7 +374,7 @@ export_preview_gif
 
 ## 当前建模能力
 
-当前项目只支持下面这些受控场景和模型能力。AI IDE 不应承诺开放式任意建模。
+下面分别列出自然语言场景、通用结构化模型与专用生成入口；它们不是同一份能力清单。AI IDE 不应承诺开放式任意建模。
 
 当前自然语言场景只支持：
 
@@ -363,7 +383,7 @@ export_preview_gif
 - `cube_top_corner_load`：立方体底面固定，顶面四角向下集中载荷。
 - `plate_pressure`：壳板固定边界，板面均布压力。
 
-当前结构化模型类型只支持：
+通用 `generate_model` 的基础结构化生成类型包括：
 
 - `shell_plate`
 - `solid_block`
@@ -375,10 +395,12 @@ export_preview_gif
 - `assembly_scene`
 - `ale_blast_scene`
 
+`imported_keyword` 是导入工作流管理的模型类型，不表示可随意提交该类型生成任意模型。其他专用入口包括 Phase 15、城市街道/地面、Phase 18 精细建筑与分层爆炸、固定建筑 TNT，以及来源固定的 [GRAN_R5](docs/GRAN_R5_REBUILD.zh-CN.md)、[5-1788-2](docs/IMPACT_1788_REBUILD.zh-CN.md)、[B120 SPG/S-ALE](docs/B120_SPG_SALE_REBUILD.zh-CN.md) 重建。源卡复用不等于已补齐缺失的用户材料实现或完成工程验证。
+
 其他当前受控能力包括：
 
 - 单位制：`SI_m_s_kg_N_Pa`
-- 内置材料：`mild_steel`、`aluminum_6061_t6`、`rubber_generic`
+- 基础 SI 材料预设：`mild_steel`、`aluminum_6061_t6`、`rubber_generic`；专用材料/结构资源通过独立资源库和受控编译器管理，不限于这三个基础预设。
 - 弹性材料：`*MAT_ELASTIC`
 - 受控高级材料/用户自定义材料卡：用于明确确认的测试场景
 - 载荷和约束：固定边界、规定运动、节点力、重力、压力、初速度
@@ -487,7 +509,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "<PROJECT_DIR>\scripts\verif
 生成干净 zip：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\pack.ps1 -BuildLabel "phase9-readme-ai-ide"
+powershell -ExecutionPolicy Bypass -File .\scripts\pack.ps1 -BuildLabel "source-review"
 ```
 
 如果要生成“纯净分发包”，不包含历史 demo、生成型 examples、workspace、dist、var 等中间产物，使用：
@@ -503,6 +525,7 @@ dist\
 ```
 
 包名包含优化标签和时间戳，不覆盖旧版本。出现问题时，可以停止当前 MCP，解压旧 zip，并按旧版本 README 重新配置 `LSPP_EXE` 后启动。
+上面的普通打包入口生成源码包；便携包还需传入经过校验的 `-PortableRuntimeDir`，不能把不含运行时的源码包当作免安装包。
 
 其他机器使用流程：
 
@@ -539,9 +562,19 @@ dist\
 
 ## 固定建筑 CPU 构件试算
 
-入口为 `/fixed-building-pressure/response`，也可从“固定建筑压力分析”的“CPU 响应”页签进入。原“工况与 K 文件”页面继续负责压力工况保存和 K 包导出；CPU 参数独立保存，切换页面时会处理未保存工况。
+当前有三条不同的 CPU 路径，不能把它们的功能和验证结论混用。
 
-当前提供 3 m 悬臂配筋柱、2 m × 2 m 分层配筋板两种弹性参考算例。点击“开始 CPU 计算”后才启动独立 OpenSeesPy 进程，可查看位移云图、真实钢筋纤维或配筋层轴向应力、位移/速度/加速度/能量曲线，回放历史结果，导出 CSV、JSON 和图片。压力着色表示给定表面荷载，未求解空气压力场。默认材料和压力用于数值验证，不代表本建筑标定参数。
+### 默认轻量场景演示
+
+`/cpu-blast` 默认提供三层住宅、商超、住宅小区、地铁入口和城市街道五类简化场景。用户显式开始后在浏览器 Worker 中计算，可选择当前场景的破坏表现、查看局部碎裂/飞散、曲线与回放；匹配的结果保存在独立 IndexedDB 缓存中，不自动重算，也不调用旧原生求解 API。
+
+这条默认演示路径不要求先安装 OpenSeesPy。其简化连接、板片与接触响应不等于 LS-DYNA/OpenSees 工程有限元验收；烟尘是表现效果，显示结果不能当作已求得的真实钢筋应力或经标定的损伤预测。当前入口与验证范围见 [CPU 默认入口接入记录](docs/superpowers/reports/2026-10-24-cpu-demo-workbench-integration.md)及[演示响应改进记录](docs/superpowers/reports/2026-10-24-scene-physics.md)。
+
+### 可选弹性参考算例与历史整栋首试
+
+开发验证入口为 `/fixed-building-pressure/response`。给定压力工况与 K 包保留在 `/structural-pressure?legacy=1`，TNT 默认工况使用 `/structural-pressure`；这些参数和任务与 CPU 参考试算独立。
+
+该开发验证页提供 3 m 悬臂配筋柱、2 m × 2 m 分层配筋板两种弹性参考算例。点击“开始 CPU 计算”后才启动独立 OpenSeesPy 进程，可查看位移云图、钢筋纤维或配筋层轴向应力、位移/速度/加速度/能量曲线，回放历史结果，导出 CSV、JSON 和图片。压力着色表示给定表面荷载，未求解空气压力场。默认材料和压力用于数值验证，不代表本建筑标定参数。
 
 Windows 可选环境位于 `.venv/cpu-response`，使用 Python 3.12.10 x64、OpenSeesPy 3.8.0.0。安装和两个极小能力探针均为显式操作，不由页面 GET 自动执行：
 
@@ -555,15 +588,19 @@ python scripts/setup_cpu_response.py --verify-only
 
 每例限 30 s、10,000 积分步、500 帧和 5,000 曲线点，同时仅运行一个 CPU 求解进程。内部每步提取峰值，回放抽稀不改变峰值。钢筋为完全粘结的弹性纤维/配筋层；尚无开裂、屈服、滑移、断裂或倒塌预测。
 
-2026-10-22 续版：完整 150 ms、16→32 网格及 32 网格步长减半的验收通过。钢筋峰值空间变化为柱 0.0676%、板 0.8288%，均低于 2%；最细单板含启动和写盘用时 7.864 s，低于 30 s 上限。页面默认 32 网格，回放保留位移与钢筋峰值帧。详见[验收报告](artifacts/cpu-response-acceptance-20261022-07/validation/acceptance.md)。
+2026-10-22 保存的单柱/单板报告记录：完整 150 ms、16→32 网格及 32 网格步长减半的检查通过。钢筋峰值空间变化为柱 0.0676%、板 0.8288%；最细单板含启动和写盘用时 7.864 s。这是两个弹性参考模型的历史结论，不代表实际建筑或真实爆炸精度，也不是本次重跑结果。来源见 [CPU 参考算例历史记录](docs/reviews/README_STATUS_AUDIT_20261030.zh-CN.md#cpu-参考算例历史记录)。
 
 单板加速只用于已验证的平板、对称配筋和均布横向荷载参考模型：使用原生有限元矩阵，精确消去无质量转角并保留全部有质量自由度；钢筋恢复经原生记录器核对。
 
-三层建筑已完成原生数据、柱板连接、原始配筋及质量映射核验，按用户选择建立独立的规整柱板参考模型：恢复设计柱截面、重新扣除原所有者体积，保留原 K。参考模型有630个结构节点、402个柔性壳和144个纤维梁柱单元，原始柱筋不对称排布及板筋膜弯耦合均保留；填充、楼梯和屋顶附属构件仅计质量/荷载。详见[当前核验报告](artifacts/cpu-response-building-preflight-20261022-04/preflight.md)。
+历史三层柱板参考模型完成过原生数据、连接、配筋与质量映射核对：630 个结构节点、402 个柔性壳和 144 个纤维梁柱单元；填充、楼梯和屋顶附属构件仅计质量/荷载，保留原 K。该理想化参考模型不同于默认轻量演示及后续非线性整栋候选，来源见[状态核对记录](docs/reviews/README_STATUS_AUDIT_20261030.zh-CN.md#cpu-参考算例历史记录)。
 
-经当次明确授权，已只运行首层单块9.0666m²墙面给定10kPa压力的一个真实整栋参考工况：150ms、步长0.1ms、1500步，父进程总耗时97.947s，低于180s预算。节点位移幅值峰值0.080701mm（58.9ms），钢筋原始采样点轴向应力绝对值峰值1.508288MPa（25.6ms）；[结果报告、变形/钢筋云图和响应曲线](artifacts/cpu-response-building-trial-20261022-01/analysis/report.md)均由已校验结果生成。当前仅通过独立CLI运行，网页整栋入口尚未开放；本例未做整栋网格/步长收敛、经验空气冲击波或非线性损伤验证，不能用来判定真实建筑抗爆安全。
+2026-10-22 经当次授权执行过一个线弹性整栋参考工况：首层单块 9.0666 m² 墙面给定 10 kPa 压力，150 ms、1500 步；父进程耗时 97.947 s，节点位移幅值峰值 0.080701 mm、钢筋采样点轴向应力绝对值峰值 1.508288 MPa。该次通过独立 CLI 运行；当前页面可在本机历史产物存在时只读查看报告、静态图表和下载数据，新的整栋参考求解与三维回放仍未启用。GitHub 源码不包含这份历史结果。本例未完成整栋收敛、经验空气冲击波或非线性损伤验证，不能用于判断真实建筑抗爆安全。
 
 `scripts/prepare_cpu_response_building.py --output-dir <新目录>` 只读取原生数据并生成预备输入；`scripts/run_cpu_response_building.py --case <reference-case.json>` 默认只读检查。实际整栋运行需按根 AGENTS.md 说明范围和预计耗时、取得当次明确同意后才显式加 `--run --output-dir <新目录>`。完整150 ms的微型三层已跑通，不能替代真实整栋稳定性、收敛或性能验证。方法、历史失败证据及复现命令见[实施记录](docs/superpowers/plans/2026-10-22-fixed-building-cpu-response.md#执行记录)。
+
+### 保留的原生非线性场景与诊断
+
+`/cpu-blast?legacy=1` 保留原场景工作台、历史结果和诊断；后端/API 仍存在，不表示所有候选模型已可可靠计算。2026-10-24 的[精度运行时复验](docs/superpowers/reports/2026-10-24-native-whole-gravity-precision-revalidation.md)和[局部保护运行时复验](docs/superpowers/reports/2026-10-24-native-whole-gravity-guard-revalidation.md)均记录整栋自重未通过：10% 已接受状态通过，目标 25% 步原生失败并按首次失败停止。不能把该候选写成满自重、后续 TNT 或完整建筑非线性响应已验收，也不能用默认轻量演示的通过替代它。
 
 ## 重要限制
 

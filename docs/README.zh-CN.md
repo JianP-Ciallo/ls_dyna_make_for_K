@@ -7,6 +7,7 @@
 | [项目首页](../README.md) | 项目定位、主要功能和使用入口 |
 | [源码安装与启动](QUICKSTART.zh-CN.md) | 私有仓库克隆、Python 环境、启动命令和常见问题 |
 | [详细中文说明](../README.zh-CN.md) | 受控场景、配置、MCP、可选评估与 CPU 试算 |
+| [当前阶段与功能核对](reviews/README_STATUS_AUDIT_20261030.zh-CN.md) | 2026-10-30 核对的阶段状态、当前入口和验证边界 |
 | [AI IDE 接入起点](../AI_IDE_START_HERE.zh-CN.md) | 把现有项目交给 AI IDE 使用时的入口和边界 |
 | [AI IDE 兼容说明](AI_IDE_COMPAT.zh-CN.md) | 客户端兼容和配置注意事项 |
 
@@ -19,7 +20,7 @@
 | [前端开发说明](../web/README.md) | 正式静态界面、开发服务器、构建和浏览器专项 |
 | [独立损伤评估模块](../packages/blast_damage_assessment/README.zh-CN.md) | 模块安装、API/CLI、规则和验证 |
 | [验证框架](VALIDATION_FRAMEWORK.zh-CN.md) | 模型验证分层及证据要求 |
-| [路线图](ROADMAP.zh-CN.md) | 阶段规划与能力演进记录 |
+| [路线图](ROADMAP.zh-CN.md) | 早期规划快照与能力演进记录；当前状态另见核对表 |
 
 ## 专项说明与历史记录
 
