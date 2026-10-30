@@ -138,16 +138,6 @@ open_model.cfile
 
 以上场景生成的是受控模板模型，不应被描述为任意几何或任意工况生成能力。
 
-### Phase 15 状态与验证范围
-
-Phase 15 已完成当前实现基线，与[路线图的阶段定义](docs/ROADMAP.zh-CN.md#3-阶段总览)一致。本地保存的 2026-07-23 案例 `phase15_a1_kc_axisymmetric_fsi_mmgfix` 在当时的验收报告中记录 `wave_transfer_verified: true`，FSI 从属线段数为 193，并有有限的混凝土压力、主应力及沿测点传播的响应。记录来源、数值及适用边界见 [Phase 15 状态核对说明](docs/reviews/phase15/PHASE15_STATUS.zh-CN.md)。这属于已有案例的历史证据，不代表本次重新运行了求解或新版验收。
-
-早期案例 `phase15_a1_kc_axisymmetric_acceptance_r12fix3` 的 FSI 从属线段数为 0，仅保留为历史失效基线，不能用它代表 Phase 15 整体的当前实现状态。
-
-当前生成器会显式生成上述二维线段集，并静态检查每条 FSI 线段两侧是否具有所选层数的 ALE 覆盖。Web App 默认采用 2 层，可选择 1–3 层，并实时显示“层数 × 网格尺寸”得到的计算侵入深度；该深度是 immersed FSI 的数值覆盖，不是物理空气层厚度。
-
-共形共享节点和共形空气间隙方案在当前代码中仍标为 `experimental_unqualified`，不能直接沿用上述案例的通过结论。新工况需独立核对传递证据和对应验收条件；历史波传递通过也不能证明材料工程标定、网格收敛或损伤预测已经完成。静态校验通过或求解正常结束不能替代这些检查。
-
 ## LS-Run 交接边界
 
 当前 Web App 会校验并保存本机 `lsrun.exe` 与 LS-DYNA 求解器路径，然后打开 LS-Run。使用者仍需在 LS-Run 中核对 `model.k`、求解器、CPU、内存和工作目录后手动启动任务。
