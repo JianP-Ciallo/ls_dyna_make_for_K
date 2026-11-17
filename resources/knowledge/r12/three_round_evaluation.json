@@ -1,0 +1,42 @@
+{
+  "retrieval": [
+    {"id":"A01","index":"I_case","family":"general","query":"找一块倾斜放置的薄板，受力方向垂直于它的表面","expect":"ansys.example_01"},
+    {"id":"A02","index":"I_case","family":"general","query":"有没有用厚壳离散方形板、求自振频率的示例？","expect":"ansys.example_13"},
+    {"id":"A03","index":"I_case","family":"general","query":"方形板用三维单元剖分，压力在开始时骤然施加，想看时程响应","expect":"ansys.example_14"},
+    {"id":"A04","index":"I_case","family":"general","query":"想对照圆形件撞到可变形表面的二维接触例子","expect":"ansys.example_16"},
+    {"id":"A05","index":"I_model","family":"general","query":"一个单元写了部件编号，在哪张卡把这个编号关联到截面和材料？","expect":"r12.part"},
+    {"id":"A06","index":"I_model","family":"shell_plate","query":"如何用一个编号把若干离散点列成一组，供其他卡片引用？","expect":"r12.set_node_list"},
+    {"id":"A07","index":"I_model","family":"general","query":"给一个节点集合锁定若干移动和转动自由度，在哪定义？","expect":"r12.boundary_spc_set"},
+    {"id":"A08","index":"I_model","family":"general","query":"哪张输出卡按一定频率保存整套网格的状态，以便之后回放变形？","expect":"r12.database_binary_d3plot"},
+    {"id":"A09","index":"I_run","family":"general","query":"从准备输入到静态核对、正式计算、看结果，步骤先后怎么安排？","expect":"run.workflow"},
+    {"id":"A10","index":"I_run","family":"general","query":"想追溯一次作业究竟使用了哪份输入、哪个可执行程序以及它的运行日志","expect":"run.solver"},
+    {"id":"A11","index":"I_run","family":"general","query":"计算结束后要核对日志并找出测点的位移历史，从哪里看？","expect":"run.results"},
+    {"id":"A12","index":"I_tool","family":"general","query":"按已有项目名重新执行静态校验并刷新检查结果，用哪个接口？","expect":"tool.validate_model"},
+    {"id":"A13","index":"I_tool","family":"general","query":"希望调用前处理器确认现有模型能不能打开并留下验证记录","expect":"tool.validate_lsprepost_import"},
+    {"id":"A14","index":"I_tool","family":"general","query":"拿到外部算例的输入文本，想由它新建一个项目并保存解析结果","expect":"tool.import_keyword"},
+    {"id":"A15","index":"I_tool","family":"general","query":"只想拿现有模型的结构概况和已经保存的检查摘要","expect":"tool.model_summary"},
+    {"id":"A16","index":"I_model","family":"general","query":"给几对自变量和因变量，保存为能被其他卡片按编号引用的表","expect":"r12.define_curve"}
+  ],
+  "routing": [
+    {"id":"B01","index":"I_case","family":"solid_plate","query":"实体方板的自振频率和特征值设置","expect":["ansys.example_12"]},
+    {"id":"B02","index":"I_model","family":"solid_plate","query":"实体方板的自振频率和特征值设置","expect":["r12.control_implicit_eigenvalue","guide.example_12.loading","guide.example_12.output"]},
+    {"id":"B03","index":"I_case","family":"beam_bar","query":"悬臂梁末端的集中力和方向怎么定义","expect":["ansys.example_06"]},
+    {"id":"B04","index":"I_model","family":"beam_bar","query":"悬臂梁末端的集中力和方向怎么定义","expect":["r12.load_node_point","guide.example_06.loading"]},
+    {"id":"B05","index":"I_model","family":"general","query":"提取节点位移时程需要哪些设置和输出","expect":["r12.database_history_node","r12.database_nodout","guide.example_06.output","guide.example_14.output","guide.example_15.output","guide.example_16.output"]},
+    {"id":"B06","index":"I_run","family":"general","query":"提取节点位移时程需要哪些设置和输出","expect":["run.results"]},
+    {"id":"B07","index":"I_run","family":"general","query":"导入已有模型，先检查，再安排计算","expect":["run.workflow"]},
+    {"id":"B08","index":"I_tool","family":"general","query":"导入已有模型，先检查，再安排计算","expect":["tool.import_keyword","tool.validate_model","tool.validate_lsprepost_import"]}
+  ],
+  "workflow": [
+    {"id":"C01","query":"梁的一端牢固夹住，在自由端施加一个节点力，想跟踪端部变形","options":{"case_family":"beam_bar"},"expect":"ansys.example_06","cards":{"boundary":"*BOUNDARY_SPC_NODE","loading":"*LOAD_NODE_POINT","output":"*DATABASE_NODOUT"},"manual":{"id":"r12.boundary_spc_set","page":726,"marker":"DOFZ"}},
+    {"id":"C02","query":"一个由体单元拼成的正方形板只求固有模态，四边可以转动","options":{"case_family":"solid_plate"},"expect":"ansys.example_12","cards":{"boundary":"*BOUNDARY_SPC_SET","loading":"*CONTROL_IMPLICIT_EIGENVALUE","output":"*DATABASE_BINARY_D3PLOT"}},
+    {"id":"C03","query":"厚壳板在短时间内突然受压，需要记录板上的点怎么移动","options":{"case_family":"thick_shell_plate"},"expect":"ansys.example_15","cards":{"boundary":"*BOUNDARY_SPC_SET","loading":"*LOAD_SEGMENT","output":"*DATABASE_HISTORY_NODE"}},
+    {"id":"C04","query":"二维算例里圆盘撞上可以变形的面，希望得到接触反力","options":{},"expect":"ansys.example_16","cards":{"boundary":"*CONTACT_2D_AUTOMATIC_NODE_TO_SURFACE","loading":"*LOAD_BODY_Y","output":"*DATABASE_RCFORC"}},
+    {"id":"C05","query":"找大型建筑的动力分析示范","options":{},"expect":null,"reason":"超出建筑范围"},
+    {"id":"C06","query":"用 R13 的设置找一个方板自振算例","options":{"case_family":"solid_plate"},"expect":null,"reason":"问题指定 R13"},
+    {"id":"C07","query":"我要这个专业领域的已收录案例","options":{"domain":"blast"},"expect":null,"reason":"专业域缺少已准入案例"},
+    {"id":"C08","query":"厚壳方板的动力响应示例","options":{"case_family":"thick_shell_plate","analysis":"explicit"},"expect":null,"reason":"形态与求解方式的组合未收录"},
+    {"id":"C09","query":"怎样给一段录音加字幕并校准时间轴？","options":{},"expect":null,"reason":"完全无关"},
+    {"id":"C10","query":"用实体单元对方板求固有频率，要求四边完全固支，边缘不得转动","options":{"case_family":"solid_plate"},"expect":null,"reason":"明确要求固支，现有模态案例是简支"}
+  ]
+}

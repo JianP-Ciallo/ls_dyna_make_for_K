@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>R12 知识库</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/knowledge.css">
+  <script defer src="/knowledge.js"></script>
+</head>
+<body>
+  <header class="mast"><div class="wrap"><a href="/">建模工作台</a><span>LS-DYNA / R12</span></div></header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div><h1 id="title">R12 知识库</h1><p>按索引、教材或手册查找知识点，并回查来源。</p></div>
+      <div class="summary"><strong id="total">—</strong><span>通用知识条目</span><small id="snapshot"></small></div>
+    </section>
+    <p id="load-status" role="status">正在读取知识库状态…</p>
+    <div id="dashboard" hidden>
+      <section class="index-grid" id="indexes" aria-label="索引筛选"></section>
+      <div class="section-title"><h2>LS-PrePost 本地手册</h2><span>点击文件筛选已提炼条目</span></div>
+      <section class="manual-grid" id="manuals" aria-label="LS-PrePost 手册"></section>
+      <div class="section-title"><h2 id="records-heading">浏览条目</h2><label class="search"><span>搜索</span><input id="query" type="search" placeholder="标题、关键词或记录 ID"></label></div>
+      <div class="toolbar" id="sources" aria-label="来源筛选"></div>
+      <div class="body-grid">
+        <section aria-labelledby="records-heading">
+          <p class="results-count" id="count" role="status"></p><ul id="list"></ul>
+        </section>
+        <aside class="details" id="details" aria-label="条目详情" aria-live="polite"><p>选择左侧条目以查看详情。</p></aside>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

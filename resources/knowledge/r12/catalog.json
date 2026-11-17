@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "path_base": "../../..",
+  "snapshot_sha256": "ed922fa82441eab7c7d9ee6a8fe184e556ffeaa2bde987329736cee40e895817",
+  "index_files": [
+    "I_case.json",
+    "I_model.json",
+    "I_run.json",
+    "I_tool.json"
+  ]
+}

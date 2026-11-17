@@ -1162,6 +1162,8 @@ def _result_mode(project: Path) -> str:
     except (OSError, json.JSONDecodeError):
         return "impact"
     spec = model.get("spec", {}) if isinstance(model, dict) else {}
+    if isinstance(spec, dict) and spec.get("model_type") in {"ly160_nr45_tension", "ly160_nr45_diagnostic", "ly160_paper_tension"}:
+        return "quasi_static"
     if isinstance(spec, dict) and spec.get("model_type") in {
         "ale_blast_scene",
         "phase15_axisymmetric_blast",

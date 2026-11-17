@@ -53,6 +53,7 @@ def write_compiled_keyword_project(
     *,
     if_exists: str = "error",
     force_close_runtime: bool = False,
+    require_valid: bool = False,
 ) -> JSONDict:
     """Persist a trusted compiler result through the normal project transaction."""
 
@@ -99,7 +100,14 @@ def write_compiled_keyword_project(
             {"keyword_path": "model.k"},
             if_exists="overwrite",
         )
-        checks = validate_project_files(tmp_path)
+        try:
+            checks = validate_project_files(tmp_path)
+            if require_valid and not checks["ok"]:
+                raise ValueError("；".join(checks["errors"]))
+        except Exception:
+            if require_valid:
+                shutil.rmtree(tmp_path)
+            raise
         write_json(tmp_path / "checks.json", checks)
         commit_project_dir(tmp_path, path, if_exists)
         remove_runtime_artifact(path)
@@ -293,7 +301,20 @@ def validate_project_files(path: Path) -> JSONDict:
             custom_model = read_json(custom_model_path)
         except (OSError, ValueError):
             custom_model = {}
+        custom_metadata = custom_model.get("metadata", {}) if isinstance(custom_model, dict) else {}
+        if isinstance(custom_metadata, dict) and custom_metadata.get("compiler") == "lsprepost.r12_shell_plate@1":
+            from .r12_plate import validate_project_files as validate_r12_plate
+
+            return validate_r12_plate(path)
         custom_spec = custom_model.get("spec", {}) if isinstance(custom_model, dict) else {}
+        if isinstance(custom_spec, dict) and custom_spec.get("model_type") == "ly160_paper_tension":
+            from .ly160_tension import validate_project as validate_paper_tension
+
+            return validate_paper_tension(path)
+        if isinstance(custom_spec, dict) and custom_spec.get("model_type") in {"ly160_nr45_tension", "ly160_nr45_diagnostic"}:
+            from .ly160_nr45 import validate_project as validate_nr45_project
+
+            return validate_nr45_project(path)
         if isinstance(custom_spec, dict) and custom_spec.get("model_type") == "quarter_two_tnt_ale_spg":
             from .quarter_two_tnt import validate_quarter_two_tnt_project
 
@@ -542,6 +563,9 @@ def project_validation_fingerprint(path: Path) -> JSONDict:
 
 def project_checks_are_current(path: Path, checks: object) -> bool:
     if not isinstance(checks, dict):
+        return False
+    if "mesh_binding_check" in checks:
+        # The mesh is a separate content-addressed file. Recheck it when opening the project.
         return False
     fingerprint = checks.get("validation_fingerprint")
     return (

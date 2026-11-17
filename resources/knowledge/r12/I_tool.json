@@ -1,0 +1,2132 @@
+{
+  "records": [
+    {
+      "id": "tool.generate_model",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "generate_model",
+      "aliases": [
+        "生成模型",
+        "生成K文件"
+      ],
+      "summary": "接收 spec 与 if_exists，写出模型 K、JSON、预览脚本和 checks.json。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_generation.py",
+        "sha256": "4b4c859d803335f12126f9240ea9e48802d94e204a704ef035d9efd314838b43",
+        "locator": "tool_generate_model, lines 111–115"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        },
+        {
+          "path": "lsprepost_mcp/schema.py",
+          "sha256": "cfbad55cfd0d10f83992fdf13cd07645c900e27e10858c150eb024cddf3c4559",
+          "locator": "generate_model_input_schema, lines 307–400"
+        },
+        {
+          "path": "lsprepost_mcp/project_store.py",
+          "sha256": "6f742171e3a1d4719c4d5de96a196fd37786725e71eff708f73fd5d550aab743",
+          "locator": "write_model_project, lines 43–45"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "if_exists": {
+            "type": "string",
+            "enum": [
+              "error",
+              "overwrite",
+              "archive_then_write",
+              "versioned"
+            ],
+            "default": "error",
+            "description": "Project collision policy. Default refuses to overwrite existing projects."
+          },
+          "spec": {
+            "type": "object",
+            "description": "Structured SI model spec. Supported model types include controlled structural models, assembly_scene, and ale_blast_scene.",
+            "properties": {
+              "project_name": {
+                "type": "string",
+                "default": "plate_demo"
+              },
+              "model_type": {
+                "type": "string",
+                "enum": [
+                  "shell_plate",
+                  "solid_block",
+                  "shell_box",
+                  "cylinder_shell",
+                  "cylinder_solid",
+                  "beam_bar",
+                  "assembly_scene",
+                  "ale_blast_scene",
+                  "single_solid_element_test"
+                ],
+                "default": "shell_plate"
+              },
+              "unit_system": {
+                "type": "string",
+                "default": "SI_m_s_kg_N_Pa"
+              },
+              "geometry": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "mesh": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "material": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "curves": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "hourglass": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "analysis_control": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "database": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "components": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "model_resources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "model_resource_id": {
+                      "type": "string"
+                    },
+                    "transform": {
+                      "type": "object",
+                      "properties": {
+                        "translation_m": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "rotation_deg": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "material_binding": {
+                      "type": "string",
+                      "enum": [
+                        "source_reference"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "model_resource_id"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "sets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "boundary_conditions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "loads": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Generate model.json, model.k, open_model.cfile, and checks.json from a structured SI model spec.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.import_keyword",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "import_keyword",
+      "aliases": [
+        "导入K文件",
+        "导入官方模型"
+      ],
+      "summary": "在受支持的路径范围导入 K，创建项目并保存解析和静态检查结果。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_project.py",
+        "sha256": "4abd54394dc1a07eeabd858ef4798e31d4851073b760026caa76b14f791331b7",
+        "locator": "tool_import_keyword, lines 92–103"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "imported_keyword"
+          },
+          "keyword_path": {
+            "type": "string"
+          },
+          "allow_external": {
+            "type": "boolean",
+            "default": false
+          },
+          "max_bytes": {
+            "type": "integer",
+            "default": 10485760
+          },
+          "if_exists": {
+            "type": "string",
+            "enum": [
+              "error",
+              "overwrite",
+              "archive_then_write",
+              "versioned"
+            ],
+            "default": "error"
+          }
+        },
+        "required": [
+          "keyword_path"
+        ],
+        "additionalProperties": false
+      },
+      "registered_description": "Import an existing LS-DYNA keyword file into a workspace project and parse basic metadata.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.validate_model",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "validate_model",
+      "aliases": [
+        "静态校验",
+        "检查模型"
+      ],
+      "summary": "按项目名重做静态检查并写 checks.json。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_project.py",
+        "sha256": "4abd54394dc1a07eeabd858ef4798e31d4851073b760026caa76b14f791331b7",
+        "locator": "tool_validate_model, lines 18–26"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "plate_demo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Validate a generated or imported project.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.read_project",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "read_project",
+      "aliases": [
+        "读取项目",
+        "读取检查报告"
+      ],
+      "summary": "读取模型和检查摘要。若检查缺失、无效或过期，会重写 checks.json。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_project.py",
+        "sha256": "4abd54394dc1a07eeabd858ef4798e31d4851073b760026caa76b14f791331b7",
+        "locator": "tool_read_project, lines 44–81"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "generic_plate_demo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Read model.json, checks.json, paths, and summary for a project.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.model_summary",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "model_summary",
+      "aliases": [
+        "模型摘要",
+        "节点单元统计"
+      ],
+      "summary": "读取现有项目的模型结构和已有检查摘要。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_project.py",
+        "sha256": "4abd54394dc1a07eeabd858ef4798e31d4851073b760026caa76b14f791331b7",
+        "locator": "tool_model_summary, lines 29–33"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "generic_plate_demo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Return a concise natural-language summary and structured summary for a project.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.validate_lsprepost_import",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "validate_lsprepost_import",
+      "aliases": [
+        "LS-PrePost导入验证",
+        "检查关键字读入"
+      ],
+      "summary": "调用 LS-PrePost 验证模型可读性，保存验证记录和预览文件。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_lsprepost.py",
+        "sha256": "5fca8b66cfc2a970f46ef6c2b6d1cae929af64ab59f86d0c2405ef52c6993f0d",
+        "locator": "tool_validate_lsprepost_import, lines 342–398"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "plate_demo"
+          },
+          "output_filename": {
+            "type": "string",
+            "default": "import_validation_iso.png"
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "current",
+              "iso",
+              "top",
+              "front",
+              "side"
+            ],
+            "default": "iso"
+          },
+          "display_mode": {
+            "type": "string",
+            "enum": [
+              "geometry",
+              "boundary_conditions",
+              "loads_constraints",
+              "sets",
+              "validation"
+            ],
+            "default": "validation",
+            "description": "Controlled overlays used for the validation screenshot."
+          },
+          "auto_fit": {
+            "type": "boolean",
+            "default": true
+          },
+          "timeout_s": {
+            "type": "number",
+            "default": 45,
+            "description": "Wait timeout for the LS-PrePost import validation cfile."
+          },
+          "if_exists": {
+            "type": "string",
+            "enum": [
+              "error",
+              "overwrite",
+              "versioned"
+            ],
+            "default": "overwrite"
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Open model.k in LS-PrePost with a server-approved cfile, save keyword reader messages, export a PNG, and return import validation status.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "tool.export_preview_images",
+      "index": "I_tool",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "export_preview_images",
+      "aliases": [
+        "导出模型预览",
+        "导出网格图"
+      ],
+      "summary": "调用 LS-PrePost 生成指定视角的模型 PNG，输出用于输入模型预览。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_lsprepost.py",
+        "sha256": "5fca8b66cfc2a970f46ef6c2b6d1cae929af64ab59f86d0c2405ef52c6993f0d",
+        "locator": "tool_export_preview_images, lines 232–265"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/tools.py",
+          "sha256": "8ad24aba0a89c809eeeaa7ad8b30c0ee8a8c776c16d7e4203c8438461ba90760",
+          "locator": "TOOLS registration"
+        }
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "default": "plate_demo"
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "current",
+                "iso",
+                "top",
+                "front",
+                "side"
+              ]
+            },
+            "default": [
+              "iso",
+              "top",
+              "front",
+              "side"
+            ],
+            "description": "Controlled preview views to export. Duplicate views are rejected."
+          },
+          "output_prefix": {
+            "type": "string",
+            "default": "preview",
+            "description": "Simple artifact filename prefix. Outputs are named <prefix>_<view>.png."
+          },
+          "display_mode": {
+            "type": "string",
+            "enum": [
+              "geometry",
+              "boundary_conditions",
+              "loads_constraints",
+              "sets",
+              "validation"
+            ],
+            "default": "geometry",
+            "description": "Controlled LS-PrePost display overlays for preview images."
+          },
+          "auto_fit": {
+            "type": "boolean",
+            "default": true,
+            "description": "Run LS-PrePost ac before exporting each PNG."
+          },
+          "timeout_s": {
+            "type": "number",
+            "default": 45,
+            "description": "Per-view wait timeout for each LS-PrePost preview export cfile."
+          },
+          "if_exists": {
+            "type": "string",
+            "enum": [
+              "error",
+              "overwrite",
+              "versioned"
+            ],
+            "default": "overwrite"
+          }
+        },
+        "additionalProperties": false
+      },
+      "registered_description": "Export multiple controlled PNG preview views with server-approved LS-PrePost cfiles.",
+      "evidence_level": "source_contract"
+    },
+    {
+      "id": "supp.prepost_legacy_files",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版培训手册的模型与结果文件入口",
+      "aliases": [
+        "旧版培训手册打开与导入"
+      ],
+      "summary": "Open 创建独立模型，Import 向当前模型添加数据。按关键字模型、二进制结果、历史数据或命令文件选择入口。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 10–11"
+      },
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "run.results"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 10,
+            "sha256": "1fecde990f016100a882901652baa1581e21a3b9580c3af94f6043f6c8bea102"
+          },
+          {
+            "pdf_page": 11,
+            "sha256": "af1c11d7985b56f68734e4f35859f864d7d412e7af54c9f9fb1ba8d9c68581ad"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_legacy_mesh",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版培训手册的简单几何网格",
+      "aliases": [
+        "旧版培训手册简单几何网格"
+      ],
+      "summary": "盒体可按坐标范围建实体网格，平板可按四点建壳，圆筒壳按半径、长度和方向定义。回读时核对拓扑与部件引用。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 73–73"
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.section_shell",
+        "r12.element_solid"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 73,
+            "sha256": "7f090b0a07675a3c0667f29321af835f993567692b1401d8bc405e1033a00f62"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_keyword_editor",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 LS-PrePost 关键字和监测对象",
+      "aliases": [
+        "关键字编辑器",
+        "Database History"
+      ],
+      "summary": "旧版工具通过关键字表单处理卡片、标题与注释，历史对象可选节点或同类型单元。项目可用接口仍由实际 schema 定义。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 118–121"
+      },
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "r12.database_history_node"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 118,
+            "sha256": "33bb78720360d11cd4cf291900c9d993926cfd2628914bd04a7208338559a8a2"
+          },
+          {
+            "pdf_page": 119,
+            "sha256": "5171a5a7ac6dad6f552f7c068936971039d5fcdf6a4aa3d2ae491426f8959d19"
+          },
+          {
+            "pdf_page": 120,
+            "sha256": "a2d3b87094b154023622de009e8df0f80487f81e15d2c1058916b84bf58ea630"
+          },
+          {
+            "pdf_page": 121,
+            "sha256": "c163c5046738774ff597c6aa1ac540e022598f8aba234fce73757ae661ddb3e6"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.lspost_keyword_links",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版关键字表单的编号联查",
+      "aliases": [
+        "旧版手册关键字编号联查"
+      ],
+      "summary": "从字段的关联对话框选择合适的关键字编号。部分字段会改变后续表单，修改后应按 R12 重新核对可选行。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/lspost.pdf",
+        "filename": "lspost.pdf",
+        "source_id": "local_52b6d45989755546",
+        "sha256": "52b6d45989755546fd6ded45a8f3517627c270c78ea00e287c2a1f8a83127aa9",
+        "source_release": "beta_2002",
+        "locator": "PDF 98–101"
+      },
+      "related_ids": [
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic"
+      ],
+      "manual": {
+        "source_id": "local_52b6d45989755546",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 98,
+            "sha256": "de934b51f25339e097105483c11796f355d761450a807cc398d17f3ccdb647d3"
+          },
+          {
+            "pdf_page": 99,
+            "sha256": "83b11d9f554d98b0651589acb809c60510d9b96e9828cafeb13443aabaf69b1b"
+          },
+          {
+            "pdf_page": 100,
+            "sha256": "70707ea3fb2128f06becb36c689ab25c2193df63cdd9d073634eb504d7cf4dc5"
+          },
+          {
+            "pdf_page": 101,
+            "sha256": "71549c1dc6e3ed56ea21348872ef6ea1b026becae37d907e438b19bad6a912f4"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.lspost_set_editor",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版手册的集合创建和导出",
+      "aliases": [
+        "旧版手册集合创建和导出"
+      ],
+      "summary": "通过集合界面创建、显示及修改集合，也可写出所选集合。另存后核对类型、集合编号及实际成员。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/lspost.pdf",
+        "filename": "lspost.pdf",
+        "source_id": "local_52b6d45989755546",
+        "sha256": "52b6d45989755546fd6ded45a8f3517627c270c78ea00e287c2a1f8a83127aa9",
+        "source_release": "beta_2002",
+        "locator": "PDF 117–119"
+      },
+      "related_ids": [
+        "r12.set_node_list",
+        "tool.validate_model"
+      ],
+      "manual": {
+        "source_id": "local_52b6d45989755546",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 117,
+            "sha256": "4db1d964226abe62b76b8eb6ccf1832e4658722680cbbd258a43b83365b892b8"
+          },
+          {
+            "pdf_page": 118,
+            "sha256": "67f9bfa34d607161ea74744b2e9d35bf0cc3faeae86681fb5c3077df694f2b61"
+          },
+          {
+            "pdf_page": 119,
+            "sha256": "16b98464afdd7f59bf52616c65454e7a325c9a2904f8a6a004536a3a2f160aca"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.lspost_spc_editor",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版手册的 SPC 与局部坐标系",
+      "aliases": [
+        "旧版手册SPC局部坐标系"
+      ],
+      "summary": "指定约束的平移和转动分量，选定坐标系和受约束节点。Apply 写入当前会话，需保存关键字文件才有磁盘记录。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/lspost.pdf",
+        "filename": "lspost.pdf",
+        "source_id": "local_52b6d45989755546",
+        "sha256": "52b6d45989755546fd6ded45a8f3517627c270c78ea00e287c2a1f8a83127aa9",
+        "source_release": "beta_2002",
+        "locator": "PDF 139–140"
+      },
+      "related_ids": [
+        "r12.boundary_spc_set",
+        "r12.node"
+      ],
+      "manual": {
+        "source_id": "local_52b6d45989755546",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 139,
+            "sha256": "e63ad54a32d7bd593cbc37baa3fb133c6c472dc2c32243da2f72679d7334e4eb"
+          },
+          {
+            "pdf_page": 140,
+            "sha256": "b1d4ae8897e0970498fabb92027a9e6bc152f16084cd0171bfd9b8309482f315"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.lspost_cfile",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 Cfile 记录与回放",
+      "aliases": [
+        "Cfile回放",
+        "命令文件",
+        "旧版Cfile"
+      ],
+      "summary": "Cfile 记录会话命令并支持回放。路径、语法和界面以当前 LS-PrePost 与项目生成的脚本为准。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/lspost.pdf",
+        "filename": "lspost.pdf",
+        "source_id": "local_52b6d45989755546",
+        "sha256": "52b6d45989755546fd6ded45a8f3517627c270c78ea00e287c2a1f8a83127aa9",
+        "source_release": "beta_2002",
+        "locator": "PDF 18–18"
+      },
+      "related_ids": [
+        "tool.export_preview_images"
+      ],
+      "manual": {
+        "source_id": "local_52b6d45989755546",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 18,
+            "sha256": "27cebfd19acccfdab5b818b4f867d7440c21d99b9ae1d3813691dacbead8f97f"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "book.ansys_prepost_sketchboard",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "二维草图到结构化四边形网格",
+      "aliases": [
+        "Ansys完整教程二维草图结构化网格"
+      ],
+      "summary": "2Dmesh Sketchboard 练习从绘制草图开始，修剪边线形成可划分区域，再用边线分段和偏置控制四边形网格。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_tutorials_2025r2.pdf",
+        "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+        "source_release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 83–103，第二部分第 1 章"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "完成区域边界，再为相关边线设置分段与偏置，生成并确认网格。"
+      ],
+      "checks": [
+        "检查区域闭合、边上分段及生成网格的分布。"
+      ],
+      "related_ids": [
+        "r12.section_shell",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "book.ansys_prepost_plate_mesh",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "用 Shape Mesher 四点生成壳板",
+      "aliases": [
+        "Ansys完整教程四点生成壳板"
+      ],
+      "summary": "教程从空白模型，用 Shape Mesher 的四节点壳选项创建板网格。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_tutorials_2025r2.pdf",
+        "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+        "source_release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 169–170，第三部分 §1.1"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "给出四个角点和两方向单元数，建立并接受壳板网格。"
+      ],
+      "checks": [
+        "检查角点顺序、网格尺寸和壳法向。"
+      ],
+      "related_ids": [
+        "r12.section_shell",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "book.ansys_prepost_constraints",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "在 LS-PrePost 中给壳板边线加约束",
+      "aliases": [
+        "Ansys完整教程壳板边界约束"
+      ],
+      "summary": "练习在 Create Entity 的 Spc 界面创建节点集约束，并通过边线选择需要约束的节点。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_tutorials_2025r2.pdf",
+        "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+        "source_release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 178–179，第三部分 §1.7"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "选用 Set 方式，指定约束自由度和边线节点，应用并回到壳显示。"
+      ],
+      "checks": [
+        "检查高亮节点范围及实际启用的自由度。"
+      ],
+      "related_ids": [
+        "r12.boundary_spc_set",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "book.ansys_prepost_keyword_manager",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "用 Keyword Manager 查看和查找卡片",
+      "aliases": [
+        "Ansys完整手册关键字管理器"
+      ],
+      "summary": "Keyword Manager 提供 Keyword Edit 和 Keyword Search。Model 列出当前模型的关键字，RefBy 可以查看引用选中关键字的其他卡片。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_users_guide_2025r2.pdf",
+        "sha256": "b21107d8b4f45a776e61c0bc8b0fb646a04f42a96a44f12750a8542c1f7e7f17",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/Ansys_LS-PrePost_Users_Guide.pdf",
+        "source_release": "Ansys LS-PrePost User's Guide, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 429–430，§6.2.2"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "先限制到当前模型，再选择卡片查看数据或跟踪引用。"
+      ],
+      "checks": [
+        "查看具体卡片时核对记录 ID 与引用目标。"
+      ],
+      "related_ids": [
+        "r12.part",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "book.ansys_prepost_model_check",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "用 Keyword Check 复核关键字引用",
+      "aliases": [
+        "Ansys完整手册关键字引用检查"
+      ],
+      "summary": "Model Checking 的 Keyword Check 可列出模型关键字问题，并定位到输入表单或显示详细诊断。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_users_guide_2025r2.pdf",
+        "sha256": "b21107d8b4f45a776e61c0bc8b0fb646a04f42a96a44f12750a8542c1f7e7f17",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/Ansys_LS-PrePost_Users_Guide.pdf",
+        "source_release": "Ansys LS-PrePost User's Guide, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 941–943，§8.3–8.3.1"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "双击检查项查看卡片或详细报告，处理后运行 Recheck，必要时用 Write 保存检查结果。"
+      ],
+      "checks": [
+        "导出报告前重新检查，确保看到的是当前模型状态。"
+      ],
+      "related_ids": [
+        "tool.validate_model",
+        "tool.validate_lsprepost_import"
+      ]
+    },
+    {
+      "id": "book.xin_prepost_model",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 前处理的工作范围",
+      "aliases": [
+        "辛春亮样章前处理工具"
+      ],
+      "summary": "前处理覆盖几何清理、划分网格、定义集合和边界，以及创建和编辑材料、截面、输出和控制等关键字。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/xin_sample.txt",
+        "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+        "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+        "source_release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "第1章 §1.3.2，样章文本第100–118行"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_sample_paraphrase",
+      "steps": [
+        "从几何和网格开始，再按模型所需创建部件、材料、约束和输出。"
+      ],
+      "checks": [
+        "项目复查入口：另存后按 R12 对照部件、截面和材料的引用。"
+      ],
+      "related_ids": [
+        "r12.part",
+        "r12.section_shell",
+        "r12.boundary_spc_set",
+        "tool.validate_lsprepost_import"
+      ]
+    },
+    {
+      "id": "book.xin_prepost_replay",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 命令记录与批处理",
+      "aliases": [
+        "辛春亮样章PrePost批处理"
+      ],
+      "summary": "样章列出了 LS-PrePost 的批处理、命令文件和二次开发入口，可用来定位重复操作的自动化能力。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/xin_sample.txt",
+        "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+        "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+        "source_release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "第1章 §1.3.2，样章文本第128–136行"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_sample_paraphrase",
+      "steps": [
+        "项目对照：从现有验证和预览入口核对实际调用方式。"
+      ],
+      "checks": [
+        "涉及命令和菜单路径时，以当前项目用的 LS-PrePost 版本复查。"
+      ],
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "tool.export_preview_images"
+      ]
+    },
+    {
+      "id": "prepost.mesh_from_lines",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 从 IGES 边线生成壳网格",
+      "aliases": [
+        "PrePost用nLMesh从IGES边线建壳网格"
+      ],
+      "summary": "配套 IGES 文件包含供练习使用的边线。教程演示四线壳网格和两线壳网格的生成顺序。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p7-nlmesh1.html",
+        "sha256": "7b69666ed8fafc808a8822ac756ffd217255fde5cb0be35a42b9f385f07a06be",
+        "url": "https://lsdyna.ansys.com/p7-nlmesh1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Mini Tutorial | Page 7: nLMesh — Generate a mesh from 4 lines and 2 lines"
+      },
+      "supporting_sources": [
+        {
+          "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/official_examples/lines_iges.zip",
+          "sha256": "16f3f437552f07b3f02dc8529b15b95deb642465f653f24c00403987a884d2e4",
+          "url": "https://lsdyna.ansys.com/wp-content/uploads/2023/01/lines_iges.zip",
+          "locator": "ZIP member: lines.iges"
+        },
+        {
+          "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/official_examples/lines.iges",
+          "sha256": "aebee165d0a005c74a448f45d17b2a47e08d075eb98ff61087765bb463c57ef8",
+          "url": "https://lsdyna.ansys.com/p7-nlmesh1/",
+          "locator": "extracted IGES exercise geometry"
+        }
+      ],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "解压并打开配套 IGES 文件。",
+        "在 nLMesh 选 4 Line shell，按教程给出的顺序选线并接受网格。",
+        "切换 2 Line shell，选择边线并设置划分数量和目标 PID，再接受。",
+        "保存关键字模型，回读节点与壳单元连接。"
+      ],
+      "checks": [
+        "检查网格边线连续性、单元法向和部件归属。",
+        "为生成的部件补齐截面、材料和所需边界，再做引用检查。"
+      ],
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell"
+      ]
+    },
+    {
+      "id": "prepost.trace_displacement",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 导出节点位移历程",
+      "aliases": [
+        "PrePost用Trace导出节点位移曲线"
+      ],
+      "summary": "通过 Trace 选择结果中的节点和起始状态，导出位移曲线或坐标轨迹。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/trace.html",
+        "sha256": "715d2fede3c385d96c682b611a38272838c3dd013b7915b751af9d6d1d5eb124",
+        "url": "https://lsdyna.ansys.com/trace/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 1: Trace — Quick Guide and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开本次运行结果并进入 Trace。",
+        "设置起始状态、选择节点，播放状态以检查轨迹。",
+        "按目的导出位移曲线或坐标历程。"
+      ],
+      "checks": [
+        "确认导出数据是位移还是绝对坐标。",
+        "核对节点编号、分量及采样时刻。"
+      ],
+      "related_ids": [
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.define_curve"
+      ]
+    },
+    {
+      "id": "prepost.create_elastic",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 创建线弹性材料卡",
+      "aliases": [
+        "PrePost新建线弹性材料"
+      ],
+      "summary": "在材料表单中选择 001-ELASTIC，创建材料编号并填写密度、弹性模量和泊松比。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p3-mat1.html",
+        "sha256": "becd4f0e78f04651af3d19158b20549ca4d8463143f5c5c4921592b0daa01d6e",
+        "url": "https://lsdyna.ansys.com/p3-mat1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Mini Tutorial | Page 3: *Mat — Create a MAT_ELASTIC keyword card"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开材料关键字表单并选择 ELASTIC。",
+        "新建 MID，按工况单位填 RO、E 和 PR。",
+        "接受后回读材料卡，供部件引用。"
+      ],
+      "checks": [
+        "确认 MID 唯一且单位一致。",
+        "练习参数按原教程核对。"
+      ],
+      "related_ids": [
+        "r12.mat_elastic",
+        "r12.part"
+      ]
+    },
+    {
+      "id": "prepost.partd_link",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 在 PartD 绑定材料与截面",
+      "aliases": [
+        "PrePost用PartD绑定材料截面"
+      ],
+      "summary": "在图形部件界面编辑 SECID 和 MID，并对照保存后的 PART 卡。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p5-partd1.html",
+        "sha256": "82953680c0df631a899887e3230adea8c128cb4c99d04a0abe9178f54af0f03c",
+        "url": "https://lsdyna.ansys.com/p5-partd1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Mini Tutorial | Page 5: PartD — Assign PART parameters"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开官方配套 plate.k。",
+        "在 PartD 选择目标壳部件并进入 Assign。",
+        "通过 SECID 和 MID 的关联对话框分别选择壳截面与弹性材料，然后应用。",
+        "另存 K 文件并核对三个 ID。"
+      ],
+      "checks": [
+        "实际选择的截面类型应与单元类型一致。",
+        "回读文件，沿 PID 检查 SECID 和 MID 引用。"
+      ],
+      "related_ids": [
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic"
+      ]
+    },
+    {
+      "id": "prepost.create_curve",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 录入曲线点并分配 LCID",
+      "aliases": [
+        "PrePost录入载荷曲线点"
+      ],
+      "summary": "在 DEFINE 的 CURVE 表单创建编号、添加数据点并保存。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/5-d93.html",
+        "sha256": "c924061b4c67d16c4b148d0253dd6fa4deb6e89ebfdd35bf3d80db7654a1aa25",
+        "url": "https://lsdyna.ansys.com/5-d93/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Tutorial 5: Page 12 — Define curves"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 DEFINE 中打开 CURVE 表单并分配曲线编号。",
+        "逐行录入自变量和因变量，核对顺序。",
+        "接受并保存，然后在使用它的卡片核对 LCID。"
+      ],
+      "checks": [
+        "曲线的物理量和单位由引用它的卡片确定。",
+        "教程的成形载荷数值只对应原例。"
+      ],
+      "related_ids": [
+        "r12.define_curve",
+        "r12.load_node_point",
+        "r12.load_segment"
+      ]
+    },
+    {
+      "id": "prepost.node_load",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 用 LoadPt 创建节点或节点集载荷",
+      "aliases": [
+        "PrePost用LoadPt加节点力"
+      ],
+      "summary": "在图形窗口选择节点或节点集，配置方向、曲线编号和坐标系，并检查生成的载荷卡。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/loadpt.html",
+        "sha256": "1417d13fb7d22ba06c92edeb8f865a0e8aa033907491e5aad4f0aaa484bb38ad",
+        "url": "https://lsdyna.ansys.com/loadpt/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 5: LoadPt — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 LoadPt 选创建模式与载荷对象类型。",
+        "选择节点或已有节点集。",
+        "填 DOF、LCID 和 CID，应用后回读卡片。"
+      ],
+      "checks": [
+        "检查力的方向、坐标系及曲线引用。",
+        "核对对象类型对应 NODE_POINT 或 NODE_SET。"
+      ],
+      "related_ids": [
+        "r12.load_node_point",
+        "r12.define_curve",
+        "guide.example_11.loading"
+      ]
+    },
+    {
+      "id": "prepost.history_setup",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 用 DBHist 选取节点与单元测点",
+      "aliases": [
+        "PrePost用DBHist设置输出测点"
+      ],
+      "summary": "按节点或单元类型选择时程对象。保存后回查 HISTORY 关键字，再配对应输出数据库。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/dbhist.html",
+        "sha256": "b4e0153d64f3fdd0537f3a575e37462345628a3452f3913a1b7f3723e9dda28f",
+        "url": "https://lsdyna.ansys.com/dbhist/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 5: DBHist — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 DBHist 选择 Create 和目标实体类型。",
+        "选取测点或单元，应用并保存关键字。",
+        "核对 HISTORY 选择对象，并在输出卡设置所需数据库和采样间隔。"
+      ],
+      "checks": [
+        "以官方页面的 Purpose 和 Controls 以及 R12 卡片字段为依据。",
+        "测点选择与输出间隔分别核对。"
+      ],
+      "related_ids": [
+        "r12.database_history_node",
+        "r12.database_history_shell",
+        "r12.database_nodout",
+        "r12.database_binary_d3plot"
+      ]
+    },
+    {
+      "id": "prepost.set_types",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 按实体类型创建及检查集合",
+      "aliases": [
+        "PrePost用SetD创建面集合"
+      ],
+      "summary": "SetD 支持常见节点、部件、面及单元集合，选型后可查原始卡片并另存。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/setd.html",
+        "sha256": "5c8932f30d51f7a3b95973e85337d342184f4da5b91977c17d24f0d0c3512299",
+        "url": "https://lsdyna.ansys.com/setd/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 5: SetD — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "按下游约束、加载或接触的引用类型选择集合类型。",
+        "分配集合编号并检查成员。",
+        "应用后打开对应卡片核对类型和 ID，保存输入。"
+      ],
+      "checks": [
+        "集合成员与几何选择一致。",
+        "引用者需要的实体类型和集合类型一致。"
+      ],
+      "related_ids": [
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.load_segment"
+      ]
+    },
+    {
+      "id": "prepost.reference_check",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 用 Refchk 检查未定义引用",
+      "aliases": [
+        "PrePost检查K文件未定义引用"
+      ],
+      "summary": "查看哪些卡片引用指定实体，以及输入中有哪些未定义对象或未使用定义。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/refchk.html",
+        "sha256": "ca5daa4a13c266aa0939257059190392826f881330e0867eb80f929b17209386",
+        "url": "https://lsdyna.ansys.com/refchk/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 2: Refchk — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开当前关键字模型并运行引用检查。",
+        "定位未定义编号并回到引用该编号的卡片。",
+        "修正关联后重新检查并另存。"
+      ],
+      "checks": [
+        "区分未定义的目标与未使用的定义。",
+        "保留仍需使用的预留数据。"
+      ],
+      "related_ids": [
+        "r12.part",
+        "r12.set_node_list",
+        "r12.define_curve",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "prepost.identify_nodes",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 按编号定位节点",
+      "aliases": [
+        "PrePost按编号定位节点"
+      ],
+      "summary": "用节点编号、逗号列表或编号区间在画面中标记网格节点。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p1-ident1.html",
+        "sha256": "364fffc8fae4717d0c8ce0412a8574c662f68a38b2474de6b59c182804645afb",
+        "url": "https://lsdyna.ansys.com/p1-ident1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Mini Tutorial | Page 1: Ident — Identify nodes by ID"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开当前关键字模型并进入 Ident。",
+        "选择节点，输入要核对的编号或范围。",
+        "对照显示位置检查边界节点和测点。"
+      ],
+      "checks": [
+        "使用当前模型的节点编号，改网格后重新核对。"
+      ],
+      "related_ids": [
+        "r12.node",
+        "r12.database_history_node",
+        "r12.boundary_spc_set"
+      ]
+    },
+    {
+      "id": "prepost.duplicate_nodes",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 检查重复节点与自由边",
+      "aliases": [
+        "PrePost检查重复节点"
+      ],
+      "summary": "按距离容差显示疑似重复节点，用自由边检查拼接面是否连通。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/dupnod.html",
+        "sha256": "9dfae00bcf1ed7041f0f9f0c89b2d8b6ce411fd3b29fc9143af08f5cad418bba",
+        "url": "https://lsdyna.ansys.com/dupnod/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 2: DupNod — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "显示自由边并定位异常内边。",
+        "按模型单位设置搜索容差并显示候选节点。",
+        "确认连接意图后再决定是否合并，回查编号引用。"
+      ],
+      "checks": [
+        "区分意外断开和设计上应保留的界面。",
+        "修改后复核单元、约束及节点集。"
+      ],
+      "related_ids": [
+        "r12.node",
+        "r12.set_node_list",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "prepost.element_quality",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 单元网格质量检查",
+      "aliases": [
+        "PrePost检查单元长宽比"
+      ],
+      "summary": "按单元类型检查网格质量，可定位壳单元长宽比、翘曲等指标超限的位置。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/eledit.html",
+        "sha256": "cc6c47d74e705b1a5856a600996cfa2752b0a9d5309b2aa4839f7bd05bb51872",
+        "url": "https://lsdyna.ansys.com/eledit/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 2: ElEdit — Element Check"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "选定部件和单元类型。",
+        "按项目要求选择检查项，查看超限单元。",
+        "记录异常位置与实体编号，修网格后重查。"
+      ],
+      "checks": [
+        "记录本次采用的质量阈值、单元类型和筛选范围。"
+      ],
+      "related_ids": [
+        "r12.element_shell",
+        "r12.element_solid",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "prepost.check_normals",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 检查壳与面的法向",
+      "aliases": [
+        "PrePost检查壳单元法向"
+      ],
+      "summary": "显示壳单元、面和厚壳的法向，对照压力方向、接触面和厚度层结果。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/normals.html",
+        "sha256": "1c665904af3867d443c5abebbcd78bd0ef11cc6b9b7dcba14006bacedd2f6cb7",
+        "url": "https://lsdyna.ansys.com/normals/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 2: Normals — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "选择需要核对的单元或面。",
+        "显示法向并找出方向不一致处。",
+        "结合工况和卡片节点顺序确定是否需要调整。"
+      ],
+      "checks": [
+        "调整后复查相邻单元、载荷方向和接触设置。"
+      ],
+      "related_ids": [
+        "r12.load_segment",
+        "r12.element_shell",
+        "r12.element_tshell"
+      ]
+    },
+    {
+      "id": "prepost.initial_contact_check",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 检查初始穿透与交叉边",
+      "aliases": [
+        "PrePost检查初始穿透"
+      ],
+      "summary": "可按所选部件或已定义接触检查初始穿透和几何交叉，先定位异常再判断处理方式。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/conchk.html",
+        "sha256": "7c93ee244e45782f2ac5892a5532420513109d8878318d42e173f4eae66f7ca4",
+        "url": "https://lsdyna.ansys.com/conchk/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 5: Conchk — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "选择相关部件或已有接触定义。",
+        "运行检查并查看异常位置和实体编号。",
+        "确认几何、网格与接触定义的关系，调整后复核。"
+      ],
+      "checks": [
+        "区分意图内的干涉与建模错误。",
+        "保存检查范围及结果以便复查。"
+      ],
+      "related_ids": [
+        "tool.validate_model",
+        "r12.contact_2d_automatic_node_to_surface",
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.show_spc",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 显示节点集合与约束",
+      "aliases": [
+        "PrePost图形检查约束",
+        "PrePost显示节点集"
+      ],
+      "summary": "用实体显示检查模型中已有的节点集合和约束，再打开卡片核对编号和自由度。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/pages-d43.html",
+        "sha256": "f2b4671ec2b9382fd0aadfc39437cab41cce975edcc3c6f2d3d91fec82aa4e1e",
+        "url": "https://lsdyna.ansys.com/pages-d43/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page D: Entity Display Interface — Quick Guide and Bound/Set"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在实体显示中打开 Set 和 Bound。",
+        "选择 SPC，显示需要核对的节点和节点集。",
+        "用 Identify 或 KCard 回查 ID 与卡片内容。"
+      ],
+      "checks": [
+        "用图形位置和卡片 ID 双重检查选点。"
+      ],
+      "related_ids": [
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "tool.validate_lsprepost_import"
+      ]
+    },
+    {
+      "id": "prepost.command_replay",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 命令文件复现操作",
+      "aliases": [
+        "PrePost复现命令文件",
+        "PrePost批处理读取结果"
+      ],
+      "summary": "将可重复的读入、后处理操作保存为 LS-PrePost 命令文件，并用批处理复现。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/command.html",
+        "sha256": "cde2b8930c32d6faf301793433634f5da1fbb38b0abd93e9fdbd05b70765c778",
+        "url": "https://lsdyna.ansys.com/command/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Command Line Interface — command files"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "先在界面用样例文件完成一次操作。",
+        "保存并检查记录的命令文件和数据路径。",
+        "在目标版本用该命令文件回放，核对产物。"
+      ],
+      "checks": [
+        "记录版本、输入路径和输出文件，使用同一项目的数据。"
+      ],
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "tool.export_preview_images",
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.mode_animation_controls",
+      "index": "I_tool",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 振型动画显示控制",
+      "aliases": [
+        "PrePost振型动画缩放",
+        "D3EIGV动画细分"
+      ],
+      "summary": "振型动画提供位移显示比例和动画细分选项。对照两个网格时可使用相同视角和显示比例。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/animation.html",
+        "sha256": "d79c6bf68c5bac3a7776fb499c8feece144e49ad2f0a5365f4165b81ed6a63cb",
+        "url": "https://lsdyna.ansys.com/animation/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Animation Controls — Purpose and Controls"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "载入 d3eigv 后选择目标模态。",
+        "按需要调节 SF 和动画细分。",
+        "用一致的视角核对形态。"
+      ],
+      "checks": [
+        "记录显示比例。",
+        "频率以求解输出为准，动画比例用于观察振型。"
+      ],
+      "related_ids": [
+        "r12.control_implicit_eigenvalue",
+        "guide.example_10.output"
+      ]
+    }
+  ]
+}

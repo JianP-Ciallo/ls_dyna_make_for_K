@@ -1,0 +1,1303 @@
+{
+  "project.square_shell_four_edges_clamped": [
+    {
+      "topic": "boundary",
+      "title": "四边固支薄壳方板的周边节点约束",
+      "aliases": [
+        "四边固支边界",
+        "薄壳方板六自由度固支"
+      ],
+      "summary": "用一个节点集覆盖方板四边的全部节点，角点只计一次。SPC_SET 对薄壳节点限制三个平移和三个转动。",
+      "evidence": [
+        "*SET_NODE_LIST",
+        "*BOUNDARY_SPC_SET"
+      ],
+      "steps": [
+        "按最小和最大 X、Y 坐标找出周边节点。",
+        "核对集合成员与 SPC 的 NSID。",
+        "检查六个自由度标志，保留内部节点用于振动。"
+      ],
+      "adaptation": "网格改变后从几何重选周边节点。实体板的约束应按实体节点平移及厚度方向的边界覆盖来设计。",
+      "checks": [
+        "周边集合覆盖四边和四个角点。",
+        "无重复成员，内部节点未被夹紧。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "四边固支薄壳方板的无载模态设置",
+      "aliases": [
+        "固支薄板特征值",
+        "固支薄板自由振动"
+      ],
+      "summary": "由隐式总控和特征值设置请求线性无外载模态。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_EIGENVALUE"
+      ],
+      "steps": [
+        "核对隐式开关。",
+        "根据验收目标选择模态数和关注的频段。"
+      ],
+      "adaptation": "为不同的厚度、网格和材料重新核对分析设置。",
+      "checks": [
+        "确认边界与理论对照采用同一支承。",
+        "检查输入中无外载。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "四边固支薄壳方板的频率和振型核对",
+      "aliases": [
+        "四边固支频率结果",
+        "固支方板振型输出"
+      ],
+      "summary": "特征值卡请求频率和振型结果。验收时从 eigout 查看频率，从 d3eigv 查看振型及边界运动。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE"
+      ],
+      "steps": [
+        "求解后核对本次运行实际生成的 eigout 和 d3eigv。",
+        "按振型配对后比较理论频率及网格细化结果。"
+      ],
+      "adaptation": "选择同几何、同支承和一致单位的理论基准，薄板理论与壳网格的偏差需要单独评估。",
+      "checks": [
+        "固支边的运动应符合约束。",
+        "求解结果与频率误差待在 R12 中核验。"
+      ]
+    }
+  ],
+  "ansys.example_01": [
+    {
+      "topic": "boundary",
+      "title": "薄壳斜板边界设置",
+      "aliases": [
+        "薄壳斜板边界",
+        "节点卡约束",
+        "薄壳板支承"
+      ],
+      "summary": "原例在部分 *NODE 记录中用 TC=3 限制全局 Z 向平移。边界从节点行直接读取。",
+      "evidence": [
+        "*NODE"
+      ],
+      "steps": [
+        "按斜板的支承边选中网格节点。",
+        "在原例节点卡中识别 TC 与 RC，确认 TC=3 的节点及约束方向。",
+        "对照工况检查其他自由度和刚体运动。"
+      ],
+      "adaptation": "重建网格后重新按实际支承边选点，并按所需方向设置约束。",
+      "checks": [
+        "检查 TC=3 是否覆盖预定支承边。",
+        "核对坐标系与单位，审查多余自由度或约束。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "薄壳斜板的压力加载",
+      "aliases": [
+        "薄壳板压力加载",
+        "斜板法向压力"
+      ],
+      "summary": "原例使用曲线 1 施加逐步升高的面压力，每个受载面由角点节点定义。",
+      "evidence": [
+        "*DEFINE_CURVE",
+        "*LOAD_SEGMENT"
+      ],
+      "steps": [
+        "明确压力大小、方向和随时间的变化。",
+        "用曲线 ID 1 串联 *DEFINE_CURVE 与每个 *LOAD_SEGMENT。",
+        "从节点顺序核对受载面方向。"
+      ],
+      "adaptation": "按新工况重建压力曲线和受载面节点列表，使用一致单位。",
+      "checks": [
+        "确认曲线引用存在。",
+        "检查面覆盖、重复面与法向。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "薄壳斜板的输出设置",
+      "aliases": [
+        "薄壳斜板输出",
+        "薄壳单元历史输出"
+      ],
+      "summary": "原例选择壳单元 6、7、10、11，配合 ELOUT，并设置 D3PLOT 全模型状态输出。",
+      "evidence": [
+        "*DATABASE_HISTORY_SHELL",
+        "*DATABASE_ELOUT",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "选择需要比较的壳单元与结果分量。",
+        "用 HISTORY_SHELL 指定单元，用 ELOUT 设置输出。",
+        "另配 D3PLOT 查看变形和云图。"
+      ],
+      "adaptation": "按新网格重新选择单元，并分别根据目标时间分辨率设置时程与云图输出。",
+      "checks": [
+        "校验监测 ID 是壳单元。",
+        "核对厚度位置和积分点，以及实际产物的输出间隔。"
+      ]
+    }
+  ],
+  "ansys.example_02": [
+    {
+      "topic": "boundary",
+      "title": "厚壳斜板的节点平移约束",
+      "aliases": ["厚壳斜板支承", "厚壳斜板边界"],
+      "summary": "用节点卡 TC 核对哪些厚壳节点限制了全局 Z 向平移。",
+      "evidence": ["*NODE"],
+      "steps": ["在节点卡定位 TC 和 RC。", "沿实际支承区域核对带 TC=3 的节点坐标。"],
+      "adaptation": "切换到新厚壳网格后，按支承位置和厚度方向重选节点。",
+      "checks": ["检查约束节点是否覆盖预期位置。", "复核需要限制的方向与坐标系。"]
+    },
+    {
+      "topic": "loading",
+      "title": "厚壳斜板的压力面和载荷曲线",
+      "aliases": ["厚壳斜板面压力", "厚壳板压力曲线"],
+      "summary": "从厚壳单元连接找到受载表面，并用曲线 ID 将面压力和曲线定义关联。",
+      "evidence": ["*ELEMENT_TSHELL", "*DEFINE_CURVE", "*LOAD_SEGMENT"],
+      "steps": ["根据厚壳节点连接识别实际受压面。", "核对受压面节点顺序和所引用的曲线。"],
+      "adaptation": "用新网格上的对应表面重建面卡，并按工况定义曲线。",
+      "checks": ["检查面卡节点存在且面法向符合加载方向。", "确认载荷曲线引用闭合。"]
+    },
+    {
+      "topic": "output",
+      "title": "厚壳斜板的单元历史和全模型输出",
+      "aliases": ["厚壳斜板输出", "厚壳单元历史与云图"],
+      "summary": "HISTORY_TSHELL 选取厚壳单元，ELOUT 请求单元结果，D3PLOT 保存模型状态。",
+      "evidence": ["*DATABASE_HISTORY_TSHELL", "*DATABASE_ELOUT", "*DATABASE_BINARY_D3PLOT"],
+      "steps": ["选出需要跟踪的厚壳单元。", "分别检查单元结果和动画状态的采样间隔。"],
+      "adaptation": "按新网格重新选取监测单元，按所需时间分辨率设置输出。",
+      "checks": ["核对被监测 ID 的单元类型。", "查看目标厚度位置的结果是否有输出。"]
+    }
+  ],
+  "ansys.example_03": [
+    {
+      "topic": "boundary",
+      "title": "椭圆厚板粗网格的节点约束",
+      "aliases": [
+        "椭圆厚板粗网格支承"
+      ],
+      "summary": "原例在 NODE 的 TC 字段直接写入平移约束。存在单向、双向及三向限制，需按几何位置分组核对。",
+      "evidence": [
+        "*NODE"
+      ],
+      "steps": [
+        "从节点卡筛出非空 TC 的节点。",
+        "按坐标定位约束范围，查 R12 的 TC 编码核对限制方向。"
+      ],
+      "adaptation": "按相同的几何区域重选节点，将约束与对照网格按位置核对。",
+      "checks": [
+        "检查约束位置和方向。",
+        "对照节点覆盖范围及隐式求解器的自动约束设置。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "椭圆厚板粗网格的面压力与隐式设置",
+      "aliases": [
+        "椭圆厚板粗网格法向压力"
+      ],
+      "summary": "LOAD_SEGMENT 通过曲线 ID 定义面压力，曲线由零增至目标值。粗、细网格的隐式控制卡存在差异。",
+      "evidence": [
+        "*LOAD_SEGMENT",
+        "*DEFINE_CURVE",
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_SOLUTION",
+        "*CONTROL_IMPLICIT_SOLVER"
+      ],
+      "steps": [
+        "核对压力面节点顺序与曲线引用。",
+        "与第 04 例对照面覆盖及隐式控制，包括 NSBS、DRCM 和 AUTOSPC。"
+      ],
+      "adaptation": "比较网格影响时，先统一工况与求解设置，并记录实际差异。",
+      "checks": [
+        "压力的方向与面积应按实际网格核对。",
+        "确认材料、边界、单元公式和求解控制可比。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "椭圆厚板粗网格的实体应力输出",
+      "aliases": [
+        "椭圆厚板粗网格应力结果"
+      ],
+      "summary": "HISTORY_SOLID 选实体单元，ELOUT 请求单元结果，EXTENT_BINARY 控制二进制结果内容，D3PLOT 保存模型状态。",
+      "evidence": [
+        "*DATABASE_HISTORY_SOLID",
+        "*DATABASE_ELOUT",
+        "*DATABASE_EXTENT_BINARY",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "定位目标物理位置的实体单元。",
+        "核对结果变量、分量和积分点位置。",
+        "在粗细网格上对齐同一物理位置与加载状态。"
+      ],
+      "adaptation": "按目标位置重选单元，比较相同分量和单位的结果。",
+      "checks": [
+        "结果比较记录实际提取位置、载荷状态和采样。",
+        "对照同一层或积分点，区分单元结果和节点外推结果。"
+      ]
+    }
+  ],
+  "ansys.example_04": [
+    {
+      "topic": "boundary",
+      "title": "椭圆厚板细网格的节点约束",
+      "aliases": [
+        "椭圆厚板细网格支承"
+      ],
+      "summary": "原例在 NODE 的 TC 字段直接写入平移约束。存在单向、双向及三向限制，需按几何位置分组核对。",
+      "evidence": [
+        "*NODE"
+      ],
+      "steps": [
+        "从节点卡筛出非空 TC 的节点。",
+        "按坐标定位约束范围，查 R12 的 TC 编码核对限制方向。"
+      ],
+      "adaptation": "按相同的几何区域重选节点，将约束与对照网格按位置核对。",
+      "checks": [
+        "检查约束位置和方向。",
+        "对照节点覆盖范围及隐式求解器的自动约束设置。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "椭圆厚板细网格的面压力与隐式设置",
+      "aliases": [
+        "椭圆厚板细网格法向压力"
+      ],
+      "summary": "LOAD_SEGMENT 通过曲线 ID 定义面压力，曲线由零增至目标值。粗、细网格的隐式控制卡存在差异。",
+      "evidence": [
+        "*LOAD_SEGMENT",
+        "*DEFINE_CURVE",
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_SOLUTION",
+        "*CONTROL_IMPLICIT_SOLVER"
+      ],
+      "steps": [
+        "核对压力面节点顺序与曲线引用。",
+        "与第 03 例对照面覆盖及隐式控制，包括 NSBS、DRCM 和 AUTOSPC。"
+      ],
+      "adaptation": "比较网格影响时，先统一工况与求解设置，并记录实际差异。",
+      "checks": [
+        "压力的方向与面积应按实际网格核对。",
+        "确认材料、边界、单元公式和求解控制可比。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "椭圆厚板细网格的实体应力输出",
+      "aliases": [
+        "椭圆厚板细网格应力结果"
+      ],
+      "summary": "HISTORY_SOLID 选实体单元，ELOUT 请求单元结果，EXTENT_BINARY 控制二进制结果内容，D3PLOT 保存模型状态。",
+      "evidence": [
+        "*DATABASE_HISTORY_SOLID",
+        "*DATABASE_ELOUT",
+        "*DATABASE_EXTENT_BINARY",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "定位目标物理位置的实体单元。",
+        "核对结果变量、分量和积分点位置。",
+        "在粗细网格上对齐同一物理位置与加载状态。"
+      ],
+      "adaptation": "按目标位置重选单元，比较相同分量和单位的结果。",
+      "checks": [
+        "结果比较记录实际提取位置、载荷状态和采样。",
+        "对照同一层或积分点，区分单元结果和节点外推结果。"
+      ]
+    }
+  ],
+  "ansys.example_06": [
+    {
+      "topic": "boundary",
+      "title": "悬臂梁根部约束",
+      "aliases": [
+        "悬臂梁边界",
+        "梁根部固定",
+        "梁端全约束"
+      ],
+      "summary": "原例通过 *BOUNDARY_SPC_NODE 对根部节点 1 约束三个平移和三个转动自由度。",
+      "evidence": [
+        "*BOUNDARY_SPC_NODE"
+      ],
+      "steps": [
+        "确认梁哪一端固定、哪一端加载。",
+        "从模型中识别根部节点，核对节点 ID 和坐标系。",
+        "按原例工况限制根部六个自由度。"
+      ],
+      "adaptation": "用新梁模型的根部节点替换原 ID，并根据实际支承确定平移和转动限制。",
+      "checks": [
+        "根部约束节点和加载节点是否混用。",
+        "核对梁公式与节点自由度。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "悬臂梁端点力设置",
+      "aliases": [
+        "梁端力怎么设",
+        "悬臂梁集中力设置"
+      ],
+      "summary": "原例对端点节点 6 施加两个方向的节点力，分别引用曲线 1 和 2。",
+      "evidence": [
+        "*DEFINE_CURVE",
+        "*LOAD_NODE_POINT"
+      ],
+      "steps": [
+        "确定实际加载节点及分力方向。",
+        "为两个方向准备对应的载荷曲线。",
+        "在两张节点力卡核对 DOF、LCID 和比例系数符号。"
+      ],
+      "adaptation": "按用户指定的方向、力时程和坐标系生成新引用，重新定位梁端节点。",
+      "checks": [
+        "两张载荷卡都引用到正确节点。",
+        "对照曲线与比例系数的符号检查合力方向。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "悬臂梁端点位移输出",
+      "aliases": [
+        "悬臂梁输出",
+        "梁端位移时程"
+      ],
+      "summary": "原例用 HISTORY_NODE 选择端点节点 6，并用 NODOUT 请求节点时程。另列了梁单元 3 的历史选择。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_HISTORY_BEAM"
+      ],
+      "steps": [
+        "确定端部位移的节点和分量。",
+        "用 HISTORY_NODE 与 NODOUT 配对请求节点时程。",
+        "如需梁单元历史，核对 HISTORY_BEAM 的单元选择与实际输出请求。"
+      ],
+      "adaptation": "重新选取端点节点和监测梁单元，按任务时间窗确定输出间隔。",
+      "checks": [
+        "区分历史对象选择与数据库输出请求。",
+        "检查位移方向、输出时刻和实际产物格式。"
+      ]
+    }
+  ],
+  "ansys.example_07": [
+    {
+      "topic": "boundary",
+      "title": "Lee 梁架两端铰支",
+      "aliases": [
+        "梁架两端铰支"
+      ],
+      "summary": "两处 SPC_NODE 固定支承点的平移及面外转动，保留绕 Z 的转动。",
+      "evidence": [
+        "*BOUNDARY_SPC_NODE"
+      ],
+      "steps": [
+        "在节点表定位两处端点。",
+        "逐列核对平移和转动约束。"
+      ],
+      "adaptation": "换几何后重新定位铰支点和铰轴。",
+      "checks": [
+        "核对两个端点的约束方向与梁架平面一致。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "Lee 梁架的节点力与非线性步进",
+      "aliases": [
+        "梁架非线性步进"
+      ],
+      "summary": "集中力方向由 DOF 与比例符号确定，曲线提供加载过程，隐式自动步进和非线性求解卡控制平衡迭代。",
+      "evidence": [
+        "*LOAD_NODE_POINT",
+        "*DEFINE_CURVE",
+        "*CONTROL_IMPLICIT_AUTO",
+        "*CONTROL_IMPLICIT_SOLUTION"
+      ],
+      "steps": [
+        "查找受力节点和曲线 ID。",
+        "核对力的方向、步长控制与收敛判据。"
+      ],
+      "adaptation": "按新工况重建节点力并重新评估步长和迭代选项。",
+      "checks": [
+        "在日志中核对收敛与步长变化。",
+        "原输入未启用弧长控制，复用时先核对所需分析路径。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "Lee 梁架的力与位移曲线",
+      "aliases": [
+        "梁架力位移曲线"
+      ],
+      "summary": "节点组力和节点位移分别由 NODFOR 与 NODOUT 请求。原例使用 HISTORY_NODE 选定节点。",
+      "evidence": [
+        "*DATABASE_NODAL_FORCE_GROUP",
+        "*SET_NODE_LIST",
+        "*DATABASE_NODFOR",
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT"
+      ],
+      "steps": [
+        "从节点组取外力，按监测节点提取位移。",
+        "用共同的输出时刻对应力和位移，查看加载路径。"
+      ],
+      "adaptation": "按新网格重选节点组和位移监测节点。",
+      "checks": [
+        "核对方向、单位和时间采样。",
+        "节点组外力与支承约束反力按各自输出定义解释。"
+      ]
+    }
+  ],
+  "ansys.example_08": [
+    {
+      "topic": "boundary",
+      "title": "交叉梁内外节点的面内运动约束",
+      "aliases": [
+        "交叉梁内外节点约束"
+      ],
+      "summary": "外端节点用逐项列表定义，内部节点用编号区间。两组均限制面外平移及绕 X、Y 的转动，外端另外限制面内平移。",
+      "evidence": [
+        "*BOUNDARY_SPC_SET",
+        "*SET_NODE_LIST_GENERATE",
+        "*SET_NODE_LIST"
+      ],
+      "steps": [
+        "展开区间节点集并核对端点列表。",
+        "按两个 NSID 对照约束标志。"
+      ],
+      "adaptation": "改网格后从端点与内部位置重新生成集合。",
+      "checks": [
+        "检查集合覆盖和绕 Z 转动自由度。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "交叉梁相邻面内模态提取",
+      "aliases": [
+        "交叉梁特征值设置"
+      ],
+      "summary": "用隐式总控、特征值与线性求解选项提取交叉梁的面内模态。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*CONTROL_IMPLICIT_SOLVER"
+      ],
+      "steps": [
+        "核对隐式分析入口及特征值数目。",
+        "检查目标频段和振型类别。"
+      ],
+      "adaptation": "按新几何与支承重设模态提取范围。",
+      "checks": [
+        "注意相邻特征值可能对应不同振型。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "交叉梁频率与振型的对应检查",
+      "aliases": [
+        "交叉梁模态输出"
+      ],
+      "summary": "在 eigout 核对频率，在 d3eigv 对照振型，区分原输入同时请求的普通状态数据库。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "从 eigout 找出目标频率。",
+        "打开对应 d3eigv，检查面内振型及端点运动。"
+      ],
+      "adaptation": "不同网格或梁公式之间按振型配对后再比频率。",
+      "checks": [
+        "近邻模态不要仅凭编号配对。",
+        "核对文件来自同一输入快照。"
+      ]
+    }
+  ],
+  "ansys.example_09": [
+    {
+      "topic": "boundary",
+      "title": "简支环板的节点号区间和自由度",
+      "aliases": ["环板内外圈支承", "区间节点集简支"],
+      "summary": "用两个 LIST_GENERATE 集合区分节点区域。SPC 对两个集合使用不同的 Z 向平移限制，保留绕 X、Y 的转动。",
+      "evidence": ["*SET_NODE_LIST_GENERATE", "*BOUNDARY_SPC_SET"],
+      "steps": ["按节点号区间展开两个集合。", "用 NSID 找到对应集合并逐列对照约束方向。", "将约束覆盖区域与网格几何对照。"],
+      "adaptation": "重编号后重新选点；编号不连续时可使用逐项节点列表。",
+      "checks": ["确认每个范围确实选中预期节点。", "确认两个集合的平移和转动约束与目标支承一致。"]
+    },
+    {
+      "topic": "loading",
+      "title": "环形薄板的自由振动分析设置",
+      "aliases": ["环板特征值设置", "环形板模态提取"],
+      "summary": "原例用隐式总控与特征值卡计算固有频率。",
+      "evidence": ["*CONTROL_IMPLICIT_GENERAL", "*CONTROL_IMPLICIT_EIGENVALUE"],
+      "steps": ["核对隐式分析总开关。", "按目标频段和模态数检查特征值设置。"],
+      "adaptation": "根据新几何和支承选择需要提取的模态数与频段。",
+      "checks": ["核对支承与自由度。", "用振型和频率一起识别目标模态。"]
+    },
+    {
+      "topic": "output",
+      "title": "环形薄板的模态结果检查",
+      "aliases": ["环板模态输出", "环板振型对照"],
+      "summary": "回查特征值设置与模型中的二进制状态请求，验收时结合特征值结果文件与振型。",
+      "evidence": ["*CONTROL_IMPLICIT_EIGENVALUE", "*DATABASE_BINARY_D3PLOT"],
+      "steps": ["确认本次求解实际写出的特征值结果文件。", "读取固有频率并查看对应振型。"],
+      "adaptation": "对照不同网格时先按振型识别对应模态，再比较频率。",
+      "checks": ["区分模态结果与普通位移时程。", "检查目标模态的支承变形是否符合工况。"]
+    }
+  ],
+  "ansys.example_10": [
+    {
+      "topic": "boundary",
+      "title": "细网格环形薄板的节点集与支承",
+      "aliases": [
+        "细网格环板节点约束"
+      ],
+      "summary": "细网格按新节点号区间划分集合。两个 SPC 集合的自由度标志与粗网格一致，部分节点的 TC、RC 也需要核对。",
+      "evidence": [
+        "*SET_NODE_LIST_GENERATE",
+        "*BOUNDARY_SPC_SET",
+        "*NODE"
+      ],
+      "steps": [
+        "按区间展开节点集。",
+        "定位支承节点的坐标并检查 SPC 与节点卡标志。",
+        "对照第 09 例的支承位置与方向。"
+      ],
+      "adaptation": "重划网格后按实际几何边界建立集合。",
+      "checks": [
+        "检查区间包含的节点和多处定义的约束。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "细网格环板的模态提取设置",
+      "aliases": [
+        "细网格环板特征值设置"
+      ],
+      "summary": "细网格沿用粗网格的隐式特征值选项，可对照离散密度变化对频率和振型的影响。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*SECTION_SHELL"
+      ],
+      "steps": [
+        "核对两个网格的特征值范围与目标模态数。",
+        "对照壳截面、单元公式和实际支承。"
+      ],
+      "adaptation": "按工况选择提取范围，再保持粗细网格的分析条件可比。",
+      "checks": [
+        "复核厚度、材料与支承。",
+        "记录两组结果的求解设置。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "粗细环板网格的频率和振型对照",
+      "aliases": [
+        "环板粗细网格模态对照"
+      ],
+      "summary": "先读取 eigout，再在 d3eigv 中查看相应振型。按振型配对后比较频率。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "读取本次求解的频率表和模态结果。",
+        "结合振型和频率范围对齐相同模态。",
+        "记录两网格对应频率及变化。"
+      ],
+      "adaptation": "存在相邻频率或模态换序时，结合振型和物理特征做匹配。",
+      "checks": [
+        "确认两组频率来自相应的模态作业。",
+        "检查支承和目标振型。"
+      ]
+    }
+  ],
+  "ansys.example_11": [
+    {
+      "topic": "boundary",
+      "title": "梁端固定与梁内节点的分组约束",
+      "aliases": ["梁端节点集全约束", "梁内节点平面运动约束"],
+      "summary": "两个 SPC_SET 引用不同节点集。端点集合约束六个自由度，梁内集合只限制 Z 平移和绕 X、Y 的转动。",
+      "evidence": ["*BOUNDARY_SPC_SET", ["*SET_NODE_LIST", 2], ["*SET_NODE_LIST", 3]],
+      "steps": ["用 NSID 对照节点集并确定端点和梁内节点。", "逐项核对端点和梁内节点的自由度。"],
+      "adaptation": "在新梁网格中重新建立端点集和内部节点集。",
+      "checks": ["确认两组约束覆盖预期节点。", "核对受力方向上的位移自由度是否符合工况。"]
+    },
+    {
+      "topic": "loading",
+      "title": "梁受恒力算例的节点集加载",
+      "aliases": ["梁节点集恒力加载", "梁载荷先上升再保持"],
+      "summary": "载荷指向节点集 1，曲线从零上升至恒值。附加集中质量由单独的单元卡定义。",
+      "evidence": ["*LOAD_NODE_SET", ["*SET_NODE_LIST", 1], "*DEFINE_CURVE", "*ELEMENT_MASS"],
+      "steps": ["从 LOAD_NODE_SET 查 NSID、DOF 和 LCID。", "核对加载节点、方向和曲线两段的物理含义。", "单独检查附加质量的位置和单位。"],
+      "adaptation": "用目标节点集、载荷历程及工况质量替换原模型配置。",
+      "checks": ["确认节点、曲线引用有效。", "核对加载方向与现有约束。"]
+    },
+    {
+      "topic": "output",
+      "title": "梁的支座反力、测点时程和动画输出",
+      "aliases": ["梁支座反力输出", "梁位移时程与动画", "梁输出数据库分工"],
+      "summary": "同一原例同时请求 SPCFORC、NODOUT、D3PLOT 和 D3THDT，可对照约束反力、测点位移与模型状态的设置。",
+      "evidence": ["*DATABASE_SPCFORC", "*DATABASE_NODOUT", "*DATABASE_HISTORY_NODE", "*DATABASE_HISTORY_BEAM", "*DATABASE_BINARY_D3THDT", "*DATABASE_BINARY_D3PLOT", "*DATABASE_EXTENT_BINARY"],
+      "steps": ["用 HISTORY_NODE 和 HISTORY_BEAM 确认监测对象。", "用 SPCFORC 对照支承反力请求，用 NODOUT 对照节点结果。", "分别核对 D3PLOT、D3THDT 的间隔和二进制内容设置。"],
+      "adaptation": "按目标采样频率和结果分量选输出，重新关联监测 ID。",
+      "checks": ["核对实际产物的存储方式、时刻和单位。", "核对节点时程与支承反力对应的 ID 和方向。"]
+    }
+  ],
+  "ansys.example_12": [
+    {
+      "topic": "boundary",
+      "title": "实体方板自由振动的支承约束",
+      "aliases": [
+        "实体方板模态边界"
+      ],
+      "summary": "节点集 1 的 Z 向约束用于原例简支工况，节点卡也对相同支承写有 TC=3。",
+      "evidence": [
+        "*SET_NODE_LIST",
+        "*BOUNDARY_SPC_SET",
+        "*NODE"
+      ],
+      "steps": [
+        "按实际支承线选取节点。",
+        "用节点集引用约束方向。",
+        "同时检查节点卡内嵌约束，核对是否存在重复或冲突。"
+      ],
+      "adaptation": "在新网格上按支承位置重建集合，并根据实际自由度检查刚体模态。",
+      "checks": [
+        "核对 SID 与约束卡。",
+        "检查 TC 与 SPC 对应的节点和方向。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "实体方板自由振动的模态求解设置",
+      "aliases": [
+        "实体方板自由振动加载"
+      ],
+      "summary": "原例提取无外力输入下的固有模态，用隐式控制与特征值卡配置分析。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*CONTROL_IMPLICIT_GENERAL"
+      ],
+      "steps": [
+        "先建立质量、刚度和支承模型。",
+        "在隐式分析中请求所需的特征值数。",
+        "检查提取频率和振型。"
+      ],
+      "adaptation": "按研究的频带和网格选择提取范围与模态数。若要求受迫响应，需要另行定义载荷及相应分析。",
+      "checks": [
+        "按 R12 核对提取设置。",
+        "检查零频或接近零频的模态是否符合支承。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "实体方板的模态输出",
+      "aliases": [
+        "实体方板振型输出"
+      ],
+      "summary": "原例的 NEIG 为 10，同时包含 D3PLOT 输出设置。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "核对特征值设置与求解结果中实际提取的频率。",
+        "用本次输出查看振型与相对变形。",
+        "用统一支承、材料和模态编号对比不同网格。"
+      ],
+      "adaptation": "按感兴趣的频带配置模态数和结果查看方式。",
+      "checks": [
+        "振型幅值按归一化解释。",
+        "不要把振型幅值当作受载位移时程。"
+      ]
+    }
+  ],
+  "ansys.example_13": [
+    {
+      "topic": "boundary",
+      "title": "厚壳方板自由振动的支承约束",
+      "aliases": [
+        "厚壳方板模态边界"
+      ],
+      "summary": "节点集 1 的 Z 向约束用于原例简支工况，节点卡也对相同支承写有 TC=3。",
+      "evidence": [
+        "*SET_NODE_LIST",
+        "*BOUNDARY_SPC_SET",
+        "*NODE"
+      ],
+      "steps": [
+        "按实际支承线选取节点。",
+        "用节点集引用约束方向。",
+        "同时检查节点卡内嵌约束，核对是否存在重复或冲突。"
+      ],
+      "adaptation": "在新网格上按支承位置重建集合，并根据实际自由度检查刚体模态。",
+      "checks": [
+        "核对 SID 与约束卡。",
+        "检查 TC 与 SPC 对应的节点和方向。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "厚壳方板自由振动的模态求解设置",
+      "aliases": [
+        "厚壳方板自由振动加载"
+      ],
+      "summary": "原例提取无外力输入下的固有模态，用隐式控制与特征值卡配置分析。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*CONTROL_IMPLICIT_GENERAL"
+      ],
+      "steps": [
+        "先建立质量、刚度和支承模型。",
+        "在隐式分析中请求所需的特征值数。",
+        "检查提取频率和振型。"
+      ],
+      "adaptation": "按研究的频带和网格选择提取范围与模态数。若要求受迫响应，需要另行定义载荷及相应分析。",
+      "checks": [
+        "按 R12 核对提取设置。",
+        "检查零频或接近零频的模态是否符合支承。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "厚壳方板的模态输出",
+      "aliases": [
+        "厚壳方板振型输出"
+      ],
+      "summary": "原例的 NEIG 为 20，同时包含 D3PLOT 输出设置。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_EIGENVALUE",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "核对特征值设置与求解结果中实际提取的频率。",
+        "用本次输出查看振型与相对变形。",
+        "用统一支承、材料和模态编号对比不同网格。"
+      ],
+      "adaptation": "按感兴趣的频带配置模态数和结果查看方式。",
+      "checks": [
+        "振型幅值按归一化解释。",
+        "不要把振型幅值当作受载位移时程。"
+      ]
+    }
+  ],
+  "ansys.example_14": [
+    {
+      "topic": "boundary",
+      "title": "实体方板支承与边界条件",
+      "aliases": [
+        "实体方板边界",
+        "实体板节点集约束"
+      ],
+        "summary": "原例对支承节点集 1 施加 Z 向约束，同一批 32 个节点在 *NODE 中也标为 TC=3。节点集 164 是另一个集合。",
+      "evidence": [
+        [
+          "*SET_NODE_LIST",
+          2
+        ],
+          "*BOUNDARY_SPC_SET",
+          {"keyword": "*NODE", "lines": [264, 266]}
+      ],
+      "steps": [
+        "根据支承工况选取板边的受限节点。",
+        "用 SET_NODE_LIST 建立支承节点集，确认 SPC_SET 引用同一个 SID。",
+          "核对 DOFZ 与节点卡 TC=3 指向相同的节点和方向。"
+      ],
+      "adaptation": "用新网格的支承节点重建集合。若工况改为夹持或对称支承，应重新确定自由度。",
+      "checks": [
+          "检查节点集 1 与约束卡引用一致，并复核节点卡中的重复约束。",
+        "把支承集合与监测集合分开，复核是否需要额外限制刚体运动。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "实体方板的瞬态面压力",
+      "aliases": [
+        "实体方板加载",
+        "实体板阶跃压力设置"
+      ],
+      "summary": "原例在起始时间就给曲线 1 非零值，所选板面通过 LOAD_SEGMENT 引用该曲线。",
+      "evidence": [
+        "*DEFINE_CURVE",
+        "*LOAD_SEGMENT"
+      ],
+      "steps": [
+        "先明确压力时程及受载板面。",
+        "用 DEFINE_CURVE 记录时间与压力，再在 LOAD_SEGMENT 引用该曲线。",
+        "核对每个面的节点、顺序和缩放系数。"
+      ],
+      "adaptation": "对新网格重新生成受载面，按实际时程设置曲线。另行确定瞬态求解设置。",
+      "checks": [
+        "核对 LCID、时间原点及单位。",
+        "检查压力方向、覆盖范围和是否重复加载。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "实体方板位移与单元结果输出",
+      "aliases": [
+        "实体方板输出",
+        "实体板位移输出设置"
+      ],
+      "summary": "原例选节点 161–164 做节点时程，并通过 DATABASE_HISTORY_SOLID 选取实体单元。D3PLOT 单独控制状态输出。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_HISTORY_SOLID",
+        "*DATABASE_ELOUT",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "按目标位置和厚度层选择节点，配置 HISTORY_NODE 和 NODOUT。",
+        "用 DATABASE_HISTORY_SOLID 与 ELOUT 配置所需的实体单元历史。",
+        "按变形云图需求另设 D3PLOT 输出间隔。"
+      ],
+      "adaptation": "换网格后按物理位置、厚度层和单元类型重新选择监测对象。",
+      "checks": [
+        "避免把不同厚度层的位移当成同一个测点。",
+        "分别核对节点、单元和状态输出的采样间隔及格式。"
+      ]
+    }
+  ],
+  "ansys.example_15": [
+    {
+      "topic": "boundary",
+      "title": "厚壳方板支承与边界条件",
+      "aliases": [
+        "厚壳方板边界",
+        "厚壳板节点集约束"
+      ],
+        "summary": "原例对支承节点集 1 施加 Z 向约束，同一批 32 个节点在 *NODE 中也标为 TC=3。节点集 164 是另一个集合。",
+      "evidence": [
+        [
+          "*SET_NODE_LIST",
+          2
+        ],
+          "*BOUNDARY_SPC_SET",
+          {"keyword": "*NODE", "lines": [270, 272]}
+      ],
+      "steps": [
+        "根据支承工况选取板边的受限节点。",
+        "用 SET_NODE_LIST 建立支承节点集，确认 SPC_SET 引用同一个 SID。",
+          "核对 DOFZ 与节点卡 TC=3 指向相同的节点和方向。"
+      ],
+      "adaptation": "用新网格的支承节点重建集合。若工况改为夹持或对称支承，应重新确定自由度。",
+      "checks": [
+          "检查节点集 1 与约束卡引用一致，并复核节点卡中的重复约束。",
+        "把支承集合与监测集合分开，复核是否需要额外限制刚体运动。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "厚壳方板的瞬态面压力",
+      "aliases": [
+        "厚壳方板加载",
+        "厚壳板阶跃压力设置"
+      ],
+      "summary": "原例在起始时间就给曲线 1 非零值，所选板面通过 LOAD_SEGMENT 引用该曲线。",
+      "evidence": [
+        "*DEFINE_CURVE",
+        "*LOAD_SEGMENT"
+      ],
+      "steps": [
+        "先明确压力时程及受载板面。",
+        "用 DEFINE_CURVE 记录时间与压力，再在 LOAD_SEGMENT 引用该曲线。",
+        "核对每个面的节点、顺序和缩放系数。"
+      ],
+      "adaptation": "对新网格重新生成受载面，按实际时程设置曲线。另行确定瞬态求解设置。",
+      "checks": [
+        "核对 LCID、时间原点及单位。",
+        "检查压力方向、覆盖范围和是否重复加载。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "厚壳方板位移与单元结果输出",
+      "aliases": [
+        "厚壳方板输出",
+        "厚壳板位移输出设置"
+      ],
+      "summary": "原例选节点 161–164 做节点时程，并通过 DATABASE_HISTORY_TSHELL 选取厚壳单元。D3PLOT 单独控制状态输出。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_HISTORY_TSHELL",
+        "*DATABASE_ELOUT",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "按目标位置和厚度层选择节点，配置 HISTORY_NODE 和 NODOUT。",
+        "用 DATABASE_HISTORY_TSHELL 与 ELOUT 配置所需的厚壳单元历史。",
+        "按变形云图需求另设 D3PLOT 输出间隔。"
+      ],
+      "adaptation": "换网格后按物理位置、厚度层和单元类型重新选择监测对象。",
+      "checks": [
+        "避免把不同厚度层的位移当成同一个测点。",
+        "分别核对节点、单元和状态输出的采样间隔及格式。"
+      ]
+    }
+  ],
+  "ansys.example_16": [
+    {
+      "topic": "boundary",
+      "title": "圆盘与柔性面接触边界",
+      "aliases": [
+        "圆盘接触边界",
+        "圆盘刚体约束"
+      ],
+        "summary": "原例用两个节点集构成二维接触配对。运动限制见 MAT_RIGID 和节点 1001–1004 的 TC/RC。R12 手册列明该二维节点面接触选项适用于 SMP。",
+      "evidence": [
+        "*SET_NODE_LIST",
+        "*CONTACT_2D_AUTOMATIC_NODE_TO_SURFACE",
+          "*MAT_RIGID",
+          {"keyword": "*NODE", "lines": [1122, 1125]}
+      ],
+      "steps": [
+        "分别识别圆盘和柔性面的接触对象。",
+        "检查两组节点与二维接触卡引用，并按手册解释引用值的符号。",
+          "从刚体材料约束字段和四条节点记录的 TC/RC 一起核对可动自由度。"
+      ],
+      "adaptation": "根据新模型的维度、接触面和支承重建集合，按所选接触卡解释引用。",
+      "checks": [
+        "检查接触双方、初始间隙和单元公式。",
+          "核对刚体约束与节点约束是否相容。",
+          "按 R12 第一卷 PDF 1138 页检查并行版本。MPP 所支持的二维接触选项不含本例选项。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "圆盘算例的 Y 向体载荷",
+      "aliases": [
+        "圆盘体载荷",
+        "圆盘加速度曲线"
+      ],
+      "summary": "原例用 LOAD_BODY_Y 引用曲线 1，按时间定义 Y 方向的加速度输入。",
+      "evidence": [
+        "*DEFINE_CURVE",
+        "*LOAD_BODY_Y"
+      ],
+      "steps": [
+        "确定体载荷的物理含义和加速度时程。",
+        "在曲线 1 写入原例对应的时程，并由 LOAD_BODY_Y 引用。",
+        "按 R12 核对基底加速度与实际体力方向的关系。"
+      ],
+      "adaptation": "用新工况的加速度、符号和作用范围重建输入。",
+      "checks": [
+        "确认单位是加速度而非面压力。",
+        "核对坐标方向、比例系数和部件适用范围。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "圆盘接触力与节点位移输出",
+      "aliases": [
+        "圆盘接触力输出",
+        "圆盘位移输出"
+      ],
+      "summary": "原例选择节点 166 和 1001，设置节点时程、接触合力及全模型状态。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_RCFORC",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "用 HISTORY_NODE 与 NODOUT 跟踪需要的节点响应。",
+        "用 RCFORC 请求接触界面合力。",
+        "用 D3PLOT 检查接触和位移演化。"
+      ],
+      "adaptation": "按新模型重新指定两侧监测点和接触界面，输出间隔按事件持续时间设定。",
+      "checks": [
+        "确认后处理读取了对应界面和节点。",
+        "检查接触力分量、方向和实际数据库格式。"
+      ]
+    }
+  ],
+  "ansys.example_17": [
+    {
+      "topic": "boundary",
+      "title": "线性弹簧固定端与集中质量",
+      "aliases": [
+        "线性弹簧端点约束"
+      ],
+      "summary": "原例约束节点 2 的六个自由度，节点 1 保留运动。离散单元连接两个节点，集中质量卡单独引用节点。",
+      "evidence": [
+        "*NODE",
+        "*ELEMENT_DISCRETE",
+        "*ELEMENT_MASS",
+        "*BOUNDARY_SPC_NODE"
+      ],
+      "steps": [
+        "按离散单元两端追到节点坐标。",
+        "对照固定端与运动端的 ID，核对集中质量位置。"
+      ],
+      "adaptation": "更换几何后重新选择端点，保证弹簧轴向与预期相同。",
+      "checks": [
+        "检查节点 1 是位移监测点。",
+        "核对质量、长度和刚度单位一致。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "线性弹簧常刚度与初始偏移",
+      "aliases": [
+        "线性弹簧初始变形"
+      ],
+      "summary": "材料卡提供常刚度，离散单元 OFFSET 给出初始偏移。部件名称包含 nonlinear，实际类型应从所引用的材料卡识别。",
+      "evidence": [
+        "*PART",
+        "*SECTION_DISCRETE",
+        "*MAT_SPRING_ELASTIC",
+        "*ELEMENT_DISCRETE"
+      ],
+      "steps": [
+        "沿 PID、SECID、MID 核对引用。",
+        "查平移离散截面、弹簧常刚度与初始偏移。"
+      ],
+      "adaptation": "按目标系统设置质量、刚度与初始变形。",
+      "checks": [
+        "材料类型以关键字及 MID 为准。",
+        "核对偏移的正负方向。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "线性弹簧从节点时程测周期",
+      "aliases": [
+        "线性弹簧节点位移输出"
+      ],
+      "summary": "HISTORY_NODE 选择运动节点，NODOUT 请求节点时程，D3PLOT 请求状态文件。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "选择沿弹簧轴线的节点位移。",
+        "在相邻同向峰值间读取周期。",
+        "与同一质量和刚度下的单自由度线性周期对照。"
+      ],
+      "adaptation": "按预期周期设输出间隔和时长。",
+      "checks": [
+        "分开核对积分步长和结果采样间隔。",
+        "理论对照使用运动端等效质量。"
+      ]
+    }
+  ],
+  "ansys.example_18": [
+    {
+      "topic": "boundary",
+      "title": "非线性弹簧固定端与质量连接",
+      "aliases": [
+        "非线性弹簧端点约束"
+      ],
+      "summary": "固定端、运动端与集中质量配置可同第 17 例核对。",
+      "evidence": [
+        "*NODE",
+        "*ELEMENT_DISCRETE",
+        "*ELEMENT_MASS",
+        "*BOUNDARY_SPC_NODE"
+      ],
+      "steps": [
+        "查固定节点与弹簧两端的引用。",
+        "对照两个算例的集中质量和节点位置。"
+      ],
+      "adaptation": "改网格后重新指定运动与固定端。",
+      "checks": [
+        "检查初始方向和质量配置。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "非线性弹簧的力—位移曲线",
+      "aliases": [
+        "非线性弹簧LCD引用"
+      ],
+      "summary": "材料卡 LCD 指向力—位移关系，离散单元仍通过 OFFSET 设置初始变形。",
+      "evidence": [
+        "*PART",
+        "*SECTION_DISCRETE",
+        "*MAT_SPRING_NONLINEAR_ELASTIC",
+        "*DEFINE_CURVE",
+        "*ELEMENT_DISCRETE"
+      ],
+      "steps": [
+        "从 MID 找到材料与 LCD。",
+        "核对曲线横纵轴的物理含义及偏移。",
+        "检查目标位移范围覆盖。"
+      ],
+      "adaptation": "替换本构曲线时使用同单位的力与位移数据。",
+      "checks": [
+        "核对曲线不是外载时间历程。",
+        "检查曲线覆盖、符号与尺度。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "非线性弹簧的位移时程对照",
+      "aliases": [
+        "非线性弹簧位移时程"
+      ],
+      "summary": "在相同的监测节点和位移方向对照线性、非线性弹簧响应。",
+      "evidence": [
+        "*DATABASE_HISTORY_NODE",
+        "*DATABASE_NODOUT",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "提取运动端轴向位移。",
+        "记录本次初始偏移、峰值与周期。",
+        "在等同质量和初始条件下与第 17 例对照。"
+      ],
+      "adaptation": "按照待比较的幅值和周期设采样。",
+      "checks": [
+        "非线性振动周期可随幅值变化。",
+        "R12 计算结果待核验。"
+      ]
+    }
+  ],
+  "ansys.example_19": [
+    {
+      "topic": "boundary",
+      "title": "圆筒上下端节点集与约束",
+      "aliases": [
+        "圆筒上下边约束"
+      ],
+      "summary": "底端节点集锁定全部六个自由度，顶端节点集限制横向平移并保留轴向平移。",
+      "evidence": [
+        "*SET_NODE_LIST_TITLE",
+        "*BOUNDARY_SPC_SET"
+      ],
+      "steps": [
+        "根据标题和节点坐标核对上下边集合。",
+        "确认 NSID 对应及轴向自由度。"
+      ],
+      "adaptation": "重建网格后按几何位置重新选取上下边节点。",
+      "checks": [
+        "核对上下边约束和轴向载荷对象。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "圆筒轴向参考载荷与屈曲分析",
+      "aliases": [
+        "圆筒屈曲参考载荷"
+      ],
+      "summary": "顶端节点集引用曲线施加轴向参考载荷。隐式屈曲卡设置要提取的模态数。",
+      "evidence": [
+        "*LOAD_NODE_SET",
+        "*DEFINE_CURVE",
+        "*CONTROL_IMPLICIT_GENERAL",
+        "*CONTROL_IMPLICIT_BUCKLE"
+      ],
+      "steps": [
+        "按节点集、方向及比例核对轴压。",
+        "明确参考载荷及屈曲求解时刻，检查模态数。"
+      ],
+      "adaptation": "更换几何、载荷或网格时重新核对参考载荷的合力与分布。",
+      "checks": [
+        "核对顶端加载轴与保留的自由度。",
+        "线性屈曲结果按参考载荷解释。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "圆筒屈曲载荷倍数和振型输出",
+      "aliases": [
+        "圆筒屈曲结果读取"
+      ],
+      "summary": "屈曲特征值写入 eigout，表示施加参考载荷的倍数。屈曲振型见 d3eigv。",
+      "evidence": [
+        "*CONTROL_IMPLICIT_BUCKLE",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "核对求解达到屈曲分析时刻。",
+        "用 eigout 特征值与参考载荷解释临界载荷。",
+        "打开 d3eigv 查看对应振型。"
+      ],
+      "adaptation": "不同网格的结果按同一支承、参考载荷和振型对照。",
+      "checks": [
+        "区分屈曲倍数和自由振动频率。",
+        "记录采用的参考载荷及模态。"
+      ]
+    }
+  ],
+  "ansys.example_27": [
+    {
+      "topic": "boundary",
+      "title": "铜杆撞刚壁的接触边界",
+      "aliases": [
+        "铜杆刚壁边界",
+        "刚性墙边界设置"
+      ],
+      "summary": "原例通过 RIGIDWALL_PLANAR 定义刚性平面及参与接触的对象范围。",
+      "evidence": [
+        "*RIGIDWALL_PLANAR"
+      ],
+      "steps": [
+        "确定墙的参考位置和法向。",
+        "根据平面卡定义两个方向点和参与接触的范围。",
+        "核对铜杆与墙的初始相对位置及间隙。"
+      ],
+      "adaptation": "按新几何重新确定平面位置、法向和候选接触节点范围。",
+      "checks": [
+        "检查平面法向和初始间隙。",
+        "核对节点范围默认值是否符合任务。"
+      ]
+    },
+    {
+      "topic": "loading",
+      "title": "铜杆撞刚壁的初始速度",
+      "aliases": [
+        "铜杆初始速度",
+        "铜杆撞壁初始条件"
+      ],
+      "summary": "原例通过 INITIAL_VELOCITY_GENERATION 为铜杆部件施加初始速度。",
+      "evidence": [
+        "*PART",
+        "*INITIAL_VELOCITY_GENERATION"
+      ],
+      "steps": [
+        "识别运动部件和对应 ID。",
+        "核对 STYP 和 ID 的引用对象类型。",
+        "核对初速度坐标系、符号与刚壁相对方向。"
+      ],
+      "adaptation": "按任务给定的初始条件填写新部件速度，并核对该速度确实指向指定刚壁。",
+      "checks": [
+        "检查初速度作用于正确部件。",
+        "检查坐标系、方向和单位一致性。"
+      ]
+    },
+    {
+      "topic": "output",
+      "title": "铜杆撞刚壁的反力和能量输出",
+      "aliases": [
+        "铜杆刚壁反力",
+        "铜杆撞壁输出"
+      ],
+      "summary": "原例通过 RWFORC 请求刚壁反力，GLSTAT 和 MATSUM 记录全局与部件统计，另设 D3PLOT。",
+      "evidence": [
+        "*DATABASE_RWFORC",
+        "*DATABASE_GLSTAT",
+        "*DATABASE_MATSUM",
+        "*DATABASE_BINARY_D3PLOT"
+      ],
+      "steps": [
+        "按需要配置刚壁反力时程。",
+        "同时输出全局和部件统计，以检查动能、内能等随时间变化。",
+        "用 D3PLOT 核对变形和接触过程。"
+      ],
+      "adaptation": "按事件持续时间和结果目标分别设置反力、能量与状态输出间隔。",
+      "checks": [
+        "检查刚壁反力和部件能量来自本次运行。",
+        "核对输出采样是否覆盖接触过程。"
+      ]
+    }
+  ]
+}

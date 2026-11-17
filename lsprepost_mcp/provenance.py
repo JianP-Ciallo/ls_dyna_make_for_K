@@ -86,7 +86,10 @@ def verify_generated_project(project_dir: Path | str) -> JSONDict:
         "checks.json keyword_path points to model.k when present",
         actual=recorded_keyword or "missing",
     )
-    if model_type == B120_SPG_SALE_MODEL_TYPE:
+    metadata = model_data.get("metadata", {})
+    if isinstance(metadata, dict) and metadata.get("compiler") == "lsprepost.r12_shell_plate@1":
+        checks["keyword_matches_generator"] = generated_r12_plate_match_check(keyword, spec, metadata)
+    elif model_type == B120_SPG_SALE_MODEL_TYPE:
         checks["keyword_matches_generator"] = generated_b120_keyword_match_check(keyword_path, spec)
     elif model_type == QUARTER_TWO_TNT_MODEL_TYPE:
         checks["keyword_matches_generator"] = generated_quarter_two_tnt_keyword_match_check(keyword_path, spec)
@@ -173,13 +176,31 @@ def generated_quarter_two_tnt_keyword_match_check(keyword_path: Path, spec: obje
     )
 
 
+def generated_r12_plate_match_check(keyword: str, spec: object, metadata: JSONDict) -> JSONDict:
+    from .r12_plate import rebuild_keyword
+
+    if not isinstance(spec, dict):
+        return check_item(False, "model.json spec is unavailable or invalid")
+    try:
+        regenerated, _ = rebuild_keyword(spec, metadata.get("mesh_id"))
+    except (KeyError, TypeError, ValueError, OSError) as exc:
+        return check_item(False, f"could not regenerate shell plate with the recorded mesh: {exc}")
+    return check_item(keyword == regenerated, "model.k matches regeneration with the recorded shell mesh")
+
+
 def generated_keyword_match_check(keyword: str, spec: object, model_type: str) -> JSONDict:
     if model_type == "imported_keyword":
         return check_item(False, "imported keyword projects are not generated keyword decks")
     if not isinstance(spec, dict):
         return check_item(False, "model.json spec is unavailable or invalid")
     try:
-        if model_type == "impact_1788_mmale_rebuild":
+        if model_type == "ly160_paper_tension":
+            from .ly160_tension import build_keyword as build_paper_tension
+            regenerated, _ = build_paper_tension(spec)
+        elif model_type in {"ly160_nr45_tension", "ly160_nr45_diagnostic"}:
+            from .ly160_nr45 import build_keyword as build_nr45_keyword
+            regenerated, _ = build_nr45_keyword(spec)
+        elif model_type == "impact_1788_mmale_rebuild":
             from .impact_1788_rebuild import build_keyword as build_impact_keyword
             regenerated, _ = build_impact_keyword(spec)
         elif model_type == "gran_r5_mmale_rebuild":

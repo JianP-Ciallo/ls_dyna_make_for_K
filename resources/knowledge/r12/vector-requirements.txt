@@ -1,0 +1,12 @@
+# Optional dependencies for the offline R12 knowledge vector index.
+numpy==2.3.2
+faiss-cpu==1.13.2
+onnxruntime==1.24.4
+tokenizers==0.22.2
+flatbuffers==25.2.10
+protobuf==6.33.5
+huggingface-hub==0.36.2
+packaging==25.0
+filelock==3.20.3
+fsspec==2026.2.0
+tqdm==4.67.3

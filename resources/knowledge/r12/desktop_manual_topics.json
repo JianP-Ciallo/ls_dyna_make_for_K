@@ -1,0 +1,814 @@
+{
+  "LS-DYNA_manual_Vol1.pdf": [
+    {
+      "id": "supp.r11_keyword_layout",
+      "index": "I_model",
+      "span": [
+        301,
+        303
+      ],
+      "title": "R11 关键字输入结构",
+      "aliases": [
+        "关键字文件结构",
+        "固定列与自由格式"
+      ],
+      "summary": "按关键字组织节点、部件、材料和边界数据。读卡分为输入与进一步检查阶段。R12 字段按对应版本手册核对。",
+      "related_ids": [
+        "r12.node",
+        "r12.part"
+      ]
+    },
+    {
+      "id": "supp.r11_timestep",
+      "index": "I_model",
+      "span": [
+        1510,
+        1515
+      ],
+      "title": "R11 时间步控制卡对照",
+      "aliases": [
+        "*CONTROL_TIMESTEP",
+        "R11时间步",
+        "R11质量缩放"
+      ],
+      "summary": "R11 第一张卡区分初始时间步、缩放因子和质量缩放。与 R12 PDF 1692 对照，R12 第二张卡列出 IHDO，R11 此处未列。",
+      "related_ids": [
+        "r12.control_timestep"
+      ]
+    },
+    {
+      "id": "supp.r11_shell",
+      "index": "I_model",
+      "span": [
+        2782,
+        2785
+      ],
+      "title": "R11 壳截面卡对照",
+      "aliases": [
+        "*SECTION_SHELL",
+        "R11壳截面"
+      ],
+      "summary": "先区分截面公式和积分选项，再读取厚度续卡。此记录覆盖卡头及首批字段，R12 的输入格式使用对应定义。",
+      "related_ids": [
+        "r12.section_shell"
+      ]
+    },
+    {
+      "id": "supp.r11_pressure",
+      "index": "I_model",
+      "span": [
+        2544,
+        2548
+      ],
+      "title": "R11 面压力卡对照",
+      "aliases": [
+        "*LOAD_SEGMENT",
+        "R11面压力"
+      ],
+      "summary": "面压力定义包含受载面节点顺序、曲线引用及方向约定。核对版本文档和案例中的实际网格。",
+      "related_ids": [
+        "r12.load_segment",
+        "r12.define_curve"
+      ]
+    },
+    {
+      "id": "supp.r11_outputs",
+      "index": "I_run",
+      "span": [
+        314,
+        319
+      ],
+      "title": "R11 输入输出文件用途",
+      "aliases": [
+        "历史结果文件",
+        "旧版求解日志",
+        "R11输出"
+      ],
+      "summary": "区分 d3hsp 文本输出、d3plot 二进制状态文件与重启动文件。实际运行以项目接口和本次运行产物为准。",
+      "related_ids": [
+        "run.results",
+        "run.solver"
+      ]
+    }
+  ],
+  "LS-DYNA_manual_Vol2.pdf": [
+    {
+      "id": "supp.r11_elastic",
+      "index": "I_model",
+      "span": [
+        158,
+        160
+      ],
+      "title": "R11 弹性材料卡对照",
+      "aliases": [
+        "*MAT_ELASTIC",
+        "*MAT_001",
+        "R11弹性材料"
+      ],
+      "summary": "各向同性弹性材料卡包含 MID、密度、弹性模量、泊松比等；流体选项适用实体单元。模型参数需从所用材料来源取得。",
+      "related_ids": [
+        "r12.mat_elastic"
+      ]
+    },
+    {
+      "id": "supp.r11_plasticity",
+      "index": "I_model",
+      "span": [
+        256,
+        262
+      ],
+      "title": "R11 分段线性塑性材料",
+      "aliases": [
+        "*MAT_024",
+        "*MAT_PIECEWISE_LINEAR_PLASTICITY",
+        "分段塑性",
+        "塑性应力应变曲线"
+      ],
+      "summary": "可用应力—应变曲线描述塑性，并按适用选项处理应变率与失效。曲线、应变率数据和失效参数须对应材料、试验条件和当前版本。",
+      "related_ids": []
+    },
+    {
+      "id": "supp.r11_eos",
+      "index": "I_model",
+      "span": [
+        20,
+        21
+      ],
+      "title": "R11 多项式状态方程定义",
+      "aliases": [
+        "*EOS_LINEAR_POLYNOMIAL",
+        "多项式状态方程"
+      ],
+      "summary": "记录压力与相对体积变化、内能相关的模型形式。系数含义须按具体求解器版本核对，材料系数另有试验或标定来源。",
+      "related_ids": []
+    }
+  ],
+  "LS-DYNA_manual_Vol3.pdf": [
+    {
+      "id": "supp.r11_cese",
+      "index": "I_model",
+      "span": [
+        48,
+        49
+      ],
+      "title": "R11 CESE 可压缩流控制",
+      "aliases": [
+        "*CESE_CONTROL_SOLVER",
+        "CESE求解器"
+      ],
+      "summary": "区分固定欧拉、移动网格和嵌入边界等求解框架，并区分流体类型。这是专用流体求解器的历史说明。",
+      "related_ids": []
+    },
+    {
+      "id": "supp.r11_ideal_gas",
+      "index": "I_model",
+      "span": [
+        63,
+        63
+      ],
+      "title": "R11 CESE 理想气体状态方程",
+      "aliases": [
+        "*CESE_EOS_IDEAL_GAS",
+        "理想气体状态方程",
+        "气体比热"
+      ],
+      "summary": "该卡以 EOSID 引用理想气体状态方程，Cv 和 Cp 分别为定容、定压比热。比热的量纲必须与当前单位制一致。",
+      "related_ids": []
+    },
+    {
+      "id": "supp.r11_icfd",
+      "index": "I_model",
+      "span": [
+        245,
+        246
+      ],
+      "title": "R11 ICFD 时间控制",
+      "aliases": [
+        "*ICFD_CONTROL_TIME",
+        "ICFD时间步"
+      ],
+      "summary": "不可压流体时间控制区分总分析时长、固定时间步和自动时间步。它与结构时间步是不同的卡组。",
+      "related_ids": []
+    },
+    {
+      "id": "supp.r11_em",
+      "index": "I_model",
+      "span": [
+        137,
+        137
+      ],
+      "title": "R11 电磁求解控制",
+      "aliases": [
+        "*EM_CONTROL",
+        "电磁求解控制"
+      ],
+      "summary": "EM 控制卡用于选择电磁求解方式及相应的局部步数或宏时间步，属于专用求解器历史参考。",
+      "related_ids": []
+    }
+  ],
+  "LS-DYNA_Manual_Volume_I_R13.pdf": [
+    {
+      "id": "supp.r13_shell",
+      "index": "I_model",
+      "span": [
+        3350,
+        3353
+      ],
+      "title": "R13 壳截面卡对照",
+      "aliases": [
+        "*SECTION_SHELL",
+        "R13壳截面",
+        "R13 MISC"
+      ],
+      "summary": "R13 壳截面页列出 MISC 选项，R12 PDF 3103 的选项表未列。涉及这类选项时以目标版本正文为准。",
+      "related_ids": [
+        "r12.section_shell"
+      ]
+    },
+    {
+      "id": "supp.r13_timestep",
+      "index": "I_model",
+      "span": [
+        1782,
+        1789
+      ],
+      "title": "R13 时间步控制卡对照",
+      "aliases": [
+        "*CONTROL_TIMESTEP",
+        "R13时间步"
+      ],
+      "summary": "R13 在第二张卡保留 IHDO；R12 PDF 1692 也列有该字段。此处仅比对卡片入口，字段行为和默认值按 R12 确认。",
+      "related_ids": [
+        "r12.control_timestep"
+      ]
+    },
+    {
+      "id": "supp.r13_pressure",
+      "index": "I_model",
+      "span": [
+        3093,
+        3097
+      ],
+      "title": "R13 面压力卡对照",
+      "aliases": [
+        "*LOAD_SEGMENT",
+        "R13面压力"
+      ],
+      "summary": "面压力卡支持以节点定义受载面，ID 选项有额外卡片。负载方向需要对照本版本节点编号约定。",
+      "related_ids": [
+        "r12.load_segment"
+      ]
+    }
+  ],
+  "THEORY.PDF": [
+    {
+      "id": "supp.theory_timestep",
+      "index": "I_model",
+      "span": [
+        489,
+        492
+      ],
+      "title": "显式稳定时间步的理论",
+      "aliases": [
+        "显式稳定时间步",
+        "稳定步长",
+        "显式步长限制"
+      ],
+      "summary": "理论手册式 22.1 按单元临界步长的最小值确定总体时间步，再施加比例因子。实体与壳单元的特征长度和估算方式分别核对。",
+      "related_ids": [
+        "r12.control_timestep",
+        "ansys.example_27"
+      ],
+      "equation": "Δt_(n+1) = a · min(Δt_1, …, Δt_N)",
+      "variables": {
+        "Δt_i": "第 i 个单元的临界时间步",
+        "a": "无量纲缩放因子",
+        "N": "参与计算的单元数"
+      }
+    },
+    {
+      "id": "supp.theory_central_difference",
+      "index": "I_model",
+      "span": [
+        499,
+        503
+      ],
+      "title": "中心差分时间积分与稳定性",
+      "aliases": [
+        "中心差分",
+        "显式时间积分",
+        "条件稳定"
+      ],
+      "summary": "由质量、阻尼、内力和外力平衡建立离散运动方程。中心差分法的稳定性分析用线性模态说明，实际时间步应查看求解输出。",
+      "related_ids": [
+        "r12.control_timestep"
+      ]
+    },
+    {
+      "id": "supp.theory_shell",
+      "index": "I_model",
+      "span": [
+        111,
+        116
+      ],
+      "title": "Belytschko-Lin-Tsay 壳单元原理",
+      "aliases": [
+        "壳单元局部坐标",
+        "Belytschko-Lin-Tsay",
+        "壳法向"
+      ],
+      "summary": "介绍计算高效的壳单元公式、局部基底、法向和剪切项。核对壳模型时把单元公式、厚度积分和局部方向一起检查。",
+      "related_ids": [
+        "r12.section_shell",
+        "r12.element_shell"
+      ]
+    },
+    {
+      "id": "supp.theory_hourglass",
+      "index": "I_model",
+      "span": [
+        40,
+        44
+      ],
+      "title": "减缩积分与沙漏模态",
+      "aliases": [
+        "沙漏模态",
+        "零能模式",
+        "减缩积分"
+      ],
+      "summary": "单点积分能降低计算开销，但某些非刚体节点模式可能不给出应变。检查单元公式和变形模式，结合运行中的能量证据判断。",
+      "related_ids": [
+        "r12.section_solid",
+        "run.results"
+      ]
+    },
+    {
+      "id": "supp.theory_contact",
+      "index": "I_model",
+      "span": [
+        523,
+        525
+      ],
+      "title": "接触算法的基本区别",
+      "aliases": [
+        "罚函数接触",
+        "接触算法",
+        "运动约束接触"
+      ],
+      "summary": "理论手册区分运动约束、罚函数和分布参数接触。选择当前卡片时还需考虑接触维度、面定义和具体版本。",
+      "related_ids": [
+        "r12.contact_2d_automatic_node_to_surface",
+        "ansys.example_16"
+      ]
+    }
+  ],
+  "EXAMPLES.PDF": [
+    {
+      "id": "supp.example_v940",
+      "index": "I_case",
+      "span": [
+        3,
+        6
+      ],
+      "title": "旧版 940 教学算例目录",
+      "aliases": [
+        "940教学算例",
+        "旧版例题"
+      ],
+      "summary": "提供约束、接触、阻尼、截面等问题的例题入口。导言记录其曾在 version 940 运行，获取完整输入后才可核对 R12 兼容性。",
+      "related_ids": []
+    },
+    {
+      "id": "supp.example_shell_contact",
+      "index": "I_case",
+      "span": [
+        65,
+        66
+      ],
+      "title": "壳片反弹的接触例题",
+      "aliases": [
+        "壳片反弹",
+        "五种接触类型"
+      ],
+      "summary": "旧例题以壳片撞击弹性板比较接触类型，说明输入中的接触和初始条件如何配合。可与现有圆盘接触模板作主题对照。",
+      "related_ids": [
+        "ansys.example_16"
+      ]
+    },
+    {
+      "id": "supp.example_beam_damping",
+      "index": "I_case",
+      "span": [
+        113,
+        114
+      ],
+      "title": "悬臂梁阻尼对照例题",
+      "aliases": [
+        "悬臂梁阻尼",
+        "有无阻尼对照"
+      ],
+      "summary": "自由端加载后比较有无阻尼时的振动。该例用壳网格表达梁，使用时保留原单位和输出定义。",
+      "related_ids": [
+        "ansys.example_06"
+      ]
+    },
+    {
+      "id": "supp.example_shell_twist",
+      "index": "I_case",
+      "span": [
+        133,
+        134
+      ],
+      "title": "扭转悬臂薄壳例题",
+      "aliases": [
+        "扭转悬臂梁",
+        "扭转壳截面"
+      ],
+      "summary": "沿长度扭转的构件采用壳单元，说明选壳公式及厚度积分时应核对翘曲和载荷方向。",
+      "related_ids": [
+        "r12.section_shell"
+      ]
+    }
+  ],
+  "DESCRIPT.PDF": [
+    {
+      "id": "supp.description_plate",
+      "index": "I_case",
+      "span": [
+        25,
+        26
+      ],
+      "title": "样例简介：简支方板突加载荷",
+      "aliases": [
+        "简支方板突加载荷",
+        "样例9"
+      ],
+      "summary": "四分之一对称模型承受突加均布压力，记录板心位移、速度与加速度。可与现有方板案例对照思路，两者保留各自材料、几何与加载。",
+      "related_ids": [
+        "ansys.example_14",
+        "ansys.example_15"
+      ]
+    },
+    {
+      "id": "supp.description_buckling",
+      "index": "I_case",
+      "span": [
+        14,
+        15
+      ],
+      "title": "样例简介：箱形梁屈曲",
+      "aliases": [
+        "箱形梁屈曲",
+        "四分之一对称模型"
+      ],
+      "summary": "简介描述了壳网格、对称性、轴向加载和材料说明，可作单构件教学线索，完整输入及版本另行核实。",
+      "related_ids": []
+    }
+  ],
+  "ls-prepost-tutorial.pdf": [
+  {
+    "id": "supp.prepost_legacy_files",
+    "index": "I_tool",
+    "span": [
+      10,
+      11
+    ],
+    "title": "旧版培训手册的模型与结果文件入口",
+    "aliases": [
+      "旧版培训手册打开与导入"
+    ],
+    "summary": "Open 创建独立模型，Import 向当前模型添加数据。按关键字模型、二进制结果、历史数据或命令文件选择入口。",
+    "related_ids": [
+      "tool.validate_lsprepost_import",
+      "run.results"
+    ]
+  },
+  {
+    "id": "supp.prepost_legacy_mesh",
+    "index": "I_tool",
+    "span": [
+      73,
+      73
+    ],
+    "title": "旧版培训手册的简单几何网格",
+    "aliases": [
+      "旧版培训手册简单几何网格"
+    ],
+    "summary": "盒体可按坐标范围建实体网格，平板可按四点建壳，圆筒壳按半径、长度和方向定义。回读时核对拓扑与部件引用。",
+    "related_ids": [
+      "r12.node",
+      "r12.element_shell",
+      "r12.section_shell",
+      "r12.element_solid"
+    ]
+  },
+  {
+    "id": "supp.prepost_legacy_ascii",
+    "index": "I_run",
+    "span": [
+      50,
+      52
+    ],
+    "title": "旧版培训手册的 ASCII 时程选择",
+    "aliases": [
+      "旧版培训手册ASCII时程"
+    ],
+    "summary": "加载本次运行的 ASCII 文件，选择目标实体和分量，再决定新建曲线或添加到已有图。使用汇总选项时检查参与的实体。",
+    "related_ids": [
+      "run.results",
+      "r12.database_nodout",
+      "r12.database_spcforc"
+    ]
+  },
+  {
+    "id": "supp.prepost_legacy_binout",
+    "index": "I_run",
+    "span": [
+      66,
+      66
+    ],
+    "title": "旧版培训手册的 BINOUT 分支",
+    "aliases": [
+      "旧版培训手册BINOUT分支"
+    ],
+    "summary": "BINOUT 以二进制形式保存可按分支查看的时程量。先确认需要的输出分支已写出，再选择实体和分量。",
+    "related_ids": [
+      "run.results",
+      "r12.database_nodout"
+    ]
+  },
+    {
+      "id": "supp.prepost_history",
+      "index": "I_run",
+      "span": [
+        62,
+        64
+      ],
+      "title": "旧版 LS-PrePost 曲线与交叉绘图",
+      "aliases": [
+        "XYPlot",
+        "交叉绘图",
+        "时程曲线操作"
+      ],
+      "summary": "先选结果类型、实体及分量；壳结果还需检查局部轴、厚度位置和积分点。历史界面须对照 LS-PrePost 4.12。",
+      "related_ids": [
+        "run.results",
+        "r12.database_history_node"
+      ]
+    },
+    {
+      "id": "supp.prepost_fringe",
+      "index": "I_run",
+      "span": [
+        39,
+        40
+      ],
+      "title": "旧版 LS-PrePost 云图分量",
+      "aliases": [
+        "云图分量",
+        "Fringe",
+        "Fcomp"
+      ],
+      "summary": "云图检查包括全局或局部坐标、壳的上下表面及积分点选择。图示来自旧版培训材料。",
+      "related_ids": [
+        "r12.database_binary_d3plot"
+      ]
+    },
+    {
+      "id": "supp.prepost_keyword_editor",
+      "index": "I_tool",
+      "span": [
+        118,
+        121
+      ],
+      "title": "旧版 LS-PrePost 关键字和监测对象",
+      "aliases": [
+        "关键字编辑器",
+        "Database History"
+      ],
+      "summary": "旧版工具通过关键字表单处理卡片、标题与注释，历史对象可选节点或同类型单元。项目可用接口仍由实际 schema 定义。",
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "r12.database_history_node"
+      ]
+    }
+  ],
+  "lspost.pdf": [
+  {
+    "id": "supp.lspost_keyword_links",
+    "index": "I_tool",
+    "span": [
+      98,
+      101
+    ],
+    "title": "旧版关键字表单的编号联查",
+    "aliases": [
+      "旧版手册关键字编号联查"
+    ],
+    "summary": "从字段的关联对话框选择合适的关键字编号。部分字段会改变后续表单，修改后应按 R12 重新核对可选行。",
+    "related_ids": [
+      "r12.part",
+      "r12.section_shell",
+      "r12.mat_elastic"
+    ]
+  },
+  {
+    "id": "supp.lspost_set_editor",
+    "index": "I_tool",
+    "span": [
+      117,
+      119
+    ],
+    "title": "旧版手册的集合创建和导出",
+    "aliases": [
+      "旧版手册集合创建和导出"
+    ],
+    "summary": "通过集合界面创建、显示及修改集合，也可写出所选集合。另存后核对类型、集合编号及实际成员。",
+    "related_ids": [
+      "r12.set_node_list",
+      "tool.validate_model"
+    ]
+  },
+  {
+    "id": "supp.lspost_spc_editor",
+    "index": "I_tool",
+    "span": [
+      139,
+      140
+    ],
+    "title": "旧版手册的 SPC 与局部坐标系",
+    "aliases": [
+      "旧版手册SPC局部坐标系"
+    ],
+    "summary": "指定约束的平移和转动分量，选定坐标系和受约束节点。Apply 写入当前会话，需保存关键字文件才有磁盘记录。",
+    "related_ids": [
+      "r12.boundary_spc_set",
+      "r12.node"
+    ]
+  },
+    {
+      "id": "supp.lspost_cfile",
+      "index": "I_tool",
+      "span": [
+        18,
+        18
+      ],
+      "title": "旧版 Cfile 记录与回放",
+      "aliases": [
+        "Cfile回放",
+        "命令文件",
+        "旧版Cfile"
+      ],
+      "summary": "Cfile 记录会话命令并支持回放。路径、语法和界面以当前 LS-PrePost 与项目生成的脚本为准。",
+      "related_ids": [
+        "tool.export_preview_images"
+      ]
+    },
+    {
+      "id": "supp.lspost_history",
+      "index": "I_run",
+      "span": [
+        53,
+        54
+      ],
+      "title": "旧版 LS-PrePost 历史量选择",
+      "aliases": [
+        "节点历史",
+        "积分点历史",
+        "旧版历史曲线"
+      ],
+      "summary": "选择节点、单元、积分点或全局量后再选分量绘图。交叉比较时需保留实体 ID 和结果来源。",
+      "related_ids": [
+        "run.results"
+      ]
+    }
+  ],
+  "manager_help.pdf": [
+    {
+      "id": "supp.manager_solver",
+      "index": "I_run",
+      "span": [
+        5,
+        8
+      ],
+      "title": "旧版 Program Manager 求解器识别",
+      "aliases": [
+        "Program Manager",
+        "求解器路径",
+        "单双精度"
+      ],
+      "summary": "历史文档显示管理器引用一个求解器可执行文件。排查时先区分文件路径、求解器版本和单双精度。",
+      "related_ids": [
+        "run.solver"
+      ]
+    },
+    {
+      "id": "supp.manager_queue",
+      "index": "I_run",
+      "span": [
+        23,
+        27
+      ],
+      "title": "旧版 Program Manager 许可证队列",
+      "aliases": [
+        "许可证队列",
+        "Network License Queue"
+      ],
+      "summary": "旧工具可查看网络许可证配置和作业队列。排查时先确认本机使用的授权类型和实际运行环境。",
+      "related_ids": [
+        "run.solver"
+      ]
+    }
+  ],
+  "NetworkLicense-help.pdf": [
+    {
+      "id": "supp.network_roles",
+      "index": "I_run",
+      "span": [
+        10,
+        12
+      ],
+      "title": "旧版网络许可证客户端与服务端",
+      "aliases": [
+        "网络许可证",
+        "许可证服务器",
+        "License Server"
+      ],
+      "summary": "区分发放许可证的主机与求解客户端。检查授权类型和服务端标识时，以本机当前软件配置为准。",
+      "related_ids": []
+    }
+  ],
+  "setenv.pdf": [
+    {
+      "id": "supp.environment_output",
+      "index": "I_run",
+      "span": [
+        1,
+        2
+      ],
+      "title": "旧版环境变量与二进制输出",
+      "aliases": [
+        "LSTC_BINARY",
+        "输出字长",
+        "输出格式环境变量"
+      ],
+      "summary": "历史资料说明环境变量可影响输出格式和字长，并列出相关数据库卡。实际解析应核对运行的求解器和产物元数据。",
+      "related_ids": [
+        "r12.database_binary_d3plot",
+        "run.results"
+      ]
+    },
+    {
+      "id": "supp.environment_license",
+      "index": "I_run",
+      "span": [
+        3,
+        3
+      ],
+      "title": "旧版授权环境变量用途",
+      "aliases": [
+        "LSTC_LICENSE",
+        "LSTC_LICENSE_SERVER",
+        "授权环境变量"
+      ],
+      "summary": "历史资料区分许可证类型与服务器地址设置，供诊断时识别。项目配置应以当前授权方式为准。",
+      "related_ids": []
+    }
+  ],
+  "README.TXT": [
+    {
+      "id": "supp.package_history",
+      "index": "I_run",
+      "span": [
+        1,
+        34
+      ],
+      "title": "旧手册包的版本记录",
+      "aliases": [
+        "版本沿革",
+        "README版本",
+        "手册包"
+      ],
+      "summary": "包内版本历史列出 R11.0.0、R10.1.0 及若干 R9 发布条目。用它核对资料来源，实际运行版本以求解记录为准。",
+      "related_ids": []
+    }
+  ],
+  "Release_Notes_LS-DYNA_R11.0.0_rev0.txt": [
+    {
+      "id": "supp.r11_release",
+      "index": "I_run",
+      "span": [
+        1,
+        32
+      ],
+      "title": "R11.0.0 发布说明范围",
+      "aliases": [
+        "R11发布说明",
+        "R11 Release Notes",
+        "草稿手册"
+      ],
+      "summary": "修订 0 发布说明区分许可证、文档以及新增与修复内容，并提醒草稿手册可能列有该版本未实现的特性。",
+      "related_ids": []
+    }
+  ]
+}

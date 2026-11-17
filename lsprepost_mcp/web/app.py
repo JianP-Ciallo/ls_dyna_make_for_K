@@ -333,6 +333,16 @@ class WebAppHandler(BaseHTTPRequestHandler):
         raise ApiError(405, "method_not_allowed", "method is not allowed")
 
     def handle_api_get(self, path: str, query: dict[str, list[str]]) -> tuple[int, dict[str, str], bytes] | None:
+        if path.startswith("/api/knowledge/"):
+            from lsprepost_mcp.web.knowledge_api import dashboard_payload, manual_response
+
+            if query:
+                raise ApiError(400, "unknown_query", "Knowledge endpoints do not accept query parameters")
+            resource = path.removeprefix("/api/knowledge/")
+            result = json_ok(dashboard_payload()) if resource == "status" else manual_response(resource)
+            if result is None:
+                raise ApiError(404, "not_found", "knowledge resource not found")
+            return result
         if path == "/api/damage-assessment/demo/scene":
             if query:
                 raise ApiError(400, "unknown_query", "Demo does not accept query parameters")

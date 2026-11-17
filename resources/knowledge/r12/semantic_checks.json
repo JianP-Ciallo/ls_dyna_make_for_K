@@ -1,0 +1,14 @@
+[
+  {"query":"四周简支的厚壳板受到突然的面力，想看随时间振动", "index":"I_case", "family":"thick_shell_plate", "expect":"ansys.example_15"},
+  {"query":"一头固定，另一头承受两个方向的集中力", "index":"I_case", "family":"beam_bar", "expect":"ansys.example_06"},
+  {"query":"用实体网格求自由振动的固有频率", "index":"I_case", "family":"solid_plate", "expect":"ansys.example_12"},
+  {"query":"截面怎么指定积分点和板厚", "index":"I_model", "family":"shell_plate", "expect":"r12.section_shell"},
+  {"query":"规定整场计算何时停止", "index":"I_model", "family":"general", "expect":"r12.control_termination"},
+  {"query":"求解开始时保留本次输入及程序版本记录", "index":"I_run", "family":"general", "expect":"run.solver"},
+  {"query":"判断计算有没有终止，然后提取节点位移曲线", "index":"I_run", "family":"general", "expect":"run.results"},
+  {"query":"已有关键字输入文件，想把它纳入项目", "index":"I_tool", "family":"general", "expect":"tool.import_keyword"},
+  {"query":"生成多个角度的模型截图", "index":"I_tool", "family":"general", "expect":"tool.export_preview_images"},
+  {"query":"量子化学轨道", "index":"I_case", "family":"general", "expect":null},
+  {"query":"把整栋三层住宅做成模型", "index":"I_case", "family":"general", "expect":null},
+  {"query":"R13 *SECTION_SHELL", "index":"I_model", "family":"general", "expect":null}
+]

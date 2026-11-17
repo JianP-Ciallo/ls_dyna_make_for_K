@@ -109,6 +109,7 @@ $includedFiles = @(
     "pytest.ini",
     "conftest.py",
     "AI_IDE_START_HERE.zh-CN.md",
+    "LICENSE.Foam-Agent",
     "README.md",
     "README.zh-CN.md",
     "start_web_app.cmd"

@@ -353,6 +353,10 @@ export_preview_gif
 
 ## 主要 MCP 工具
 
+- `plan_simulation`：整理确认的建模输入，返回待确认项或按依赖排序的实施计划。
+- `build_mesh`：生成或导入矩形壳网格，检查轮廓、单元连接和边缘节点，返回 `mesh_id`。
+- `configure_model`：在新项目中绑定网格、截面、材料与约束，并回读 K 文件复核绑定。
+
 - `server_info`：返回 Server 路径、项目目录、LS-PrePost 路径和运行信息。
 - `generate_scene_from_prompt`：把受支持的自然语言工况解析为受控模型 spec，并可选执行校验和预览。
 - `generate_model`：根据结构化 `spec` 生成 `model.json`、`model.k`、`open_model.cfile` 和 `checks.json`。
@@ -371,6 +375,26 @@ export_preview_gif
 - `export_preview_gif`：导出多视图并合成为 GIF 预览。
 - `run_cfile`：只运行 manifest/hash 校验通过的服务端生成 cfile。
 - `generate_ale_blast_demo`：生成或 dry-run 校验受控 MM-ALE 空气/炸药/钢板参考模型；该工具不会启动 LS-DYNA。
+
+## R12 规划、网格与材料试件
+
+在工程根目录运行一个无载荷的矩形壳板规划示例。该命令输出计划。
+
+```powershell
+python -X utf8 -m lsprepost_mcp.planner examples/plan_shell_plate.json
+```
+
+也可以在 MCP 客户端使用 `plan_simulation`。计划状态为 `ready` 时，按任务顺序调用 `build_mesh`、`configure_model` 和 `validate_model`，把网格阶段返回的 `mesh_id` 传给配置阶段。`needs_input` 列出需要补充的条件，`unsupported` 表示当前配置入口无法执行该要求。
+
+该流程目前覆盖单部件矩形弹性壳板、`mm_ms_g_N_MPa` 单位制和 `x_min` 固定边。网格支持规则四边形、三角形、受支持的壳单元 K 文件，以及 Gmsh 2.2 ASCII 单面组。配置保存到新项目，已有弹性材料的编辑功能目前提供只读检查及编辑计划。
+
+网格工件保存在 `workspace/projects/.meshes/<mesh_id>.json`。跨机备份或迁移时，请把这个文件一同放到目标工作区的相同位置。项目副本导出只包含项目自己的文件，网格绑定复核和生成溯源还需访问对应工件。
+
+本地 Web 服务启动后，访问 `http://127.0.0.1:8765/knowledge.html` 查询 R12 案例、卡片、工具和运行记录。仓库提供摘要、目录与出处。核验原件时，按 [目录](resources/knowledge/r12/catalog.json) 所列索引中的 `source.path` 和 `source.sha256` 准备本地文件。LS-PrePost 手册放在 `workspace/knowledge/lsdyna_20261107/manuals/`，摘录页查询还需本地页索引数据库。缺少原件时，规划仍可返回，相关记录标记为未能核验。
+
+LY160 的 NR45 和 NR225、GP、CIR 拉伸试件分别通过 `python -m lsprepost_mcp.ly160_nr45 --help` 和 `python -m lsprepost_mcp.ly160_tension --help` 查看生成入口。读取既有结果时，查看对应的 `ly160_nr45_results` 或 `ly160_tension_results` 模块帮助。
+
+规划与网格实现参考 Foam-Agent。[上游许可](LICENSE.Foam-Agent) · [首页功能配图](README.md#功能展示)
 
 ## 当前建模能力
 

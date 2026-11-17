@@ -1,0 +1,3826 @@
+{
+  "records": [
+    {
+      "id": "ansys.example_01",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "薄壳斜板法向受压",
+      "aliases": [
+        "薄壳板受压",
+        "薄壳板静力",
+        "简支斜板"
+      ],
+      "summary": "简支薄壳斜板承受法向压力，参考壳截面、材料、压力面和输出配置。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_01/thin_shell_elform_2/ex_01_thin_shell_elform_2.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-01/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "skew_plate",
+        "element": "shell",
+        "support": "simply_supported",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_01.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_01/thin_shell_elform_2/ex_01_thin_shell_elform_2.k",
+        "sha256": "cb5bd6cfe4777299db948147d40ceb5ad81f6e61c019b0c1e0065aa24b7562b6",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 7,
+            "end_line": 13
+          },
+          {
+            "keyword": "*CONTROL_SHELL",
+            "start_line": 14,
+            "end_line": 18
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 19,
+            "end_line": 21
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 22,
+            "end_line": 24
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_SHELL",
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 31,
+            "end_line": 36
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 37,
+            "end_line": 54
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 55,
+            "end_line": 81
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 82,
+            "end_line": 86
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 87,
+            "end_line": 91
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 92,
+            "end_line": 94
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 95,
+            "end_line": 112
+          },
+          {
+            "keyword": "*END",
+            "start_line": 113,
+            "end_line": 113
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_solution",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_01.boundary",
+        "guide.example_01.loading",
+        "guide.example_01.output"
+      ]
+    },
+    {
+      "id": "ansys.example_02",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "thick_shell_plate"
+      ],
+      "title": "厚壳斜板法向受压",
+      "aliases": [
+        "厚壳斜板",
+        "厚壳板静力"
+      ],
+      "summary": "厚壳斜板承受法向面压力，采用节点平移约束，输出厚壳单元历史及整模型状态。可与薄壳斜板对照。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_02/thick_shell_elform_2/ex_02_thick_shell_elform_2.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-02/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "skew_plate",
+        "element": "thick_shell",
+        "support": "simply_supported",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_02.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_02/thick_shell_elform_2/ex_02_thick_shell_elform_2.k",
+        "sha256": "8b18ecc9e2998144983a7d1283d3009784887bccd62b600babe8c3cf0d068ed2",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 7,
+            "end_line": 13
+          },
+          {
+            "keyword": "*CONTROL_SHELL",
+            "start_line": 14,
+            "end_line": 18
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 19,
+            "end_line": 21
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 22,
+            "end_line": 24
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_TSHELL",
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 31,
+            "end_line": 36
+          },
+          {
+            "keyword": "*ELEMENT_TSHELL",
+            "start_line": 37,
+            "end_line": 54
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 55,
+            "end_line": 106
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 107,
+            "end_line": 111
+          },
+          {
+            "keyword": "*SECTION_TSHELL",
+            "start_line": 112,
+            "end_line": 114
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 115,
+            "end_line": 117
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 118,
+            "end_line": 135
+          },
+          {
+            "keyword": "*END",
+            "start_line": 136,
+            "end_line": 136
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_tshell",
+        "r12.part",
+        "r12.section_tshell",
+        "r12.mat_elastic",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_solution",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_02.boundary",
+        "guide.example_02.loading",
+        "guide.example_02.output"
+      ]
+    },
+    {
+      "id": "ansys.example_03",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "solid_plate"
+      ],
+      "title": "椭圆实体厚板受压粗网格",
+      "aliases": [
+        "椭圆厚板粗网格",
+        "椭圆板粗网格受压"
+      ],
+      "summary": "椭圆厚板采用实体单元，粗网格变体用于核对节点约束、法向压力面和应力输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_03/solid_elform_1/4x6x4_mesh/ex_03_solid_elform_1_4x6x4_mesh.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-03/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "elliptical_plate",
+        "element": "solid",
+        "support": "mixed_constraints",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_03.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_03/solid_elform_1/4x6x4_mesh/ex_03_solid_elform_1_4x6x4_mesh.k",
+        "sha256": "fdb8eb28d0beacfe997675d9284555c9bf3f3c407ac453ea95f6db1e9857821b",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 15,
+            "end_line": 17
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 18,
+            "end_line": 20
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 21,
+            "end_line": 23
+          },
+          {
+            "keyword": "*DATABASE_EXTENT_BINARY",
+            "start_line": 24,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_SOLID",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 34,
+            "end_line": 39
+          },
+          {
+            "keyword": "*ELEMENT_SOLID",
+            "start_line": 40,
+            "end_line": 137
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 138,
+            "end_line": 314
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 315,
+            "end_line": 319
+          },
+          {
+            "keyword": "*SECTION_SOLID",
+            "start_line": 320,
+            "end_line": 322
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 323,
+            "end_line": 325
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 326,
+            "end_line": 351
+          },
+          {
+            "keyword": "*END",
+            "start_line": 352,
+            "end_line": 352
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_solid",
+        "r12.part",
+        "r12.section_solid",
+        "r12.mat_elastic",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_extent_binary",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_04",
+        "guide.example_03.boundary",
+        "guide.example_03.loading",
+        "guide.example_03.output"
+      ]
+    },
+    {
+      "id": "ansys.example_04",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "solid_plate"
+      ],
+      "title": "椭圆实体厚板受压细网格",
+      "aliases": [
+        "椭圆厚板细网格",
+        "椭圆板细网格受压"
+      ],
+      "summary": "椭圆厚板采用实体单元，细网格变体用于对照粗网格的压力面、监测位置和隐式求解设置。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_04/solid_elform_1/8x12x4_mesh/ex_04_solid_elform_1_8x12x4_mesh.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-04/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "elliptical_plate",
+        "element": "solid",
+        "support": "mixed_constraints",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_04.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_04/solid_elform_1/8x12x4_mesh/ex_04_solid_elform_1_8x12x4_mesh.k",
+        "sha256": "60dd2c430cba5e01d5ca5a1ab74fc71fd02e49503eab77a17798ef81fda9c7cc",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 15,
+            "end_line": 17
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 18,
+            "end_line": 20
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 21,
+            "end_line": 23
+          },
+          {
+            "keyword": "*DATABASE_EXTENT_BINARY",
+            "start_line": 24,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_SOLID",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 34,
+            "end_line": 39
+          },
+          {
+            "keyword": "*ELEMENT_SOLID",
+            "start_line": 40,
+            "end_line": 425
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 426,
+            "end_line": 1012
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 1013,
+            "end_line": 1017
+          },
+          {
+            "keyword": "*SECTION_SOLID",
+            "start_line": 1018,
+            "end_line": 1020
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 1021,
+            "end_line": 1023
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 1024,
+            "end_line": 1121
+          },
+          {
+            "keyword": "*END",
+            "start_line": 1122,
+            "end_line": 1122
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_solid",
+        "r12.part",
+        "r12.section_solid",
+        "r12.mat_elastic",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_extent_binary",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_03",
+        "guide.example_04.boundary",
+        "guide.example_04.loading",
+        "guide.example_04.output"
+      ]
+    },
+    {
+      "id": "ansys.example_06",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar"
+      ],
+      "title": "悬臂梁端部集中载荷",
+      "aliases": [
+        "悬臂梁",
+        "梁端加载",
+        "悬臂梁端部力"
+      ],
+      "summary": "悬臂梁端部承受近轴向集中力，参考梁截面、固定节点、端点载荷和节点输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_06/beam_elform_1/ex_06_beam_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-06/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "cantilever_beam",
+        "element": "beam",
+        "support": "one_end_clamped",
+        "excitation": "point_force",
+        "evidence_id": "guide.example_06.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_06/beam_elform_1/ex_06_beam_elform_1.k",
+        "sha256": "81975dda6d511aef3afd556345b16945e97bdaa3b52bbecf80de55678150f96f",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 15,
+            "end_line": 21
+          },
+          {
+            "keyword": "*CONTROL_OUTPUT",
+            "start_line": 22,
+            "end_line": 26
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 27,
+            "end_line": 29
+          },
+          {
+            "keyword": "*DATABASE_NCFORC",
+            "start_line": 30,
+            "end_line": 32
+          },
+          {
+            "keyword": "*DATABASE_NODFOR",
+            "start_line": 33,
+            "end_line": 35
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 36,
+            "end_line": 38
+          },
+          {
+            "keyword": "*DATABASE_NODAL_FORCE_GROUP",
+            "start_line": 39,
+            "end_line": 41
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 42,
+            "end_line": 44
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_BEAM",
+            "start_line": 45,
+            "end_line": 47
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 48,
+            "end_line": 53
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 54,
+            "end_line": 59
+          },
+          {
+            "keyword": "*ELEMENT_BEAM",
+            "start_line": 60,
+            "end_line": 93
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 94,
+            "end_line": 191
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_NODE",
+            "start_line": 192,
+            "end_line": 194
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 195,
+            "end_line": 199
+          },
+          {
+            "keyword": "*SECTION_BEAM",
+            "start_line": 200,
+            "end_line": 204
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 205,
+            "end_line": 207
+          },
+          {
+            "keyword": "*LOAD_NODE_POINT",
+            "start_line": 208,
+            "end_line": 210
+          },
+          {
+            "keyword": "*LOAD_NODE_POINT",
+            "start_line": 211,
+            "end_line": 213
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 214,
+            "end_line": 218
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 219,
+            "end_line": 223
+          },
+          {
+            "keyword": "*END",
+            "start_line": 224,
+            "end_line": 224
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_beam",
+        "r12.part",
+        "r12.section_beam",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_node_point",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.database_nodfor",
+        "r12.database_nodal_force_group",
+        "r12.database_history_shell",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_06.boundary",
+        "guide.example_06.loading",
+        "guide.example_06.output"
+      ]
+    },
+    {
+      "id": "ansys.example_07",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar"
+      ],
+      "title": "Lee 梁架非线性屈曲",
+      "aliases": [
+        "Lee梁架屈曲",
+        "梁架载荷位移对照"
+      ],
+      "summary": "梁架两端铰支，受集中载荷。对照几何非线性求解、自动步进、节点力与位移曲线。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_07/beam_elform_1/ex_07_beam_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-07/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "plane_frame",
+        "element": "beam",
+        "support": "pinned_ends",
+        "excitation": "point_force",
+        "evidence_id": "guide.example_07.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_07/beam_elform_1/ex_07_beam_elform_1.k",
+        "sha256": "3e4b0c8263fcfcb051fca8930cecbc96ef916a74b4e9e737dc4cd4afeb33e10c",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 10,
+            "end_line": 16
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 17,
+            "end_line": 19
+          },
+          {
+            "keyword": "*DATABASE_GLSTAT",
+            "start_line": 20,
+            "end_line": 22
+          },
+          {
+            "keyword": "*DATABASE_MATSUM",
+            "start_line": 23,
+            "end_line": 25
+          },
+          {
+            "keyword": "*DATABASE_NODFOR",
+            "start_line": 26,
+            "end_line": 28
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 29,
+            "end_line": 31
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 32,
+            "end_line": 34
+          },
+          {
+            "keyword": "*DATABASE_NODAL_FORCE_GROUP",
+            "start_line": 35,
+            "end_line": 37
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 38,
+            "end_line": 40
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 41,
+            "end_line": 46
+          },
+          {
+            "keyword": "*ELEMENT_BEAM",
+            "start_line": 47,
+            "end_line": 68
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 69,
+            "end_line": 129
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_NODE",
+            "start_line": 130,
+            "end_line": 132
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_NODE",
+            "start_line": 133,
+            "end_line": 135
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 136,
+            "end_line": 140
+          },
+          {
+            "keyword": "*SECTION_BEAM",
+            "start_line": 141,
+            "end_line": 145
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 146,
+            "end_line": 148
+          },
+          {
+            "keyword": "*LOAD_NODE_POINT",
+            "start_line": 149,
+            "end_line": 151
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 152,
+            "end_line": 156
+          },
+          {
+            "keyword": "*END",
+            "start_line": 157,
+            "end_line": 157
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_beam",
+        "r12.part",
+        "r12.section_beam",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_node_point",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_solution",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.database_nodfor",
+        "r12.database_nodal_force_group",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_07.boundary",
+        "guide.example_07.loading",
+        "guide.example_07.output"
+      ]
+    },
+    {
+      "id": "ansys.example_08",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar"
+      ],
+      "title": "两组交叉梁的面内模态",
+      "aliases": [
+        "双十字梁面内模态",
+        "铰支交叉梁振型"
+      ],
+      "summary": "交叉梁端点与内部节点采用不同自由度约束，用于对照接近的面内固有频率与振型。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_08/beam_elform_1/ex_08_beam_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-08/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "double_cross",
+        "element": "beam",
+        "support": "pinned_ends",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.example_08.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_08/beam_elform_1/ex_08_beam_elform_1.k",
+        "sha256": "ac3f711af574e3773c53a97b16c9ab64692d5b16219da035669dc9ad3c70ee56",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 13,
+            "end_line": 15
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 16,
+            "end_line": 18
+          },
+          {
+            "keyword": "*ELEMENT_BEAM",
+            "start_line": 19,
+            "end_line": 52
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 53,
+            "end_line": 129
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 130,
+            "end_line": 132
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 133,
+            "end_line": 135
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 136,
+            "end_line": 140
+          },
+          {
+            "keyword": "*SECTION_BEAM",
+            "start_line": 141,
+            "end_line": 145
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 146,
+            "end_line": 148
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 149,
+            "end_line": 154
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 155,
+            "end_line": 159
+          },
+          {
+            "keyword": "*END",
+            "start_line": 160,
+            "end_line": 160
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_beam",
+        "r12.part",
+        "r12.section_beam",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_implicit_solver",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_08.boundary",
+        "guide.example_08.loading",
+        "guide.example_08.output"
+      ]
+    },
+    {
+      "id": "ansys.example_09",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "简支环形薄板模态",
+      "aliases": [
+        "环形薄板",
+        "环板固有频率",
+        "环形板粗网格"
+      ],
+      "summary": "薄壳环形板粗网格模态算例，用节点号区间建立节点集，并按节点集分别约束自由度。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_09/thin_shell_elform_16/ex_09_thin_shell_elform_16_ele_78.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-09/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "annular_plate",
+        "element": "shell",
+        "support": "simply_supported",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.example_09.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_09/thin_shell_elform_16/ex_09_thin_shell_elform_16_ele_78.k",
+        "sha256": "80cfe62e40c1fd9738e5c67a60ec1030bd2ecd411266b35a0718a6e35953e563",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 13,
+            "end_line": 15
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 16,
+            "end_line": 95
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 96,
+            "end_line": 201
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 202,
+            "end_line": 204
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 205,
+            "end_line": 207
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 208,
+            "end_line": 212
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 213,
+            "end_line": 217
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 218,
+            "end_line": 220
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 221,
+            "end_line": 225
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 226,
+            "end_line": 230
+          },
+          {
+            "keyword": "*END",
+            "start_line": 231,
+            "end_line": 231
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_10",
+        "guide.example_09.boundary",
+        "guide.example_09.loading",
+        "guide.example_09.output"
+      ]
+    },
+    {
+      "id": "ansys.example_10",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "简支环形薄板细网格模态",
+      "aliases": [
+        "环形板细网格",
+        "环板细网格固有频率"
+      ],
+      "summary": "薄壳环形板细网格模态算例，重选节点集后沿用粗网格的自由度和特征值设置，按振型对照频率。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_10/thin_shell_elform_16/ex_10_thin_shell_elform_16_ele_192.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-10/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "annular_plate",
+        "element": "shell",
+        "support": "simply_supported",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.example_10.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_10/thin_shell_elform_16/ex_10_thin_shell_elform_16_ele_192.k",
+        "sha256": "275d76466ab8581ee67916a9159ac9b472784c433b1a9e13beec04699c6604d7",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 13,
+            "end_line": 15
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 16,
+            "end_line": 209
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 210,
+            "end_line": 435
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 436,
+            "end_line": 438
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 439,
+            "end_line": 441
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 442,
+            "end_line": 446
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 447,
+            "end_line": 451
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 452,
+            "end_line": 454
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 455,
+            "end_line": 459
+          },
+          {
+            "keyword": "*SET_NODE_LIST_GENERATE",
+            "start_line": 460,
+            "end_line": 464
+          },
+          {
+            "keyword": "*END",
+            "start_line": 465,
+            "end_line": 465
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_09",
+        "guide.example_10.boundary",
+        "guide.example_10.loading",
+        "guide.example_10.output"
+      ]
+    },
+    {
+      "id": "ansys.example_11",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar"
+      ],
+      "title": "梁受恒力的隐式瞬态响应",
+      "aliases": [
+        "梁受恒力",
+        "梁瞬态响应",
+        "梁节点集加载"
+      ],
+      "summary": "梁承受由曲线逐渐升至恒值的节点集载荷，固定端与其余梁节点采用不同约束。对照支座反力、节点时程与动画输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_11/beam_elform_1/ex_11_beam_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-11/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit_transient",
+      "applicability": {
+        "geometry": "beam_with_lumped_mass",
+        "element": "beam",
+        "support": "mixed_constraints",
+        "excitation": "node_set_force",
+        "evidence_id": "guide.example_11.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_11/beam_elform_1/ex_11_beam_elform_1.k",
+        "sha256": "18d9ca9aa388849516b6c06b0355f44c4da3a4991b8612e9550ca9d18f40d241",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_DYNAMICS",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 15,
+            "end_line": 21
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 22,
+            "end_line": 24
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*DATABASE_MATSUM",
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DATABASE_SPCFORC",
+            "start_line": 34,
+            "end_line": 36
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 37,
+            "end_line": 39
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3THDT",
+            "start_line": 40,
+            "end_line": 42
+          },
+          {
+            "keyword": "*DATABASE_EXTENT_BINARY",
+            "start_line": 43,
+            "end_line": 47
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 48,
+            "end_line": 50
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_BEAM",
+            "start_line": 51,
+            "end_line": 53
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 54,
+            "end_line": 60
+          },
+          {
+            "keyword": "*ELEMENT_BEAM",
+            "start_line": 61,
+            "end_line": 82
+          },
+          {
+            "keyword": "*ELEMENT_MASS",
+            "start_line": 83,
+            "end_line": 85
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 86,
+            "end_line": 128
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 129,
+            "end_line": 131
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 132,
+            "end_line": 134
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 135,
+            "end_line": 139
+          },
+          {
+            "keyword": "*SECTION_BEAM",
+            "start_line": 140,
+            "end_line": 144
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 145,
+            "end_line": 147
+          },
+          {
+            "keyword": "*LOAD_NODE_SET",
+            "start_line": 148,
+            "end_line": 150
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 151,
+            "end_line": 155
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 156,
+            "end_line": 160
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 161,
+            "end_line": 169
+          },
+          {
+            "keyword": "*END",
+            "start_line": 170,
+            "end_line": 170
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_beam",
+        "r12.element_mass",
+        "r12.part",
+        "r12.section_beam",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_node_point",
+        "r12.control_implicit_general",
+        "r12.control_implicit_dynamics",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_binary_d3thdt",
+        "r12.database_extent_binary",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.database_spcforc",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_11.boundary",
+        "guide.example_11.loading",
+        "guide.example_11.output"
+      ]
+    },
+    {
+      "id": "ansys.example_12",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "solid_plate"
+      ],
+      "title": "实体方板自由振动",
+      "aliases": [
+        "实体方板模态",
+        "实体方板固有频率"
+      ],
+      "summary": "简支方板采用实体网格，提取面外振动模态，适合对照支承和特征值设置。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_12/solid_elform_1/ex_12_solid_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-12/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "square_plate",
+        "element": "solid",
+        "support": "four_edges_simply_supported",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.example_12.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_12/solid_elform_1/ex_12_solid_elform_1.k",
+        "sha256": "00c5584551a12d3db3a6d9890a6c8cd35d2a0b41961b8ae097553e0c789b438e",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 13,
+            "end_line": 15
+          },
+          {
+            "keyword": "*ELEMENT_SOLID",
+            "start_line": 16,
+            "end_line": 209
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 210,
+            "end_line": 535
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 536,
+            "end_line": 538
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 539,
+            "end_line": 543
+          },
+          {
+            "keyword": "*SECTION_SOLID",
+            "start_line": 544,
+            "end_line": 546
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 547,
+            "end_line": 549
+          },
+          {
+            "keyword": "*HOURGLASS",
+            "start_line": 550,
+            "end_line": 552
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 553,
+            "end_line": 560
+          },
+          {
+            "keyword": "*END",
+            "start_line": 561,
+            "end_line": 561
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_solid",
+        "r12.part",
+        "r12.section_solid",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_12.boundary",
+        "guide.example_12.loading",
+        "guide.example_12.output"
+      ]
+    },
+    {
+      "id": "ansys.example_13",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "thick_shell_plate"
+      ],
+      "title": "厚壳方板自由振动",
+      "aliases": [
+        "厚壳方板模态",
+        "厚壳方板固有频率"
+      ],
+      "summary": "简支方板采用厚壳网格，提取面外振动模态，可与实体网格变体对照。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_13/thick_shell_elform_2/ex_13_thick_shell_elform_2.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-13/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "square_plate",
+        "element": "thick_shell",
+        "support": "four_edges_simply_supported",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.example_13.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_13/thick_shell_elform_2/ex_13_thick_shell_elform_2.k",
+        "sha256": "e1cffd8e34e4dfc093fe9304b830b00ab2afceeed100bafa8f9cdc59d4f4c36a",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_SHELL",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 15,
+            "end_line": 17
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 18,
+            "end_line": 20
+          },
+          {
+            "keyword": "*ELEMENT_TSHELL",
+            "start_line": 21,
+            "end_line": 214
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 215,
+            "end_line": 540
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 541,
+            "end_line": 543
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 544,
+            "end_line": 548
+          },
+          {
+            "keyword": "*SECTION_TSHELL",
+            "start_line": 549,
+            "end_line": 551
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 552,
+            "end_line": 554
+          },
+          {
+            "keyword": "*HOURGLASS",
+            "start_line": 555,
+            "end_line": 557
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 558,
+            "end_line": 565
+          },
+          {
+            "keyword": "*END",
+            "start_line": 566,
+            "end_line": 566
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_tshell",
+        "r12.part",
+        "r12.section_tshell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_13.boundary",
+        "guide.example_13.loading",
+        "guide.example_13.output"
+      ]
+    },
+    {
+      "id": "ansys.example_14",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "solid_plate"
+      ],
+      "title": "实体方板瞬态受压",
+      "aliases": [
+        "实体方板",
+        "实体单元瞬态",
+        "实体板阶跃压力"
+      ],
+      "summary": "简支方板承受突加面压力，使用实体网格。参考时间曲线、监测节点和实体历史输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_14/solid_elform_1/ex_14_solid_elform_1.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-14/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit_transient",
+      "applicability": {
+        "geometry": "square_plate",
+        "element": "solid",
+        "support": "four_edges_simply_supported",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_14.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_14/solid_elform_1/ex_14_solid_elform_1.k",
+        "sha256": "b2216ba6bb662afda6bf4e87db55015d0e548c224f599e7b7d1ca7b394c4105e",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_DYNAMICS",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 13,
+            "end_line": 17
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 18,
+            "end_line": 24
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DATABASE_NODFOR",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 34,
+            "end_line": 36
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 37,
+            "end_line": 39
+          },
+          {
+            "keyword": "*DATABASE_EXTENT_BINARY",
+            "start_line": 40,
+            "end_line": 46
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_SOLID",
+            "start_line": 47,
+            "end_line": 49
+          },
+          {
+            "keyword": "*DATABASE_NODAL_FORCE_GROUP",
+            "start_line": 50,
+            "end_line": 52
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 53,
+            "end_line": 55
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 56,
+            "end_line": 60
+          },
+          {
+            "keyword": "*DAMPING_GLOBAL",
+            "start_line": 61,
+            "end_line": 63
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 64,
+            "end_line": 69
+          },
+          {
+            "keyword": "*ELEMENT_SOLID",
+            "start_line": 70,
+            "end_line": 263
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 264,
+            "end_line": 589
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 590,
+            "end_line": 592
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 593,
+            "end_line": 597
+          },
+          {
+            "keyword": "*SECTION_SOLID",
+            "start_line": 598,
+            "end_line": 600
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 601,
+            "end_line": 603
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 604,
+            "end_line": 669
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 670,
+            "end_line": 677
+          },
+          {
+            "keyword": "*END",
+            "start_line": 678,
+            "end_line": 678
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_solid",
+        "r12.part",
+        "r12.section_solid",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_dynamics",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_extent_binary",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.database_nodfor",
+        "r12.database_nodal_force_group",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_14.boundary",
+        "guide.example_14.loading",
+        "guide.example_14.output"
+      ]
+    },
+    {
+      "id": "ansys.example_15",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "thick_shell_plate"
+      ],
+      "title": "厚壳方板瞬态受压",
+      "aliases": [
+        "方板瞬态受压",
+        "厚壳方板",
+        "板的瞬态振动",
+        "厚壳板阶跃压力"
+      ],
+      "summary": "简支方板承受突加面压力，使用厚壳网格。参考时间曲线、加载面和节点位移输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_15/thick_shell_elform_2/ex_15_thick_shell_elform_2.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-15/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit_transient",
+      "applicability": {
+        "geometry": "square_plate",
+        "element": "thick_shell",
+        "support": "four_edges_simply_supported",
+        "excitation": "face_pressure",
+        "evidence_id": "guide.example_15.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_15/thick_shell_elform_2/ex_15_thick_shell_elform_2.k",
+        "sha256": "7ad6c6ebd96ee22b2655676aa9b82dec87a5e6584916c3696da736dc39c96acd",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_DYNAMICS",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 13,
+            "end_line": 17
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 18,
+            "end_line": 24
+          },
+          {
+            "keyword": "*CONTROL_SHELL",
+            "start_line": 25,
+            "end_line": 29
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 30,
+            "end_line": 32
+          },
+          {
+            "keyword": "*DATABASE_ELOUT",
+            "start_line": 33,
+            "end_line": 35
+          },
+          {
+            "keyword": "*DATABASE_NODFOR",
+            "start_line": 36,
+            "end_line": 38
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 39,
+            "end_line": 41
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 42,
+            "end_line": 45
+          },
+          {
+            "keyword": "*DATABASE_EXTENT_BINARY",
+            "start_line": 46,
+            "end_line": 52
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_TSHELL",
+            "start_line": 53,
+            "end_line": 55
+          },
+          {
+            "keyword": "*DATABASE_NODAL_FORCE_GROUP",
+            "start_line": 56,
+            "end_line": 58
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 59,
+            "end_line": 61
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 62,
+            "end_line": 66
+          },
+          {
+            "keyword": "*DAMPING_GLOBAL",
+            "start_line": 67,
+            "end_line": 69
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 70,
+            "end_line": 75
+          },
+          {
+            "keyword": "*ELEMENT_TSHELL",
+            "start_line": 76,
+            "end_line": 269
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 270,
+            "end_line": 595
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 596,
+            "end_line": 598
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 599,
+            "end_line": 603
+          },
+          {
+            "keyword": "*SECTION_TSHELL",
+            "start_line": 604,
+            "end_line": 606
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 607,
+            "end_line": 609
+          },
+          {
+            "keyword": "*LOAD_SEGMENT",
+            "start_line": 610,
+            "end_line": 675
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 676,
+            "end_line": 683
+          },
+          {
+            "keyword": "*END",
+            "start_line": 684,
+            "end_line": 684
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_tshell",
+        "r12.part",
+        "r12.section_tshell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_segment",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_dynamics",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_extent_binary",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.database_nodfor",
+        "r12.database_nodal_force_group",
+        "r12.database_history_shell",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_15.boundary",
+        "guide.example_15.loading",
+        "guide.example_15.output"
+      ]
+    },
+    {
+      "id": "ansys.example_16",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "component_contact"
+      ],
+      "title": "圆盘与柔性面接触",
+      "aliases": [
+        "圆盘撞柔性面",
+        "圆盘接触",
+        "二维接触"
+      ],
+      "summary": "圆盘撞击柔性表面，参考二维接触、部件关联、位移和接触反力输出。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_16/thin_shell_elform_13/ex_16_thin_shell_elform_13.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-16/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit_transient",
+      "applicability": {
+        "geometry": "disk_and_flexible_surface",
+        "element": "shell_and_discrete",
+        "support": "contact_boundary",
+        "excitation": "body_acceleration",
+        "evidence_id": "guide.example_16.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_16/thin_shell_elform_13/ex_16_thin_shell_elform_13.k",
+        "sha256": "8ec5d4663cce7ae830631289517e5ddf1c76b0f38503a316e6e3d4b345fc610f",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_DYNAMICS",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_AUTO",
+            "start_line": 7,
+            "end_line": 9
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 10,
+            "end_line": 12
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLVER",
+            "start_line": 13,
+            "end_line": 17
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 18,
+            "end_line": 24
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*DATABASE_GLSTAT",
+            "start_line": 28,
+            "end_line": 30
+          },
+          {
+            "keyword": "*DATABASE_MATSUM",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DATABASE_RCFORC",
+            "start_line": 34,
+            "end_line": 36
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 37,
+            "end_line": 39
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 40,
+            "end_line": 42
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 43,
+            "end_line": 45
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 46,
+            "end_line": 50
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 51,
+            "end_line": 55
+          },
+          {
+            "keyword": "*MAT_RIGID",
+            "start_line": 56,
+            "end_line": 62
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 63,
+            "end_line": 66
+          },
+          {
+            "keyword": "*SECTION_DISCRETE",
+            "start_line": 67,
+            "end_line": 71
+          },
+          {
+            "keyword": "*MAT_SPRING_ELASTIC",
+            "start_line": 72,
+            "end_line": 74
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 75,
+            "end_line": 78
+          },
+          {
+            "keyword": "*SECTION_BEAM",
+            "start_line": 79,
+            "end_line": 83
+          },
+          {
+            "keyword": "*MAT_RIGID",
+            "start_line": 84,
+            "end_line": 90
+          },
+          {
+            "keyword": "*ELEMENT_BEAM",
+            "start_line": 91,
+            "end_line": 93
+          },
+          {
+            "keyword": "*ELEMENT_DISCRETE",
+            "start_line": 94,
+            "end_line": 96
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 97,
+            "end_line": 598
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 599,
+            "end_line": 1129
+          },
+          {
+            "keyword": "*CONTACT_2D_AUTOMATIC_NODE_TO_SURFACE",
+            "start_line": 1130,
+            "end_line": 1141
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 1142,
+            "end_line": 1146
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 1147,
+            "end_line": 1151
+          },
+          {
+            "keyword": "*LOAD_BODY_Y",
+            "start_line": 1152,
+            "end_line": 1154
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 1155,
+            "end_line": 1161
+          },
+          {
+            "keyword": "*END",
+            "start_line": 1162,
+            "end_line": 1162
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.element_beam",
+        "r12.element_discrete",
+        "r12.part",
+        "r12.section_shell",
+        "r12.section_beam",
+        "r12.section_discrete",
+        "r12.mat_spring_elastic",
+        "r12.set_node_list",
+        "r12.define_curve",
+        "r12.control_implicit_general",
+        "r12.control_implicit_auto",
+        "r12.control_implicit_dynamics",
+        "r12.control_implicit_solution",
+        "r12.control_implicit_solver",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "r12.contact_2d_automatic_node_to_surface",
+        "r12.load_body_y",
+        "r12.mat_rigid",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_16.boundary",
+        "guide.example_16.loading",
+        "guide.example_16.output"
+      ]
+    },
+    {
+      "id": "ansys.example_17",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "spring_mass"
+      ],
+      "title": "线性弹簧—质量自由振动",
+      "aliases": [
+        "线性弹簧质量振动",
+        "线性离散弹簧周期"
+      ],
+      "summary": "单个离散弹簧连接固定端和运动节点，使用常刚度和初始偏移。从节点时程测量振动周期。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_17/spring_elform_0/ex_17_spring_elform_0.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-17/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "explicit",
+      "applicability": {
+        "geometry": "spring_mass",
+        "element": "discrete_and_mass",
+        "support": "one_node_fixed",
+        "excitation": "initial_spring_offset",
+        "evidence_id": "guide.example_17.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_17/spring_elform_0/ex_17_spring_elform_0.k",
+        "sha256": "485ec9d1ae7a24948f503a9162ced58d8ef28ad82cb69592ad0acba8c77328b3",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_TIMESTEP",
+            "start_line": 7,
+            "end_line": 11
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 12,
+            "end_line": 14
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 15,
+            "end_line": 17
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 18,
+            "end_line": 20
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 21,
+            "end_line": 25
+          },
+          {
+            "keyword": "*SECTION_DISCRETE",
+            "start_line": 26,
+            "end_line": 30
+          },
+          {
+            "keyword": "*MAT_SPRING_ELASTIC",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*ELEMENT_DISCRETE",
+            "start_line": 34,
+            "end_line": 36
+          },
+          {
+            "keyword": "*ELEMENT_MASS",
+            "start_line": 37,
+            "end_line": 40
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 41,
+            "end_line": 44
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_NODE",
+            "start_line": 45,
+            "end_line": 47
+          },
+          {
+            "keyword": "*END",
+            "start_line": 48,
+            "end_line": 48
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_mass",
+        "r12.element_discrete",
+        "r12.part",
+        "r12.section_discrete",
+        "r12.mat_spring_elastic",
+        "r12.boundary_spc_set",
+        "r12.control_termination",
+        "r12.control_timestep",
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_18",
+        "guide.example_17.boundary",
+        "guide.example_17.loading",
+        "guide.example_17.output"
+      ]
+    },
+    {
+      "id": "ansys.example_18",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "spring_mass"
+      ],
+      "title": "非线性弹簧—质量自由振动",
+      "aliases": [
+        "非线性弹簧质量振动",
+        "力位移曲线离散弹簧"
+      ],
+      "summary": "离散弹簧引用力—位移曲线，使用与线性算例相同的端点和集中质量。通过位移时程对照非线性振动。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_18/spring_elform_0/ex_18_spring_elform_0.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-18/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "explicit",
+      "applicability": {
+        "geometry": "spring_mass",
+        "element": "discrete_and_mass",
+        "support": "one_node_fixed",
+        "excitation": "initial_spring_offset",
+        "evidence_id": "guide.example_18.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_18/spring_elform_0/ex_18_spring_elform_0.k",
+        "sha256": "6dc441b153f5b888354ae83183443cfa25125dcc1f621cdb41aab81726547baa",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_TIMESTEP",
+            "start_line": 7,
+            "end_line": 11
+          },
+          {
+            "keyword": "*DATABASE_NODOUT",
+            "start_line": 12,
+            "end_line": 14
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 15,
+            "end_line": 17
+          },
+          {
+            "keyword": "*DATABASE_HISTORY_NODE",
+            "start_line": 18,
+            "end_line": 20
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 21,
+            "end_line": 25
+          },
+          {
+            "keyword": "*SECTION_DISCRETE",
+            "start_line": 26,
+            "end_line": 30
+          },
+          {
+            "keyword": "*MAT_SPRING_NONLINEAR_ELASTIC",
+            "start_line": 31,
+            "end_line": 33
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 34,
+            "end_line": 48
+          },
+          {
+            "keyword": "*ELEMENT_DISCRETE",
+            "start_line": 49,
+            "end_line": 51
+          },
+          {
+            "keyword": "*ELEMENT_MASS",
+            "start_line": 52,
+            "end_line": 55
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 56,
+            "end_line": 59
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_NODE",
+            "start_line": 60,
+            "end_line": 62
+          },
+          {
+            "keyword": "*END",
+            "start_line": 63,
+            "end_line": 63
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_mass",
+        "r12.element_discrete",
+        "r12.part",
+        "r12.section_discrete",
+        "r12.mat_spring_nonlinear_elastic",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.control_termination",
+        "r12.control_timestep",
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "ansys.example_17",
+        "guide.example_18.boundary",
+        "guide.example_18.loading",
+        "guide.example_18.output"
+      ]
+    },
+    {
+      "id": "ansys.example_19",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "薄壁圆筒轴压线性屈曲",
+      "aliases": [
+        "圆筒轴压屈曲",
+        "薄壁筒屈曲模态"
+      ],
+      "summary": "小型薄壁圆筒的壳网格算例，比较上下边节点集的约束与加载，核对线性屈曲载荷倍数和振型。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_19/thin_shell_elform_16/29x76_mesh/ex_19_thin_shell_elform_16_29x76_mesh.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-19/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "thin_walled_cylinder",
+        "element": "shell",
+        "support": "mixed_constraints",
+        "excitation": "node_set_force",
+        "evidence_id": "guide.example_19.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_19/thin_shell_elform_16/29x76_mesh/ex_19_thin_shell_elform_16_29x76_mesh.k",
+        "sha256": "efd481b5bae20113a88d8cefef92b90cfb5b01853f1bf10f3f989c6886282b88",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_SOLUTION",
+            "start_line": 7,
+            "end_line": 13
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_BUCKLE",
+            "start_line": 14,
+            "end_line": 16
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 17,
+            "end_line": 19
+          },
+          {
+            "keyword": "*CONTROL_SHELL",
+            "start_line": 20,
+            "end_line": 24
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 25,
+            "end_line": 27
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 28,
+            "end_line": 32
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 33,
+            "end_line": 37
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 38,
+            "end_line": 40
+          },
+          {
+            "keyword": "*HOURGLASS",
+            "start_line": 41,
+            "end_line": 43
+          },
+          {
+            "keyword": "*SET_NODE_LIST_TITLE",
+            "start_line": 44,
+            "end_line": 58
+          },
+          {
+            "keyword": "*SET_NODE_LIST_TITLE",
+            "start_line": 59,
+            "end_line": 73
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 74,
+            "end_line": 76
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 77,
+            "end_line": 79
+          },
+          {
+            "keyword": "*DEFINE_CURVE",
+            "start_line": 80,
+            "end_line": 85
+          },
+          {
+            "keyword": "*LOAD_NODE_SET",
+            "start_line": 86,
+            "end_line": 88
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 89,
+            "end_line": 2294
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 2295,
+            "end_line": 4576
+          },
+          {
+            "keyword": "*END",
+            "start_line": 4577,
+            "end_line": 4577
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.define_curve",
+        "r12.load_node_point",
+        "r12.control_implicit_general",
+        "r12.control_implicit_buckle",
+        "r12.control_implicit_solution",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_19.boundary",
+        "guide.example_19.loading",
+        "guide.example_19.output"
+      ]
+    },
+    {
+      "id": "ansys.example_27",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "explicit_impact"
+      ],
+      "title": "铜杆撞刚壁显式算例",
+      "aliases": [
+        "铜杆撞刚壁",
+        "显式接触",
+        "显式动力学"
+      ],
+      "summary": "铜杆撞击刚性壁面，作为显式求解、实体单元和刚壁约束的通用参考。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/Intro_Examples_Input_Decks.curl.zip",
+        "sha256": "25751e9bee8ba346f9bd892e058eea35e2b9c9f3f2ca3a1baa69890c2e07a6b7",
+        "locator": "example_27/solid_elform_-1_rpb/ex_27_solid_elform_-1_rigidwall.k",
+        "source_release": "introductory_examples_2013",
+        "url": "https://lsdyna.ansys.com/example-27/",
+        "archive_url": "https://lsdyna.ansys.com/manuals-download/"
+      },
+      "analysis": "explicit",
+      "applicability": {
+        "geometry": "bar_and_rigid_wall",
+        "element": "solid",
+        "support": "rigid_wall",
+        "excitation": "initial_velocity",
+        "evidence_id": "guide.example_27.boundary"
+      },
+      "evidence_level": "official_original_static_inventory",
+      "r12_execution": "unverified",
+      "unit_system": "source_consistent_units_review_required",
+      "license_status": "public_download_redistribution_unverified",
+      "deck": {
+        "member": "example_27/solid_elform_-1_rpb/ex_27_solid_elform_-1_rigidwall.k",
+        "sha256": "da089d6b2f5b71ba534ccbb96c03ea213505ed4e557414c770025e351c0bdd85",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 3
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 4,
+            "end_line": 6
+          },
+          {
+            "keyword": "*CONTROL_TIMESTEP",
+            "start_line": 7,
+            "end_line": 11
+          },
+          {
+            "keyword": "*CONTROL_CONTACT",
+            "start_line": 12,
+            "end_line": 20
+          },
+          {
+            "keyword": "*CONTROL_ENERGY",
+            "start_line": 21,
+            "end_line": 23
+          },
+          {
+            "keyword": "*DATABASE_GLSTAT",
+            "start_line": 24,
+            "end_line": 26
+          },
+          {
+            "keyword": "*DATABASE_MATSUM",
+            "start_line": 27,
+            "end_line": 29
+          },
+          {
+            "keyword": "*DATABASE_SLEOUT",
+            "start_line": 30,
+            "end_line": 32
+          },
+          {
+            "keyword": "*DATABASE_RWFORC",
+            "start_line": 33,
+            "end_line": 35
+          },
+          {
+            "keyword": "*DATABASE_BINARY_D3PLOT",
+            "start_line": 36,
+            "end_line": 38
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 39,
+            "end_line": 43
+          },
+          {
+            "keyword": "*SECTION_SOLID",
+            "start_line": 44,
+            "end_line": 46
+          },
+          {
+            "keyword": "*MAT_PLASTIC_KINEMATIC",
+            "start_line": 47,
+            "end_line": 51
+          },
+          {
+            "keyword": "*HOURGLASS",
+            "start_line": 52,
+            "end_line": 54
+          },
+          {
+            "keyword": "*RIGIDWALL_PLANAR",
+            "start_line": 55,
+            "end_line": 59
+          },
+          {
+            "keyword": "*INITIAL_VELOCITY_GENERATION",
+            "start_line": 60,
+            "end_line": 64
+          },
+          {
+            "keyword": "*ELEMENT_SOLID",
+            "start_line": 65,
+            "end_line": 10434
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 10435,
+            "end_line": 21721
+          },
+          {
+            "keyword": "*END",
+            "start_line": 21722,
+            "end_line": 21722
+          }
+        ],
+        "external_includes": []
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_solid",
+        "r12.part",
+        "r12.section_solid",
+        "r12.control_termination",
+        "r12.control_timestep",
+        "r12.database_binary_d3plot",
+        "r12.rigidwall_planar",
+        "r12.initial_velocity_generation",
+        "r12.database_elout",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.example_27.boundary",
+        "guide.example_27.loading",
+        "guide.example_27.output"
+      ]
+    },
+    {
+      "id": "project.shell_plate",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "项目单边固定薄板",
+      "aliases": [
+        "shell_plate",
+        "单边固定薄板",
+        "项目薄板模板"
+      ],
+      "summary": "项目默认薄板可生成壳网格、弹性材料和固定边。默认未施加载荷。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/schema.py",
+        "sha256": "cfbad55cfd0d10f83992fdf13cd07645c900e27e10858c150eb024cddf3c4559",
+        "locator": "default_model_spec, lines 59–104"
+      },
+      "applicability": {
+        "geometry": "rectangular_plate",
+        "element": "shell",
+        "support": "one_edge_clamped",
+        "excitation": "none"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/dyna_keyword.py",
+          "sha256": "707569355945065ba8f8e3a32a45c2ad7b732a87c8df27e5d3ae71bce43d9066",
+          "locator": "build_keyword, lines 21–44"
+        }
+      ],
+      "evidence_level": "generated_in_memory",
+      "r12_execution": "unverified",
+      "spec": {
+        "project_name": "plate_demo",
+        "model_type": "shell_plate",
+        "unit_system": "SI_m_s_kg_N_Pa",
+        "geometry": {
+          "length_m": 0.12,
+          "width_m": 0.06,
+          "thickness_m": 0.0015
+        },
+        "mesh": {
+          "size_m": 0.01
+        },
+        "material": {
+          "name": "mild_steel",
+          "type": "elastic",
+          "density_kg_per_m3": 7850.0,
+          "youngs_pa": 210000000000.0,
+          "poisson": 0.3
+        },
+        "curves": [],
+        "hourglass": {},
+        "analysis_control": {},
+        "database": {},
+        "components": [],
+        "model_resources": [],
+        "contacts": [],
+        "sets": [],
+        "boundary_conditions": [
+          {
+            "type": "fixed_edge",
+            "edge": "x_min"
+          }
+        ],
+        "loads": []
+      },
+      "keyword_names": [
+        "*KEYWORD",
+        "*TITLE",
+        "*CONTROL_TERMINATION",
+        "*DATABASE_BINARY_D3PLOT",
+        "*NODE",
+        "*ELEMENT_SHELL",
+        "*PART",
+        "*SECTION_SHELL",
+        "*MAT_ELASTIC",
+        "*SET_NODE_LIST",
+        "*BOUNDARY_SPC_SET",
+        "*END"
+      ],
+      "mesh_counts": {
+        "node_count": 91,
+        "element_count": 72,
+        "load_count": 0
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "run.workflow",
+        "tool.generate_model",
+        "tool.validate_model"
+      ]
+    },
+    {
+      "id": "project.square_shell_four_edges_clamped",
+      "index": "I_case",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "shell_plate"
+      ],
+      "title": "四边固支薄壳方板模态",
+      "aliases": [
+        "四边固支薄壳方板",
+        "四周夹紧薄板模态",
+        "four-edge clamped square shell plate"
+      ],
+      "summary": "项目自建静态核对样例。方板用薄壳单元离散，周边节点约束六个自由度，提取无外载固有模态。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "resources/knowledge/r12/fixtures/square_shell_four_edges_clamped.k",
+        "sha256": "78240655a54a46e0087baba3db6b3b978607acf6e814717c3e2e439eed2d87e8",
+        "locator": "square_shell_four_edges_clamped.k",
+        "source_release": "project_fixture"
+      },
+      "analysis": "implicit",
+      "applicability": {
+        "geometry": "square_plate",
+        "element": "shell",
+        "support": "four_edges_clamped",
+        "excitation": "free_vibration",
+        "evidence_id": "guide.project.square_shell_four_edges_clamped.boundary"
+      },
+      "evidence_level": "project_fixture_static_inventory",
+      "r12_execution": "unverified",
+      "deck": {
+        "member": "square_shell_four_edges_clamped.k",
+        "sha256": "78240655a54a46e0087baba3db6b3b978607acf6e814717c3e2e439eed2d87e8",
+        "encoding": "ascii",
+        "blocks": [
+          {
+            "keyword": "*KEYWORD",
+            "start_line": 1,
+            "end_line": 1
+          },
+          {
+            "keyword": "*TITLE",
+            "start_line": 2,
+            "end_line": 4
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_GENERAL",
+            "start_line": 5,
+            "end_line": 7
+          },
+          {
+            "keyword": "*CONTROL_IMPLICIT_EIGENVALUE",
+            "start_line": 8,
+            "end_line": 10
+          },
+          {
+            "keyword": "*CONTROL_TERMINATION",
+            "start_line": 11,
+            "end_line": 13
+          },
+          {
+            "keyword": "*NODE",
+            "start_line": 14,
+            "end_line": 63
+          },
+          {
+            "keyword": "*ELEMENT_SHELL",
+            "start_line": 64,
+            "end_line": 100
+          },
+          {
+            "keyword": "*PART",
+            "start_line": 101,
+            "end_line": 103
+          },
+          {
+            "keyword": "*SECTION_SHELL",
+            "start_line": 104,
+            "end_line": 108
+          },
+          {
+            "keyword": "*MAT_ELASTIC",
+            "start_line": 109,
+            "end_line": 111
+          },
+          {
+            "keyword": "*SET_NODE_LIST",
+            "start_line": 112,
+            "end_line": 117
+          },
+          {
+            "keyword": "*BOUNDARY_SPC_SET",
+            "start_line": 118,
+            "end_line": 120
+          },
+          {
+            "keyword": "*END",
+            "start_line": 121,
+            "end_line": 121
+          }
+        ],
+        "external_includes": [],
+        "standalone": true
+      },
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic",
+        "r12.set_node_list",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_general",
+        "r12.control_implicit_eigenvalue",
+        "r12.control_termination",
+        "run.workflow",
+        "tool.import_keyword",
+        "tool.validate_model",
+        "guide.project.square_shell_four_edges_clamped.boundary",
+        "guide.project.square_shell_four_edges_clamped.loading",
+        "guide.project.square_shell_four_edges_clamped.output"
+      ]
+    },
+    {
+      "id": "supp.description_plate",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "样例简介：简支方板突加载荷",
+      "aliases": [
+        "简支方板突加载荷",
+        "样例9"
+      ],
+      "summary": "四分之一对称模型承受突加均布压力，记录板心位移、速度与加速度。可与现有方板案例对照思路，两者保留各自材料、几何与加载。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/DESCRIPT.PDF",
+        "filename": "DESCRIPT.PDF",
+        "source_id": "local_7c37ad59def2b27b",
+        "sha256": "7c37ad59def2b27b0670f912f5e6cb80bc41f54322f5588ab81ba706949336ea",
+        "source_release": "unspecified_legacy",
+        "locator": "PDF 25–26"
+      },
+      "related_ids": [
+        "ansys.example_14",
+        "ansys.example_15"
+      ],
+      "manual": {
+        "source_id": "local_7c37ad59def2b27b",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 25,
+            "sha256": "53f679b4254432d10b56b42fd5704034c44dd4e2e878bcd01764ab21ba9ccab8"
+          },
+          {
+            "pdf_page": 26,
+            "sha256": "6dfe8ed94a993c6fca174d436321e15b249f4b6d62d1e9f32c1b36631ac923d3"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.description_buckling",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "样例简介：箱形梁屈曲",
+      "aliases": [
+        "箱形梁屈曲",
+        "四分之一对称模型"
+      ],
+      "summary": "简介描述了壳网格、对称性、轴向加载和材料说明，可作单构件教学线索，完整输入及版本另行核实。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/DESCRIPT.PDF",
+        "filename": "DESCRIPT.PDF",
+        "source_id": "local_7c37ad59def2b27b",
+        "sha256": "7c37ad59def2b27b0670f912f5e6cb80bc41f54322f5588ab81ba706949336ea",
+        "source_release": "unspecified_legacy",
+        "locator": "PDF 14–15"
+      },
+      "related_ids": [],
+      "manual": {
+        "source_id": "local_7c37ad59def2b27b",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 14,
+            "sha256": "c50ba8d67e42288f8d07b5d39a34af0271722b283e76ae4d795fff52602912ac"
+          },
+          {
+            "pdf_page": 15,
+            "sha256": "63caa8e5f6bf917d15a82a545531da79d8c82171d7d8ba7800cddac96e22abb3"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.example_v940",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 940 教学算例目录",
+      "aliases": [
+        "940教学算例",
+        "旧版例题"
+      ],
+      "summary": "提供约束、接触、阻尼、截面等问题的例题入口。导言记录其曾在 version 940 运行，获取完整输入后才可核对 R12 兼容性。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/EXAMPLES.PDF",
+        "filename": "EXAMPLES.PDF",
+        "source_id": "local_9148f3053e5b5f9a",
+        "sha256": "9148f3053e5b5f9a1e10ca35ba1c0699d593416fd40443574db07c0bede0e56f",
+        "source_release": "940_legacy",
+        "locator": "PDF 3–6"
+      },
+      "related_ids": [],
+      "manual": {
+        "source_id": "local_9148f3053e5b5f9a",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 3,
+            "sha256": "b16306f16907d15666197678da30e91c3cd42fa01e696fc337b57045012c7ec8"
+          },
+          {
+            "pdf_page": 4,
+            "sha256": "ca188016daa28a2cb3a8b6ad78a818e4486c4abbfb6405721fef46d41a53c11d"
+          },
+          {
+            "pdf_page": 5,
+            "sha256": "5cab7610e8a3fa14ca9d7c819f7a0b1183c1f9e959fdaa3bed5c10ce72dafcd9"
+          },
+          {
+            "pdf_page": 6,
+            "sha256": "111ac7acbcb066e620bc7d8fde020fb4a445732c91fc44f76cb659a9c77d6bc4"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.example_shell_contact",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "壳片反弹的接触例题",
+      "aliases": [
+        "壳片反弹",
+        "五种接触类型"
+      ],
+      "summary": "旧例题以壳片撞击弹性板比较接触类型，说明输入中的接触和初始条件如何配合。可与现有圆盘接触模板作主题对照。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/EXAMPLES.PDF",
+        "filename": "EXAMPLES.PDF",
+        "source_id": "local_9148f3053e5b5f9a",
+        "sha256": "9148f3053e5b5f9a1e10ca35ba1c0699d593416fd40443574db07c0bede0e56f",
+        "source_release": "940_legacy",
+        "locator": "PDF 65–66"
+      },
+      "related_ids": [
+        "ansys.example_16"
+      ],
+      "manual": {
+        "source_id": "local_9148f3053e5b5f9a",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 65,
+            "sha256": "5459af9dd0ac461d397c74f27fdbc1776bcda6486212a5412e35d3c72c421af5"
+          },
+          {
+            "pdf_page": 66,
+            "sha256": "a350940fe26491d8d8b667351a555247218505fbfb39a14c72bedcb21c378bd4"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.example_beam_damping",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "悬臂梁阻尼对照例题",
+      "aliases": [
+        "悬臂梁阻尼",
+        "有无阻尼对照"
+      ],
+      "summary": "自由端加载后比较有无阻尼时的振动。该例用壳网格表达梁，使用时保留原单位和输出定义。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/EXAMPLES.PDF",
+        "filename": "EXAMPLES.PDF",
+        "source_id": "local_9148f3053e5b5f9a",
+        "sha256": "9148f3053e5b5f9a1e10ca35ba1c0699d593416fd40443574db07c0bede0e56f",
+        "source_release": "940_legacy",
+        "locator": "PDF 113–114"
+      },
+      "related_ids": [
+        "ansys.example_06"
+      ],
+      "manual": {
+        "source_id": "local_9148f3053e5b5f9a",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 113,
+            "sha256": "c43c5c46a7bf7bda284953668c16140306654b0cfa7134f877fa8aefeb022c60"
+          },
+          {
+            "pdf_page": 114,
+            "sha256": "77876525a85bf2b3626f70fed9303ed2e7f7c817617ff4e0f9130415b478f6b2"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.example_shell_twist",
+      "index": "I_case",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "扭转悬臂薄壳例题",
+      "aliases": [
+        "扭转悬臂梁",
+        "扭转壳截面"
+      ],
+      "summary": "沿长度扭转的构件采用壳单元，说明选壳公式及厚度积分时应核对翘曲和载荷方向。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/EXAMPLES.PDF",
+        "filename": "EXAMPLES.PDF",
+        "source_id": "local_9148f3053e5b5f9a",
+        "sha256": "9148f3053e5b5f9a1e10ca35ba1c0699d593416fd40443574db07c0bede0e56f",
+        "source_release": "940_legacy",
+        "locator": "PDF 133–134"
+      },
+      "related_ids": [
+        "r12.section_shell"
+      ],
+      "manual": {
+        "source_id": "local_9148f3053e5b5f9a",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 133,
+            "sha256": "b4824207cc03b1dda6e16dd5ab22ab9fd388a8d91b26b151f97f9c3d91fad9ce"
+          },
+          {
+            "pdf_page": 134,
+            "sha256": "c9904386ff474642e47145fb3145a7251100aa3436da3cd84d8572aa48d629a4"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    }
+  ]
+}

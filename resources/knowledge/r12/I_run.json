@@ -1,0 +1,2305 @@
+{
+  "records": [
+    {
+      "id": "run.workflow",
+      "index": "I_run",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "建模检查求解后处理流程",
+      "aliases": [
+        "建模流程",
+        "入门教程",
+        "官方四段教程"
+      ],
+      "summary": "依次准备网格与关键字、检查模型、按项目流程执行求解、读取结果。官方视频展示相同顺序。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/tool_project.py",
+        "sha256": "4abd54394dc1a07eeabd858ef4798e31d4851073b760026caa76b14f791331b7",
+        "locator": "tool_validate_model, lines 18–26",
+        "tutorial_url": "https://lsdyna.ansys.com/introductory-tutorial-to-ls-dyna/"
+      },
+      "evidence_level": "documented_workflow",
+      "steps": [
+        "网格与几何",
+        "关键字与材料设置",
+        "静态与读入检查",
+        "求解",
+        "结果核对"
+      ],
+      "tutorial_versions": {
+        "LS-PrePost": "4.9",
+        "LS-Run": "1.0"
+      },
+      "tutorial_lessons": [
+        {
+          "title": "网格与 LS-PrePost 工具",
+          "asset_url": "https://files.dynamore.se/index.php/s/pMDSWH7NEipTkbw",
+          "local_asset_status": "remote_timeout"
+        },
+        {
+          "title": "关键字与分析设置",
+          "asset_url": "https://files.dynamore.se/index.php/s/ZyxRLDPyXq6eyCA",
+          "local_asset_status": "remote_timeout"
+        },
+        {
+          "title": "模型检查与 LS-Run",
+          "asset_url": "https://files.dynamore.se/index.php/s/xkKW9gzFky3wFqG",
+          "local_asset_status": "remote_timeout"
+        },
+        {
+          "title": "结果分析",
+          "asset_url": "https://files.dynamore.se/index.php/s/PmiDpYHTbXF6xtc",
+          "local_asset_status": "remote_timeout"
+        }
+      ],
+      "related_ids": [
+        "tool.validate_model",
+        "tool.validate_lsprepost_import",
+        "run.solver",
+        "run.results"
+      ]
+    },
+    {
+      "id": "run.solver",
+      "index": "I_run",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "求解输入快照与日志",
+      "aliases": [
+        "求解流程",
+        "求解日志",
+        "求解输入快照"
+      ],
+      "summary": "现有求解服务按项目构建输入快照，记录求解器身份、资源、运行状态与日志。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/lsdyna_runner.py",
+        "sha256": "9646817f14d7d8c169926a35e968422deb2cb4d53fe77d188e569e46e061e4db",
+        "locator": "execute_lsdyna_run, lines 96–318"
+      },
+      "evidence_level": "source_contract",
+      "related_ids": [
+        "tool.validate_model",
+        "run.results"
+      ]
+    },
+    {
+      "id": "run.results",
+      "index": "I_run",
+      "solver": "R12",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "求解终止与节点结果检查",
+      "aliases": [
+        "检查d3hsp",
+        "求解终止",
+        "读取位移时程",
+        "结果检查"
+      ],
+      "summary": "先从日志核对求解状态，再用本次运行的输出检查目标位移。节点输出取决于模型请求的数据库卡。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "lsprepost_mcp/solver_results.py",
+        "sha256": "03ba6e40567d46c008c76bc0bdc698e91f5d156260a9d0af499be2daf9e44685",
+        "locator": "parse_d3hsp, lines 42–104"
+      },
+      "supporting_sources": [
+        {
+          "path": "lsprepost_mcp/solver_results.py",
+          "sha256": "03ba6e40567d46c008c76bc0bdc698e91f5d156260a9d0af499be2daf9e44685",
+          "locator": "parse_nodout, lines 175–246"
+        }
+      ],
+      "evidence_level": "source_contract",
+      "related_ids": [
+        "r12.database_binary_d3plot",
+        "r12.database_history_node",
+        "r12.database_nodout"
+      ]
+    },
+    {
+      "id": "supp.r11_outputs",
+      "index": "I_run",
+      "solver": "R11",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "R11 输入输出文件用途",
+      "aliases": [
+        "历史结果文件",
+        "旧版求解日志",
+        "R11输出"
+      ],
+      "summary": "区分 d3hsp 文本输出、d3plot 二进制状态文件与重启动文件。实际运行以项目接口和本次运行产物为准。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/LS-DYNA_manual_Vol1.pdf",
+        "filename": "LS-DYNA_manual_Vol1.pdf",
+        "source_id": "local_3f1cf3cc8c8222ad",
+        "sha256": "3f1cf3cc8c8222ad059459aca2c452f6af6afcce263b8eb8ba157495684da343",
+        "source_release": "R11",
+        "locator": "PDF 314–319"
+      },
+      "related_ids": [
+        "run.results",
+        "run.solver"
+      ],
+      "manual": {
+        "source_id": "local_3f1cf3cc8c8222ad",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 314,
+            "sha256": "39b9d4046c1795eb8c81be2b60adb7da990a20e60ff218944c8cb2977d3138a1"
+          },
+          {
+            "pdf_page": 315,
+            "sha256": "b2044c8d9ce2a01f5387a1cc2138876fa8c7246ce7e6531d1d012e03e8d2513a"
+          },
+          {
+            "pdf_page": 316,
+            "sha256": "33b47d1ed1ffb227db63705ea57fb130a34c1fa4a03a0004b0738bc256efa26e"
+          },
+          {
+            "pdf_page": 317,
+            "sha256": "0443c9e1930b98e540528914c12171ffd98163f9e5d6b315782c4dc64bbbb351"
+          },
+          {
+            "pdf_page": 318,
+            "sha256": "a044d43caa72f3c864a07fc2b09d5e2ddf494d1ab29571ff1623fb1be2242573"
+          },
+          {
+            "pdf_page": 319,
+            "sha256": "5d4dc08b8e93dc5ece549631197667f2f5f6d4eed93a7e096338867a8973e183"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.network_roles",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版网络许可证客户端与服务端",
+      "aliases": [
+        "网络许可证",
+        "许可证服务器",
+        "License Server"
+      ],
+      "summary": "区分发放许可证的主机与求解客户端。检查授权类型和服务端标识时，以本机当前软件配置为准。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/NetworkLicense-help.pdf",
+        "filename": "NetworkLicense-help.pdf",
+        "source_id": "local_53733038171f949f",
+        "sha256": "53733038171f949f4b24dc128af0b650878091e8c85cf5a08727c5f4b756bf10",
+        "source_release": "unspecified_legacy",
+        "locator": "PDF 10–12"
+      },
+      "related_ids": [],
+      "manual": {
+        "source_id": "local_53733038171f949f",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 10,
+            "sha256": "a167395dbec9ff91b20ba442aae88b9d454874d6accec6eef64de37bc7e20948"
+          },
+          {
+            "pdf_page": 11,
+            "sha256": "26ca9f5fe9fe3adf6920dc2667657422afbc051b7cc816f33704ed5e83cdb4c2"
+          },
+          {
+            "pdf_page": 12,
+            "sha256": "0d792e4b159db2ae2382678ad8fa8d7eb2da3b8708a59dd09ac214c7f97adec7"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.package_history",
+      "index": "I_run",
+      "solver": "R11",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧手册包的版本记录",
+      "aliases": [
+        "版本沿革",
+        "README版本",
+        "手册包"
+      ],
+      "summary": "包内版本历史列出 R11.0.0、R10.1.0 及若干 R9 发布条目。用它核对资料来源，实际运行版本以求解记录为准。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/README.TXT",
+        "filename": "README.TXT",
+        "source_id": "local_fb0eb7f9043ff091",
+        "sha256": "fb0eb7f9043ff091e3650847db628f107bb54be57ba3c658196776aa5176773a",
+        "source_release": "R11_package",
+        "locator": "TXT lines 1–34"
+      },
+      "related_ids": [],
+      "text_excerpt": {
+        "encoding": "utf-8",
+        "start_line": 1,
+        "end_line": 34
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.r11_release",
+      "index": "I_run",
+      "solver": "R11",
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "R11.0.0 发布说明范围",
+      "aliases": [
+        "R11发布说明",
+        "R11 Release Notes",
+        "草稿手册"
+      ],
+      "summary": "修订 0 发布说明区分许可证、文档以及新增与修复内容，并提醒草稿手册可能列有该版本未实现的特性。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/Release_Notes_LS-DYNA_R11.0.0_rev0.txt",
+        "filename": "Release_Notes_LS-DYNA_R11.0.0_rev0.txt",
+        "source_id": "local_1667a86ee5274edf",
+        "sha256": "1667a86ee5274edff92e951c3de01c26f606eb0684a9370b3992d9c14de84a77",
+        "source_release": "R11.0.0",
+        "locator": "TXT lines 1–32"
+      },
+      "related_ids": [],
+      "text_excerpt": {
+        "encoding": "utf-8",
+        "start_line": 1,
+        "end_line": 32
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_legacy_ascii",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版培训手册的 ASCII 时程选择",
+      "aliases": [
+        "旧版培训手册ASCII时程"
+      ],
+      "summary": "加载本次运行的 ASCII 文件，选择目标实体和分量，再决定新建曲线或添加到已有图。使用汇总选项时检查参与的实体。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 50–52"
+      },
+      "related_ids": [
+        "run.results",
+        "r12.database_nodout",
+        "r12.database_spcforc"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 50,
+            "sha256": "3180067d833820e36b2cfa815cb8c32ebe1ce622c08ac25ef7d05ba4ef927f20"
+          },
+          {
+            "pdf_page": 51,
+            "sha256": "1b14e36d5ca0fdcdbc6f64eb8fa58f5fe5a1cba14f058efa64d87667f769ed65"
+          },
+          {
+            "pdf_page": 52,
+            "sha256": "6ba7aac86e673459517a79fccfc7a674ae0f8b3d4193f4bc68f984c3f0c2504b"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_legacy_binout",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版培训手册的 BINOUT 分支",
+      "aliases": [
+        "旧版培训手册BINOUT分支"
+      ],
+      "summary": "BINOUT 以二进制形式保存可按分支查看的时程量。先确认需要的输出分支已写出，再选择实体和分量。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 66–66"
+      },
+      "related_ids": [
+        "run.results",
+        "r12.database_nodout"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 66,
+            "sha256": "6ffd6e46de2861787f2ea09846b44dfdb4f4c8444e0b49a0cbdca1d419662f07"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_history",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 LS-PrePost 曲线与交叉绘图",
+      "aliases": [
+        "XYPlot",
+        "交叉绘图",
+        "时程曲线操作"
+      ],
+      "summary": "先选结果类型、实体及分量；壳结果还需检查局部轴、厚度位置和积分点。历史界面须对照 LS-PrePost 4.12。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 62–64"
+      },
+      "related_ids": [
+        "run.results",
+        "r12.database_history_node"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 62,
+            "sha256": "62e785fb81ceace315f8889651c11f8da7caf13a815580d960950926db6f7111"
+          },
+          {
+            "pdf_page": 63,
+            "sha256": "6f27c525a6546ba85c0d247decea43190c6d0dae315155ca83d642d2ab1e307b"
+          },
+          {
+            "pdf_page": 64,
+            "sha256": "139a8621b329b9e6598d2aa3316831a93ac7d0f26bd4d030dd1485d39be19cbb"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.prepost_fringe",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 LS-PrePost 云图分量",
+      "aliases": [
+        "云图分量",
+        "Fringe",
+        "Fcomp"
+      ],
+      "summary": "云图检查包括全局或局部坐标、壳的上下表面及积分点选择。图示来自旧版培训材料。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/ls-prepost-tutorial.pdf",
+        "filename": "ls-prepost-tutorial.pdf",
+        "source_id": "local_a29993abee333e3e",
+        "sha256": "a29993abee333e3e9cbb43b8ffdc964607abc4a62e3f7d140b7d2c5111ce17ad",
+        "source_release": "legacy_training_2004",
+        "locator": "PDF 39–40"
+      },
+      "related_ids": [
+        "r12.database_binary_d3plot"
+      ],
+      "manual": {
+        "source_id": "local_a29993abee333e3e",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 39,
+            "sha256": "e14676176336e3f5c7a2efde6780e73d97c115f1bb47811136020eec74fa9902"
+          },
+          {
+            "pdf_page": 40,
+            "sha256": "a6679b15ee48776ac55d7106858daaa919c4b1a1fa6cd6ed198bc8b5a70f7b15"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.lspost_history",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 LS-PrePost 历史量选择",
+      "aliases": [
+        "节点历史",
+        "积分点历史",
+        "旧版历史曲线"
+      ],
+      "summary": "选择节点、单元、积分点或全局量后再选分量绘图。交叉比较时需保留实体 ID 和结果来源。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/lspost.pdf",
+        "filename": "lspost.pdf",
+        "source_id": "local_52b6d45989755546",
+        "sha256": "52b6d45989755546fd6ded45a8f3517627c270c78ea00e287c2a1f8a83127aa9",
+        "source_release": "beta_2002",
+        "locator": "PDF 53–54"
+      },
+      "related_ids": [
+        "run.results"
+      ],
+      "manual": {
+        "source_id": "local_52b6d45989755546",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 53,
+            "sha256": "c757d28b924fc702324ee6cef59e5c539d74592e82bb54baaa045955760f80e4"
+          },
+          {
+            "pdf_page": 54,
+            "sha256": "d83feb53acbe11e8abce857e4e2c68a4d2deec8043e6937d0bb45272bcb34393"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.manager_solver",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 Program Manager 求解器识别",
+      "aliases": [
+        "Program Manager",
+        "求解器路径",
+        "单双精度"
+      ],
+      "summary": "历史文档显示管理器引用一个求解器可执行文件。排查时先区分文件路径、求解器版本和单双精度。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/manager_help.pdf",
+        "filename": "manager_help.pdf",
+        "source_id": "local_cefecf960532bd5f",
+        "sha256": "cefecf960532bd5ff7e07887a7ea3d07fbe2f5475007a8068a70330f32ab4bfb",
+        "source_release": "legacy_windows_2007",
+        "locator": "PDF 5–8"
+      },
+      "related_ids": [
+        "run.solver"
+      ],
+      "manual": {
+        "source_id": "local_cefecf960532bd5f",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 5,
+            "sha256": "b561e1379daa82ef8db2a096ce52d850f21f0c287aa00c2334726234a19138a5"
+          },
+          {
+            "pdf_page": 6,
+            "sha256": "0525b271fc359f3bbfba727cce594c6c878bb17050e774ba152b3675f5050cc6"
+          },
+          {
+            "pdf_page": 7,
+            "sha256": "fdd689d7c978e6bdc8d9e20a9785ee833d61d9200a511d0c3f3c236f88d630f7"
+          },
+          {
+            "pdf_page": 8,
+            "sha256": "f28bbe67f803ec72bccbbcf3a134eceb686763a86281c7ebda8acc5f84de292b"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.manager_queue",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版 Program Manager 许可证队列",
+      "aliases": [
+        "许可证队列",
+        "Network License Queue"
+      ],
+      "summary": "旧工具可查看网络许可证配置和作业队列。排查时先确认本机使用的授权类型和实际运行环境。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/manager_help.pdf",
+        "filename": "manager_help.pdf",
+        "source_id": "local_cefecf960532bd5f",
+        "sha256": "cefecf960532bd5ff7e07887a7ea3d07fbe2f5475007a8068a70330f32ab4bfb",
+        "source_release": "legacy_windows_2007",
+        "locator": "PDF 23–27"
+      },
+      "related_ids": [
+        "run.solver"
+      ],
+      "manual": {
+        "source_id": "local_cefecf960532bd5f",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 23,
+            "sha256": "bbce1ce934f61638fdbe54172f73befdff69c7b1cc59470e6b7899aca31ab36a"
+          },
+          {
+            "pdf_page": 24,
+            "sha256": "75da0f03dfd09dfb953181f88aae2ff3ddaec7ce47e1074e1a74d7e6b02f84c4"
+          },
+          {
+            "pdf_page": 25,
+            "sha256": "908e628d6b10a6ac2dbfadb03e363b8c892ad740bd142d32bfc3d066e8b325ad"
+          },
+          {
+            "pdf_page": 26,
+            "sha256": "d1a78c1b48a27b77064bcb14407d03621982097268106d202821b98a7fbe5239"
+          },
+          {
+            "pdf_page": 27,
+            "sha256": "78d29dca5726769be451bf76cf49bd20818ff75f48d765a2d2dd3129652e78f5"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.environment_output",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版环境变量与二进制输出",
+      "aliases": [
+        "LSTC_BINARY",
+        "输出字长",
+        "输出格式环境变量"
+      ],
+      "summary": "历史资料说明环境变量可影响输出格式和字长，并列出相关数据库卡。实际解析应核对运行的求解器和产物元数据。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/setenv.pdf",
+        "filename": "setenv.pdf",
+        "source_id": "local_96e6cc9ac2a74194",
+        "sha256": "96e6cc9ac2a74194f129c4e237f25a8f49d001f0114ceeecdd9953b010c486b1",
+        "source_release": "unspecified_legacy",
+        "locator": "PDF 1–2"
+      },
+      "related_ids": [
+        "r12.database_binary_d3plot",
+        "run.results"
+      ],
+      "manual": {
+        "source_id": "local_96e6cc9ac2a74194",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 1,
+            "sha256": "986d298a12c9b33fad15c9bba702c010694d1116b357bca84c183e346c2039ac"
+          },
+          {
+            "pdf_page": 2,
+            "sha256": "407c9b8b7b3d9c37c0e315036bc0cf3b5ba144a3727c013add8bcf5e7d6ddf8c"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "supp.environment_license",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "旧版授权环境变量用途",
+      "aliases": [
+        "LSTC_LICENSE",
+        "LSTC_LICENSE_SERVER",
+        "授权环境变量"
+      ],
+      "summary": "历史资料区分许可证类型与服务器地址设置，供诊断时识别。项目配置应以当前授权方式为准。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/manuals/setenv.pdf",
+        "filename": "setenv.pdf",
+        "source_id": "local_96e6cc9ac2a74194",
+        "sha256": "96e6cc9ac2a74194f129c4e237f25a8f49d001f0114ceeecdd9953b010c486b1",
+        "source_release": "unspecified_legacy",
+        "locator": "PDF 3–3"
+      },
+      "related_ids": [],
+      "manual": {
+        "source_id": "local_96e6cc9ac2a74194",
+        "page_database": "workspace/knowledge/lsdyna_20261107/source_pages.sqlite",
+        "pages": [
+          {
+            "pdf_page": 3,
+            "sha256": "35d323530a69a6ca11fc8cf4a6e08a67065622cf488f75f7f21bd2f79fdfd7d5"
+          }
+        ]
+      },
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "historical_or_conceptual_reference"
+    },
+    {
+      "id": "book.ansys_prepost_export_deck",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "设置求解输出并保存 K 文件",
+      "aliases": [
+        "Ansys完整教程输出与另存K文件"
+      ],
+      "summary": "教程分别配置结束时间、D3PLOT 状态输出和 ASCII 时程，然后通过 Save Keyword 保存模型。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_prepost_tutorials_2025r2.pdf",
+        "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+        "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+        "source_release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "PDF 183–187，第三部分 §1.11–1.14"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "按输出需求配置 CONTROL 与 DATABASE，保存 K 文件后核对已写出的控制和输出卡片。"
+      ],
+      "checks": [
+        "分别核对结束时间、D3PLOT 频率与 ASCII 输出频率。"
+      ],
+      "related_ids": [
+        "r12.control_termination",
+        "r12.database_binary_d3plot",
+        "tool.validate_lsprepost_import"
+      ]
+    },
+    {
+      "id": "book.lstc_cube_validation",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "弹性铝块位移的解析对照",
+      "aliases": [
+        "LSTC铝块位移解析验算"
+      ],
+      "summary": "该练习以均匀受压弹性块为例，对照轴向缩短和泊松效应引起的横向位移。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_getting_started_2002.pdf",
+        "sha256": "1e059df6eb3002cbad279a30573ef9e76f84cc17831d2d7adbf0e0a52e53a233",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/2026/08/GettingStarted.pdf",
+        "source_release": "LSTC Getting Started with LS-DYNA, 2002",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "§3.3，PDF 9"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "核对测点与方向，用与模型相同的几何、载荷和材料计算参考位移，再读求解结果。"
+      ],
+      "checks": [
+        "核对单位及符号，避免把位移幅值与有符号分量混比。"
+      ],
+      "related_ids": [
+        "r12.mat_elastic",
+        "run.results"
+      ]
+    },
+    {
+      "id": "book.lstc_explicit_implicit",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "同一铝块的显式与隐式对照",
+      "aliases": [
+        "LSTC同一模型显式隐式对照"
+      ],
+      "summary": "教材以同一铝块对比两种时间积分。显式方法受稳定步长限制，隐式方法每步要解平衡方程。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/ansys_getting_started_2002.pdf",
+        "sha256": "1e059df6eb3002cbad279a30573ef9e76f84cc17831d2d7adbf0e0a52e53a233",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/2026/08/GettingStarted.pdf",
+        "source_release": "LSTC Getting Started with LS-DYNA, 2002",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "§4.1–4.2，PDF 10–13"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "保持几何和载荷一致，分别核对积分设置、输出时刻及位移。"
+      ],
+      "checks": [
+        "教程的旧版控制设置用 R12 手册核验。"
+      ],
+      "related_ids": [
+        "r12.control_timestep",
+        "r12.control_implicit_general",
+        "run.results"
+      ]
+    },
+    {
+      "id": "book.bower_convergence",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "有限元非线性收敛排查",
+      "aliases": [
+        "Bower非线性收敛问题排查"
+      ],
+      "summary": "收敛异常可能来自网格畸变、约束不足或材料、接触及几何非线性。教材建议逐项隔离问题来源。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/bower_fea_7_1.html",
+        "sha256": "364a8cc1c62d4429eea2f3aedf991e15c5d8f2432a957621018618630496951e",
+        "url": "https://solidmechanics.org/Text/Chapter7_1/Chapter7_1.php",
+        "source_release": "Allan F. Bower, Applied Mechanics of Solids, author web edition",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "§7.1.9"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "记录首次出现问题的步骤，检查相关节点、单元和约束。",
+        "每次对照只改变一个候选因素，比较日志及目标输出。"
+      ],
+      "checks": [
+        "换选项前先核对其物理含义。"
+      ],
+      "related_ids": [
+        "r12.boundary_spc_set",
+        "r12.control_implicit_solution",
+        "run.results"
+      ]
+    },
+    {
+      "id": "book.mit_discretization_error",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "离散误差与网格收敛",
+      "aliases": [
+        "MIT有限元离散误差和收敛"
+      ],
+      "summary": "在相同的数学模型下，用不同网格检查离散结果。网格收敛讨论依赖单元和网格满足相应条件。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/mit_bathe_linear.pdf",
+        "sha256": "cd10e9f8ad1e9678c3cf97fdcfd7ac70de33f3b9de4470323ad21428b79e31be",
+        "url": "https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/dab1968e6c87110aeb83d0f4e17d75d5_MITRES2_002S10_linear.pdf",
+        "source_release": "MIT OCW, Klaus-Jürgen Bathe, Linear Analysis Study Guide",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "第4讲，PDF 65–66"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "先定义比较的结果量与位置。",
+        "保存粗细网格、约束和载荷，检查变化是否来自离散。"
+      ],
+      "checks": [
+        "和项目的粗细网格案例一起查。"
+      ],
+      "related_ids": [
+        "guide.example_03.output",
+        "guide.example_04.output"
+      ]
+    },
+    {
+      "id": "book.mit_time_integration",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "结构瞬态积分的稳定性与精度",
+      "aliases": [
+        "MIT瞬态积分稳定性和精度"
+      ],
+      "summary": "时间积分需要分别核对稳定性和精度。显式中心差分有稳定步长限制，所关注的响应频段也影响步长选择。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/mit_bathe_linear.pdf",
+        "sha256": "cd10e9f8ad1e9678c3cf97fdcfd7ac70de33f3b9de4470323ad21428b79e31be",
+        "url": "https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/dab1968e6c87110aeb83d0f4e17d75d5_MITRES2_002S10_linear.pdf",
+        "source_release": "MIT OCW, Klaus-Jürgen Bathe, Linear Analysis Study Guide",
+        "license_status": "public teaching source; summarized with attribution",
+        "locator": "第10讲，PDF 153–157"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_teaching_paraphrase",
+      "steps": [
+        "明确要分辨的响应时间尺度，将积分步长与结果采样间隔分别检查。"
+      ],
+      "checks": [
+        "具体控制项按 R12 对照。"
+      ],
+      "related_ids": [
+        "r12.control_timestep",
+        "r12.database_binary_d3plot",
+        "r12.control_implicit_dynamics"
+      ]
+    },
+    {
+      "id": "book.xin_prepost_history",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 结果时程的数据来源",
+      "aliases": [
+        "辛春亮样章时程数据来源"
+      ],
+      "summary": "LS-PrePost 能从模型状态、文本结果库和 BINOUT 等不同数据源绘制时程，也能查看云图和动画。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/xin_sample.txt",
+        "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+        "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+        "source_release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "第1章 §1.3.2，样章文本第119–127行"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_sample_paraphrase",
+      "steps": [
+        "项目对照：先确认本次计算实际写出的数据库，再选择所需实体与分量。"
+      ],
+      "checks": [
+        "记录结果文件、实体编号和采样时刻。"
+      ],
+      "related_ids": [
+        "run.results",
+        "r12.database_binary_d3plot",
+        "r12.database_nodout"
+      ]
+    },
+    {
+      "id": "book.xin_plot_chapter",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "教材定位：应力与力–位移曲线",
+      "aliases": [
+        "辛春亮教材力位移后处理章节"
+      ],
+      "summary": "目录可定位应力显示、力与位移曲线以及曲线配合动画的教学。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/xin_catalog.html",
+        "sha256": "3f788f74dff0c77716bf3d53df661ab109241f76233ae9a846197b1adbdb28de",
+        "url": "https://www.tup.tsinghua.edu.cn/bookscenter/bookcatalog?id=09310201",
+        "source_release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，出版社目录",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "§5.1.2–§5.1.4"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_catalog_locator",
+      "steps": [
+        "取得正文后按小节查操作步骤，并用项目已存结果回查。"
+      ],
+      "checks": [
+        "目录用于定位，结果来源及输出间隔从相应 K 文件核对。"
+      ],
+      "related_ids": [
+        "run.results",
+        "r12.database_extent_binary",
+        "r12.database_nodout",
+        "r12.database_spcforc"
+      ]
+    },
+    {
+      "id": "book.yuan_timestep",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "故障索引：显式时间步与质量缩放",
+      "aliases": [
+        "袁志丹教材时间步和质量缩放章节"
+      ],
+      "summary": "电子书目录有显式时间步与质量缩放专题，可从这两节定位时间步异常的分析思路。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/yuan_ebook.html",
+        "sha256": "0a8a32bb7f9e2fbcff979e55a43de10358c0fcbd3aebc4179cadaab82053fade",
+        "url": "https://www.dedao.cn/ebook/detail?id=pAVMknaY9VDA6M7OjdpEvLnKm85rPw9e9VgwZxykgeQJaRb4oBqNzGlX12boL1Nl",
+        "source_release": "袁志丹等，电子工业出版社，2021，正版电子书目录",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "§1.16、§1.17"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_catalog_locator",
+      "steps": [
+        "先保存日志和实际运行配置，再回查相应主题及 R12 字段。"
+      ],
+      "checks": [
+        "该章正文待取得；原始算例参数按 R12 和项目配置核验。"
+      ],
+      "related_ids": [
+        "r12.control_timestep",
+        "run.solver"
+      ]
+    },
+    {
+      "id": "book.yuan_bad_elements",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "故障索引：沙漏能与负体积",
+      "aliases": [
+        "袁志丹教材沙漏能和负体积章节"
+      ],
+      "summary": "将沙漏、负体积及能量异常对应的章节并入同一排查入口，便于查询时定位各自的解释。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/yuan_ebook.html",
+        "sha256": "0a8a32bb7f9e2fbcff979e55a43de10358c0fcbd3aebc4179cadaab82053fade",
+        "url": "https://www.dedao.cn/ebook/detail?id=pAVMknaY9VDA6M7OjdpEvLnKm85rPw9e9VgwZxykgeQJaRb4oBqNzGlX12boL1Nl",
+        "source_release": "袁志丹等，电子工业出版社，2021，正版电子书目录",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "§3.19–§3.21、§5.5–§5.6"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_catalog_locator",
+      "steps": [
+        "记录具体异常、首次出现的时刻与实体编号，再按现象查章节。"
+      ],
+      "checks": [
+        "目录索引不提供阈值，诊断时查看实际日志和结果。"
+      ],
+      "related_ids": [
+        "run.results",
+        "r12.element_solid",
+        "r12.database_elout"
+      ]
+    },
+    {
+      "id": "book.yuan_ascii_binout",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "故障索引：ASCII 与 BINOUT 输出",
+      "aliases": [
+        "袁志丹教材ASCII与BINOUT章节"
+      ],
+      "summary": "电子书目录覆盖两种输出存储方式、结果处理和并行计算缺少 ASCII 文件的排查入口。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/books/yuan_ebook.html",
+        "sha256": "0a8a32bb7f9e2fbcff979e55a43de10358c0fcbd3aebc4179cadaab82053fade",
+        "url": "https://www.dedao.cn/ebook/detail?id=pAVMknaY9VDA6M7OjdpEvLnKm85rPw9e9VgwZxykgeQJaRb4oBqNzGlX12boL1Nl",
+        "source_release": "袁志丹等，电子工业出版社，2021，正版电子书目录",
+        "license_status": "public publisher sample or listing; summaries and section locators only",
+        "locator": "§1.1、§1.22–§1.23、§6.15"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "publisher_catalog_locator",
+      "steps": [
+        "先确认求解方式和实际生成的结果文件，再选对应小节。"
+      ],
+      "checks": [
+        "回查 R12 数据库卡的输出请求和采样。"
+      ],
+      "related_ids": [
+        "run.results",
+        "r12.database_nodout",
+        "r12.database_spcforc"
+      ]
+    },
+    {
+      "id": "supp.ansys_vm050_support",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "Ansys 单边固支矩形板的模态对照",
+      "aliases": [
+        "Ansys单边固支板模态基准"
+      ],
+      "summary": "官方基准对照单边固支矩形板的薄壳和实体模型，可参考节点集约束与固有频率验证方法。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/official_examples/vm-lsdyna-solve-050.html",
+        "sha256": "6c9fbc0717e56cfc186b6cf2b36e7349ada8f122d762b71368a58a5068c112a2",
+        "url": "https://ansyshelp.ansys.com/public/views/secured/corp/v261/en/lsdyna_vm/vm-lsdyna-solve-050.html",
+        "source_release": "Ansys LS-DYNA Verification Manual 2026 R1",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "VM-LSDYNA-SOLVE-050 — Test Case and Results Comparison"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_benchmark_reference",
+      "steps": [
+        "确认只固定一条短边。",
+        "按薄壳或实体分别检查支承节点、自由度和首阶振型。",
+        "对照原始验证页的目标频率和单位。"
+      ],
+      "checks": [
+        "保留来源版本 2026 R1。",
+        "比较前核对几何、材料、支承和单元公式。"
+      ],
+      "related_ids": [
+        "project.shell_plate",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_eigenvalue"
+      ]
+    },
+    {
+      "id": "supp.nasa_plate_vibration",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "薄板振动的理论支承对照",
+      "aliases": [
+        "NASA薄板振动理论基准"
+      ],
+      "summary": "NASA SP-160 汇编薄板振动理论结果，可作为固支和简支薄板的无量纲频率参考入口。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/official_examples/leissa_nasa_sp160.json",
+        "sha256": "77c25d72414a13e36b368eb21f2e804eea0fc56f83d1517183effd1bc4dde7a9",
+        "url": "https://ntrs.nasa.gov/citations/19700009156",
+        "source_release": "NASA SP-160, 1969",
+        "license_status": "US Government work, public use permitted per NTRS",
+        "locator": "NASA NTRS 19700009156 — Vibration of Plates"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "published_benchmark_reference",
+      "steps": [
+        "按几何与支承找对应章节或表格。",
+        "核对无量纲定义与单位，按目标振型对照。"
+      ],
+      "checks": [
+        "薄板理论与有限元模型应使用对应的边界及几何。",
+        "本条保存出处索引，频率值从原报告核对。"
+      ],
+      "related_ids": [
+        "project.square_shell_four_edges_clamped",
+        "ansys.example_12",
+        "r12.control_implicit_eigenvalue"
+      ]
+    },
+    {
+      "id": "prepost.linux_start",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "Linux 教学环境的 LS-PrePost 启动检查",
+      "aliases": [
+        "Linux启动LS-PrePost",
+        "Unix PrePost 安装教程"
+      ],
+      "summary": "MIT 社区教程用 Linux 4.10 演示安装与桌面启动。保留版本选择和启动验证的做法。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/lsp/README.md",
+        "sha256": "78d009e2a7d4d6ecf423f7dc2857cf6aca7f2193c2cf9ce91b3693e6e595faee",
+        "url": "https://github.com/dastonmoy/LS-PrePost/blob/1514f048d285d7d7b0bbfb0cb62524b659520e5a/README.md",
+        "source_release": "LS-PrePost Linux 4.10",
+        "license_status": "MIT repository license",
+        "locator": "First Time LS-PrePost Installation / Opening LS-PrePost After Installation"
+      },
+      "supporting_sources": [
+        {
+          "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/lsp/LICENSE",
+          "sha256": "fc5b7d6fe0fe38856fa566d073cc8cfc27653487ffb5ef2100ddce590ef3deca",
+          "url": "https://github.com/dastonmoy/LS-PrePost/blob/1514f048d285d7d7b0bbfb0cb62524b659520e5a/LICENSE",
+          "locator": "upstream license"
+        }
+      ],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "community_linux_tutorial",
+      "steps": [
+        "先核对系统架构及要使用的版本。",
+        "从供应方取得对应构建，确认启动入口指向该版本。",
+        "启动后确认版本，并打开一个练习模型。"
+      ],
+      "checks": [
+        "这是 Linux 教学参考，项目 Windows 4.12 的实际路径需另核对。"
+      ],
+      "related_ids": [
+        "tool.validate_lsprepost_import"
+      ]
+    },
+    {
+      "id": "prepost.mesh",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 四节点壳板网格",
+      "aliases": [
+        "PrePost画壳板网格",
+        "4N-Shell网格"
+      ],
+      "summary": "官方旧界面演示用四角点和两向划分数创建四节点壳网格。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/mini-tutorial-page-7-mesh.html",
+        "sha256": "8f74e7ad33bdda70a1007c044a4dfab2c8757a8054f7023347b6cd38fe92d0b0",
+        "url": "https://lsdyna.ansys.com/mini-tutorial-page-7-mesh/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Mesh a flat plate"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "进入 Mesh 工具，选择四节点壳。",
+        "按周向填写四角点，指定两方向单元数量。",
+        "创建并接受网格，用网格显示核对。"
+      ],
+      "checks": [
+        "检查节点顺序、单元法向、网格数量和 Part。"
+      ],
+      "related_ids": [
+        "r12.node",
+        "r12.element_shell",
+        "tool.generate_model"
+      ]
+    },
+    {
+      "id": "prepost.section",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 设置壳截面",
+      "aliases": [
+        "PrePost设置壳截面",
+        "PrePost设置壳厚度"
+      ],
+      "summary": "官方教程在截面表单演示创建 SECTION_SHELL 及编辑公式、积分点和厚度。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p3-section1.html",
+        "sha256": "230a4a4db059845b8b0a9bfcfd03bdc9aed4f73dd384212dcb0a2a5d796fe3b7",
+        "url": "https://lsdyna.ansys.com/p3-section1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Create a *SECTION_SHELL keyword card"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 Section 类选择 SHELL 并打开编辑。",
+        "新建截面 ID，填写适用的 ELFORM、NIP 和厚度字段。",
+        "接受后在 Part 中选择该截面。"
+      ],
+      "checks": [
+        "检查截面 ID、四角厚度实际写出值和单位。"
+      ],
+      "related_ids": [
+        "r12.section_shell",
+        "r12.part"
+      ]
+    },
+    {
+      "id": "prepost.part",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 给部件绑定材料和截面",
+      "aliases": [
+        "PrePost绑定材料截面",
+        "PrePost设置Part"
+      ],
+      "summary": "官方练习通过字段旁的引用选择器，把已定义的截面与材料链接到 Part。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p3-part1.html",
+        "sha256": "af0736892b5dbfbd8da686aa6b2ecafc5b03522b95fe8979807f57f60b45c859",
+        "url": "https://lsdyna.ansys.com/p3-part1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Define a *PART keyword card"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "打开待编辑的 Part。",
+        "通过 SECID 的链接选择截面。",
+        "通过 MID 的链接选择材料并接受修改。"
+      ],
+      "checks": [
+        "重新读取保存的 K，检查 PID 对应的 SECID 与 MID。"
+      ],
+      "related_ids": [
+        "r12.part",
+        "r12.section_shell",
+        "r12.mat_elastic"
+      ]
+    },
+    {
+      "id": "prepost.node_set",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 创建节点集",
+      "aliases": [
+        "PrePost创建节点集",
+        "SetD节点集"
+      ],
+      "summary": "官方练习在 SetD 用部件选取创建节点集。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p5-setd1.html",
+        "sha256": "cc3e58d626e06502a7aa7d8c5308fd6f37c3af74407ef2df3d89c8f0bc60c5fa",
+        "url": "https://lsdyna.ansys.com/p5-setd1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Create a node set"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "读入模型并进入 SetD 的创建模式。",
+        "填写标题，按部件选择并应用。",
+        "若任务只约束某条边，重新按实际边界选择节点。"
+      ],
+      "checks": [
+        "检查集合 ID、成员和选取范围。"
+      ],
+      "related_ids": [
+        "r12.set_node_list",
+        "guide.example_15.boundary"
+      ]
+    },
+    {
+      "id": "prepost.spc",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 设置节点约束",
+      "aliases": [
+        "PrePost设置边界条件",
+        "PrePost设置SPC"
+      ],
+      "summary": "官方练习在 Spc 选择板边节点并勾选平移自由度。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p5-spc1.html",
+        "sha256": "fa4c8f9b635a7d7f5d55c93becaddf2631761ee8eddd65144740ad5342b077a6",
+        "url": "https://lsdyna.ansys.com/p5-spc1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Create single point constraints"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "先确定支承位置和需要约束的自由度。",
+        "进入 Spc 创建模式并选择对应方向。",
+        "按几何范围选节点，应用并检查生成的卡片。"
+      ],
+      "checks": [
+        "教程勾选 XYZ 属于其练习工况，简支或对称条件需重新选择自由度。",
+        "检查重选、漏选和重复约束。"
+      ],
+      "related_ids": [
+        "r12.boundary_spc_set",
+        "guide.example_15.boundary"
+      ]
+    },
+    {
+      "id": "prepost.rcforc",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 读取接触合力曲线",
+      "aliases": [
+        "PrePost接触力曲线",
+        "PrePost读取rcforc"
+      ],
+      "summary": "官方练习从 ASCII 界面加载 rcforc，选择接触侧和合力分量。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/p1-ascii1.html",
+        "sha256": "1f6adaf0e811757c40772ba9bbc4128f2fd61500ab6378237d2aa0eb3c937db8",
+        "url": "https://lsdyna.ansys.com/p1-ascii1/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Plot an rcforc curve"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "确认所用结果文件对应当前求解。",
+        "在 ASCII 结果浏览中选择 rcforc 并加载。",
+        "选择接触界面一侧与结果分量，再绘图。"
+      ],
+      "checks": [
+        "核对输出卡、接触 ID、主从侧、坐标方向和单位。"
+      ],
+      "related_ids": [
+        "r12.database_elout",
+        "guide.example_16.output"
+      ]
+    },
+    {
+      "id": "prepost.crossplot",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 力与位移交叉绘图",
+      "aliases": [
+        "PrePost力位移交叉绘图",
+        "PrePost Cross Plot"
+      ],
+      "summary": "官方练习加载两条曲线，在 Xyplot 的 Cross 模式将位移与力配对。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/mini-tutorial-page-1-xyplot.html",
+        "sha256": "6748bfe83e05f0ef0774fe1e1e126226fe0663957f72ea7d8b497afcb9a7b53d",
+        "url": "https://lsdyna.ansys.com/mini-tutorial-page-1-xyplot/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Cross-Plot curve (.crv) data"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "加载位移和力曲线。",
+        "选择 Cross，并指定横轴位移和纵轴力。",
+        "绘图后核对轴标题、单位与符号。"
+      ],
+      "checks": [
+        "对来自不同采样的曲线，先核对时间对齐与取样方式。",
+        "符号转换需有物理依据。"
+      ],
+      "related_ids": [
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.keyword_editor",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 关键字表单与引用检查",
+      "aliases": [
+        "PrePost编辑关键字卡",
+        "PrePost RefBy"
+      ],
+      "summary": "官方说明展示按卡片类型进入编辑表单，以及在支持的卡片上查看使用该定义的对象。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/keyword.html",
+        "sha256": "81087f55686189648d0a3f2bf2df1c36567c8acc3adeca229283371564aa7baa",
+        "url": "https://lsdyna.ansys.com/keyword/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "General Keyword Controls / Keyword Input Window"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "先在当前模型里选目标关键字，再打开编辑表单。",
+        "看字段提示，检查该卡引用的材料、截面或对象。",
+        "通过 RefBy 或保存后的 K 反查使用者。"
+      ],
+      "checks": [
+        "字段含义以 R12 正文为准，界面提示要和保存结果对照。"
+      ],
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "r12.part"
+      ]
+    },
+    {
+      "id": "prepost.open_save",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 打开模型与结果并另存",
+      "aliases": [
+        "PrePost打开与另存",
+        "PrePost打开d3plot"
+      ],
+      "summary": "官方 File 菜单分别提供打开关键字模型、二进制状态结果和另存 K 文件的入口。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/file.html",
+        "sha256": "34e2d72f2a14bd52292c2a5a87615c641397742010d25dea857e3d4ba7858a75",
+        "url": "https://lsdyna.ansys.com/file/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "File Menu"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "检查输入时选择 Keyword 模型入口。",
+        "查看运行结果时选择 Binary Plot 并打开对应状态数据库。",
+        "需要保存修改时使用另存，核对目标路径与保存内容。"
+      ],
+      "checks": [
+        "模型 K、结果数据库与命令文件使用不同入口。",
+        "从另存文件回读关键字以验证修改。"
+      ],
+      "related_ids": [
+        "tool.validate_lsprepost_import",
+        "r12.database_binary_d3plot",
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.nodout_ascii",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 从 NODOUT 绘制节点位移",
+      "aliases": [
+        "PrePost绘制NODOUT位移",
+        "ASCII节点位移曲线"
+      ],
+      "summary": "ASCII 面板读取文本数据库，可按节点 ID 和位移分量绘制历史曲线。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/ascii.html",
+        "sha256": "de9afb06befcf979578e22efcfb5839441148e2d8b63f3da7edfd8bd4adff7d8",
+        "url": "https://lsdyna.ansys.com/ascii/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 1: ASCII — Quick Guide"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 ASCII 中选择 nodout 并加载本次计算生成的文件。",
+        "选择节点 ID 与目标位移分量。",
+        "绘制时程并查看时间范围。"
+      ],
+      "checks": [
+        "核对节点、坐标分量和单位。",
+        "若文件中缺少目标节点，回查 HISTORY_NODE 与输出设置。"
+      ],
+      "related_ids": [
+        "r12.database_history_node",
+        "r12.database_nodout",
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.binout_history",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 从 BINOUT 分支读取历史结果",
+      "aliases": [
+        "PrePost读取BINOUT",
+        "二进制时程分支"
+      ],
+      "summary": "Binout 面板按主分支、子分支、实体和分量读取二进制时程。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/binout.html",
+        "sha256": "95ff8ce0ff6790834127ff74b68f3fa3c0905bade54f0b613890fb6aa365b50c",
+        "url": "https://lsdyna.ansys.com/binout/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Page 2: Binout — Quick Guide and Purpose"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "加载本次运行产生的 binout。",
+        "选择目标分支及实体和分量。",
+        "绘图并记录数据来自哪个分支。"
+      ],
+      "checks": [
+        "按本次结果核对实际有哪些分支。",
+        "并行运行可能生成一组 binout 文件。"
+      ],
+      "related_ids": [
+        "r12.database_nodout",
+        "r12.database_spcforc",
+        "run.results"
+      ]
+    },
+    {
+      "id": "prepost.binary_history",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 从二进制状态读取时程",
+      "aliases": [
+        "PrePost从D3PLOT提取时程",
+        "PrePost二进制状态曲线"
+      ],
+      "summary": "History 面板能从 d3plot、d3thdt 等二进制数据库读取节点、单元、部件或全局时程。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/content-d15.html",
+        "sha256": "52874864719195cc2ca6b5038dcd1cf2b05609cbe4a0c0720c86d4e5cd771004",
+        "url": "https://lsdyna.ansys.com/content-d15/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Frequently Asked Questions — What does the History interface do?"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "在 LS-PrePost 中打开本次结果文件。",
+        "用 History 选择实体类别、实体 ID 与目标分量。",
+        "核对曲线采样与文件中的实际状态时间。"
+      ],
+      "checks": [
+        "当源文件采样过稀时，绘图无法补回缺失的求解结果。"
+      ],
+      "related_ids": [
+        "r12.database_binary_d3plot",
+        "r12.database_binary_d3thdt",
+        "r12.database_history_node",
+        "run.results"
+      ]
+    },
+    {
+      "id": "supp.force_outputs",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "区分支承反力、截面内力和接触合力",
+      "aliases": [
+        "反力输出文件选择",
+        "支承接触反力区别"
+      ],
+      "summary": "SPCFORC 用于单点约束反力，SECFORC 用于截面力，RCFORC 用于接触界面合力。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/force-analysis-2.html",
+        "sha256": "0c583fddda04ed17504f51f7efab605d0b9e15d0a665887ac557e2bde9328d19",
+        "url": "https://lsdyna.ansys.com/force-analysis-2/",
+        "source_release": "Ansys Knowledge Base, solver release unspecified",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Force Analysis — Forces can be obtained a variety of ways"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "先确定目标是边界反力、截面内力还是接触力。",
+        "按目标核对相应数据库设置和实际输出文件。",
+        "用工况相符的实体和方向提取结果。"
+      ],
+      "checks": [
+        "核对参与求和的实体或界面及分量。"
+      ],
+      "related_ids": [
+        "r12.database_spcforc",
+        "r12.database_elout",
+        "guide.example_11.output"
+      ]
+    },
+    {
+      "id": "supp.implicit_diagnostics",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "隐式分析从日志和结果定位异常",
+      "aliases": [
+        "隐式收敛日志定位",
+        "求解警告对应变形"
+      ],
+      "summary": "d3hsp 和消息文件记录模型初始化及求解警告，可结合 d3plot、binout 核对异常出现的时刻和部位。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/convergence.html",
+        "sha256": "653eb028d4fd217af52a797c08da8fe0c0d6cc54120ca556eb8f836127d87698",
+        "url": "https://lsdyna.ansys.com/convergence/",
+        "source_release": "Ansys Knowledge Base, cross-version guidance",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Convergence — Troubleshooting tips"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "从 d3hsp 核对模型摘要和警告。",
+        "按求解方式查看对应消息文件。",
+        "把异常时刻和 ID 与本次变形或时程对照。"
+      ],
+      "checks": [
+        "记录具体警告和文件来源。",
+        "字段及选项回查 R12。"
+      ],
+      "related_ids": [
+        "run.solver",
+        "run.results",
+        "r12.control_implicit_general"
+      ]
+    },
+    {
+      "id": "supp.support_dof_review",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "壳、梁与实体连接的自由度核对",
+      "aliases": [
+        "实体和壳自由度区别",
+        "连接引入意外铰"
+      ],
+      "summary": "梁和壳的节点可含转动自由度，实体节点的连接应从平移自由度及约束覆盖区域审查。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/convergence.html",
+        "sha256": "653eb028d4fd217af52a797c08da8fe0c0d6cc54120ca556eb8f836127d87698",
+        "url": "https://lsdyna.ansys.com/convergence/",
+        "source_release": "Ansys Knowledge Base, cross-version guidance",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Convergence — Direct connectivity between structural elements and continuum elements"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "识别连接两侧的单元类型。",
+        "核对约束覆盖的节点及自由度。",
+        "检查连接是否引入意外铰接或刚体运动。"
+      ],
+      "checks": [
+        "用实际连接和支承位置复核工况。",
+        "同一节点编号相连仍需核对运动传递。"
+      ],
+      "related_ids": [
+        "r12.boundary_spc_set",
+        "r12.element_beam",
+        "r12.element_solid",
+        "guide.example_09.boundary"
+      ]
+    },
+    {
+      "id": "prepost.eigenmode_view",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "LS-PrePost 打开 D3EIGV 查看振型",
+      "aliases": [
+        "PrePost查看D3EIGV振型",
+        "播放模态结果"
+      ],
+      "summary": "通过 Binary Plot 载入 d3eigv，选择模态与位移显示分量，再播放振型。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/13-d83.html",
+        "sha256": "9192403dc3c5fb2411e11a62a154c68098edccb30db0f22d524f641510111ea3",
+        "url": "https://lsdyna.ansys.com/13-d83/",
+        "source_release": "LS-PrePost legacy web UI, 4.12 not replayed",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Tutorial 13: Page 4 — eigenvalue results"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "从本次模态作业目录打开 d3eigv。",
+        "选择目标模态及位移显示分量。",
+        "播放振型并对照 eigout 的频率和模态编号。"
+      ],
+      "checks": [
+        "检查模态编号与频率对应。",
+        "记录用于辨认振型的方向、部位和节点线。"
+      ],
+      "related_ids": [
+        "r12.control_implicit_eigenvalue",
+        "guide.example_10.output",
+        "run.results"
+      ]
+    },
+    {
+      "id": "supp.rigid_modes",
+      "index": "I_run",
+      "solver": null,
+      "domain": "general_modeling",
+      "case_families": [
+        "beam_bar",
+        "component_contact",
+        "explicit_impact",
+        "shell_plate",
+        "solid_plate",
+        "spring_mass",
+        "thick_shell_plate"
+      ],
+      "title": "用近零模态排查约束或连接",
+      "aliases": [
+        "近零模态排查",
+        "刚体模态检查"
+      ],
+      "summary": "在应受约束的模型里，结合 eigout 中的低频结果和 d3eigv 中的对应振型排查意外刚体运动。",
+      "admitted": true,
+      "reference_only": true,
+      "source": {
+        "path": "workspace/knowledge/lsdyna_20261107/downloads/open_decks/prepost/implicit-convergence-2.html",
+        "sha256": "51ee06287552272e0740f2770364c21b0e139b28698e9a520ff10b650473fcca",
+        "url": "https://lsdyna.ansys.com/implicit-convergence-2/",
+        "source_release": "Ansys Knowledge Base, solver release unspecified",
+        "license_status": "public Ansys reference; no open license confirmed",
+        "locator": "Implicit: Convergence — eigenvalue analysis"
+      },
+      "supporting_sources": [],
+      "collection": "supplement",
+      "runtime_admitted": false,
+      "evidence_level": "official_web_tutorial_paraphrase",
+      "steps": [
+        "从 eigout 定位可疑低频或近零模态。",
+        "在 d3eigv 观察是整体还是局部部件发生刚体运动。",
+        "回查该部件的节点集、连接和约束定义。"
+      ],
+      "checks": [
+        "先明确工况允许的刚体自由度。",
+        "发现异常后核对原始网格与连接证据。"
+      ],
+      "related_ids": [
+        "r12.control_implicit_eigenvalue",
+        "r12.boundary_spc_set",
+        "r12.control_implicit_solver"
+      ]
+    }
+  ]
+}

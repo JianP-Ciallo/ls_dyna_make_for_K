@@ -1,0 +1,2557 @@
+[
+  {
+    "file": "books/ansys_prepost_tutorials_2025r2.pdf",
+    "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+    "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+    "release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+    "index": "I_tool",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.ansys_prepost_sketchboard",
+        "title": "二维草图到结构化四边形网格",
+        "aliases": [
+          "Ansys完整教程二维草图结构化网格"
+        ],
+        "summary": "2Dmesh Sketchboard 练习从绘制草图开始，修剪边线形成可划分区域，再用边线分段和偏置控制四边形网格。",
+        "locator": "PDF 83–103，第二部分第 1 章",
+        "steps": [
+          "完成区域边界，再为相关边线设置分段与偏置，生成并确认网格。"
+        ],
+        "checks": [
+          "检查区域闭合、边上分段及生成网格的分布。"
+        ],
+        "related_ids": [
+          "r12.section_shell",
+          "tool.validate_model"
+        ]
+      },
+      {
+        "id": "book.ansys_prepost_plate_mesh",
+        "title": "用 Shape Mesher 四点生成壳板",
+        "aliases": [
+          "Ansys完整教程四点生成壳板"
+        ],
+        "summary": "教程从空白模型，用 Shape Mesher 的四节点壳选项创建板网格。",
+        "locator": "PDF 169–170，第三部分 §1.1",
+        "steps": [
+          "给出四个角点和两方向单元数，建立并接受壳板网格。"
+        ],
+        "checks": [
+          "检查角点顺序、网格尺寸和壳法向。"
+        ],
+        "related_ids": [
+          "r12.section_shell",
+          "tool.validate_model"
+        ]
+      },
+      {
+        "id": "book.ansys_prepost_constraints",
+        "title": "在 LS-PrePost 中给壳板边线加约束",
+        "aliases": [
+          "Ansys完整教程壳板边界约束"
+        ],
+        "summary": "练习在 Create Entity 的 Spc 界面创建节点集约束，并通过边线选择需要约束的节点。",
+        "locator": "PDF 178–179，第三部分 §1.7",
+        "steps": [
+          "选用 Set 方式，指定约束自由度和边线节点，应用并回到壳显示。"
+        ],
+        "checks": [
+          "检查高亮节点范围及实际启用的自由度。"
+        ],
+        "related_ids": [
+          "r12.boundary_spc_set",
+          "tool.validate_model"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/ansys_prepost_tutorials_2025r2.pdf",
+    "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+    "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+    "release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+    "index": "I_model",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.ansys_prepost_part_properties",
+        "title": "核对部件的材料和截面引用",
+        "aliases": [
+          "Ansys完整教程材料截面部件联查"
+        ],
+        "summary": "该练习先录入材料和截面，再在 Part Data 中按部件设置并回查 SECID 与 MID。",
+        "locator": "PDF 171–178，第三部分 §1.3–1.6",
+        "steps": [
+          "创建所需材料和截面，应用到目标部件，再切换到属性视图逐项核对。"
+        ],
+        "checks": [
+          "匹配部件的单元类型、截面类型和引用编号。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.section_shell",
+          "r12.section_solid"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/ansys_prepost_tutorials_2025r2.pdf",
+    "sha256": "5bf91ea6eb26443f80ea95ac109f85d3c0ef9c70ce12b5ae991ec8da89bc35c9",
+    "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/LS-DYNA_LS-PrePost_Tutorials.pdf",
+    "release": "Ansys LS-DYNA LS-PrePost Tutorials, 2025 R2",
+    "index": "I_run",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.ansys_prepost_export_deck",
+        "title": "设置求解输出并保存 K 文件",
+        "aliases": [
+          "Ansys完整教程输出与另存K文件"
+        ],
+        "summary": "教程分别配置结束时间、D3PLOT 状态输出和 ASCII 时程，然后通过 Save Keyword 保存模型。",
+        "locator": "PDF 183–187，第三部分 §1.11–1.14",
+        "steps": [
+          "按输出需求配置 CONTROL 与 DATABASE，保存 K 文件后核对已写出的控制和输出卡片。"
+        ],
+        "checks": [
+          "分别核对结束时间、D3PLOT 频率与 ASCII 输出频率。"
+        ],
+        "related_ids": [
+          "r12.control_termination",
+          "r12.database_binary_d3plot",
+          "tool.validate_lsprepost_import"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/ansys_prepost_users_guide_2025r2.pdf",
+    "sha256": "b21107d8b4f45a776e61c0bc8b0fb646a04f42a96a44f12750a8542c1f7e7f17",
+    "url": "https://ansyshelp.ansys.com/public/Views/Secured/corp/v252/en/pdf/Ansys_LS-PrePost_Users_Guide.pdf",
+    "release": "Ansys LS-PrePost User's Guide, 2025 R2",
+    "index": "I_tool",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.ansys_prepost_keyword_manager",
+        "title": "用 Keyword Manager 查看和查找卡片",
+        "aliases": [
+          "Ansys完整手册关键字管理器"
+        ],
+        "summary": "Keyword Manager 提供 Keyword Edit 和 Keyword Search。Model 列出当前模型的关键字，RefBy 可以查看引用选中关键字的其他卡片。",
+        "locator": "PDF 429–430，§6.2.2",
+        "steps": [
+          "先限制到当前模型，再选择卡片查看数据或跟踪引用。"
+        ],
+        "checks": [
+          "查看具体卡片时核对记录 ID 与引用目标。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "tool.validate_model"
+        ]
+      },
+      {
+        "id": "book.ansys_prepost_model_check",
+        "title": "用 Keyword Check 复核关键字引用",
+        "aliases": [
+          "Ansys完整手册关键字引用检查"
+        ],
+        "summary": "Model Checking 的 Keyword Check 可列出模型关键字问题，并定位到输入表单或显示详细诊断。",
+        "locator": "PDF 941–943，§8.3–8.3.1",
+        "steps": [
+          "双击检查项查看卡片或详细报告，处理后运行 Recheck，必要时用 Write 保存检查结果。"
+        ],
+        "checks": [
+          "导出报告前重新检查，确保看到的是当前模型状态。"
+        ],
+        "related_ids": [
+          "tool.validate_model",
+          "tool.validate_lsprepost_import"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/ansys_getting_started_2002.pdf",
+    "sha256": "1e059df6eb3002cbad279a30573ef9e76f84cc17831d2d7adbf0e0a52e53a233",
+    "url": "https://lsdyna.ansys.com/wp-content/uploads/2026/08/GettingStarted.pdf",
+    "release": "LSTC Getting Started with LS-DYNA, 2002",
+    "index": "I_model",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.lstc_units",
+        "title": "同一 K 文件的单位一致性",
+        "aliases": [
+          "LSTC入门教材单位核对"
+        ],
+        "summary": "选定长度、质量、时间与温度的基准后，密度、弹性模量和压力等必须使用与之相容的单位。",
+        "locator": "第2章，PDF 5",
+        "steps": [
+          "先记录单位系，再检查输入及输出解释。"
+        ],
+        "checks": [
+          "换用不同单位制时逐项转换材料和载荷。"
+        ],
+        "related_ids": [
+          "r12.mat_elastic",
+          "r12.load_segment"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/ansys_getting_started_2002.pdf",
+    "sha256": "1e059df6eb3002cbad279a30573ef9e76f84cc17831d2d7adbf0e0a52e53a233",
+    "url": "https://lsdyna.ansys.com/wp-content/uploads/2026/08/GettingStarted.pdf",
+    "release": "LSTC Getting Started with LS-DYNA, 2002",
+    "index": "I_run",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.lstc_cube_validation",
+        "title": "弹性铝块位移的解析对照",
+        "aliases": [
+          "LSTC铝块位移解析验算"
+        ],
+        "summary": "该练习以均匀受压弹性块为例，对照轴向缩短和泊松效应引起的横向位移。",
+        "locator": "§3.3，PDF 9",
+        "steps": [
+          "核对测点与方向，用与模型相同的几何、载荷和材料计算参考位移，再读求解结果。"
+        ],
+        "checks": [
+          "核对单位及符号，避免把位移幅值与有符号分量混比。"
+        ],
+        "related_ids": [
+          "r12.mat_elastic",
+          "run.results"
+        ]
+      },
+      {
+        "id": "book.lstc_explicit_implicit",
+        "title": "同一铝块的显式与隐式对照",
+        "aliases": [
+          "LSTC同一模型显式隐式对照"
+        ],
+        "summary": "教材以同一铝块对比两种时间积分。显式方法受稳定步长限制，隐式方法每步要解平衡方程。",
+        "locator": "§4.1–4.2，PDF 10–13",
+        "steps": [
+          "保持几何和载荷一致，分别核对积分设置、输出时刻及位移。"
+        ],
+        "checks": [
+          "教程的旧版控制设置用 R12 手册核验。"
+        ],
+        "related_ids": [
+          "r12.control_timestep",
+          "r12.control_implicit_general",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/bower_fea_7_1.html",
+    "sha256": "364a8cc1c62d4429eea2f3aedf991e15c5d8f2432a957621018618630496951e",
+    "url": "https://solidmechanics.org/Text/Chapter7_1/Chapter7_1.php",
+    "release": "Allan F. Bower, Applied Mechanics of Solids, author web edition",
+    "index": "I_model",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.bower_dimensional_assumptions",
+        "title": "二维化前核对几何与力学假设",
+        "aliases": [
+          "Bower平面应力与平面应变"
+        ],
+        "summary": "二维简化需与几何、载荷和约束一致。平面应力适合特定薄体面内受力问题，平面应变对应特定长体截面的变形约束。",
+        "locator": "§7.1.1",
+        "steps": [
+          "按对象检查厚度、受力方向和界面变形，再选择离散方式。"
+        ],
+        "checks": [
+          "二维假设不适合时使用相应三维模型，并保留对照量。"
+        ],
+        "related_ids": [
+          "r12.element_shell",
+          "r12.element_solid",
+          "r12.section_shell"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/bower_fea_7_1.html",
+    "sha256": "364a8cc1c62d4429eea2f3aedf991e15c5d8f2432a957621018618630496951e",
+    "url": "https://solidmechanics.org/Text/Chapter7_1/Chapter7_1.php",
+    "release": "Allan F. Bower, Applied Mechanics of Solids, author web edition",
+    "index": "I_run",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.bower_convergence",
+        "title": "有限元非线性收敛排查",
+        "aliases": [
+          "Bower非线性收敛问题排查"
+        ],
+        "summary": "收敛异常可能来自网格畸变、约束不足或材料、接触及几何非线性。教材建议逐项隔离问题来源。",
+        "locator": "§7.1.9",
+        "steps": [
+          "记录首次出现问题的步骤，检查相关节点、单元和约束。",
+          "每次对照只改变一个候选因素，比较日志及目标输出。"
+        ],
+        "checks": [
+          "换选项前先核对其物理含义。"
+        ],
+        "related_ids": [
+          "r12.boundary_spc_set",
+          "r12.control_implicit_solution",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/mit_bathe_linear.pdf",
+    "sha256": "cd10e9f8ad1e9678c3cf97fdcfd7ac70de33f3b9de4470323ad21428b79e31be",
+    "url": "https://ocw.mit.edu/courses/res-2-002-finite-element-procedures-for-solids-and-structures-spring-2010/dab1968e6c87110aeb83d0f4e17d75d5_MITRES2_002S10_linear.pdf",
+    "release": "MIT OCW, Klaus-Jürgen Bathe, Linear Analysis Study Guide",
+    "index": "I_run",
+    "license": "public teaching source; summarized with attribution",
+    "evidence_level": "published_teaching_paraphrase",
+    "topics": [
+      {
+        "id": "book.mit_discretization_error",
+        "title": "离散误差与网格收敛",
+        "aliases": [
+          "MIT有限元离散误差和收敛"
+        ],
+        "summary": "在相同的数学模型下，用不同网格检查离散结果。网格收敛讨论依赖单元和网格满足相应条件。",
+        "locator": "第4讲，PDF 65–66",
+        "steps": [
+          "先定义比较的结果量与位置。",
+          "保存粗细网格、约束和载荷，检查变化是否来自离散。"
+        ],
+        "checks": [
+          "和项目的粗细网格案例一起查。"
+        ],
+        "related_ids": [
+          "guide.example_03.output",
+          "guide.example_04.output"
+        ]
+      },
+      {
+        "id": "book.mit_time_integration",
+        "title": "结构瞬态积分的稳定性与精度",
+        "aliases": [
+          "MIT瞬态积分稳定性和精度"
+        ],
+        "summary": "时间积分需要分别核对稳定性和精度。显式中心差分有稳定步长限制，所关注的响应频段也影响步长选择。",
+        "locator": "第10讲，PDF 153–157",
+        "steps": [
+          "明确要分辨的响应时间尺度，将积分步长与结果采样间隔分别检查。"
+        ],
+        "checks": [
+          "具体控制项按 R12 对照。"
+        ],
+        "related_ids": [
+          "r12.control_timestep",
+          "r12.database_binary_d3plot",
+          "r12.control_implicit_dynamics"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/xin_sample.txt",
+    "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+    "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+    "release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_model",
+    "evidence_level": "publisher_sample_paraphrase",
+    "encoding": "gb18030",
+    "topics": [
+      {
+        "id": "book.xin_mesh_convergence",
+        "title": "有限元网格与结果收敛",
+        "aliases": [
+          "辛春亮样章网格收敛"
+        ],
+        "summary": "有限元用节点自由度与单元内插值近似连续场。网格或插值的改变会影响近似结果，比较时要检查单元和结果是否满足收敛要求。",
+        "locator": "第1章 §1.1.2，样章文本第24–28行",
+        "steps": [
+          "项目对照：选同一物理量比较粗细网格结果，并检查约束和载荷是否一致。"
+        ],
+        "checks": [
+          "以同一位置、同一分量对照结果。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.element_solid",
+          "guide.example_03.output",
+          "guide.example_04.output"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/xin_sample.txt",
+    "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+    "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+    "release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_tool",
+    "evidence_level": "publisher_sample_paraphrase",
+    "encoding": "gb18030",
+    "topics": [
+      {
+        "id": "book.xin_prepost_model",
+        "title": "LS-PrePost 前处理的工作范围",
+        "aliases": [
+          "辛春亮样章前处理工具"
+        ],
+        "summary": "前处理覆盖几何清理、划分网格、定义集合和边界，以及创建和编辑材料、截面、输出和控制等关键字。",
+        "locator": "第1章 §1.3.2，样章文本第100–118行",
+        "steps": [
+          "从几何和网格开始，再按模型所需创建部件、材料、约束和输出。"
+        ],
+        "checks": [
+          "项目复查入口：另存后按 R12 对照部件、截面和材料的引用。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.section_shell",
+          "r12.boundary_spc_set",
+          "tool.validate_lsprepost_import"
+        ]
+      },
+      {
+        "id": "book.xin_prepost_replay",
+        "title": "LS-PrePost 命令记录与批处理",
+        "aliases": [
+          "辛春亮样章PrePost批处理"
+        ],
+        "summary": "样章列出了 LS-PrePost 的批处理、命令文件和二次开发入口，可用来定位重复操作的自动化能力。",
+        "locator": "第1章 §1.3.2，样章文本第128–136行",
+        "steps": [
+          "项目对照：从现有验证和预览入口核对实际调用方式。"
+        ],
+        "checks": [
+          "涉及命令和菜单路径时，以当前项目用的 LS-PrePost 版本复查。"
+        ],
+        "related_ids": [
+          "tool.validate_lsprepost_import",
+          "tool.export_preview_images"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/xin_sample.txt",
+    "sha256": "45f06c74ce879daf50cdf9975cf56cccc687779e0ebfefe0dde2093aedd7b613",
+    "url": "https://www.tup.tsinghua.edu.cn/upload/books/yz/093102-01.txt",
+    "release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，公开样章",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_run",
+    "evidence_level": "publisher_sample_paraphrase",
+    "encoding": "gb18030",
+    "topics": [
+      {
+        "id": "book.xin_prepost_history",
+        "title": "LS-PrePost 结果时程的数据来源",
+        "aliases": [
+          "辛春亮样章时程数据来源"
+        ],
+        "summary": "LS-PrePost 能从模型状态、文本结果库和 BINOUT 等不同数据源绘制时程，也能查看云图和动画。",
+        "locator": "第1章 §1.3.2，样章文本第119–127行",
+        "steps": [
+          "项目对照：先确认本次计算实际写出的数据库，再选择所需实体与分量。"
+        ],
+        "checks": [
+          "记录结果文件、实体编号和采样时刻。"
+        ],
+        "related_ids": [
+          "run.results",
+          "r12.database_binary_d3plot",
+          "r12.database_nodout"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/xin_catalog.html",
+    "sha256": "3f788f74dff0c77716bf3d53df661ab109241f76233ae9a846197b1adbdb28de",
+    "url": "https://www.tup.tsinghua.edu.cn/bookscenter/bookcatalog?id=09310201",
+    "release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，出版社目录",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_model",
+    "evidence_level": "publisher_catalog_locator",
+    "topics": [
+      {
+        "id": "book.xin_fem_chapters",
+        "title": "教材定位：网格、部件和边界操作",
+        "aliases": [
+          "辛春亮教材网格和边界章节"
+        ],
+        "summary": "出版社目录列有壳网格、Part、柱坐标系边界、网格划分和单元编辑相关章节，供取得正文后定位。",
+        "locator": "§4.1、§4.2、§4.5.1–§4.5.8",
+        "steps": [
+          "在纸书或电子书按章节号查阅。"
+        ],
+        "checks": [
+          "证据仅来自目录，菜单和字段值从正文及 R12 定义核实。"
+        ],
+        "related_ids": [
+          "r12.element_shell",
+          "r12.section_shell",
+          "r12.part",
+          "r12.boundary_spc_set"
+        ]
+      },
+      {
+        "id": "book.xin_keyword_format",
+        "title": "教材定位：K 文件结构和卡片格式",
+        "aliases": [
+          "辛春亮教材关键字输入格式章节"
+        ],
+        "summary": "用于定位 LS-DYNA 关键字输入结构和手册中卡片版式的介绍。",
+        "locator": "§7.3.1、§7.3.2",
+        "steps": [
+          "在正文中查对应章节，与项目中的 R12 卡片定义交叉对照。"
+        ],
+        "checks": [
+          "按 R12 手册核对卡名、字段和可选行。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.part",
+          "r12.set_node_list"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/xin_catalog.html",
+    "sha256": "3f788f74dff0c77716bf3d53df661ab109241f76233ae9a846197b1adbdb28de",
+    "url": "https://www.tup.tsinghua.edu.cn/bookscenter/bookcatalog?id=09310201",
+    "release": "辛春亮等，清华大学出版社，2022，ISBN 9787302597025，出版社目录",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_run",
+    "evidence_level": "publisher_catalog_locator",
+    "topics": [
+      {
+        "id": "book.xin_plot_chapter",
+        "title": "教材定位：应力与力–位移曲线",
+        "aliases": [
+          "辛春亮教材力位移后处理章节"
+        ],
+        "summary": "目录可定位应力显示、力与位移曲线以及曲线配合动画的教学。",
+        "locator": "§5.1.2–§5.1.4",
+        "steps": [
+          "取得正文后按小节查操作步骤，并用项目已存结果回查。"
+        ],
+        "checks": [
+          "目录用于定位，结果来源及输出间隔从相应 K 文件核对。"
+        ],
+        "related_ids": [
+          "run.results",
+          "r12.database_extent_binary",
+          "r12.database_nodout",
+          "r12.database_spcforc"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "books/yuan_ebook.html",
+    "sha256": "0a8a32bb7f9e2fbcff979e55a43de10358c0fcbd3aebc4179cadaab82053fade",
+    "url": "https://www.dedao.cn/ebook/detail?id=pAVMknaY9VDA6M7OjdpEvLnKm85rPw9e9VgwZxykgeQJaRb4oBqNzGlX12boL1Nl",
+    "release": "袁志丹等，电子工业出版社，2021，正版电子书目录",
+    "license": "public publisher sample or listing; summaries and section locators only",
+    "index": "I_run",
+    "evidence_level": "publisher_catalog_locator",
+    "topics": [
+      {
+        "id": "book.yuan_timestep",
+        "title": "故障索引：显式时间步与质量缩放",
+        "aliases": [
+          "袁志丹教材时间步和质量缩放章节"
+        ],
+        "summary": "电子书目录有显式时间步与质量缩放专题，可从这两节定位时间步异常的分析思路。",
+        "locator": "§1.16、§1.17",
+        "steps": [
+          "先保存日志和实际运行配置，再回查相应主题及 R12 字段。"
+        ],
+        "checks": [
+          "该章正文待取得；原始算例参数按 R12 和项目配置核验。"
+        ],
+        "related_ids": [
+          "r12.control_timestep",
+          "run.solver"
+        ]
+      },
+      {
+        "id": "book.yuan_bad_elements",
+        "title": "故障索引：沙漏能与负体积",
+        "aliases": [
+          "袁志丹教材沙漏能和负体积章节"
+        ],
+        "summary": "将沙漏、负体积及能量异常对应的章节并入同一排查入口，便于查询时定位各自的解释。",
+        "locator": "§3.19–§3.21、§5.5–§5.6",
+        "steps": [
+          "记录具体异常、首次出现的时刻与实体编号，再按现象查章节。"
+        ],
+        "checks": [
+          "目录索引不提供阈值，诊断时查看实际日志和结果。"
+        ],
+        "related_ids": [
+          "run.results",
+          "r12.element_solid",
+          "r12.database_elout"
+        ]
+      },
+      {
+        "id": "book.yuan_ascii_binout",
+        "title": "故障索引：ASCII 与 BINOUT 输出",
+        "aliases": [
+          "袁志丹教材ASCII与BINOUT章节"
+        ],
+        "summary": "电子书目录覆盖两种输出存储方式、结果处理和并行计算缺少 ASCII 文件的排查入口。",
+        "locator": "§1.1、§1.22–§1.23、§6.15",
+        "steps": [
+          "先确认求解方式和实际生成的结果文件，再选对应小节。"
+        ],
+        "checks": [
+          "回查 R12 数据库卡的输出请求和采样。"
+        ],
+        "related_ids": [
+          "run.results",
+          "r12.database_nodout",
+          "r12.database_spcforc"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "official_examples/tension1.k",
+    "sha256": "d8aaf2ab23364671fe4d472e6ac46fda0240d8b476c70e55ea495eaf52147c2b",
+    "url": "https://lsdyna.ansys.com/tension-i/",
+    "release": "A. Tabiei, 1998",
+    "license": "public Ansys download; redistribution license unconfirmed",
+    "index": "I_model",
+    "evidence_level": "official_deck_annotated_static",
+    "topics": [
+      {
+        "id": "open.ansys.tension_end_sets",
+        "title": "实体拉伸试件的固定端和加载端",
+        "aliases": [
+          "实体试件拉伸两端节点集"
+        ],
+        "summary": "用两个节点集表示夹持端和位移加载端。夹持约束与规定运动各自引用不同的集合。",
+        "locator": "tension1.k",
+        "steps": [
+          "在网格中识别固定端和加载端。",
+          "从 SPC_SET 与 PRESCRIBED_MOTION_SET 反查两个节点集。",
+          "对照曲线编号、方向和运动类型。"
+        ],
+        "checks": [
+          "检查节点集成员及两端是否意外重叠。",
+          "曲线和模型采用同一套单位。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.boundary_spc_set",
+          "r12.define_curve"
+        ],
+        "span": [
+          34,
+          65
+        ],
+        "anchor": "*SET_NODE_LIST"
+      },
+      {
+        "id": "open.ansys.tension_motion_curve",
+        "title": "实体拉伸的位移曲线与引用",
+        "aliases": [
+          "拉伸K文件规定端位移"
+        ],
+        "summary": "原件通过 DEFINE_CURVE 与 PRESCRIBED_MOTION_SET 定义位移控制拉伸，曲线 ID 与加载端节点集 ID 分开。",
+        "locator": "tension1.k",
+        "steps": [
+          "从规定运动卡确认作用对象和方向。",
+          "核对运动类型对应的曲线量纲，再回查 LCID。",
+          "另存后复读两张卡和节点集。"
+        ],
+        "checks": [
+          "确认曲线覆盖预期加载时段。",
+          "源文件的材料和位移数值只对应练习工况。"
+        ],
+        "related_ids": [
+          "r12.define_curve",
+          "r12.set_node_list"
+        ],
+        "span": [
+          56,
+          62
+        ],
+        "anchor": "*DEFINE_CURVE"
+      },
+      {
+        "id": "open.ansys.tension_outputs",
+        "title": "拉伸试件的标距区单元与节点组力输出",
+        "aliases": [
+          "拉伸K文件单元历史与节点组力"
+        ],
+        "summary": "原件选取试件中部实体单元作历史输出，通过节点组力记录夹持端对应集合的数据。",
+        "locator": "tension1.k",
+        "steps": [
+          "分别定位 D3PLOT、ELOUT 和 NODFOR 请求。",
+          "从 HISTORY_SOLID_SET 追到实体集合，从 NODAL_FORCE_GROUP 追到节点集合。",
+          "读取结果时核对量纲、输出分量和采样时间。"
+        ],
+        "checks": [
+          "使用与位移曲线一致的时刻关联结果。",
+          "按目标物理量确认输出含义。"
+        ],
+        "related_ids": [
+          "r12.database_binary_d3plot",
+          "r12.database_history_shell",
+          "r12.database_nodal_force_group",
+          "r12.database_nodfor"
+        ],
+        "span": [
+          13,
+          23
+        ],
+        "anchor": "*DATABASE_BINARY_D3PLOT"
+      }
+    ],
+    "supporting_files": [
+      {
+        "file": "official_examples/tension1.k.zip",
+        "sha256": "2458082feab14b6d51a8e7a791c790deeaf1f14dd904f64f40e8f16f4620a36f",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/dynaexamples/tension1.k.zip",
+        "locator": "ZIP member: tension1.k"
+      }
+    ]
+  },
+  {
+    "file": "official_examples/beam.free.k",
+    "sha256": "c03c038542456b18ea21794e093e5aba8a4efd8a75ece10129e8cfe040a98db6",
+    "url": "https://lsdyna.ansys.com/beam-d4/",
+    "release": "Klaus Weimar introductory examples, solver release unspecified",
+    "license": "public Ansys download; redistribution license unconfirmed",
+    "index": "I_model",
+    "evidence_level": "official_deck_annotated_static",
+    "topics": [
+      {
+        "id": "open.ansys.shell_beam_root",
+        "title": "悬臂壳梁根部节点的约束设置",
+        "aliases": [
+          "壳梁K文件根部约束"
+        ],
+        "summary": "根部两节点各自有 SPC_NODE，限制三个平移和三个转动自由度。",
+        "locator": "beam.free.k",
+        "steps": [
+          "从 NODE 核对根部两个节点。",
+          "回读 SPC_NODE 的方向与标志。"
+        ],
+        "checks": [
+          "新网格中按几何位置重选根部节点。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.boundary_spc_set",
+          "ansys.example_06"
+        ],
+        "span": [
+          55,
+          58
+        ],
+        "anchor": "*BOUNDARY_SPC_NODE"
+      },
+      {
+        "id": "open.ansys.shell_beam_tip",
+        "title": "悬臂壳梁自由端的节点集载荷",
+        "aliases": [
+          "壳梁K文件自由端节点集载荷"
+        ],
+        "summary": "自由端两个节点通过同一节点集合接收横向力，载荷引用同一曲线并配置比例。",
+        "locator": "beam.free.k",
+        "steps": [
+          "定位自由端节点集。",
+          "对照 DOF、曲线和比例。",
+          "核对节点载荷合力与目标一致。"
+        ],
+        "checks": [
+          "改端部网格后重新核对成员及载荷分配。"
+        ],
+        "related_ids": [
+          "r12.load_node_point",
+          "r12.set_node_list",
+          "r12.define_curve"
+        ],
+        "span": [
+          150,
+          168
+        ],
+        "anchor": "*LOAD_NODE_SET"
+      },
+      {
+        "id": "open.ansys.shell_beam_output",
+        "title": "悬臂壳梁的位移与约束反力",
+        "aliases": [
+          "壳梁K文件位移与支承反力"
+        ],
+        "summary": "原件用 HISTORY_NODE 与 NODOUT 指定节点结果，用 SPCFORC 请求约束反力。",
+        "locator": "beam.free.k",
+        "steps": [
+          "选择需要追踪的节点位移。",
+          "回查 SPC_NODE 约束和 SPCFORC 请求。",
+          "分别检查结果来源和记录间隔。"
+        ],
+        "checks": [
+          "核对测点方向与支座方向，按输出定义解释。"
+        ],
+        "related_ids": [
+          "r12.database_history_node",
+          "r12.database_nodout",
+          "r12.database_spcforc"
+        ],
+        "span": [
+          35,
+          62
+        ],
+        "anchor": "*DATABASE_HISTORY_NODE"
+      }
+    ],
+    "supporting_files": [
+      {
+        "file": "official_examples/beam.free.k.zip",
+        "sha256": "fdb1a16c4fdbbf4bfa8234396971d9b47807254c1e8cf3ddf5919dde0af0d694",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/dynaexamples/beam.free.k.zip",
+        "locator": "ZIP member: beam.free.k"
+      }
+    ]
+  },
+  {
+    "file": "official_examples/integration_shell.lobotto.beam.k",
+    "sha256": "dce17db145dfd25186d8e867176aad3a818b91f972c37121d00b1c6b4f271f44",
+    "url": "https://lsdyna.ansys.com/shell-2-d44/",
+    "release": "LSTC example, 1997",
+    "license": "public Ansys download; redistribution license unconfirmed",
+    "index": "I_model",
+    "evidence_level": "official_deck_annotated_static",
+    "topics": [
+      {
+        "id": "open.ansys.lobatto_section",
+        "title": "壳截面引用 Lobatto 厚度积分规则",
+        "aliases": [
+          "Lobatto壳截面积分K文件"
+        ],
+        "summary": "原件在壳截面中用负的 QR/IRID 引用积分规则，积分卡逐点列出厚度位置和权重。",
+        "locator": "integration_shell.lobotto.beam.k",
+        "steps": [
+          "从 SECTION_SHELL 读取 NIP 与 QR/IRID。",
+          "在 INTEGRATION_SHELL 追查 IRID、点数及权重。",
+          "按 R12 文档核对所用单元公式的兼容性。"
+        ],
+        "checks": [
+          "确认引用的规则存在且点数一致。",
+          "比较厚度方向结果时核对积分点位置。"
+        ],
+        "related_ids": [
+          "r12.section_shell",
+          "r12.element_shell"
+        ],
+        "span": [
+          133,
+          162
+        ],
+        "anchor": "*SECTION_SHELL"
+      },
+      {
+        "id": "open.ansys.lobatto_load_and_damping",
+        "title": "壳梁的节点力曲线与阻尼曲线",
+        "aliases": [
+          "壳梁K文件分开载荷和阻尼曲线"
+        ],
+        "summary": "壳梁节点力与全局阻尼各自引用曲线。通过查看引用卡判定曲线的物理意义。",
+        "locator": "integration_shell.lobotto.beam.k",
+        "steps": [
+          "从节点力卡找到受力节点及曲线。",
+          "从阻尼卡回查另一条曲线。",
+          "对照各自的用途和时段。"
+        ],
+        "checks": [
+          "避免把载荷曲线和阻尼曲线当成同一种量。"
+        ],
+        "related_ids": [
+          "r12.define_curve",
+          "r12.load_node_point"
+        ],
+        "span": [
+          76,
+          118
+        ],
+        "anchor": "*LOAD_NODE_POINT"
+      },
+      {
+        "id": "open.ansys.lobatto_history",
+        "title": "壳梁积分点结果的输出设置",
+        "aliases": [
+          "壳梁K文件积分点历史输出"
+        ],
+        "summary": "原件同时设置整模状态、二进制时程和输出变量，并选取壳单元与节点。",
+        "locator": "integration_shell.lobotto.beam.k",
+        "steps": [
+          "对照 D3PLOT 与 D3THDT 的采样。",
+          "检查 EXTENT_BINARY 对输出内容的设置。",
+          "按监测实体核对 HISTORY 卡。"
+        ],
+        "checks": [
+          "结合截面积分规则解释厚度位置，确认实际产物含有所需变量。"
+        ],
+        "related_ids": [
+          "r12.database_binary_d3plot",
+          "r12.database_binary_d3thdt",
+          "r12.database_extent_binary",
+          "r12.database_history_shell"
+        ],
+        "span": [
+          32,
+          75
+        ],
+        "anchor": "*DATABASE_BINARY_D3PLOT"
+      }
+    ],
+    "supporting_files": [
+      {
+        "file": "official_examples/integration_shell.lobotto.beam.k.zip",
+        "sha256": "fd1ee1c24937a7ab25283333b82f47a8ab032701f21f8e919cb1db028d9ce347",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/2022/12/integration_shell.lobotto.beam.k.zip",
+        "locator": "ZIP member: integration_shell.lobotto.beam.k"
+      }
+    ]
+  },
+  {
+    "file": "prepost/p7-nlmesh1.html",
+    "sha256": "7b69666ed8fafc808a8822ac756ffd217255fde5cb0be35a42b9f385f07a06be",
+    "url": "https://lsdyna.ansys.com/p7-nlmesh1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.mesh_from_lines",
+        "title": "LS-PrePost 从 IGES 边线生成壳网格",
+        "aliases": [
+          "PrePost用nLMesh从IGES边线建壳网格"
+        ],
+        "summary": "配套 IGES 文件包含供练习使用的边线。教程演示四线壳网格和两线壳网格的生成顺序。",
+        "locator": "Mini Tutorial | Page 7: nLMesh — Generate a mesh from 4 lines and 2 lines",
+        "steps": [
+          "解压并打开配套 IGES 文件。",
+          "在 nLMesh 选 4 Line shell，按教程给出的顺序选线并接受网格。",
+          "切换 2 Line shell，选择边线并设置划分数量和目标 PID，再接受。",
+          "保存关键字模型，回读节点与壳单元连接。"
+        ],
+        "checks": [
+          "检查网格边线连续性、单元法向和部件归属。",
+          "为生成的部件补齐截面、材料和所需边界，再做引用检查。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.element_shell",
+          "r12.part",
+          "r12.section_shell"
+        ]
+      }
+    ],
+    "supporting_files": [
+      {
+        "file": "official_examples/lines_iges.zip",
+        "sha256": "16f3f437552f07b3f02dc8529b15b95deb642465f653f24c00403987a884d2e4",
+        "url": "https://lsdyna.ansys.com/wp-content/uploads/2023/01/lines_iges.zip",
+        "locator": "ZIP member: lines.iges"
+      },
+      {
+        "file": "official_examples/lines.iges",
+        "sha256": "aebee165d0a005c74a448f45d17b2a47e08d075eb98ff61087765bb463c57ef8",
+        "url": "https://lsdyna.ansys.com/p7-nlmesh1/",
+        "locator": "extracted IGES exercise geometry"
+      }
+    ]
+  },
+  {
+    "file": "prepost/getting-started-block.html",
+    "sha256": "cfc6a7a0b01065f56df3bae39dd0c055d0dc0f8bc3cf25607167fe52298a1548",
+    "url": "https://lsdyna.ansys.com/getting-started/",
+    "release": "Ansys Getting Started, solver release unspecified",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_model",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "guide.web.solid_block_mesh_and_part",
+        "title": "从零编写单实体单元 K 文件的网格和部件",
+        "aliases": [
+          "从零编写八节点实体K文件"
+        ],
+        "summary": "从一个八节点实体单元入手，沿单元 PID 串联部件、材料、截面和节点表。",
+        "locator": "Getting Started — Input File Preparation, second input block",
+        "steps": [
+          "从 KEYWORD 开始，定义八个节点和一个实体单元。",
+          "给单元指定 PID，在 PART 填写材料号和截面号。",
+          "分别填写 SECTION_SOLID 和 MAT_ELASTIC，使用一致单位。",
+          "保存前检查编号引用闭合。"
+        ],
+        "checks": [
+          "沿每个 ID 回查目标卡片。",
+          "按实体单元要求核对节点连接和方向。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.element_solid",
+          "r12.part",
+          "r12.section_solid",
+          "r12.mat_elastic"
+        ]
+      },
+      {
+        "id": "guide.web.solid_block_face_loading",
+        "title": "单实体单元面压力和输出设置",
+        "aliases": [
+          "单实体K文件顶面压力与输出"
+        ],
+        "summary": "教程在节点行给出位移约束，用角点和曲线定义顶面压力，并独立设置终止时间及 D3PLOT 输出。",
+        "locator": "Getting Started — Input File Preparation, first and third input blocks",
+        "steps": [
+          "按工况核对节点约束，选择顶面的四个节点。",
+          "用 LOAD_SEGMENT 关联 DEFINE_CURVE，检查面法向和压力符号。",
+          "设置终止时间与 D3PLOT 输出间隔，在文件尾写 END。",
+          "回读 K 文件核对受载面、曲线引用和输出时段。"
+        ],
+        "checks": [
+          "确认各卡引用存在且单位一致。",
+          "根据实际分析目标检查约束和输出采样。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.load_segment",
+          "r12.define_curve",
+          "r12.control_termination",
+          "r12.database_binary_d3plot"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/trace.html",
+    "sha256": "715d2fede3c385d96c682b611a38272838c3dd013b7915b751af9d6d1d5eb124",
+    "url": "https://lsdyna.ansys.com/trace/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.trace_displacement",
+        "title": "LS-PrePost 导出节点位移历程",
+        "aliases": [
+          "PrePost用Trace导出节点位移曲线"
+        ],
+        "summary": "通过 Trace 选择结果中的节点和起始状态，导出位移曲线或坐标轨迹。",
+        "locator": "Page 1: Trace — Quick Guide and Controls",
+        "steps": [
+          "打开本次运行结果并进入 Trace。",
+          "设置起始状态、选择节点，播放状态以检查轨迹。",
+          "按目的导出位移曲线或坐标历程。"
+        ],
+        "checks": [
+          "确认导出数据是位移还是绝对坐标。",
+          "核对节点编号、分量及采样时刻。"
+        ],
+        "related_ids": [
+          "r12.database_binary_d3plot",
+          "r12.database_history_node",
+          "r12.define_curve"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p3-mat1.html",
+    "sha256": "becd4f0e78f04651af3d19158b20549ca4d8463143f5c5c4921592b0daa01d6e",
+    "url": "https://lsdyna.ansys.com/p3-mat1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.create_elastic",
+        "title": "LS-PrePost 创建线弹性材料卡",
+        "aliases": [
+          "PrePost新建线弹性材料"
+        ],
+        "summary": "在材料表单中选择 001-ELASTIC，创建材料编号并填写密度、弹性模量和泊松比。",
+        "locator": "Mini Tutorial | Page 3: *Mat — Create a MAT_ELASTIC keyword card",
+        "steps": [
+          "打开材料关键字表单并选择 ELASTIC。",
+          "新建 MID，按工况单位填 RO、E 和 PR。",
+          "接受后回读材料卡，供部件引用。"
+        ],
+        "checks": [
+          "确认 MID 唯一且单位一致。",
+          "练习参数按原教程核对。"
+        ],
+        "related_ids": [
+          "r12.mat_elastic",
+          "r12.part"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p5-partd1.html",
+    "sha256": "82953680c0df631a899887e3230adea8c128cb4c99d04a0abe9178f54af0f03c",
+    "url": "https://lsdyna.ansys.com/p5-partd1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.partd_link",
+        "title": "LS-PrePost 在 PartD 绑定材料与截面",
+        "aliases": [
+          "PrePost用PartD绑定材料截面"
+        ],
+        "summary": "在图形部件界面编辑 SECID 和 MID，并对照保存后的 PART 卡。",
+        "locator": "Mini Tutorial | Page 5: PartD — Assign PART parameters",
+        "steps": [
+          "打开官方配套 plate.k。",
+          "在 PartD 选择目标壳部件并进入 Assign。",
+          "通过 SECID 和 MID 的关联对话框分别选择壳截面与弹性材料，然后应用。",
+          "另存 K 文件并核对三个 ID。"
+        ],
+        "checks": [
+          "实际选择的截面类型应与单元类型一致。",
+          "回读文件，沿 PID 检查 SECID 和 MID 引用。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.section_shell",
+          "r12.mat_elastic"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/5-d93.html",
+    "sha256": "c924061b4c67d16c4b148d0253dd6fa4deb6e89ebfdd35bf3d80db7654a1aa25",
+    "url": "https://lsdyna.ansys.com/5-d93/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.create_curve",
+        "title": "LS-PrePost 录入曲线点并分配 LCID",
+        "aliases": [
+          "PrePost录入载荷曲线点"
+        ],
+        "summary": "在 DEFINE 的 CURVE 表单创建编号、添加数据点并保存。",
+        "locator": "Tutorial 5: Page 12 — Define curves",
+        "steps": [
+          "在 DEFINE 中打开 CURVE 表单并分配曲线编号。",
+          "逐行录入自变量和因变量，核对顺序。",
+          "接受并保存，然后在使用它的卡片核对 LCID。"
+        ],
+        "checks": [
+          "曲线的物理量和单位由引用它的卡片确定。",
+          "教程的成形载荷数值只对应原例。"
+        ],
+        "related_ids": [
+          "r12.define_curve",
+          "r12.load_node_point",
+          "r12.load_segment"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/loadpt.html",
+    "sha256": "1417d13fb7d22ba06c92edeb8f865a0e8aa033907491e5aad4f0aaa484bb38ad",
+    "url": "https://lsdyna.ansys.com/loadpt/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.node_load",
+        "title": "LS-PrePost 用 LoadPt 创建节点或节点集载荷",
+        "aliases": [
+          "PrePost用LoadPt加节点力"
+        ],
+        "summary": "在图形窗口选择节点或节点集，配置方向、曲线编号和坐标系，并检查生成的载荷卡。",
+        "locator": "Page 5: LoadPt — Purpose and Controls",
+        "steps": [
+          "在 LoadPt 选创建模式与载荷对象类型。",
+          "选择节点或已有节点集。",
+          "填 DOF、LCID 和 CID，应用后回读卡片。"
+        ],
+        "checks": [
+          "检查力的方向、坐标系及曲线引用。",
+          "核对对象类型对应 NODE_POINT 或 NODE_SET。"
+        ],
+        "related_ids": [
+          "r12.load_node_point",
+          "r12.define_curve",
+          "guide.example_11.loading"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/dbhist.html",
+    "sha256": "b4e0153d64f3fdd0537f3a575e37462345628a3452f3913a1b7f3723e9dda28f",
+    "url": "https://lsdyna.ansys.com/dbhist/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.history_setup",
+        "title": "LS-PrePost 用 DBHist 选取节点与单元测点",
+        "aliases": [
+          "PrePost用DBHist设置输出测点"
+        ],
+        "summary": "按节点或单元类型选择时程对象。保存后回查 HISTORY 关键字，再配对应输出数据库。",
+        "locator": "Page 5: DBHist — Purpose and Controls",
+        "steps": [
+          "在 DBHist 选择 Create 和目标实体类型。",
+          "选取测点或单元，应用并保存关键字。",
+          "核对 HISTORY 选择对象，并在输出卡设置所需数据库和采样间隔。"
+        ],
+        "checks": [
+          "以官方页面的 Purpose 和 Controls 以及 R12 卡片字段为依据。",
+          "测点选择与输出间隔分别核对。"
+        ],
+        "related_ids": [
+          "r12.database_history_node",
+          "r12.database_history_shell",
+          "r12.database_nodout",
+          "r12.database_binary_d3plot"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/setd.html",
+    "sha256": "5c8932f30d51f7a3b95973e85337d342184f4da5b91977c17d24f0d0c3512299",
+    "url": "https://lsdyna.ansys.com/setd/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.set_types",
+        "title": "LS-PrePost 按实体类型创建及检查集合",
+        "aliases": [
+          "PrePost用SetD创建面集合"
+        ],
+        "summary": "SetD 支持常见节点、部件、面及单元集合，选型后可查原始卡片并另存。",
+        "locator": "Page 5: SetD — Purpose and Controls",
+        "steps": [
+          "按下游约束、加载或接触的引用类型选择集合类型。",
+          "分配集合编号并检查成员。",
+          "应用后打开对应卡片核对类型和 ID，保存输入。"
+        ],
+        "checks": [
+          "集合成员与几何选择一致。",
+          "引用者需要的实体类型和集合类型一致。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.boundary_spc_set",
+          "r12.load_segment"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/refchk.html",
+    "sha256": "ca5daa4a13c266aa0939257059190392826f881330e0867eb80f929b17209386",
+    "url": "https://lsdyna.ansys.com/refchk/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.reference_check",
+        "title": "LS-PrePost 用 Refchk 检查未定义引用",
+        "aliases": [
+          "PrePost检查K文件未定义引用"
+        ],
+        "summary": "查看哪些卡片引用指定实体，以及输入中有哪些未定义对象或未使用定义。",
+        "locator": "Page 2: Refchk — Purpose and Controls",
+        "steps": [
+          "打开当前关键字模型并运行引用检查。",
+          "定位未定义编号并回到引用该编号的卡片。",
+          "修正关联后重新检查并另存。"
+        ],
+        "checks": [
+          "区分未定义的目标与未使用的定义。",
+          "保留仍需使用的预留数据。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.set_node_list",
+          "r12.define_curve",
+          "tool.validate_model"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "official_examples/partd_plate.k",
+    "sha256": "5b79632c4e2a5a58c0ed75c0807f45eb2e65d1b194e04f5d5d5e1aa92242c3b4",
+    "url": "https://lsdyna.ansys.com/wp-content/uploads/2023/01/plate-1.zip",
+    "release": "LS-PrePost PartD tutorial practice input",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_model",
+    "evidence_level": "official_tutorial_deck_static_excerpt",
+    "topics": [
+      {
+        "id": "open.ansys.partd_plate",
+        "title": "PartD 平板练习 K 的部件引用缺口",
+        "aliases": [
+          "PartD平板练习输入",
+          "PartD平板缺少材料截面编号"
+        ],
+        "summary": "练习文件已经定义壳截面和材料，但 PART 数据行只填 PID。对照第 2–11 行练习补齐两项引用。",
+        "locator": "PartD tutorial archive, plate.k",
+        "steps": [
+          "读出部件卡上的 PID 和待填写的字段。",
+          "查相邻的壳截面与弹性材料定义。",
+          "按 PartD 教程绑定 SECID 和 MID 后另存，并从单元 PID 回查。"
+        ],
+        "checks": [
+          "源文件是教学起点。",
+          "求解用输入还需按目标工况检查约束、载荷和输出。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.section_shell",
+          "r12.mat_elastic",
+          "tool.validate_model"
+        ],
+        "span": [
+          2,
+          11
+        ],
+        "anchor": "*PART"
+      }
+    ]
+  },
+  {
+    "file": "official_examples/vm-lsdyna-solve-050.html",
+    "sha256": "6c9fbc0717e56cfc186b6cf2b36e7349ada8f122d762b71368a58a5068c112a2",
+    "url": "https://ansyshelp.ansys.com/public/views/secured/corp/v261/en/lsdyna_vm/vm-lsdyna-solve-050.html",
+    "release": "Ansys LS-DYNA Verification Manual 2026 R1",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "published_benchmark_reference",
+    "topics": [
+      {
+        "id": "supp.ansys_vm050_support",
+        "title": "Ansys 单边固支矩形板的模态对照",
+        "aliases": [
+          "Ansys单边固支板模态基准"
+        ],
+        "summary": "官方基准对照单边固支矩形板的薄壳和实体模型，可参考节点集约束与固有频率验证方法。",
+        "locator": "VM-LSDYNA-SOLVE-050 — Test Case and Results Comparison",
+        "steps": [
+          "确认只固定一条短边。",
+          "按薄壳或实体分别检查支承节点、自由度和首阶振型。",
+          "对照原始验证页的目标频率和单位。"
+        ],
+        "checks": [
+          "保留来源版本 2026 R1。",
+          "比较前核对几何、材料、支承和单元公式。"
+        ],
+        "related_ids": [
+          "project.shell_plate",
+          "r12.boundary_spc_set",
+          "r12.control_implicit_eigenvalue"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "official_examples/leissa_nasa_sp160.json",
+    "sha256": "77c25d72414a13e36b368eb21f2e804eea0fc56f83d1517183effd1bc4dde7a9",
+    "url": "https://ntrs.nasa.gov/citations/19700009156",
+    "release": "NASA SP-160, 1969",
+    "license": "US Government work, public use permitted per NTRS",
+    "index": "I_run",
+    "evidence_level": "published_benchmark_reference",
+    "topics": [
+      {
+        "id": "supp.nasa_plate_vibration",
+        "title": "薄板振动的理论支承对照",
+        "aliases": [
+          "NASA薄板振动理论基准"
+        ],
+        "summary": "NASA SP-160 汇编薄板振动理论结果，可作为固支和简支薄板的无量纲频率参考入口。",
+        "locator": "NASA NTRS 19700009156 — Vibration of Plates",
+        "steps": [
+          "按几何与支承找对应章节或表格。",
+          "核对无量纲定义与单位，按目标振型对照。"
+        ],
+        "checks": [
+          "薄板理论与有限元模型应使用对应的边界及几何。",
+          "本条保存出处索引，频率值从原报告核对。"
+        ],
+        "related_ids": [
+          "project.square_shell_four_edges_clamped",
+          "ansys.example_12",
+          "r12.control_implicit_eigenvalue"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p1-ident1.html",
+    "sha256": "364fffc8fae4717d0c8ce0412a8574c662f68a38b2474de6b59c182804645afb",
+    "url": "https://lsdyna.ansys.com/p1-ident1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.identify_nodes",
+        "title": "LS-PrePost 按编号定位节点",
+        "aliases": [
+          "PrePost按编号定位节点"
+        ],
+        "summary": "用节点编号、逗号列表或编号区间在画面中标记网格节点。",
+        "locator": "Mini Tutorial | Page 1: Ident — Identify nodes by ID",
+        "steps": [
+          "打开当前关键字模型并进入 Ident。",
+          "选择节点，输入要核对的编号或范围。",
+          "对照显示位置检查边界节点和测点。"
+        ],
+        "checks": [
+          "使用当前模型的节点编号，改网格后重新核对。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.database_history_node",
+          "r12.boundary_spc_set"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/dupnod.html",
+    "sha256": "9dfae00bcf1ed7041f0f9f0c89b2d8b6ce411fd3b29fc9143af08f5cad418bba",
+    "url": "https://lsdyna.ansys.com/dupnod/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.duplicate_nodes",
+        "title": "LS-PrePost 检查重复节点与自由边",
+        "aliases": [
+          "PrePost检查重复节点"
+        ],
+        "summary": "按距离容差显示疑似重复节点，用自由边检查拼接面是否连通。",
+        "locator": "Page 2: DupNod — Purpose and Controls",
+        "steps": [
+          "显示自由边并定位异常内边。",
+          "按模型单位设置搜索容差并显示候选节点。",
+          "确认连接意图后再决定是否合并，回查编号引用。"
+        ],
+        "checks": [
+          "区分意外断开和设计上应保留的界面。",
+          "修改后复核单元、约束及节点集。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.set_node_list",
+          "tool.validate_model"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/eledit.html",
+    "sha256": "cc6c47d74e705b1a5856a600996cfa2752b0a9d5309b2aa4839f7bd05bb51872",
+    "url": "https://lsdyna.ansys.com/eledit/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.element_quality",
+        "title": "LS-PrePost 单元网格质量检查",
+        "aliases": [
+          "PrePost检查单元长宽比"
+        ],
+        "summary": "按单元类型检查网格质量，可定位壳单元长宽比、翘曲等指标超限的位置。",
+        "locator": "Page 2: ElEdit — Element Check",
+        "steps": [
+          "选定部件和单元类型。",
+          "按项目要求选择检查项，查看超限单元。",
+          "记录异常位置与实体编号，修网格后重查。"
+        ],
+        "checks": [
+          "记录本次采用的质量阈值、单元类型和筛选范围。"
+        ],
+        "related_ids": [
+          "r12.element_shell",
+          "r12.element_solid",
+          "tool.validate_model"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/normals.html",
+    "sha256": "1c665904af3867d443c5abebbcd78bd0ef11cc6b9b7dcba14006bacedd2f6cb7",
+    "url": "https://lsdyna.ansys.com/normals/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.check_normals",
+        "title": "LS-PrePost 检查壳与面的法向",
+        "aliases": [
+          "PrePost检查壳单元法向"
+        ],
+        "summary": "显示壳单元、面和厚壳的法向，对照压力方向、接触面和厚度层结果。",
+        "locator": "Page 2: Normals — Purpose and Controls",
+        "steps": [
+          "选择需要核对的单元或面。",
+          "显示法向并找出方向不一致处。",
+          "结合工况和卡片节点顺序确定是否需要调整。"
+        ],
+        "checks": [
+          "调整后复查相邻单元、载荷方向和接触设置。"
+        ],
+        "related_ids": [
+          "r12.load_segment",
+          "r12.element_shell",
+          "r12.element_tshell"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/conchk.html",
+    "sha256": "7c93ee244e45782f2ac5892a5532420513109d8878318d42e173f4eae66f7ca4",
+    "url": "https://lsdyna.ansys.com/conchk/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.initial_contact_check",
+        "title": "LS-PrePost 检查初始穿透与交叉边",
+        "aliases": [
+          "PrePost检查初始穿透"
+        ],
+        "summary": "可按所选部件或已定义接触检查初始穿透和几何交叉，先定位异常再判断处理方式。",
+        "locator": "Page 5: Conchk — Purpose and Controls",
+        "steps": [
+          "选择相关部件或已有接触定义。",
+          "运行检查并查看异常位置和实体编号。",
+          "确认几何、网格与接触定义的关系，调整后复核。"
+        ],
+        "checks": [
+          "区分意图内的干涉与建模错误。",
+          "保存检查范围及结果以便复查。"
+        ],
+        "related_ids": [
+          "tool.validate_model",
+          "r12.contact_2d_automatic_node_to_surface",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "pydyna/tests/testfiles/standard/base.k",
+    "sha256": "772101a3333f90d7cb2fb7191c1cbf85712adcc5387c640e920233823750a992",
+    "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/tests/testfiles/standard/base.k",
+    "release": "PyDYNA test fixture",
+    "license": "MIT repository license",
+    "license_file": {
+      "file": "pydyna/LICENSE",
+      "sha256": "9939a8f47cc69c6fc4c21220b44aad3a7a423544f8d893c3f2b042b63f75aff9",
+      "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/LICENSE"
+    },
+    "index": "I_model",
+    "evidence_level": "upstream_parser_fixture",
+    "topics": [
+      {
+        "id": "open.pydyna.shell_closure",
+        "title": "单壳单元样本的部件依赖检查",
+        "aliases": [
+          "单壳单元部件依赖",
+          "部件缺少截面和材料"
+        ],
+        "summary": "样本有一个壳单元、四个节点和一个部件，部件的 SECID 与 MID 为 0。用它练习从单元追到部件，再发现模型定义缺口。",
+        "locator": "PyDYNA base.k",
+        "steps": [
+          "从单元行取 PID。",
+          "在部件行找 SECID 和 MID。",
+          "检查有无对应截面和材料，发现缺项时回到项目材料及建模任务补齐。"
+        ],
+        "checks": [
+          "即使文件有 KEYWORD、END 和控制卡，也要独立校验引用闭合。",
+          "此文件作为解析样本，R12 未运行。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.element_shell",
+          "r12.section_shell",
+          "r12.mat_elastic"
+        ],
+        "span": [
+          43,
+          56
+        ],
+        "anchor": "*PART"
+      },
+      {
+        "id": "open.pydyna.time_settings",
+        "title": "显式时间步、终止时刻和云图区间",
+        "aliases": [
+          "时间步和输出间隔区别",
+          "显式时间控制样本"
+        ],
+        "summary": "同一个样本里，CONTROL_TERMINATION 决定停止条件，CONTROL_TIMESTEP 管积分时间步，D3PLOT 管保存状态的频率。",
+        "locator": "PyDYNA base.k",
+        "steps": [
+          "先按分析目标设置终止时间。",
+          "再核对积分控制与当前网格。",
+          "按要观察的过程配置云图采样。"
+        ],
+        "checks": [
+          "终止时间、积分步长、输出间隔分别检查。",
+          "样本中的数字仅用于说明字段位置。"
+        ],
+        "related_ids": [
+          "r12.control_termination",
+          "r12.control_timestep",
+          "r12.database_binary_d3plot"
+        ],
+        "span": [
+          34,
+          42
+        ],
+        "anchor": "*CONTROL_TERMINATION"
+      }
+    ]
+  },
+  {
+    "file": "pydyna/tests/testfiles/keywords/plot_test.k",
+    "sha256": "fa914a74d6f3a1f4f7543f4ba638a7c96b2b0577e9e31886766beb8476c5794a",
+    "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/tests/testfiles/keywords/plot_test.k",
+    "release": "PyDYNA test fixture",
+    "license": "MIT repository license",
+    "license_file": {
+      "file": "pydyna/LICENSE",
+      "sha256": "9939a8f47cc69c6fc4c21220b44aad3a7a423544f8d893c3f2b042b63f75aff9",
+      "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/LICENSE"
+    },
+    "index": "I_model",
+    "evidence_level": "upstream_parser_fixture",
+    "topics": [
+      {
+        "id": "open.pydyna.connectivity",
+        "title": "混合壳梁卡片的连接检查",
+        "aliases": [
+          "壳梁节点连接检查",
+          "缺列网格卡片"
+        ],
+        "summary": "同一文件用多个壳与梁行测试节点列布局，含零值占位及短行。可用于检查读取器是否按单元类型解析。",
+        "locator": "PyDYNA plot_test.k",
+        "steps": [
+          "按关键字分别读壳和梁行。",
+          "将节点 ID 与 NODE 表对照。",
+          "区分有效省略、格式占位和真实缺失。"
+        ],
+        "checks": [
+          "按目标单元公式和 R12 格式判断短行。",
+          "网格读出后检查连接和部件引用。"
+        ],
+        "related_ids": [
+          "r12.element_shell",
+          "r12.node",
+          "r12.part"
+        ],
+        "span": [
+          2,
+          18
+        ],
+        "anchor": "*ELEMENT_SHELL"
+      }
+    ]
+  },
+  {
+    "file": "pydyna/tests/testfiles/keywords/test_node_sets.k",
+    "sha256": "8fb0160fd1495154b44fb43d84d17228fc210770a1e304fc7aa706edcb0015ff",
+    "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/tests/testfiles/keywords/test_node_sets.k",
+    "release": "Workbench 2026 R1",
+    "license": "MIT repository license",
+    "license_file": {
+      "file": "pydyna/LICENSE",
+      "sha256": "9939a8f47cc69c6fc4c21220b44aad3a7a423544f8d893c3f2b042b63f75aff9",
+      "url": "https://github.com/ansys/pydyna/blob/d5370bf8772aae5286b39689e3680dcba5c1da06/LICENSE"
+    },
+    "index": "I_model",
+    "evidence_level": "newer_version_fixture",
+    "topics": [
+      {
+        "id": "open.pydyna.prescribed_motion",
+        "title": "节点集与规定运动的关联样本",
+        "aliases": [
+          "节点集规定运动样本",
+          "规定运动曲线引用"
+        ],
+        "summary": "输入由 Workbench 2026 R1 生成。三张规定运动卡引用节点集 1，并分别引用曲线 2、3、4。原样本的时间和选项需另核对。",
+        "locator": "PyDYNA test_node_sets.k",
+        "steps": [
+          "先定位实际节点集。",
+          "逐条读取 SID、DOF、VAD 与 LCID。",
+          "检查运动曲线的量纲、有效时窗和约束冲突。"
+        ],
+        "checks": [
+          "保留原导出版本。",
+          "R12 使用前逐卡核对，样本数值不作为边界推荐值。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.define_curve"
+        ],
+        "span": [
+          18170,
+          18228
+        ],
+        "anchor": "*SET_NODE_LIST"
+      },
+      {
+        "id": "open.pydyna.set_load",
+        "title": "节点集合力的引用样本",
+        "aliases": [
+          "节点集力引用样本",
+          "节点力局部坐标系"
+        ],
+        "summary": "LOAD_NODE_SET 引用节点集 2、曲线 7 和坐标系 23。该样本展示方向与缩放字段的位置。",
+        "locator": "PyDYNA test_node_sets.k",
+        "steps": [
+          "从加载卡追到集合、曲线和坐标系。",
+          "根据 R12 对每个节点的加载语义核对目标合力。",
+          "按新网格重算需要的节点选取与缩放。"
+        ],
+        "checks": [
+          "检查局部方向、缩放和曲线符号。",
+          "以实际选中节点数和目标合力复核。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.define_curve",
+          "r12.load_node_point"
+        ],
+        "span": [
+          18165,
+          18263
+        ],
+        "anchor": "*DEFINE_COORDINATE_SYSTEM"
+      }
+    ]
+  },
+  {
+    "file": "dynakw/test/full_files/sets.k",
+    "sha256": "a91a9d8816608f66dddcaa84c899ec549f8427ea76f4ce8b84a725aaea9e62ca",
+    "url": "https://github.com/WillemJR/dynakw/blob/98b2e0709730a125836cafa6f88d85bb2ba65b4b/test/full_files/sets.k",
+    "release": "dynakw keyword fixture",
+    "license": "MIT repository license",
+    "license_file": {
+      "file": "dynakw/LICENSE.md",
+      "sha256": "87ceb7b745dfc993da50f1f1637e863a2e52f34dcdfc52c21863b108a5a9f4d0",
+      "url": "https://github.com/WillemJR/dynakw/blob/98b2e0709730a125836cafa6f88d85bb2ba65b4b/LICENSE.md"
+    },
+    "index": "I_model",
+    "evidence_level": "upstream_parser_fixture",
+    "topics": [
+      {
+        "id": "open.dynakw.set_selection",
+        "title": "节点集列表、范围与规则写法",
+        "aliases": [
+          "节点集列表范围对照",
+          "节点集生成格式"
+        ],
+        "summary": "用显式列表、编号区间、带步长区间和规则选择表达集合。输入是卡片格式样本。",
+        "locator": "dynakw sets.k",
+        "steps": [
+          "离散节点用列表。",
+          "连续或等距编号先验证 ID 分布，再考虑范围或带步长选项。",
+          "按几何规则选取时核对操作顺序和最终成员。"
+        ],
+        "checks": [
+          "集合结果应与当前网格的实际节点对应。",
+          "选项名和字段以 R12 的 SET_NODE 定义为准。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.node"
+        ],
+        "span": [
+          24,
+          57
+        ],
+        "anchor": "*SET_NODE_LIST"
+      }
+    ]
+  },
+  {
+    "file": "lsp/README.md",
+    "sha256": "78d009e2a7d4d6ecf423f7dc2857cf6aca7f2193c2cf9ce91b3693e6e595faee",
+    "url": "https://github.com/dastonmoy/LS-PrePost/blob/1514f048d285d7d7b0bbfb0cb62524b659520e5a/README.md",
+    "release": "LS-PrePost Linux 4.10",
+    "license": "MIT repository license",
+    "license_file": {
+      "file": "lsp/LICENSE",
+      "sha256": "fc5b7d6fe0fe38856fa566d073cc8cfc27653487ffb5ef2100ddce590ef3deca",
+      "url": "https://github.com/dastonmoy/LS-PrePost/blob/1514f048d285d7d7b0bbfb0cb62524b659520e5a/LICENSE"
+    },
+    "index": "I_run",
+    "evidence_level": "community_linux_tutorial",
+    "topics": [
+      {
+        "id": "prepost.linux_start",
+        "title": "Linux 教学环境的 LS-PrePost 启动检查",
+        "aliases": [
+          "Linux启动LS-PrePost",
+          "Unix PrePost 安装教程"
+        ],
+        "summary": "MIT 社区教程用 Linux 4.10 演示安装与桌面启动。保留版本选择和启动验证的做法。",
+        "locator": "First Time LS-PrePost Installation / Opening LS-PrePost After Installation",
+        "steps": [
+          "先核对系统架构及要使用的版本。",
+          "从供应方取得对应构建，确认启动入口指向该版本。",
+          "启动后确认版本，并打开一个练习模型。"
+        ],
+        "checks": [
+          "这是 Linux 教学参考，项目 Windows 4.12 的实际路径需另核对。"
+        ],
+        "related_ids": [
+          "tool.validate_lsprepost_import"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/mini-tutorial-page-7-mesh.html",
+    "sha256": "8f74e7ad33bdda70a1007c044a4dfab2c8757a8054f7023347b6cd38fe92d0b0",
+    "url": "https://lsdyna.ansys.com/mini-tutorial-page-7-mesh/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.mesh",
+        "title": "LS-PrePost 四节点壳板网格",
+        "aliases": [
+          "PrePost画壳板网格",
+          "4N-Shell网格"
+        ],
+        "summary": "官方旧界面演示用四角点和两向划分数创建四节点壳网格。",
+        "locator": "Mesh a flat plate",
+        "steps": [
+          "进入 Mesh 工具，选择四节点壳。",
+          "按周向填写四角点，指定两方向单元数量。",
+          "创建并接受网格，用网格显示核对。"
+        ],
+        "checks": [
+          "检查节点顺序、单元法向、网格数量和 Part。"
+        ],
+        "related_ids": [
+          "r12.node",
+          "r12.element_shell",
+          "tool.generate_model"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p3-section1.html",
+    "sha256": "230a4a4db059845b8b0a9bfcfd03bdc9aed4f73dd384212dcb0a2a5d796fe3b7",
+    "url": "https://lsdyna.ansys.com/p3-section1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.section",
+        "title": "LS-PrePost 设置壳截面",
+        "aliases": [
+          "PrePost设置壳截面",
+          "PrePost设置壳厚度"
+        ],
+        "summary": "官方教程在截面表单演示创建 SECTION_SHELL 及编辑公式、积分点和厚度。",
+        "locator": "Create a *SECTION_SHELL keyword card",
+        "steps": [
+          "在 Section 类选择 SHELL 并打开编辑。",
+          "新建截面 ID，填写适用的 ELFORM、NIP 和厚度字段。",
+          "接受后在 Part 中选择该截面。"
+        ],
+        "checks": [
+          "检查截面 ID、四角厚度实际写出值和单位。"
+        ],
+        "related_ids": [
+          "r12.section_shell",
+          "r12.part"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p3-part1.html",
+    "sha256": "af0736892b5dbfbd8da686aa6b2ecafc5b03522b95fe8979807f57f60b45c859",
+    "url": "https://lsdyna.ansys.com/p3-part1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.part",
+        "title": "LS-PrePost 给部件绑定材料和截面",
+        "aliases": [
+          "PrePost绑定材料截面",
+          "PrePost设置Part"
+        ],
+        "summary": "官方练习通过字段旁的引用选择器，把已定义的截面与材料链接到 Part。",
+        "locator": "Define a *PART keyword card",
+        "steps": [
+          "打开待编辑的 Part。",
+          "通过 SECID 的链接选择截面。",
+          "通过 MID 的链接选择材料并接受修改。"
+        ],
+        "checks": [
+          "重新读取保存的 K，检查 PID 对应的 SECID 与 MID。"
+        ],
+        "related_ids": [
+          "r12.part",
+          "r12.section_shell",
+          "r12.mat_elastic"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p5-setd1.html",
+    "sha256": "cc3e58d626e06502a7aa7d8c5308fd6f37c3af74407ef2df3d89c8f0bc60c5fa",
+    "url": "https://lsdyna.ansys.com/p5-setd1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.node_set",
+        "title": "LS-PrePost 创建节点集",
+        "aliases": [
+          "PrePost创建节点集",
+          "SetD节点集"
+        ],
+        "summary": "官方练习在 SetD 用部件选取创建节点集。",
+        "locator": "Create a node set",
+        "steps": [
+          "读入模型并进入 SetD 的创建模式。",
+          "填写标题，按部件选择并应用。",
+          "若任务只约束某条边，重新按实际边界选择节点。"
+        ],
+        "checks": [
+          "检查集合 ID、成员和选取范围。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "guide.example_15.boundary"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p5-spc1.html",
+    "sha256": "fa4c8f9b635a7d7f5d55c93becaddf2631761ee8eddd65144740ad5342b077a6",
+    "url": "https://lsdyna.ansys.com/p5-spc1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.spc",
+        "title": "LS-PrePost 设置节点约束",
+        "aliases": [
+          "PrePost设置边界条件",
+          "PrePost设置SPC"
+        ],
+        "summary": "官方练习在 Spc 选择板边节点并勾选平移自由度。",
+        "locator": "Create single point constraints",
+        "steps": [
+          "先确定支承位置和需要约束的自由度。",
+          "进入 Spc 创建模式并选择对应方向。",
+          "按几何范围选节点，应用并检查生成的卡片。"
+        ],
+        "checks": [
+          "教程勾选 XYZ 属于其练习工况，简支或对称条件需重新选择自由度。",
+          "检查重选、漏选和重复约束。"
+        ],
+        "related_ids": [
+          "r12.boundary_spc_set",
+          "guide.example_15.boundary"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/p1-ascii1.html",
+    "sha256": "1f6adaf0e811757c40772ba9bbc4128f2fd61500ab6378237d2aa0eb3c937db8",
+    "url": "https://lsdyna.ansys.com/p1-ascii1/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.rcforc",
+        "title": "LS-PrePost 读取接触合力曲线",
+        "aliases": [
+          "PrePost接触力曲线",
+          "PrePost读取rcforc"
+        ],
+        "summary": "官方练习从 ASCII 界面加载 rcforc，选择接触侧和合力分量。",
+        "locator": "Plot an rcforc curve",
+        "steps": [
+          "确认所用结果文件对应当前求解。",
+          "在 ASCII 结果浏览中选择 rcforc 并加载。",
+          "选择接触界面一侧与结果分量，再绘图。"
+        ],
+        "checks": [
+          "核对输出卡、接触 ID、主从侧、坐标方向和单位。"
+        ],
+        "related_ids": [
+          "r12.database_elout",
+          "guide.example_16.output"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/mini-tutorial-page-1-xyplot.html",
+    "sha256": "6748bfe83e05f0ef0774fe1e1e126226fe0663957f72ea7d8b497afcb9a7b53d",
+    "url": "https://lsdyna.ansys.com/mini-tutorial-page-1-xyplot/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.crossplot",
+        "title": "LS-PrePost 力与位移交叉绘图",
+        "aliases": [
+          "PrePost力位移交叉绘图",
+          "PrePost Cross Plot"
+        ],
+        "summary": "官方练习加载两条曲线，在 Xyplot 的 Cross 模式将位移与力配对。",
+        "locator": "Cross-Plot curve (.crv) data",
+        "steps": [
+          "加载位移和力曲线。",
+          "选择 Cross，并指定横轴位移和纵轴力。",
+          "绘图后核对轴标题、单位与符号。"
+        ],
+        "checks": [
+          "对来自不同采样的曲线，先核对时间对齐与取样方式。",
+          "符号转换需有物理依据。"
+        ],
+        "related_ids": [
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/keyword.html",
+    "sha256": "81087f55686189648d0a3f2bf2df1c36567c8acc3adeca229283371564aa7baa",
+    "url": "https://lsdyna.ansys.com/keyword/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.keyword_editor",
+        "title": "LS-PrePost 关键字表单与引用检查",
+        "aliases": [
+          "PrePost编辑关键字卡",
+          "PrePost RefBy"
+        ],
+        "summary": "官方说明展示按卡片类型进入编辑表单，以及在支持的卡片上查看使用该定义的对象。",
+        "locator": "General Keyword Controls / Keyword Input Window",
+        "steps": [
+          "先在当前模型里选目标关键字，再打开编辑表单。",
+          "看字段提示，检查该卡引用的材料、截面或对象。",
+          "通过 RefBy 或保存后的 K 反查使用者。"
+        ],
+        "checks": [
+          "字段含义以 R12 正文为准，界面提示要和保存结果对照。"
+        ],
+        "related_ids": [
+          "tool.validate_lsprepost_import",
+          "r12.part"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/file.html",
+    "sha256": "34e2d72f2a14bd52292c2a5a87615c641397742010d25dea857e3d4ba7858a75",
+    "url": "https://lsdyna.ansys.com/file/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.open_save",
+        "title": "LS-PrePost 打开模型与结果并另存",
+        "aliases": [
+          "PrePost打开与另存",
+          "PrePost打开d3plot"
+        ],
+        "summary": "官方 File 菜单分别提供打开关键字模型、二进制状态结果和另存 K 文件的入口。",
+        "locator": "File Menu",
+        "steps": [
+          "检查输入时选择 Keyword 模型入口。",
+          "查看运行结果时选择 Binary Plot 并打开对应状态数据库。",
+          "需要保存修改时使用另存，核对目标路径与保存内容。"
+        ],
+        "checks": [
+          "模型 K、结果数据库与命令文件使用不同入口。",
+          "从另存文件回读关键字以验证修改。"
+        ],
+        "related_ids": [
+          "tool.validate_lsprepost_import",
+          "r12.database_binary_d3plot",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/pages-d43.html",
+    "sha256": "f2b4671ec2b9382fd0aadfc39437cab41cce975edcc3c6f2d3d91fec82aa4e1e",
+    "url": "https://lsdyna.ansys.com/pages-d43/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.show_spc",
+        "title": "LS-PrePost 显示节点集合与约束",
+        "aliases": [
+          "PrePost图形检查约束",
+          "PrePost显示节点集"
+        ],
+        "summary": "用实体显示检查模型中已有的节点集合和约束，再打开卡片核对编号和自由度。",
+        "locator": "Page D: Entity Display Interface — Quick Guide and Bound/Set",
+        "steps": [
+          "在实体显示中打开 Set 和 Bound。",
+          "选择 SPC，显示需要核对的节点和节点集。",
+          "用 Identify 或 KCard 回查 ID 与卡片内容。"
+        ],
+        "checks": [
+          "用图形位置和卡片 ID 双重检查选点。"
+        ],
+        "related_ids": [
+          "r12.set_node_list",
+          "r12.boundary_spc_set",
+          "tool.validate_lsprepost_import"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/ascii.html",
+    "sha256": "de9afb06befcf979578e22efcfb5839441148e2d8b63f3da7edfd8bd4adff7d8",
+    "url": "https://lsdyna.ansys.com/ascii/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.nodout_ascii",
+        "title": "LS-PrePost 从 NODOUT 绘制节点位移",
+        "aliases": [
+          "PrePost绘制NODOUT位移",
+          "ASCII节点位移曲线"
+        ],
+        "summary": "ASCII 面板读取文本数据库，可按节点 ID 和位移分量绘制历史曲线。",
+        "locator": "Page 1: ASCII — Quick Guide",
+        "steps": [
+          "在 ASCII 中选择 nodout 并加载本次计算生成的文件。",
+          "选择节点 ID 与目标位移分量。",
+          "绘制时程并查看时间范围。"
+        ],
+        "checks": [
+          "核对节点、坐标分量和单位。",
+          "若文件中缺少目标节点，回查 HISTORY_NODE 与输出设置。"
+        ],
+        "related_ids": [
+          "r12.database_history_node",
+          "r12.database_nodout",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/binout.html",
+    "sha256": "95ff8ce0ff6790834127ff74b68f3fa3c0905bade54f0b613890fb6aa365b50c",
+    "url": "https://lsdyna.ansys.com/binout/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.binout_history",
+        "title": "LS-PrePost 从 BINOUT 分支读取历史结果",
+        "aliases": [
+          "PrePost读取BINOUT",
+          "二进制时程分支"
+        ],
+        "summary": "Binout 面板按主分支、子分支、实体和分量读取二进制时程。",
+        "locator": "Page 2: Binout — Quick Guide and Purpose",
+        "steps": [
+          "加载本次运行产生的 binout。",
+          "选择目标分支及实体和分量。",
+          "绘图并记录数据来自哪个分支。"
+        ],
+        "checks": [
+          "按本次结果核对实际有哪些分支。",
+          "并行运行可能生成一组 binout 文件。"
+        ],
+        "related_ids": [
+          "r12.database_nodout",
+          "r12.database_spcforc",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/content-d15.html",
+    "sha256": "52874864719195cc2ca6b5038dcd1cf2b05609cbe4a0c0720c86d4e5cd771004",
+    "url": "https://lsdyna.ansys.com/content-d15/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.binary_history",
+        "title": "LS-PrePost 从二进制状态读取时程",
+        "aliases": [
+          "PrePost从D3PLOT提取时程",
+          "PrePost二进制状态曲线"
+        ],
+        "summary": "History 面板能从 d3plot、d3thdt 等二进制数据库读取节点、单元、部件或全局时程。",
+        "locator": "Frequently Asked Questions — What does the History interface do?",
+        "steps": [
+          "在 LS-PrePost 中打开本次结果文件。",
+          "用 History 选择实体类别、实体 ID 与目标分量。",
+          "核对曲线采样与文件中的实际状态时间。"
+        ],
+        "checks": [
+          "当源文件采样过稀时，绘图无法补回缺失的求解结果。"
+        ],
+        "related_ids": [
+          "r12.database_binary_d3plot",
+          "r12.database_binary_d3thdt",
+          "r12.database_history_node",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/force-analysis-2.html",
+    "sha256": "0c583fddda04ed17504f51f7efab605d0b9e15d0a665887ac557e2bde9328d19",
+    "url": "https://lsdyna.ansys.com/force-analysis-2/",
+    "release": "Ansys Knowledge Base, solver release unspecified",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "supp.force_outputs",
+        "title": "区分支承反力、截面内力和接触合力",
+        "aliases": [
+          "反力输出文件选择",
+          "支承接触反力区别"
+        ],
+        "summary": "SPCFORC 用于单点约束反力，SECFORC 用于截面力，RCFORC 用于接触界面合力。",
+        "locator": "Force Analysis — Forces can be obtained a variety of ways",
+        "steps": [
+          "先确定目标是边界反力、截面内力还是接触力。",
+          "按目标核对相应数据库设置和实际输出文件。",
+          "用工况相符的实体和方向提取结果。"
+        ],
+        "checks": [
+          "核对参与求和的实体或界面及分量。"
+        ],
+        "related_ids": [
+          "r12.database_spcforc",
+          "r12.database_elout",
+          "guide.example_11.output"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/convergence.html",
+    "sha256": "653eb028d4fd217af52a797c08da8fe0c0d6cc54120ca556eb8f836127d87698",
+    "url": "https://lsdyna.ansys.com/convergence/",
+    "release": "Ansys Knowledge Base, cross-version guidance",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "supp.implicit_diagnostics",
+        "title": "隐式分析从日志和结果定位异常",
+        "aliases": [
+          "隐式收敛日志定位",
+          "求解警告对应变形"
+        ],
+        "summary": "d3hsp 和消息文件记录模型初始化及求解警告，可结合 d3plot、binout 核对异常出现的时刻和部位。",
+        "locator": "Convergence — Troubleshooting tips",
+        "steps": [
+          "从 d3hsp 核对模型摘要和警告。",
+          "按求解方式查看对应消息文件。",
+          "把异常时刻和 ID 与本次变形或时程对照。"
+        ],
+        "checks": [
+          "记录具体警告和文件来源。",
+          "字段及选项回查 R12。"
+        ],
+        "related_ids": [
+          "run.solver",
+          "run.results",
+          "r12.control_implicit_general"
+        ]
+      },
+      {
+        "id": "supp.support_dof_review",
+        "title": "壳、梁与实体连接的自由度核对",
+        "aliases": [
+          "实体和壳自由度区别",
+          "连接引入意外铰"
+        ],
+        "summary": "梁和壳的节点可含转动自由度，实体节点的连接应从平移自由度及约束覆盖区域审查。",
+        "locator": "Convergence — Direct connectivity between structural elements and continuum elements",
+        "steps": [
+          "识别连接两侧的单元类型。",
+          "核对约束覆盖的节点及自由度。",
+          "检查连接是否引入意外铰接或刚体运动。"
+        ],
+        "checks": [
+          "用实际连接和支承位置复核工况。",
+          "同一节点编号相连仍需核对运动传递。"
+        ],
+        "related_ids": [
+          "r12.boundary_spc_set",
+          "r12.element_beam",
+          "r12.element_solid",
+          "guide.example_09.boundary"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/command.html",
+    "sha256": "cde2b8930c32d6faf301793433634f5da1fbb38b0abd93e9fdbd05b70765c778",
+    "url": "https://lsdyna.ansys.com/command/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.command_replay",
+        "title": "LS-PrePost 命令文件复现操作",
+        "aliases": [
+          "PrePost复现命令文件",
+          "PrePost批处理读取结果"
+        ],
+        "summary": "将可重复的读入、后处理操作保存为 LS-PrePost 命令文件，并用批处理复现。",
+        "locator": "Command Line Interface — command files",
+        "steps": [
+          "先在界面用样例文件完成一次操作。",
+          "保存并检查记录的命令文件和数据路径。",
+          "在目标版本用该命令文件回放，核对产物。"
+        ],
+        "checks": [
+          "记录版本、输入路径和输出文件，使用同一项目的数据。"
+        ],
+        "related_ids": [
+          "tool.validate_lsprepost_import",
+          "tool.export_preview_images",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/13-d83.html",
+    "sha256": "9192403dc3c5fb2411e11a62a154c68098edccb30db0f22d524f641510111ea3",
+    "url": "https://lsdyna.ansys.com/13-d83/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.eigenmode_view",
+        "title": "LS-PrePost 打开 D3EIGV 查看振型",
+        "aliases": [
+          "PrePost查看D3EIGV振型",
+          "播放模态结果"
+        ],
+        "summary": "通过 Binary Plot 载入 d3eigv，选择模态与位移显示分量，再播放振型。",
+        "locator": "Tutorial 13: Page 4 — eigenvalue results",
+        "steps": [
+          "从本次模态作业目录打开 d3eigv。",
+          "选择目标模态及位移显示分量。",
+          "播放振型并对照 eigout 的频率和模态编号。"
+        ],
+        "checks": [
+          "检查模态编号与频率对应。",
+          "记录用于辨认振型的方向、部位和节点线。"
+        ],
+        "related_ids": [
+          "r12.control_implicit_eigenvalue",
+          "guide.example_10.output",
+          "run.results"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/implicit-convergence-2.html",
+    "sha256": "51ee06287552272e0740f2770364c21b0e139b28698e9a520ff10b650473fcca",
+    "url": "https://lsdyna.ansys.com/implicit-convergence-2/",
+    "release": "Ansys Knowledge Base, solver release unspecified",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_run",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "supp.rigid_modes",
+        "title": "用近零模态排查约束或连接",
+        "aliases": [
+          "近零模态排查",
+          "刚体模态检查"
+        ],
+        "summary": "在应受约束的模型里，结合 eigout 中的低频结果和 d3eigv 中的对应振型排查意外刚体运动。",
+        "locator": "Implicit: Convergence — eigenvalue analysis",
+        "steps": [
+          "从 eigout 定位可疑低频或近零模态。",
+          "在 d3eigv 观察是整体还是局部部件发生刚体运动。",
+          "回查该部件的节点集、连接和约束定义。"
+        ],
+        "checks": [
+          "先明确工况允许的刚体自由度。",
+          "发现异常后核对原始网格与连接证据。"
+        ],
+        "related_ids": [
+          "r12.control_implicit_eigenvalue",
+          "r12.boundary_spc_set",
+          "r12.control_implicit_solver"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "prepost/animation.html",
+    "sha256": "d79c6bf68c5bac3a7776fb499c8feece144e49ad2f0a5365f4165b81ed6a63cb",
+    "url": "https://lsdyna.ansys.com/animation/",
+    "release": "LS-PrePost legacy web UI, 4.12 not replayed",
+    "license": "public Ansys reference; no open license confirmed",
+    "index": "I_tool",
+    "evidence_level": "official_web_tutorial_paraphrase",
+    "topics": [
+      {
+        "id": "prepost.mode_animation_controls",
+        "title": "LS-PrePost 振型动画显示控制",
+        "aliases": [
+          "PrePost振型动画缩放",
+          "D3EIGV动画细分"
+        ],
+        "summary": "振型动画提供位移显示比例和动画细分选项。对照两个网格时可使用相同视角和显示比例。",
+        "locator": "Animation Controls — Purpose and Controls",
+        "steps": [
+          "载入 d3eigv 后选择目标模态。",
+          "按需要调节 SF 和动画细分。",
+          "用一致的视角核对形态。"
+        ],
+        "checks": [
+          "记录显示比例。",
+          "频率以求解输出为准，动画比例用于观察振型。"
+        ],
+        "related_ids": [
+          "r12.control_implicit_eigenvalue",
+          "guide.example_10.output"
+        ]
+      }
+    ]
+  }
+]

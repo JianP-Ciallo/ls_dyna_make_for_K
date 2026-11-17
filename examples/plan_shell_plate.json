@@ -1,0 +1,22 @@
+{
+  "user_requirement": "用 LS-DYNA R12 规划一块矩形弹性壳板。单位为 mm、ms、g、N、MPa，长 100 mm、宽 50 mm、厚 2 mm，网格尺寸 10 mm。密度 0.00785 g/mm³，弹性模量 210000 MPa，泊松比 0.3。固定左边，只建模，不加载。项目名为 plate_plan_demo。",
+  "requirements": {
+    "mode": "create",
+    "solver": "R12",
+    "project_name": "plate_plan_demo",
+    "model_type": "shell_plate",
+    "geometry": "rectangular_plate",
+    "analysis": "model_only",
+    "unit_system": "mm_ms_g_N_MPa",
+    "length_mm": 100,
+    "width_mm": 50,
+    "thickness_mm": 2,
+    "mesh_size_mm": 10,
+    "material_type": "elastic",
+    "density_g_per_mm3": 0.00785,
+    "youngs_mpa": 210000,
+    "poisson": 0.3,
+    "support": "x_min",
+    "load": "none"
+  }
+}

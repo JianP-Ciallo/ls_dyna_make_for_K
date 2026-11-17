@@ -3,6 +3,9 @@ from __future__ import annotations
 from typing import Callable
 
 from .config import JSONDict
+from .meshing import BUILD_MESH_SCHEMA
+from .planner import TOOL_SCHEMA as PLANNER_SCHEMA, plan_simulation
+from .r12_plate import tool_build_mesh, tool_configure_model
 from .lspp.launcher import launch_cfile, launch_keyword
 from .scene_prompts import SUPPORTED_SCENE_TEMPLATES
 from .schema import generate_model_input_schema
@@ -114,6 +117,32 @@ ToolFn = Callable[[JSONDict], JSONDict]
 
 
 TOOLS: dict[str, tuple[str, JSONDict, ToolFn]] = {
+    "plan_simulation": (
+        "Plan an LS-DYNA R12 shell plate or a scoped edit to an existing elastic material. "
+        "Supply the original user request and extract confirmed facts into requirements. "
+        "Ask the user about any needs_input issues. This tool returns a plan only.",
+        PLANNER_SCHEMA,
+        plan_simulation,
+    ),
+    "build_mesh": (
+        "Build or import a single rectangular R12 shell mesh and publish checked boundary mappings.",
+        BUILD_MESH_SCHEMA,
+        tool_build_mesh,
+    ),
+    "configure_model": (
+        "Apply a shell plate spec to a verified mesh_id and check the written bindings.",
+        {
+            "type": "object",
+            "additionalProperties": False,
+            "required": ["spec", "mesh_id"],
+            "properties": {
+                "spec": {"type": "object"},
+                "mesh_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                "if_exists": {"type": "string", "const": "error"},
+            },
+        },
+        tool_configure_model,
+    ),
     "server_info": (
         "Return local LS-PrePost MCP server paths and defaults.",
         {"type": "object", "properties": {}, "additionalProperties": False},
